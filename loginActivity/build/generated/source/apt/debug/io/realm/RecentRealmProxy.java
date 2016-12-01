@@ -29,7 +29,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class RecentRealmProxy extends com.anubis.phlix.models.Recent
+public class RecentRealmProxy extends com.anubis.commons.models.Recent
     implements RealmObjectProxy, RecentRealmProxyInterface {
 
     static final class RecentColumnInfo extends ColumnInfo
@@ -73,8 +73,8 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
     }
     private RecentColumnInfo columnInfo;
     private ProxyState proxyState;
-    private RealmList<com.anubis.phlix.models.Photo> recentPhotosRealmList;
-    private RealmList<com.anubis.phlix.models.Tag> hotTagListRealmList;
+    private RealmList<com.anubis.commons.models.Photo> recentPhotosRealmList;
+    private RealmList<com.anubis.commons.models.Tag> hotTagListRealmList;
     private static final List<String> FIELD_NAMES;
     static {
         List<String> fieldNames = new ArrayList<String>();
@@ -95,7 +95,7 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
     private void injectObjectContext() {
         final BaseRealm.RealmObjectContext context = BaseRealm.objectContext.get();
         this.columnInfo = (RecentColumnInfo) context.getColumnInfo();
-        this.proxyState = new ProxyState(com.anubis.phlix.models.Recent.class, this);
+        this.proxyState = new ProxyState(com.anubis.commons.models.Recent.class, this);
         proxyState.setRealm$realm(context.getRealm());
         proxyState.setRow$realm(context.getRow());
         proxyState.setAcceptDefaultValue$realm(context.getAcceptDefaultValue());
@@ -169,7 +169,7 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
         proxyState.getRow$realm().setDate(columnInfo.timestampIndex, value);
     }
 
-    public RealmList<com.anubis.phlix.models.Photo> realmGet$recentPhotos() {
+    public RealmList<com.anubis.commons.models.Photo> realmGet$recentPhotos() {
         if (proxyState == null) {
             // Called from model's constructor. Inject context.
             injectObjectContext();
@@ -181,12 +181,12 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
             return recentPhotosRealmList;
         } else {
             LinkView linkView = proxyState.getRow$realm().getLinkList(columnInfo.recentPhotosIndex);
-            recentPhotosRealmList = new RealmList<com.anubis.phlix.models.Photo>(com.anubis.phlix.models.Photo.class, linkView, proxyState.getRealm$realm());
+            recentPhotosRealmList = new RealmList<com.anubis.commons.models.Photo>(com.anubis.commons.models.Photo.class, linkView, proxyState.getRealm$realm());
             return recentPhotosRealmList;
         }
     }
 
-    public void realmSet$recentPhotos(RealmList<com.anubis.phlix.models.Photo> value) {
+    public void realmSet$recentPhotos(RealmList<com.anubis.commons.models.Photo> value) {
         if (proxyState == null) {
             // Called from model's constructor. Inject context.
             injectObjectContext();
@@ -201,9 +201,9 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
             }
             if (value != null && !value.isManaged()) {
                 final Realm realm = (Realm) proxyState.getRealm$realm();
-                final RealmList<com.anubis.phlix.models.Photo> original = value;
-                value = new RealmList<com.anubis.phlix.models.Photo>();
-                for (com.anubis.phlix.models.Photo item : original) {
+                final RealmList<com.anubis.commons.models.Photo> original = value;
+                value = new RealmList<com.anubis.commons.models.Photo>();
+                for (com.anubis.commons.models.Photo item : original) {
                     if (item == null || RealmObject.isManaged(item)) {
                         value.add(item);
                     } else {
@@ -230,7 +230,7 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
         }
     }
 
-    public RealmList<com.anubis.phlix.models.Tag> realmGet$hotTagList() {
+    public RealmList<com.anubis.commons.models.Tag> realmGet$hotTagList() {
         if (proxyState == null) {
             // Called from model's constructor. Inject context.
             injectObjectContext();
@@ -242,12 +242,12 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
             return hotTagListRealmList;
         } else {
             LinkView linkView = proxyState.getRow$realm().getLinkList(columnInfo.hotTagListIndex);
-            hotTagListRealmList = new RealmList<com.anubis.phlix.models.Tag>(com.anubis.phlix.models.Tag.class, linkView, proxyState.getRealm$realm());
+            hotTagListRealmList = new RealmList<com.anubis.commons.models.Tag>(com.anubis.commons.models.Tag.class, linkView, proxyState.getRealm$realm());
             return hotTagListRealmList;
         }
     }
 
-    public void realmSet$hotTagList(RealmList<com.anubis.phlix.models.Tag> value) {
+    public void realmSet$hotTagList(RealmList<com.anubis.commons.models.Tag> value) {
         if (proxyState == null) {
             // Called from model's constructor. Inject context.
             injectObjectContext();
@@ -262,9 +262,9 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
             }
             if (value != null && !value.isManaged()) {
                 final Realm realm = (Realm) proxyState.getRealm$realm();
-                final RealmList<com.anubis.phlix.models.Tag> original = value;
-                value = new RealmList<com.anubis.phlix.models.Tag>();
-                for (com.anubis.phlix.models.Tag item : original) {
+                final RealmList<com.anubis.commons.models.Tag> original = value;
+                value = new RealmList<com.anubis.commons.models.Tag>();
+                for (com.anubis.commons.models.Tag item : original) {
                     if (item == null || RealmObject.isManaged(item)) {
                         value.add(item);
                     } else {
@@ -415,12 +415,12 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
     }
 
     @SuppressWarnings("cast")
-    public static com.anubis.phlix.models.Recent createOrUpdateUsingJsonObject(Realm realm, JSONObject json, boolean update)
+    public static com.anubis.commons.models.Recent createOrUpdateUsingJsonObject(Realm realm, JSONObject json, boolean update)
         throws JSONException {
         final List<String> excludeFields = new ArrayList<String>(2);
-        com.anubis.phlix.models.Recent obj = null;
+        com.anubis.commons.models.Recent obj = null;
         if (update) {
-            Table table = realm.getTable(com.anubis.phlix.models.Recent.class);
+            Table table = realm.getTable(com.anubis.commons.models.Recent.class);
             long pkColumnIndex = table.getPrimaryKey();
             long rowIndex = TableOrView.NO_MATCH;
             if (json.isNull("id")) {
@@ -431,7 +431,7 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
             if (rowIndex != TableOrView.NO_MATCH) {
                 final BaseRealm.RealmObjectContext objectContext = BaseRealm.objectContext.get();
                 try {
-                    objectContext.set(realm, table.getUncheckedRow(rowIndex), realm.schema.getColumnInfo(com.anubis.phlix.models.Recent.class), false, Collections.<String> emptyList());
+                    objectContext.set(realm, table.getUncheckedRow(rowIndex), realm.schema.getColumnInfo(com.anubis.commons.models.Recent.class), false, Collections.<String> emptyList());
                     obj = new io.realm.RecentRealmProxy();
                 } finally {
                     objectContext.clear();
@@ -447,9 +447,9 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
             }
             if (json.has("id")) {
                 if (json.isNull("id")) {
-                    obj = (io.realm.RecentRealmProxy) realm.createObjectInternal(com.anubis.phlix.models.Recent.class, null, true, excludeFields);
+                    obj = (io.realm.RecentRealmProxy) realm.createObjectInternal(com.anubis.commons.models.Recent.class, null, true, excludeFields);
                 } else {
-                    obj = (io.realm.RecentRealmProxy) realm.createObjectInternal(com.anubis.phlix.models.Recent.class, json.getString("id"), true, excludeFields);
+                    obj = (io.realm.RecentRealmProxy) realm.createObjectInternal(com.anubis.commons.models.Recent.class, json.getString("id"), true, excludeFields);
                 }
             } else {
                 throw new IllegalArgumentException("JSON object doesn't have the primary key field 'id'.");
@@ -474,7 +474,7 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
                 ((RecentRealmProxyInterface) obj).realmGet$recentPhotos().clear();
                 JSONArray array = json.getJSONArray("recentPhotos");
                 for (int i = 0; i < array.length(); i++) {
-                    com.anubis.phlix.models.Photo item = PhotoRealmProxy.createOrUpdateUsingJsonObject(realm, array.getJSONObject(i), update);
+                    com.anubis.commons.models.Photo item = PhotoRealmProxy.createOrUpdateUsingJsonObject(realm, array.getJSONObject(i), update);
                     ((RecentRealmProxyInterface) obj).realmGet$recentPhotos().add(item);
                 }
             }
@@ -486,7 +486,7 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
                 ((RecentRealmProxyInterface) obj).realmGet$hotTagList().clear();
                 JSONArray array = json.getJSONArray("hotTagList");
                 for (int i = 0; i < array.length(); i++) {
-                    com.anubis.phlix.models.Tag item = TagRealmProxy.createOrUpdateUsingJsonObject(realm, array.getJSONObject(i), update);
+                    com.anubis.commons.models.Tag item = TagRealmProxy.createOrUpdateUsingJsonObject(realm, array.getJSONObject(i), update);
                     ((RecentRealmProxyInterface) obj).realmGet$hotTagList().add(item);
                 }
             }
@@ -496,10 +496,10 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
 
     @SuppressWarnings("cast")
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public static com.anubis.phlix.models.Recent createUsingJsonStream(Realm realm, JsonReader reader)
+    public static com.anubis.commons.models.Recent createUsingJsonStream(Realm realm, JsonReader reader)
         throws IOException {
         boolean jsonHasPrimaryKey = false;
-        com.anubis.phlix.models.Recent obj = new com.anubis.phlix.models.Recent();
+        com.anubis.commons.models.Recent obj = new com.anubis.commons.models.Recent();
         reader.beginObject();
         while (reader.hasNext()) {
             String name = reader.nextName();
@@ -528,10 +528,10 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
                     reader.skipValue();
                     ((RecentRealmProxyInterface) obj).realmSet$recentPhotos(null);
                 } else {
-                    ((RecentRealmProxyInterface) obj).realmSet$recentPhotos(new RealmList<com.anubis.phlix.models.Photo>());
+                    ((RecentRealmProxyInterface) obj).realmSet$recentPhotos(new RealmList<com.anubis.commons.models.Photo>());
                     reader.beginArray();
                     while (reader.hasNext()) {
-                        com.anubis.phlix.models.Photo item = PhotoRealmProxy.createUsingJsonStream(realm, reader);
+                        com.anubis.commons.models.Photo item = PhotoRealmProxy.createUsingJsonStream(realm, reader);
                         ((RecentRealmProxyInterface) obj).realmGet$recentPhotos().add(item);
                     }
                     reader.endArray();
@@ -541,10 +541,10 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
                     reader.skipValue();
                     ((RecentRealmProxyInterface) obj).realmSet$hotTagList(null);
                 } else {
-                    ((RecentRealmProxyInterface) obj).realmSet$hotTagList(new RealmList<com.anubis.phlix.models.Tag>());
+                    ((RecentRealmProxyInterface) obj).realmSet$hotTagList(new RealmList<com.anubis.commons.models.Tag>());
                     reader.beginArray();
                     while (reader.hasNext()) {
-                        com.anubis.phlix.models.Tag item = TagRealmProxy.createUsingJsonStream(realm, reader);
+                        com.anubis.commons.models.Tag item = TagRealmProxy.createUsingJsonStream(realm, reader);
                         ((RecentRealmProxyInterface) obj).realmGet$hotTagList().add(item);
                     }
                     reader.endArray();
@@ -561,7 +561,7 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
         return obj;
     }
 
-    public static com.anubis.phlix.models.Recent copyOrUpdate(Realm realm, com.anubis.phlix.models.Recent object, boolean update, Map<RealmModel,RealmObjectProxy> cache) {
+    public static com.anubis.commons.models.Recent copyOrUpdate(Realm realm, com.anubis.commons.models.Recent object, boolean update, Map<RealmModel,RealmObjectProxy> cache) {
         if (object instanceof RealmObjectProxy && ((RealmObjectProxy) object).realmGet$proxyState().getRealm$realm() != null && ((RealmObjectProxy) object).realmGet$proxyState().getRealm$realm().threadId != realm.threadId) {
             throw new IllegalArgumentException("Objects which belong to Realm instances in other threads cannot be copied into this Realm instance.");
         }
@@ -571,12 +571,12 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
         final BaseRealm.RealmObjectContext objectContext = BaseRealm.objectContext.get();
         RealmObjectProxy cachedRealmObject = cache.get(object);
         if (cachedRealmObject != null) {
-            return (com.anubis.phlix.models.Recent) cachedRealmObject;
+            return (com.anubis.commons.models.Recent) cachedRealmObject;
         } else {
-            com.anubis.phlix.models.Recent realmObject = null;
+            com.anubis.commons.models.Recent realmObject = null;
             boolean canUpdate = update;
             if (canUpdate) {
-                Table table = realm.getTable(com.anubis.phlix.models.Recent.class);
+                Table table = realm.getTable(com.anubis.commons.models.Recent.class);
                 long pkColumnIndex = table.getPrimaryKey();
                 String value = ((RecentRealmProxyInterface) object).realmGet$id();
                 long rowIndex = TableOrView.NO_MATCH;
@@ -587,7 +587,7 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
                 }
                 if (rowIndex != TableOrView.NO_MATCH) {
                     try {
-                        objectContext.set(realm, table.getUncheckedRow(rowIndex), realm.schema.getColumnInfo(com.anubis.phlix.models.Recent.class), false, Collections.<String> emptyList());
+                        objectContext.set(realm, table.getUncheckedRow(rowIndex), realm.schema.getColumnInfo(com.anubis.commons.models.Recent.class), false, Collections.<String> emptyList());
                         realmObject = new io.realm.RecentRealmProxy();
                         cache.put(object, (RealmObjectProxy) realmObject);
                     } finally {
@@ -606,22 +606,22 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
         }
     }
 
-    public static com.anubis.phlix.models.Recent copy(Realm realm, com.anubis.phlix.models.Recent newObject, boolean update, Map<RealmModel,RealmObjectProxy> cache) {
+    public static com.anubis.commons.models.Recent copy(Realm realm, com.anubis.commons.models.Recent newObject, boolean update, Map<RealmModel,RealmObjectProxy> cache) {
         RealmObjectProxy cachedRealmObject = cache.get(newObject);
         if (cachedRealmObject != null) {
-            return (com.anubis.phlix.models.Recent) cachedRealmObject;
+            return (com.anubis.commons.models.Recent) cachedRealmObject;
         } else {
             // rejecting default values to avoid creating unexpected objects from RealmModel/RealmList fields.
-            com.anubis.phlix.models.Recent realmObject = realm.createObjectInternal(com.anubis.phlix.models.Recent.class, ((RecentRealmProxyInterface) newObject).realmGet$id(), false, Collections.<String>emptyList());
+            com.anubis.commons.models.Recent realmObject = realm.createObjectInternal(com.anubis.commons.models.Recent.class, ((RecentRealmProxyInterface) newObject).realmGet$id(), false, Collections.<String>emptyList());
             cache.put(newObject, (RealmObjectProxy) realmObject);
             ((RecentRealmProxyInterface) realmObject).realmSet$timestamp(((RecentRealmProxyInterface) newObject).realmGet$timestamp());
 
-            RealmList<com.anubis.phlix.models.Photo> recentPhotosList = ((RecentRealmProxyInterface) newObject).realmGet$recentPhotos();
+            RealmList<com.anubis.commons.models.Photo> recentPhotosList = ((RecentRealmProxyInterface) newObject).realmGet$recentPhotos();
             if (recentPhotosList != null) {
-                RealmList<com.anubis.phlix.models.Photo> recentPhotosRealmList = ((RecentRealmProxyInterface) realmObject).realmGet$recentPhotos();
+                RealmList<com.anubis.commons.models.Photo> recentPhotosRealmList = ((RecentRealmProxyInterface) realmObject).realmGet$recentPhotos();
                 for (int i = 0; i < recentPhotosList.size(); i++) {
-                    com.anubis.phlix.models.Photo recentPhotosItem = recentPhotosList.get(i);
-                    com.anubis.phlix.models.Photo cacherecentPhotos = (com.anubis.phlix.models.Photo) cache.get(recentPhotosItem);
+                    com.anubis.commons.models.Photo recentPhotosItem = recentPhotosList.get(i);
+                    com.anubis.commons.models.Photo cacherecentPhotos = (com.anubis.commons.models.Photo) cache.get(recentPhotosItem);
                     if (cacherecentPhotos != null) {
                         recentPhotosRealmList.add(cacherecentPhotos);
                     } else {
@@ -631,12 +631,12 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
             }
 
 
-            RealmList<com.anubis.phlix.models.Tag> hotTagListList = ((RecentRealmProxyInterface) newObject).realmGet$hotTagList();
+            RealmList<com.anubis.commons.models.Tag> hotTagListList = ((RecentRealmProxyInterface) newObject).realmGet$hotTagList();
             if (hotTagListList != null) {
-                RealmList<com.anubis.phlix.models.Tag> hotTagListRealmList = ((RecentRealmProxyInterface) realmObject).realmGet$hotTagList();
+                RealmList<com.anubis.commons.models.Tag> hotTagListRealmList = ((RecentRealmProxyInterface) realmObject).realmGet$hotTagList();
                 for (int i = 0; i < hotTagListList.size(); i++) {
-                    com.anubis.phlix.models.Tag hotTagListItem = hotTagListList.get(i);
-                    com.anubis.phlix.models.Tag cachehotTagList = (com.anubis.phlix.models.Tag) cache.get(hotTagListItem);
+                    com.anubis.commons.models.Tag hotTagListItem = hotTagListList.get(i);
+                    com.anubis.commons.models.Tag cachehotTagList = (com.anubis.commons.models.Tag) cache.get(hotTagListItem);
                     if (cachehotTagList != null) {
                         hotTagListRealmList.add(cachehotTagList);
                     } else {
@@ -649,13 +649,13 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
         }
     }
 
-    public static long insert(Realm realm, com.anubis.phlix.models.Recent object, Map<RealmModel,Long> cache) {
+    public static long insert(Realm realm, com.anubis.commons.models.Recent object, Map<RealmModel,Long> cache) {
         if (object instanceof RealmObjectProxy && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm() != null && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm().getPath().equals(realm.getPath())) {
             return ((RealmObjectProxy)object).realmGet$proxyState().getRow$realm().getIndex();
         }
-        Table table = realm.getTable(com.anubis.phlix.models.Recent.class);
+        Table table = realm.getTable(com.anubis.commons.models.Recent.class);
         long tableNativePtr = table.getNativeTablePointer();
-        RecentColumnInfo columnInfo = (RecentColumnInfo) realm.schema.getColumnInfo(com.anubis.phlix.models.Recent.class);
+        RecentColumnInfo columnInfo = (RecentColumnInfo) realm.schema.getColumnInfo(com.anubis.commons.models.Recent.class);
         long pkColumnIndex = table.getPrimaryKey();
         String primaryKeyValue = ((RecentRealmProxyInterface) object).realmGet$id();
         long rowIndex = TableOrView.NO_MATCH;
@@ -675,10 +675,10 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
             Table.nativeSetTimestamp(tableNativePtr, columnInfo.timestampIndex, rowIndex, realmGet$timestamp.getTime(), false);
         }
 
-        RealmList<com.anubis.phlix.models.Photo> recentPhotosList = ((RecentRealmProxyInterface) object).realmGet$recentPhotos();
+        RealmList<com.anubis.commons.models.Photo> recentPhotosList = ((RecentRealmProxyInterface) object).realmGet$recentPhotos();
         if (recentPhotosList != null) {
             long recentPhotosNativeLinkViewPtr = Table.nativeGetLinkView(tableNativePtr, columnInfo.recentPhotosIndex, rowIndex);
-            for (com.anubis.phlix.models.Photo recentPhotosItem : recentPhotosList) {
+            for (com.anubis.commons.models.Photo recentPhotosItem : recentPhotosList) {
                 Long cacheItemIndexrecentPhotos = cache.get(recentPhotosItem);
                 if (cacheItemIndexrecentPhotos == null) {
                     cacheItemIndexrecentPhotos = PhotoRealmProxy.insert(realm, recentPhotosItem, cache);
@@ -689,10 +689,10 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
         }
 
 
-        RealmList<com.anubis.phlix.models.Tag> hotTagListList = ((RecentRealmProxyInterface) object).realmGet$hotTagList();
+        RealmList<com.anubis.commons.models.Tag> hotTagListList = ((RecentRealmProxyInterface) object).realmGet$hotTagList();
         if (hotTagListList != null) {
             long hotTagListNativeLinkViewPtr = Table.nativeGetLinkView(tableNativePtr, columnInfo.hotTagListIndex, rowIndex);
-            for (com.anubis.phlix.models.Tag hotTagListItem : hotTagListList) {
+            for (com.anubis.commons.models.Tag hotTagListItem : hotTagListList) {
                 Long cacheItemIndexhotTagList = cache.get(hotTagListItem);
                 if (cacheItemIndexhotTagList == null) {
                     cacheItemIndexhotTagList = TagRealmProxy.insert(realm, hotTagListItem, cache);
@@ -706,13 +706,13 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
     }
 
     public static void insert(Realm realm, Iterator<? extends RealmModel> objects, Map<RealmModel,Long> cache) {
-        Table table = realm.getTable(com.anubis.phlix.models.Recent.class);
+        Table table = realm.getTable(com.anubis.commons.models.Recent.class);
         long tableNativePtr = table.getNativeTablePointer();
-        RecentColumnInfo columnInfo = (RecentColumnInfo) realm.schema.getColumnInfo(com.anubis.phlix.models.Recent.class);
+        RecentColumnInfo columnInfo = (RecentColumnInfo) realm.schema.getColumnInfo(com.anubis.commons.models.Recent.class);
         long pkColumnIndex = table.getPrimaryKey();
-        com.anubis.phlix.models.Recent object = null;
+        com.anubis.commons.models.Recent object = null;
         while (objects.hasNext()) {
-            object = (com.anubis.phlix.models.Recent) objects.next();
+            object = (com.anubis.commons.models.Recent) objects.next();
             if(!cache.containsKey(object)) {
                 if (object instanceof RealmObjectProxy && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm() != null && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm().getPath().equals(realm.getPath())) {
                     cache.put(object, ((RealmObjectProxy)object).realmGet$proxyState().getRow$realm().getIndex());
@@ -736,10 +736,10 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
                     Table.nativeSetTimestamp(tableNativePtr, columnInfo.timestampIndex, rowIndex, realmGet$timestamp.getTime(), false);
                 }
 
-                RealmList<com.anubis.phlix.models.Photo> recentPhotosList = ((RecentRealmProxyInterface) object).realmGet$recentPhotos();
+                RealmList<com.anubis.commons.models.Photo> recentPhotosList = ((RecentRealmProxyInterface) object).realmGet$recentPhotos();
                 if (recentPhotosList != null) {
                     long recentPhotosNativeLinkViewPtr = Table.nativeGetLinkView(tableNativePtr, columnInfo.recentPhotosIndex, rowIndex);
-                    for (com.anubis.phlix.models.Photo recentPhotosItem : recentPhotosList) {
+                    for (com.anubis.commons.models.Photo recentPhotosItem : recentPhotosList) {
                         Long cacheItemIndexrecentPhotos = cache.get(recentPhotosItem);
                         if (cacheItemIndexrecentPhotos == null) {
                             cacheItemIndexrecentPhotos = PhotoRealmProxy.insert(realm, recentPhotosItem, cache);
@@ -750,10 +750,10 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
                 }
 
 
-                RealmList<com.anubis.phlix.models.Tag> hotTagListList = ((RecentRealmProxyInterface) object).realmGet$hotTagList();
+                RealmList<com.anubis.commons.models.Tag> hotTagListList = ((RecentRealmProxyInterface) object).realmGet$hotTagList();
                 if (hotTagListList != null) {
                     long hotTagListNativeLinkViewPtr = Table.nativeGetLinkView(tableNativePtr, columnInfo.hotTagListIndex, rowIndex);
-                    for (com.anubis.phlix.models.Tag hotTagListItem : hotTagListList) {
+                    for (com.anubis.commons.models.Tag hotTagListItem : hotTagListList) {
                         Long cacheItemIndexhotTagList = cache.get(hotTagListItem);
                         if (cacheItemIndexhotTagList == null) {
                             cacheItemIndexhotTagList = TagRealmProxy.insert(realm, hotTagListItem, cache);
@@ -767,13 +767,13 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
         }
     }
 
-    public static long insertOrUpdate(Realm realm, com.anubis.phlix.models.Recent object, Map<RealmModel,Long> cache) {
+    public static long insertOrUpdate(Realm realm, com.anubis.commons.models.Recent object, Map<RealmModel,Long> cache) {
         if (object instanceof RealmObjectProxy && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm() != null && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm().getPath().equals(realm.getPath())) {
             return ((RealmObjectProxy)object).realmGet$proxyState().getRow$realm().getIndex();
         }
-        Table table = realm.getTable(com.anubis.phlix.models.Recent.class);
+        Table table = realm.getTable(com.anubis.commons.models.Recent.class);
         long tableNativePtr = table.getNativeTablePointer();
-        RecentColumnInfo columnInfo = (RecentColumnInfo) realm.schema.getColumnInfo(com.anubis.phlix.models.Recent.class);
+        RecentColumnInfo columnInfo = (RecentColumnInfo) realm.schema.getColumnInfo(com.anubis.commons.models.Recent.class);
         long pkColumnIndex = table.getPrimaryKey();
         String primaryKeyValue = ((RecentRealmProxyInterface) object).realmGet$id();
         long rowIndex = TableOrView.NO_MATCH;
@@ -795,9 +795,9 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
 
         long recentPhotosNativeLinkViewPtr = Table.nativeGetLinkView(tableNativePtr, columnInfo.recentPhotosIndex, rowIndex);
         LinkView.nativeClear(recentPhotosNativeLinkViewPtr);
-        RealmList<com.anubis.phlix.models.Photo> recentPhotosList = ((RecentRealmProxyInterface) object).realmGet$recentPhotos();
+        RealmList<com.anubis.commons.models.Photo> recentPhotosList = ((RecentRealmProxyInterface) object).realmGet$recentPhotos();
         if (recentPhotosList != null) {
-            for (com.anubis.phlix.models.Photo recentPhotosItem : recentPhotosList) {
+            for (com.anubis.commons.models.Photo recentPhotosItem : recentPhotosList) {
                 Long cacheItemIndexrecentPhotos = cache.get(recentPhotosItem);
                 if (cacheItemIndexrecentPhotos == null) {
                     cacheItemIndexrecentPhotos = PhotoRealmProxy.insertOrUpdate(realm, recentPhotosItem, cache);
@@ -810,9 +810,9 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
 
         long hotTagListNativeLinkViewPtr = Table.nativeGetLinkView(tableNativePtr, columnInfo.hotTagListIndex, rowIndex);
         LinkView.nativeClear(hotTagListNativeLinkViewPtr);
-        RealmList<com.anubis.phlix.models.Tag> hotTagListList = ((RecentRealmProxyInterface) object).realmGet$hotTagList();
+        RealmList<com.anubis.commons.models.Tag> hotTagListList = ((RecentRealmProxyInterface) object).realmGet$hotTagList();
         if (hotTagListList != null) {
-            for (com.anubis.phlix.models.Tag hotTagListItem : hotTagListList) {
+            for (com.anubis.commons.models.Tag hotTagListItem : hotTagListList) {
                 Long cacheItemIndexhotTagList = cache.get(hotTagListItem);
                 if (cacheItemIndexhotTagList == null) {
                     cacheItemIndexhotTagList = TagRealmProxy.insertOrUpdate(realm, hotTagListItem, cache);
@@ -826,13 +826,13 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
     }
 
     public static void insertOrUpdate(Realm realm, Iterator<? extends RealmModel> objects, Map<RealmModel,Long> cache) {
-        Table table = realm.getTable(com.anubis.phlix.models.Recent.class);
+        Table table = realm.getTable(com.anubis.commons.models.Recent.class);
         long tableNativePtr = table.getNativeTablePointer();
-        RecentColumnInfo columnInfo = (RecentColumnInfo) realm.schema.getColumnInfo(com.anubis.phlix.models.Recent.class);
+        RecentColumnInfo columnInfo = (RecentColumnInfo) realm.schema.getColumnInfo(com.anubis.commons.models.Recent.class);
         long pkColumnIndex = table.getPrimaryKey();
-        com.anubis.phlix.models.Recent object = null;
+        com.anubis.commons.models.Recent object = null;
         while (objects.hasNext()) {
-            object = (com.anubis.phlix.models.Recent) objects.next();
+            object = (com.anubis.commons.models.Recent) objects.next();
             if(!cache.containsKey(object)) {
                 if (object instanceof RealmObjectProxy && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm() != null && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm().getPath().equals(realm.getPath())) {
                     cache.put(object, ((RealmObjectProxy)object).realmGet$proxyState().getRow$realm().getIndex());
@@ -858,9 +858,9 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
 
                 long recentPhotosNativeLinkViewPtr = Table.nativeGetLinkView(tableNativePtr, columnInfo.recentPhotosIndex, rowIndex);
                 LinkView.nativeClear(recentPhotosNativeLinkViewPtr);
-                RealmList<com.anubis.phlix.models.Photo> recentPhotosList = ((RecentRealmProxyInterface) object).realmGet$recentPhotos();
+                RealmList<com.anubis.commons.models.Photo> recentPhotosList = ((RecentRealmProxyInterface) object).realmGet$recentPhotos();
                 if (recentPhotosList != null) {
-                    for (com.anubis.phlix.models.Photo recentPhotosItem : recentPhotosList) {
+                    for (com.anubis.commons.models.Photo recentPhotosItem : recentPhotosList) {
                         Long cacheItemIndexrecentPhotos = cache.get(recentPhotosItem);
                         if (cacheItemIndexrecentPhotos == null) {
                             cacheItemIndexrecentPhotos = PhotoRealmProxy.insertOrUpdate(realm, recentPhotosItem, cache);
@@ -873,9 +873,9 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
 
                 long hotTagListNativeLinkViewPtr = Table.nativeGetLinkView(tableNativePtr, columnInfo.hotTagListIndex, rowIndex);
                 LinkView.nativeClear(hotTagListNativeLinkViewPtr);
-                RealmList<com.anubis.phlix.models.Tag> hotTagListList = ((RecentRealmProxyInterface) object).realmGet$hotTagList();
+                RealmList<com.anubis.commons.models.Tag> hotTagListList = ((RecentRealmProxyInterface) object).realmGet$hotTagList();
                 if (hotTagListList != null) {
-                    for (com.anubis.phlix.models.Tag hotTagListItem : hotTagListList) {
+                    for (com.anubis.commons.models.Tag hotTagListItem : hotTagListList) {
                         Long cacheItemIndexhotTagList = cache.get(hotTagListItem);
                         if (cacheItemIndexhotTagList == null) {
                             cacheItemIndexhotTagList = TagRealmProxy.insertOrUpdate(realm, hotTagListItem, cache);
@@ -889,22 +889,22 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
         }
     }
 
-    public static com.anubis.phlix.models.Recent createDetachedCopy(com.anubis.phlix.models.Recent realmObject, int currentDepth, int maxDepth, Map<RealmModel, CacheData<RealmModel>> cache) {
+    public static com.anubis.commons.models.Recent createDetachedCopy(com.anubis.commons.models.Recent realmObject, int currentDepth, int maxDepth, Map<RealmModel, CacheData<RealmModel>> cache) {
         if (currentDepth > maxDepth || realmObject == null) {
             return null;
         }
         CacheData<RealmModel> cachedObject = cache.get(realmObject);
-        com.anubis.phlix.models.Recent unmanagedObject;
+        com.anubis.commons.models.Recent unmanagedObject;
         if (cachedObject != null) {
             // Reuse cached object or recreate it because it was encountered at a lower depth.
             if (currentDepth >= cachedObject.minDepth) {
-                return (com.anubis.phlix.models.Recent)cachedObject.object;
+                return (com.anubis.commons.models.Recent)cachedObject.object;
             } else {
-                unmanagedObject = (com.anubis.phlix.models.Recent)cachedObject.object;
+                unmanagedObject = (com.anubis.commons.models.Recent)cachedObject.object;
                 cachedObject.minDepth = currentDepth;
             }
         } else {
-            unmanagedObject = new com.anubis.phlix.models.Recent();
+            unmanagedObject = new com.anubis.commons.models.Recent();
             cache.put(realmObject, new RealmObjectProxy.CacheData(currentDepth, unmanagedObject));
         }
         ((RecentRealmProxyInterface) unmanagedObject).realmSet$id(((RecentRealmProxyInterface) realmObject).realmGet$id());
@@ -914,13 +914,13 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
         if (currentDepth == maxDepth) {
             ((RecentRealmProxyInterface) unmanagedObject).realmSet$recentPhotos(null);
         } else {
-            RealmList<com.anubis.phlix.models.Photo> managedrecentPhotosList = ((RecentRealmProxyInterface) realmObject).realmGet$recentPhotos();
-            RealmList<com.anubis.phlix.models.Photo> unmanagedrecentPhotosList = new RealmList<com.anubis.phlix.models.Photo>();
+            RealmList<com.anubis.commons.models.Photo> managedrecentPhotosList = ((RecentRealmProxyInterface) realmObject).realmGet$recentPhotos();
+            RealmList<com.anubis.commons.models.Photo> unmanagedrecentPhotosList = new RealmList<com.anubis.commons.models.Photo>();
             ((RecentRealmProxyInterface) unmanagedObject).realmSet$recentPhotos(unmanagedrecentPhotosList);
             int nextDepth = currentDepth + 1;
             int size = managedrecentPhotosList.size();
             for (int i = 0; i < size; i++) {
-                com.anubis.phlix.models.Photo item = PhotoRealmProxy.createDetachedCopy(managedrecentPhotosList.get(i), nextDepth, maxDepth, cache);
+                com.anubis.commons.models.Photo item = PhotoRealmProxy.createDetachedCopy(managedrecentPhotosList.get(i), nextDepth, maxDepth, cache);
                 unmanagedrecentPhotosList.add(item);
             }
         }
@@ -929,28 +929,28 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
         if (currentDepth == maxDepth) {
             ((RecentRealmProxyInterface) unmanagedObject).realmSet$hotTagList(null);
         } else {
-            RealmList<com.anubis.phlix.models.Tag> managedhotTagListList = ((RecentRealmProxyInterface) realmObject).realmGet$hotTagList();
-            RealmList<com.anubis.phlix.models.Tag> unmanagedhotTagListList = new RealmList<com.anubis.phlix.models.Tag>();
+            RealmList<com.anubis.commons.models.Tag> managedhotTagListList = ((RecentRealmProxyInterface) realmObject).realmGet$hotTagList();
+            RealmList<com.anubis.commons.models.Tag> unmanagedhotTagListList = new RealmList<com.anubis.commons.models.Tag>();
             ((RecentRealmProxyInterface) unmanagedObject).realmSet$hotTagList(unmanagedhotTagListList);
             int nextDepth = currentDepth + 1;
             int size = managedhotTagListList.size();
             for (int i = 0; i < size; i++) {
-                com.anubis.phlix.models.Tag item = TagRealmProxy.createDetachedCopy(managedhotTagListList.get(i), nextDepth, maxDepth, cache);
+                com.anubis.commons.models.Tag item = TagRealmProxy.createDetachedCopy(managedhotTagListList.get(i), nextDepth, maxDepth, cache);
                 unmanagedhotTagListList.add(item);
             }
         }
         return unmanagedObject;
     }
 
-    static com.anubis.phlix.models.Recent update(Realm realm, com.anubis.phlix.models.Recent realmObject, com.anubis.phlix.models.Recent newObject, Map<RealmModel, RealmObjectProxy> cache) {
+    static com.anubis.commons.models.Recent update(Realm realm, com.anubis.commons.models.Recent realmObject, com.anubis.commons.models.Recent newObject, Map<RealmModel, RealmObjectProxy> cache) {
         ((RecentRealmProxyInterface) realmObject).realmSet$timestamp(((RecentRealmProxyInterface) newObject).realmGet$timestamp());
-        RealmList<com.anubis.phlix.models.Photo> recentPhotosList = ((RecentRealmProxyInterface) newObject).realmGet$recentPhotos();
-        RealmList<com.anubis.phlix.models.Photo> recentPhotosRealmList = ((RecentRealmProxyInterface) realmObject).realmGet$recentPhotos();
+        RealmList<com.anubis.commons.models.Photo> recentPhotosList = ((RecentRealmProxyInterface) newObject).realmGet$recentPhotos();
+        RealmList<com.anubis.commons.models.Photo> recentPhotosRealmList = ((RecentRealmProxyInterface) realmObject).realmGet$recentPhotos();
         recentPhotosRealmList.clear();
         if (recentPhotosList != null) {
             for (int i = 0; i < recentPhotosList.size(); i++) {
-                com.anubis.phlix.models.Photo recentPhotosItem = recentPhotosList.get(i);
-                com.anubis.phlix.models.Photo cacherecentPhotos = (com.anubis.phlix.models.Photo) cache.get(recentPhotosItem);
+                com.anubis.commons.models.Photo recentPhotosItem = recentPhotosList.get(i);
+                com.anubis.commons.models.Photo cacherecentPhotos = (com.anubis.commons.models.Photo) cache.get(recentPhotosItem);
                 if (cacherecentPhotos != null) {
                     recentPhotosRealmList.add(cacherecentPhotos);
                 } else {
@@ -958,13 +958,13 @@ public class RecentRealmProxy extends com.anubis.phlix.models.Recent
                 }
             }
         }
-        RealmList<com.anubis.phlix.models.Tag> hotTagListList = ((RecentRealmProxyInterface) newObject).realmGet$hotTagList();
-        RealmList<com.anubis.phlix.models.Tag> hotTagListRealmList = ((RecentRealmProxyInterface) realmObject).realmGet$hotTagList();
+        RealmList<com.anubis.commons.models.Tag> hotTagListList = ((RecentRealmProxyInterface) newObject).realmGet$hotTagList();
+        RealmList<com.anubis.commons.models.Tag> hotTagListRealmList = ((RecentRealmProxyInterface) realmObject).realmGet$hotTagList();
         hotTagListRealmList.clear();
         if (hotTagListList != null) {
             for (int i = 0; i < hotTagListList.size(); i++) {
-                com.anubis.phlix.models.Tag hotTagListItem = hotTagListList.get(i);
-                com.anubis.phlix.models.Tag cachehotTagList = (com.anubis.phlix.models.Tag) cache.get(hotTagListItem);
+                com.anubis.commons.models.Tag hotTagListItem = hotTagListList.get(i);
+                com.anubis.commons.models.Tag cachehotTagList = (com.anubis.commons.models.Tag) cache.get(hotTagListItem);
                 if (cachehotTagList != null) {
                     hotTagListRealmList.add(cachehotTagList);
                 } else {

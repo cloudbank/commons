@@ -29,7 +29,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class CommentRealmProxy extends com.anubis.phlix.models.Comment
+public class CommentRealmProxy extends com.anubis.commons.models.Comment
     implements RealmObjectProxy, CommentRealmProxyInterface {
 
     static final class CommentColumnInfo extends ColumnInfo
@@ -128,7 +128,7 @@ public class CommentRealmProxy extends com.anubis.phlix.models.Comment
     private void injectObjectContext() {
         final BaseRealm.RealmObjectContext context = BaseRealm.objectContext.get();
         this.columnInfo = (CommentColumnInfo) context.getColumnInfo();
-        this.proxyState = new ProxyState(com.anubis.phlix.models.Comment.class, this);
+        this.proxyState = new ProxyState(com.anubis.commons.models.Comment.class, this);
         proxyState.setRealm$realm(context.getRealm());
         proxyState.setRow$realm(context.getRow());
         proxyState.setAcceptDefaultValue$realm(context.getAcceptDefaultValue());
@@ -728,12 +728,12 @@ public class CommentRealmProxy extends com.anubis.phlix.models.Comment
     }
 
     @SuppressWarnings("cast")
-    public static com.anubis.phlix.models.Comment createOrUpdateUsingJsonObject(Realm realm, JSONObject json, boolean update)
+    public static com.anubis.commons.models.Comment createOrUpdateUsingJsonObject(Realm realm, JSONObject json, boolean update)
         throws JSONException {
         final List<String> excludeFields = Collections.<String> emptyList();
-        com.anubis.phlix.models.Comment obj = null;
+        com.anubis.commons.models.Comment obj = null;
         if (update) {
-            Table table = realm.getTable(com.anubis.phlix.models.Comment.class);
+            Table table = realm.getTable(com.anubis.commons.models.Comment.class);
             long pkColumnIndex = table.getPrimaryKey();
             long rowIndex = TableOrView.NO_MATCH;
             if (json.isNull("id")) {
@@ -744,7 +744,7 @@ public class CommentRealmProxy extends com.anubis.phlix.models.Comment
             if (rowIndex != TableOrView.NO_MATCH) {
                 final BaseRealm.RealmObjectContext objectContext = BaseRealm.objectContext.get();
                 try {
-                    objectContext.set(realm, table.getUncheckedRow(rowIndex), realm.schema.getColumnInfo(com.anubis.phlix.models.Comment.class), false, Collections.<String> emptyList());
+                    objectContext.set(realm, table.getUncheckedRow(rowIndex), realm.schema.getColumnInfo(com.anubis.commons.models.Comment.class), false, Collections.<String> emptyList());
                     obj = new io.realm.CommentRealmProxy();
                 } finally {
                     objectContext.clear();
@@ -754,9 +754,9 @@ public class CommentRealmProxy extends com.anubis.phlix.models.Comment
         if (obj == null) {
             if (json.has("id")) {
                 if (json.isNull("id")) {
-                    obj = (io.realm.CommentRealmProxy) realm.createObjectInternal(com.anubis.phlix.models.Comment.class, null, true, excludeFields);
+                    obj = (io.realm.CommentRealmProxy) realm.createObjectInternal(com.anubis.commons.models.Comment.class, null, true, excludeFields);
                 } else {
-                    obj = (io.realm.CommentRealmProxy) realm.createObjectInternal(com.anubis.phlix.models.Comment.class, json.getString("id"), true, excludeFields);
+                    obj = (io.realm.CommentRealmProxy) realm.createObjectInternal(com.anubis.commons.models.Comment.class, json.getString("id"), true, excludeFields);
                 }
             } else {
                 throw new IllegalArgumentException("JSON object doesn't have the primary key field 'id'.");
@@ -837,10 +837,10 @@ public class CommentRealmProxy extends com.anubis.phlix.models.Comment
 
     @SuppressWarnings("cast")
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public static com.anubis.phlix.models.Comment createUsingJsonStream(Realm realm, JsonReader reader)
+    public static com.anubis.commons.models.Comment createUsingJsonStream(Realm realm, JsonReader reader)
         throws IOException {
         boolean jsonHasPrimaryKey = false;
-        com.anubis.phlix.models.Comment obj = new com.anubis.phlix.models.Comment();
+        com.anubis.commons.models.Comment obj = new com.anubis.commons.models.Comment();
         reader.beginObject();
         while (reader.hasNext()) {
             String name = reader.nextName();
@@ -934,7 +934,7 @@ public class CommentRealmProxy extends com.anubis.phlix.models.Comment
         return obj;
     }
 
-    public static com.anubis.phlix.models.Comment copyOrUpdate(Realm realm, com.anubis.phlix.models.Comment object, boolean update, Map<RealmModel,RealmObjectProxy> cache) {
+    public static com.anubis.commons.models.Comment copyOrUpdate(Realm realm, com.anubis.commons.models.Comment object, boolean update, Map<RealmModel,RealmObjectProxy> cache) {
         if (object instanceof RealmObjectProxy && ((RealmObjectProxy) object).realmGet$proxyState().getRealm$realm() != null && ((RealmObjectProxy) object).realmGet$proxyState().getRealm$realm().threadId != realm.threadId) {
             throw new IllegalArgumentException("Objects which belong to Realm instances in other threads cannot be copied into this Realm instance.");
         }
@@ -944,12 +944,12 @@ public class CommentRealmProxy extends com.anubis.phlix.models.Comment
         final BaseRealm.RealmObjectContext objectContext = BaseRealm.objectContext.get();
         RealmObjectProxy cachedRealmObject = cache.get(object);
         if (cachedRealmObject != null) {
-            return (com.anubis.phlix.models.Comment) cachedRealmObject;
+            return (com.anubis.commons.models.Comment) cachedRealmObject;
         } else {
-            com.anubis.phlix.models.Comment realmObject = null;
+            com.anubis.commons.models.Comment realmObject = null;
             boolean canUpdate = update;
             if (canUpdate) {
-                Table table = realm.getTable(com.anubis.phlix.models.Comment.class);
+                Table table = realm.getTable(com.anubis.commons.models.Comment.class);
                 long pkColumnIndex = table.getPrimaryKey();
                 String value = ((CommentRealmProxyInterface) object).realmGet$id();
                 long rowIndex = TableOrView.NO_MATCH;
@@ -960,7 +960,7 @@ public class CommentRealmProxy extends com.anubis.phlix.models.Comment
                 }
                 if (rowIndex != TableOrView.NO_MATCH) {
                     try {
-                        objectContext.set(realm, table.getUncheckedRow(rowIndex), realm.schema.getColumnInfo(com.anubis.phlix.models.Comment.class), false, Collections.<String> emptyList());
+                        objectContext.set(realm, table.getUncheckedRow(rowIndex), realm.schema.getColumnInfo(com.anubis.commons.models.Comment.class), false, Collections.<String> emptyList());
                         realmObject = new io.realm.CommentRealmProxy();
                         cache.put(object, (RealmObjectProxy) realmObject);
                     } finally {
@@ -979,13 +979,13 @@ public class CommentRealmProxy extends com.anubis.phlix.models.Comment
         }
     }
 
-    public static com.anubis.phlix.models.Comment copy(Realm realm, com.anubis.phlix.models.Comment newObject, boolean update, Map<RealmModel,RealmObjectProxy> cache) {
+    public static com.anubis.commons.models.Comment copy(Realm realm, com.anubis.commons.models.Comment newObject, boolean update, Map<RealmModel,RealmObjectProxy> cache) {
         RealmObjectProxy cachedRealmObject = cache.get(newObject);
         if (cachedRealmObject != null) {
-            return (com.anubis.phlix.models.Comment) cachedRealmObject;
+            return (com.anubis.commons.models.Comment) cachedRealmObject;
         } else {
             // rejecting default values to avoid creating unexpected objects from RealmModel/RealmList fields.
-            com.anubis.phlix.models.Comment realmObject = realm.createObjectInternal(com.anubis.phlix.models.Comment.class, ((CommentRealmProxyInterface) newObject).realmGet$id(), false, Collections.<String>emptyList());
+            com.anubis.commons.models.Comment realmObject = realm.createObjectInternal(com.anubis.commons.models.Comment.class, ((CommentRealmProxyInterface) newObject).realmGet$id(), false, Collections.<String>emptyList());
             cache.put(newObject, (RealmObjectProxy) realmObject);
             ((CommentRealmProxyInterface) realmObject).realmSet$author(((CommentRealmProxyInterface) newObject).realmGet$author());
             ((CommentRealmProxyInterface) realmObject).realmSet$authorIsDeleted(((CommentRealmProxyInterface) newObject).realmGet$authorIsDeleted());
@@ -1001,13 +1001,13 @@ public class CommentRealmProxy extends com.anubis.phlix.models.Comment
         }
     }
 
-    public static long insert(Realm realm, com.anubis.phlix.models.Comment object, Map<RealmModel,Long> cache) {
+    public static long insert(Realm realm, com.anubis.commons.models.Comment object, Map<RealmModel,Long> cache) {
         if (object instanceof RealmObjectProxy && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm() != null && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm().getPath().equals(realm.getPath())) {
             return ((RealmObjectProxy)object).realmGet$proxyState().getRow$realm().getIndex();
         }
-        Table table = realm.getTable(com.anubis.phlix.models.Comment.class);
+        Table table = realm.getTable(com.anubis.commons.models.Comment.class);
         long tableNativePtr = table.getNativeTablePointer();
-        CommentColumnInfo columnInfo = (CommentColumnInfo) realm.schema.getColumnInfo(com.anubis.phlix.models.Comment.class);
+        CommentColumnInfo columnInfo = (CommentColumnInfo) realm.schema.getColumnInfo(com.anubis.commons.models.Comment.class);
         long pkColumnIndex = table.getPrimaryKey();
         String primaryKeyValue = ((CommentRealmProxyInterface) object).realmGet$id();
         long rowIndex = TableOrView.NO_MATCH;
@@ -1066,13 +1066,13 @@ public class CommentRealmProxy extends com.anubis.phlix.models.Comment
     }
 
     public static void insert(Realm realm, Iterator<? extends RealmModel> objects, Map<RealmModel,Long> cache) {
-        Table table = realm.getTable(com.anubis.phlix.models.Comment.class);
+        Table table = realm.getTable(com.anubis.commons.models.Comment.class);
         long tableNativePtr = table.getNativeTablePointer();
-        CommentColumnInfo columnInfo = (CommentColumnInfo) realm.schema.getColumnInfo(com.anubis.phlix.models.Comment.class);
+        CommentColumnInfo columnInfo = (CommentColumnInfo) realm.schema.getColumnInfo(com.anubis.commons.models.Comment.class);
         long pkColumnIndex = table.getPrimaryKey();
-        com.anubis.phlix.models.Comment object = null;
+        com.anubis.commons.models.Comment object = null;
         while (objects.hasNext()) {
-            object = (com.anubis.phlix.models.Comment) objects.next();
+            object = (com.anubis.commons.models.Comment) objects.next();
             if(!cache.containsKey(object)) {
                 if (object instanceof RealmObjectProxy && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm() != null && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm().getPath().equals(realm.getPath())) {
                     cache.put(object, ((RealmObjectProxy)object).realmGet$proxyState().getRow$realm().getIndex());
@@ -1135,13 +1135,13 @@ public class CommentRealmProxy extends com.anubis.phlix.models.Comment
         }
     }
 
-    public static long insertOrUpdate(Realm realm, com.anubis.phlix.models.Comment object, Map<RealmModel,Long> cache) {
+    public static long insertOrUpdate(Realm realm, com.anubis.commons.models.Comment object, Map<RealmModel,Long> cache) {
         if (object instanceof RealmObjectProxy && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm() != null && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm().getPath().equals(realm.getPath())) {
             return ((RealmObjectProxy)object).realmGet$proxyState().getRow$realm().getIndex();
         }
-        Table table = realm.getTable(com.anubis.phlix.models.Comment.class);
+        Table table = realm.getTable(com.anubis.commons.models.Comment.class);
         long tableNativePtr = table.getNativeTablePointer();
-        CommentColumnInfo columnInfo = (CommentColumnInfo) realm.schema.getColumnInfo(com.anubis.phlix.models.Comment.class);
+        CommentColumnInfo columnInfo = (CommentColumnInfo) realm.schema.getColumnInfo(com.anubis.commons.models.Comment.class);
         long pkColumnIndex = table.getPrimaryKey();
         String primaryKeyValue = ((CommentRealmProxyInterface) object).realmGet$id();
         long rowIndex = TableOrView.NO_MATCH;
@@ -1218,13 +1218,13 @@ public class CommentRealmProxy extends com.anubis.phlix.models.Comment
     }
 
     public static void insertOrUpdate(Realm realm, Iterator<? extends RealmModel> objects, Map<RealmModel,Long> cache) {
-        Table table = realm.getTable(com.anubis.phlix.models.Comment.class);
+        Table table = realm.getTable(com.anubis.commons.models.Comment.class);
         long tableNativePtr = table.getNativeTablePointer();
-        CommentColumnInfo columnInfo = (CommentColumnInfo) realm.schema.getColumnInfo(com.anubis.phlix.models.Comment.class);
+        CommentColumnInfo columnInfo = (CommentColumnInfo) realm.schema.getColumnInfo(com.anubis.commons.models.Comment.class);
         long pkColumnIndex = table.getPrimaryKey();
-        com.anubis.phlix.models.Comment object = null;
+        com.anubis.commons.models.Comment object = null;
         while (objects.hasNext()) {
-            object = (com.anubis.phlix.models.Comment) objects.next();
+            object = (com.anubis.commons.models.Comment) objects.next();
             if(!cache.containsKey(object)) {
                 if (object instanceof RealmObjectProxy && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm() != null && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm().getPath().equals(realm.getPath())) {
                     cache.put(object, ((RealmObjectProxy)object).realmGet$proxyState().getRow$realm().getIndex());
@@ -1305,22 +1305,22 @@ public class CommentRealmProxy extends com.anubis.phlix.models.Comment
         }
     }
 
-    public static com.anubis.phlix.models.Comment createDetachedCopy(com.anubis.phlix.models.Comment realmObject, int currentDepth, int maxDepth, Map<RealmModel, CacheData<RealmModel>> cache) {
+    public static com.anubis.commons.models.Comment createDetachedCopy(com.anubis.commons.models.Comment realmObject, int currentDepth, int maxDepth, Map<RealmModel, CacheData<RealmModel>> cache) {
         if (currentDepth > maxDepth || realmObject == null) {
             return null;
         }
         CacheData<RealmModel> cachedObject = cache.get(realmObject);
-        com.anubis.phlix.models.Comment unmanagedObject;
+        com.anubis.commons.models.Comment unmanagedObject;
         if (cachedObject != null) {
             // Reuse cached object or recreate it because it was encountered at a lower depth.
             if (currentDepth >= cachedObject.minDepth) {
-                return (com.anubis.phlix.models.Comment)cachedObject.object;
+                return (com.anubis.commons.models.Comment)cachedObject.object;
             } else {
-                unmanagedObject = (com.anubis.phlix.models.Comment)cachedObject.object;
+                unmanagedObject = (com.anubis.commons.models.Comment)cachedObject.object;
                 cachedObject.minDepth = currentDepth;
             }
         } else {
-            unmanagedObject = new com.anubis.phlix.models.Comment();
+            unmanagedObject = new com.anubis.commons.models.Comment();
             cache.put(realmObject, new RealmObjectProxy.CacheData(currentDepth, unmanagedObject));
         }
         ((CommentRealmProxyInterface) unmanagedObject).realmSet$id(((CommentRealmProxyInterface) realmObject).realmGet$id());
@@ -1337,7 +1337,7 @@ public class CommentRealmProxy extends com.anubis.phlix.models.Comment
         return unmanagedObject;
     }
 
-    static com.anubis.phlix.models.Comment update(Realm realm, com.anubis.phlix.models.Comment realmObject, com.anubis.phlix.models.Comment newObject, Map<RealmModel, RealmObjectProxy> cache) {
+    static com.anubis.commons.models.Comment update(Realm realm, com.anubis.commons.models.Comment realmObject, com.anubis.commons.models.Comment newObject, Map<RealmModel, RealmObjectProxy> cache) {
         ((CommentRealmProxyInterface) realmObject).realmSet$author(((CommentRealmProxyInterface) newObject).realmGet$author());
         ((CommentRealmProxyInterface) realmObject).realmSet$authorIsDeleted(((CommentRealmProxyInterface) newObject).realmGet$authorIsDeleted());
         ((CommentRealmProxyInterface) realmObject).realmSet$authorname(((CommentRealmProxyInterface) newObject).realmGet$authorname());

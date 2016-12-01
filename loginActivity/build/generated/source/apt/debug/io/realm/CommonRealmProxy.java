@@ -29,20 +29,23 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class CommonRealmProxy extends com.anubis.phlix.models.Common
+public class CommonRealmProxy extends com.anubis.commons.models.Common
     implements RealmObjectProxy, CommonRealmProxyInterface {
 
     static final class CommonColumnInfo extends ColumnInfo
         implements Cloneable {
 
         public long idIndex;
+        public long colorIndex;
         public long timestampIndex;
         public long commonPhotosIndex;
 
         CommonColumnInfo(String path, Table table) {
-            final Map<String, Long> indicesMap = new HashMap<String, Long>(3);
+            final Map<String, Long> indicesMap = new HashMap<String, Long>(4);
             this.idIndex = getValidColumnIndex(path, table, "Common", "id");
             indicesMap.put("id", this.idIndex);
+            this.colorIndex = getValidColumnIndex(path, table, "Common", "color");
+            indicesMap.put("color", this.colorIndex);
             this.timestampIndex = getValidColumnIndex(path, table, "Common", "timestamp");
             indicesMap.put("timestamp", this.timestampIndex);
             this.commonPhotosIndex = getValidColumnIndex(path, table, "Common", "commonPhotos");
@@ -55,6 +58,7 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
         public final void copyColumnInfoFrom(ColumnInfo other) {
             final CommonColumnInfo otherInfo = (CommonColumnInfo) other;
             this.idIndex = otherInfo.idIndex;
+            this.colorIndex = otherInfo.colorIndex;
             this.timestampIndex = otherInfo.timestampIndex;
             this.commonPhotosIndex = otherInfo.commonPhotosIndex;
 
@@ -69,11 +73,12 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
     }
     private CommonColumnInfo columnInfo;
     private ProxyState proxyState;
-    private RealmList<com.anubis.phlix.models.Photo> commonPhotosRealmList;
+    private RealmList<com.anubis.commons.models.Photo> commonPhotosRealmList;
     private static final List<String> FIELD_NAMES;
     static {
         List<String> fieldNames = new ArrayList<String>();
         fieldNames.add("id");
+        fieldNames.add("color");
         fieldNames.add("timestamp");
         fieldNames.add("commonPhotos");
         FIELD_NAMES = Collections.unmodifiableList(fieldNames);
@@ -89,7 +94,7 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
     private void injectObjectContext() {
         final BaseRealm.RealmObjectContext context = BaseRealm.objectContext.get();
         this.columnInfo = (CommonColumnInfo) context.getColumnInfo();
-        this.proxyState = new ProxyState(com.anubis.phlix.models.Common.class, this);
+        this.proxyState = new ProxyState(com.anubis.commons.models.Common.class, this);
         proxyState.setRealm$realm(context.getRealm());
         proxyState.setRow$realm(context.getRow());
         proxyState.setAcceptDefaultValue$realm(context.getAcceptDefaultValue());
@@ -120,6 +125,44 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
 
         proxyState.getRealm$realm().checkIfValid();
         throw new io.realm.exceptions.RealmException("Primary key field 'id' cannot be changed after object was created.");
+    }
+
+    @SuppressWarnings("cast")
+    public String realmGet$color() {
+        if (proxyState == null) {
+            // Called from model's constructor. Inject context.
+            injectObjectContext();
+        }
+
+        proxyState.getRealm$realm().checkIfValid();
+        return (java.lang.String) proxyState.getRow$realm().getString(columnInfo.colorIndex);
+    }
+
+    public void realmSet$color(String value) {
+        if (proxyState == null) {
+            // Called from model's constructor. Inject context.
+            injectObjectContext();
+        }
+
+        if (proxyState.isUnderConstruction()) {
+            if (!proxyState.getAcceptDefaultValue$realm()) {
+                return;
+            }
+            final Row row = proxyState.getRow$realm();
+            if (value == null) {
+                row.getTable().setNull(columnInfo.colorIndex, row.getIndex(), true);
+                return;
+            }
+            row.getTable().setString(columnInfo.colorIndex, row.getIndex(), value, true);
+            return;
+        }
+
+        proxyState.getRealm$realm().checkIfValid();
+        if (value == null) {
+            proxyState.getRow$realm().setNull(columnInfo.colorIndex);
+            return;
+        }
+        proxyState.getRow$realm().setString(columnInfo.colorIndex, value);
     }
 
     @SuppressWarnings("cast")
@@ -163,7 +206,7 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
         proxyState.getRow$realm().setDate(columnInfo.timestampIndex, value);
     }
 
-    public RealmList<com.anubis.phlix.models.Photo> realmGet$commonPhotos() {
+    public RealmList<com.anubis.commons.models.Photo> realmGet$commonPhotos() {
         if (proxyState == null) {
             // Called from model's constructor. Inject context.
             injectObjectContext();
@@ -175,12 +218,12 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
             return commonPhotosRealmList;
         } else {
             LinkView linkView = proxyState.getRow$realm().getLinkList(columnInfo.commonPhotosIndex);
-            commonPhotosRealmList = new RealmList<com.anubis.phlix.models.Photo>(com.anubis.phlix.models.Photo.class, linkView, proxyState.getRealm$realm());
+            commonPhotosRealmList = new RealmList<com.anubis.commons.models.Photo>(com.anubis.commons.models.Photo.class, linkView, proxyState.getRealm$realm());
             return commonPhotosRealmList;
         }
     }
 
-    public void realmSet$commonPhotos(RealmList<com.anubis.phlix.models.Photo> value) {
+    public void realmSet$commonPhotos(RealmList<com.anubis.commons.models.Photo> value) {
         if (proxyState == null) {
             // Called from model's constructor. Inject context.
             injectObjectContext();
@@ -195,9 +238,9 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
             }
             if (value != null && !value.isManaged()) {
                 final Realm realm = (Realm) proxyState.getRealm$realm();
-                final RealmList<com.anubis.phlix.models.Photo> original = value;
-                value = new RealmList<com.anubis.phlix.models.Photo>();
-                for (com.anubis.phlix.models.Photo item : original) {
+                final RealmList<com.anubis.commons.models.Photo> original = value;
+                value = new RealmList<com.anubis.commons.models.Photo>();
+                for (com.anubis.commons.models.Photo item : original) {
                     if (item == null || RealmObject.isManaged(item)) {
                         value.add(item);
                     } else {
@@ -228,6 +271,7 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
         if (!realmSchema.contains("Common")) {
             RealmObjectSchema realmObjectSchema = realmSchema.create("Common");
             realmObjectSchema.add(new Property("id", RealmFieldType.STRING, Property.PRIMARY_KEY, Property.INDEXED, !Property.REQUIRED));
+            realmObjectSchema.add(new Property("color", RealmFieldType.STRING, !Property.PRIMARY_KEY, !Property.INDEXED, !Property.REQUIRED));
             realmObjectSchema.add(new Property("timestamp", RealmFieldType.DATE, !Property.PRIMARY_KEY, !Property.INDEXED, !Property.REQUIRED));
             if (!realmSchema.contains("Photo")) {
                 PhotoRealmProxy.createRealmObjectSchema(realmSchema);
@@ -242,6 +286,7 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
         if (!sharedRealm.hasTable("class_Common")) {
             Table table = sharedRealm.getTable("class_Common");
             table.addColumn(RealmFieldType.STRING, "id", Table.NULLABLE);
+            table.addColumn(RealmFieldType.STRING, "color", Table.NULLABLE);
             table.addColumn(RealmFieldType.DATE, "timestamp", Table.NULLABLE);
             if (!sharedRealm.hasTable("class_Photo")) {
                 PhotoRealmProxy.initTable(sharedRealm);
@@ -258,18 +303,18 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
         if (sharedRealm.hasTable("class_Common")) {
             Table table = sharedRealm.getTable("class_Common");
             final long columnCount = table.getColumnCount();
-            if (columnCount != 3) {
-                if (columnCount < 3) {
-                    throw new RealmMigrationNeededException(sharedRealm.getPath(), "Field count is less than expected - expected 3 but was " + columnCount);
+            if (columnCount != 4) {
+                if (columnCount < 4) {
+                    throw new RealmMigrationNeededException(sharedRealm.getPath(), "Field count is less than expected - expected 4 but was " + columnCount);
                 }
                 if (allowExtraColumns) {
-                    RealmLog.debug("Field count is more than expected - expected 3 but was %1$d", columnCount);
+                    RealmLog.debug("Field count is more than expected - expected 4 but was %1$d", columnCount);
                 } else {
-                    throw new RealmMigrationNeededException(sharedRealm.getPath(), "Field count is more than expected - expected 3 but was " + columnCount);
+                    throw new RealmMigrationNeededException(sharedRealm.getPath(), "Field count is more than expected - expected 4 but was " + columnCount);
                 }
             }
             Map<String, RealmFieldType> columnTypes = new HashMap<String, RealmFieldType>();
-            for (long i = 0; i < 3; i++) {
+            for (long i = 0; i < 4; i++) {
                 columnTypes.put(table.getColumnName(i), table.getColumnType(i));
             }
 
@@ -290,6 +335,15 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
             if (!table.hasSearchIndex(table.getColumnIndex("id"))) {
                 throw new RealmMigrationNeededException(sharedRealm.getPath(), "Index not defined for field 'id' in existing Realm file. Either set @Index or migrate using io.realm.internal.Table.removeSearchIndex().");
             }
+            if (!columnTypes.containsKey("color")) {
+                throw new RealmMigrationNeededException(sharedRealm.getPath(), "Missing field 'color' in existing Realm file. Either remove field or migrate using io.realm.internal.Table.addColumn().");
+            }
+            if (columnTypes.get("color") != RealmFieldType.STRING) {
+                throw new RealmMigrationNeededException(sharedRealm.getPath(), "Invalid type 'String' for field 'color' in existing Realm file.");
+            }
+            if (!table.isColumnNullable(columnInfo.colorIndex)) {
+                throw new RealmMigrationNeededException(sharedRealm.getPath(), "Field 'color' is required. Either set @Required to field 'color' or migrate using RealmObjectSchema.setNullable().");
+            }
             if (!columnTypes.containsKey("timestamp")) {
                 throw new RealmMigrationNeededException(sharedRealm.getPath(), "Missing field 'timestamp' in existing Realm file. Either remove field or migrate using io.realm.internal.Table.addColumn().");
             }
@@ -308,9 +362,9 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
             if (!sharedRealm.hasTable("class_Photo")) {
                 throw new RealmMigrationNeededException(sharedRealm.getPath(), "Missing class 'class_Photo' for field 'commonPhotos'");
             }
-            Table table_2 = sharedRealm.getTable("class_Photo");
-            if (!table.getLinkTarget(columnInfo.commonPhotosIndex).hasSameSchema(table_2)) {
-                throw new RealmMigrationNeededException(sharedRealm.getPath(), "Invalid RealmList type for field 'commonPhotos': '" + table.getLinkTarget(columnInfo.commonPhotosIndex).getName() + "' expected - was '" + table_2.getName() + "'");
+            Table table_3 = sharedRealm.getTable("class_Photo");
+            if (!table.getLinkTarget(columnInfo.commonPhotosIndex).hasSameSchema(table_3)) {
+                throw new RealmMigrationNeededException(sharedRealm.getPath(), "Invalid RealmList type for field 'commonPhotos': '" + table.getLinkTarget(columnInfo.commonPhotosIndex).getName() + "' expected - was '" + table_3.getName() + "'");
             }
             return columnInfo;
         } else {
@@ -327,12 +381,12 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
     }
 
     @SuppressWarnings("cast")
-    public static com.anubis.phlix.models.Common createOrUpdateUsingJsonObject(Realm realm, JSONObject json, boolean update)
+    public static com.anubis.commons.models.Common createOrUpdateUsingJsonObject(Realm realm, JSONObject json, boolean update)
         throws JSONException {
         final List<String> excludeFields = new ArrayList<String>(1);
-        com.anubis.phlix.models.Common obj = null;
+        com.anubis.commons.models.Common obj = null;
         if (update) {
-            Table table = realm.getTable(com.anubis.phlix.models.Common.class);
+            Table table = realm.getTable(com.anubis.commons.models.Common.class);
             long pkColumnIndex = table.getPrimaryKey();
             long rowIndex = TableOrView.NO_MATCH;
             if (json.isNull("id")) {
@@ -343,7 +397,7 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
             if (rowIndex != TableOrView.NO_MATCH) {
                 final BaseRealm.RealmObjectContext objectContext = BaseRealm.objectContext.get();
                 try {
-                    objectContext.set(realm, table.getUncheckedRow(rowIndex), realm.schema.getColumnInfo(com.anubis.phlix.models.Common.class), false, Collections.<String> emptyList());
+                    objectContext.set(realm, table.getUncheckedRow(rowIndex), realm.schema.getColumnInfo(com.anubis.commons.models.Common.class), false, Collections.<String> emptyList());
                     obj = new io.realm.CommonRealmProxy();
                 } finally {
                     objectContext.clear();
@@ -356,12 +410,19 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
             }
             if (json.has("id")) {
                 if (json.isNull("id")) {
-                    obj = (io.realm.CommonRealmProxy) realm.createObjectInternal(com.anubis.phlix.models.Common.class, null, true, excludeFields);
+                    obj = (io.realm.CommonRealmProxy) realm.createObjectInternal(com.anubis.commons.models.Common.class, null, true, excludeFields);
                 } else {
-                    obj = (io.realm.CommonRealmProxy) realm.createObjectInternal(com.anubis.phlix.models.Common.class, json.getString("id"), true, excludeFields);
+                    obj = (io.realm.CommonRealmProxy) realm.createObjectInternal(com.anubis.commons.models.Common.class, json.getString("id"), true, excludeFields);
                 }
             } else {
                 throw new IllegalArgumentException("JSON object doesn't have the primary key field 'id'.");
+            }
+        }
+        if (json.has("color")) {
+            if (json.isNull("color")) {
+                ((CommonRealmProxyInterface) obj).realmSet$color(null);
+            } else {
+                ((CommonRealmProxyInterface) obj).realmSet$color((String) json.getString("color"));
             }
         }
         if (json.has("timestamp")) {
@@ -383,7 +444,7 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
                 ((CommonRealmProxyInterface) obj).realmGet$commonPhotos().clear();
                 JSONArray array = json.getJSONArray("commonPhotos");
                 for (int i = 0; i < array.length(); i++) {
-                    com.anubis.phlix.models.Photo item = PhotoRealmProxy.createOrUpdateUsingJsonObject(realm, array.getJSONObject(i), update);
+                    com.anubis.commons.models.Photo item = PhotoRealmProxy.createOrUpdateUsingJsonObject(realm, array.getJSONObject(i), update);
                     ((CommonRealmProxyInterface) obj).realmGet$commonPhotos().add(item);
                 }
             }
@@ -393,10 +454,10 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
 
     @SuppressWarnings("cast")
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public static com.anubis.phlix.models.Common createUsingJsonStream(Realm realm, JsonReader reader)
+    public static com.anubis.commons.models.Common createUsingJsonStream(Realm realm, JsonReader reader)
         throws IOException {
         boolean jsonHasPrimaryKey = false;
-        com.anubis.phlix.models.Common obj = new com.anubis.phlix.models.Common();
+        com.anubis.commons.models.Common obj = new com.anubis.commons.models.Common();
         reader.beginObject();
         while (reader.hasNext()) {
             String name = reader.nextName();
@@ -408,6 +469,13 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
                     ((CommonRealmProxyInterface) obj).realmSet$id((String) reader.nextString());
                 }
                 jsonHasPrimaryKey = true;
+            } else if (name.equals("color")) {
+                if (reader.peek() == JsonToken.NULL) {
+                    reader.skipValue();
+                    ((CommonRealmProxyInterface) obj).realmSet$color(null);
+                } else {
+                    ((CommonRealmProxyInterface) obj).realmSet$color((String) reader.nextString());
+                }
             } else if (name.equals("timestamp")) {
                 if (reader.peek() == JsonToken.NULL) {
                     reader.skipValue();
@@ -425,10 +493,10 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
                     reader.skipValue();
                     ((CommonRealmProxyInterface) obj).realmSet$commonPhotos(null);
                 } else {
-                    ((CommonRealmProxyInterface) obj).realmSet$commonPhotos(new RealmList<com.anubis.phlix.models.Photo>());
+                    ((CommonRealmProxyInterface) obj).realmSet$commonPhotos(new RealmList<com.anubis.commons.models.Photo>());
                     reader.beginArray();
                     while (reader.hasNext()) {
-                        com.anubis.phlix.models.Photo item = PhotoRealmProxy.createUsingJsonStream(realm, reader);
+                        com.anubis.commons.models.Photo item = PhotoRealmProxy.createUsingJsonStream(realm, reader);
                         ((CommonRealmProxyInterface) obj).realmGet$commonPhotos().add(item);
                     }
                     reader.endArray();
@@ -445,7 +513,7 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
         return obj;
     }
 
-    public static com.anubis.phlix.models.Common copyOrUpdate(Realm realm, com.anubis.phlix.models.Common object, boolean update, Map<RealmModel,RealmObjectProxy> cache) {
+    public static com.anubis.commons.models.Common copyOrUpdate(Realm realm, com.anubis.commons.models.Common object, boolean update, Map<RealmModel,RealmObjectProxy> cache) {
         if (object instanceof RealmObjectProxy && ((RealmObjectProxy) object).realmGet$proxyState().getRealm$realm() != null && ((RealmObjectProxy) object).realmGet$proxyState().getRealm$realm().threadId != realm.threadId) {
             throw new IllegalArgumentException("Objects which belong to Realm instances in other threads cannot be copied into this Realm instance.");
         }
@@ -455,12 +523,12 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
         final BaseRealm.RealmObjectContext objectContext = BaseRealm.objectContext.get();
         RealmObjectProxy cachedRealmObject = cache.get(object);
         if (cachedRealmObject != null) {
-            return (com.anubis.phlix.models.Common) cachedRealmObject;
+            return (com.anubis.commons.models.Common) cachedRealmObject;
         } else {
-            com.anubis.phlix.models.Common realmObject = null;
+            com.anubis.commons.models.Common realmObject = null;
             boolean canUpdate = update;
             if (canUpdate) {
-                Table table = realm.getTable(com.anubis.phlix.models.Common.class);
+                Table table = realm.getTable(com.anubis.commons.models.Common.class);
                 long pkColumnIndex = table.getPrimaryKey();
                 String value = ((CommonRealmProxyInterface) object).realmGet$id();
                 long rowIndex = TableOrView.NO_MATCH;
@@ -471,7 +539,7 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
                 }
                 if (rowIndex != TableOrView.NO_MATCH) {
                     try {
-                        objectContext.set(realm, table.getUncheckedRow(rowIndex), realm.schema.getColumnInfo(com.anubis.phlix.models.Common.class), false, Collections.<String> emptyList());
+                        objectContext.set(realm, table.getUncheckedRow(rowIndex), realm.schema.getColumnInfo(com.anubis.commons.models.Common.class), false, Collections.<String> emptyList());
                         realmObject = new io.realm.CommonRealmProxy();
                         cache.put(object, (RealmObjectProxy) realmObject);
                     } finally {
@@ -490,22 +558,23 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
         }
     }
 
-    public static com.anubis.phlix.models.Common copy(Realm realm, com.anubis.phlix.models.Common newObject, boolean update, Map<RealmModel,RealmObjectProxy> cache) {
+    public static com.anubis.commons.models.Common copy(Realm realm, com.anubis.commons.models.Common newObject, boolean update, Map<RealmModel,RealmObjectProxy> cache) {
         RealmObjectProxy cachedRealmObject = cache.get(newObject);
         if (cachedRealmObject != null) {
-            return (com.anubis.phlix.models.Common) cachedRealmObject;
+            return (com.anubis.commons.models.Common) cachedRealmObject;
         } else {
             // rejecting default values to avoid creating unexpected objects from RealmModel/RealmList fields.
-            com.anubis.phlix.models.Common realmObject = realm.createObjectInternal(com.anubis.phlix.models.Common.class, ((CommonRealmProxyInterface) newObject).realmGet$id(), false, Collections.<String>emptyList());
+            com.anubis.commons.models.Common realmObject = realm.createObjectInternal(com.anubis.commons.models.Common.class, ((CommonRealmProxyInterface) newObject).realmGet$id(), false, Collections.<String>emptyList());
             cache.put(newObject, (RealmObjectProxy) realmObject);
+            ((CommonRealmProxyInterface) realmObject).realmSet$color(((CommonRealmProxyInterface) newObject).realmGet$color());
             ((CommonRealmProxyInterface) realmObject).realmSet$timestamp(((CommonRealmProxyInterface) newObject).realmGet$timestamp());
 
-            RealmList<com.anubis.phlix.models.Photo> commonPhotosList = ((CommonRealmProxyInterface) newObject).realmGet$commonPhotos();
+            RealmList<com.anubis.commons.models.Photo> commonPhotosList = ((CommonRealmProxyInterface) newObject).realmGet$commonPhotos();
             if (commonPhotosList != null) {
-                RealmList<com.anubis.phlix.models.Photo> commonPhotosRealmList = ((CommonRealmProxyInterface) realmObject).realmGet$commonPhotos();
+                RealmList<com.anubis.commons.models.Photo> commonPhotosRealmList = ((CommonRealmProxyInterface) realmObject).realmGet$commonPhotos();
                 for (int i = 0; i < commonPhotosList.size(); i++) {
-                    com.anubis.phlix.models.Photo commonPhotosItem = commonPhotosList.get(i);
-                    com.anubis.phlix.models.Photo cachecommonPhotos = (com.anubis.phlix.models.Photo) cache.get(commonPhotosItem);
+                    com.anubis.commons.models.Photo commonPhotosItem = commonPhotosList.get(i);
+                    com.anubis.commons.models.Photo cachecommonPhotos = (com.anubis.commons.models.Photo) cache.get(commonPhotosItem);
                     if (cachecommonPhotos != null) {
                         commonPhotosRealmList.add(cachecommonPhotos);
                     } else {
@@ -518,13 +587,13 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
         }
     }
 
-    public static long insert(Realm realm, com.anubis.phlix.models.Common object, Map<RealmModel,Long> cache) {
+    public static long insert(Realm realm, com.anubis.commons.models.Common object, Map<RealmModel,Long> cache) {
         if (object instanceof RealmObjectProxy && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm() != null && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm().getPath().equals(realm.getPath())) {
             return ((RealmObjectProxy)object).realmGet$proxyState().getRow$realm().getIndex();
         }
-        Table table = realm.getTable(com.anubis.phlix.models.Common.class);
+        Table table = realm.getTable(com.anubis.commons.models.Common.class);
         long tableNativePtr = table.getNativeTablePointer();
-        CommonColumnInfo columnInfo = (CommonColumnInfo) realm.schema.getColumnInfo(com.anubis.phlix.models.Common.class);
+        CommonColumnInfo columnInfo = (CommonColumnInfo) realm.schema.getColumnInfo(com.anubis.commons.models.Common.class);
         long pkColumnIndex = table.getPrimaryKey();
         String primaryKeyValue = ((CommonRealmProxyInterface) object).realmGet$id();
         long rowIndex = TableOrView.NO_MATCH;
@@ -539,15 +608,19 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
             Table.throwDuplicatePrimaryKeyException(primaryKeyValue);
         }
         cache.put(object, rowIndex);
+        String realmGet$color = ((CommonRealmProxyInterface)object).realmGet$color();
+        if (realmGet$color != null) {
+            Table.nativeSetString(tableNativePtr, columnInfo.colorIndex, rowIndex, realmGet$color, false);
+        }
         java.util.Date realmGet$timestamp = ((CommonRealmProxyInterface)object).realmGet$timestamp();
         if (realmGet$timestamp != null) {
             Table.nativeSetTimestamp(tableNativePtr, columnInfo.timestampIndex, rowIndex, realmGet$timestamp.getTime(), false);
         }
 
-        RealmList<com.anubis.phlix.models.Photo> commonPhotosList = ((CommonRealmProxyInterface) object).realmGet$commonPhotos();
+        RealmList<com.anubis.commons.models.Photo> commonPhotosList = ((CommonRealmProxyInterface) object).realmGet$commonPhotos();
         if (commonPhotosList != null) {
             long commonPhotosNativeLinkViewPtr = Table.nativeGetLinkView(tableNativePtr, columnInfo.commonPhotosIndex, rowIndex);
-            for (com.anubis.phlix.models.Photo commonPhotosItem : commonPhotosList) {
+            for (com.anubis.commons.models.Photo commonPhotosItem : commonPhotosList) {
                 Long cacheItemIndexcommonPhotos = cache.get(commonPhotosItem);
                 if (cacheItemIndexcommonPhotos == null) {
                     cacheItemIndexcommonPhotos = PhotoRealmProxy.insert(realm, commonPhotosItem, cache);
@@ -561,13 +634,13 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
     }
 
     public static void insert(Realm realm, Iterator<? extends RealmModel> objects, Map<RealmModel,Long> cache) {
-        Table table = realm.getTable(com.anubis.phlix.models.Common.class);
+        Table table = realm.getTable(com.anubis.commons.models.Common.class);
         long tableNativePtr = table.getNativeTablePointer();
-        CommonColumnInfo columnInfo = (CommonColumnInfo) realm.schema.getColumnInfo(com.anubis.phlix.models.Common.class);
+        CommonColumnInfo columnInfo = (CommonColumnInfo) realm.schema.getColumnInfo(com.anubis.commons.models.Common.class);
         long pkColumnIndex = table.getPrimaryKey();
-        com.anubis.phlix.models.Common object = null;
+        com.anubis.commons.models.Common object = null;
         while (objects.hasNext()) {
-            object = (com.anubis.phlix.models.Common) objects.next();
+            object = (com.anubis.commons.models.Common) objects.next();
             if(!cache.containsKey(object)) {
                 if (object instanceof RealmObjectProxy && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm() != null && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm().getPath().equals(realm.getPath())) {
                     cache.put(object, ((RealmObjectProxy)object).realmGet$proxyState().getRow$realm().getIndex());
@@ -586,15 +659,19 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
                     Table.throwDuplicatePrimaryKeyException(primaryKeyValue);
                 }
                 cache.put(object, rowIndex);
+                String realmGet$color = ((CommonRealmProxyInterface)object).realmGet$color();
+                if (realmGet$color != null) {
+                    Table.nativeSetString(tableNativePtr, columnInfo.colorIndex, rowIndex, realmGet$color, false);
+                }
                 java.util.Date realmGet$timestamp = ((CommonRealmProxyInterface)object).realmGet$timestamp();
                 if (realmGet$timestamp != null) {
                     Table.nativeSetTimestamp(tableNativePtr, columnInfo.timestampIndex, rowIndex, realmGet$timestamp.getTime(), false);
                 }
 
-                RealmList<com.anubis.phlix.models.Photo> commonPhotosList = ((CommonRealmProxyInterface) object).realmGet$commonPhotos();
+                RealmList<com.anubis.commons.models.Photo> commonPhotosList = ((CommonRealmProxyInterface) object).realmGet$commonPhotos();
                 if (commonPhotosList != null) {
                     long commonPhotosNativeLinkViewPtr = Table.nativeGetLinkView(tableNativePtr, columnInfo.commonPhotosIndex, rowIndex);
-                    for (com.anubis.phlix.models.Photo commonPhotosItem : commonPhotosList) {
+                    for (com.anubis.commons.models.Photo commonPhotosItem : commonPhotosList) {
                         Long cacheItemIndexcommonPhotos = cache.get(commonPhotosItem);
                         if (cacheItemIndexcommonPhotos == null) {
                             cacheItemIndexcommonPhotos = PhotoRealmProxy.insert(realm, commonPhotosItem, cache);
@@ -608,13 +685,13 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
         }
     }
 
-    public static long insertOrUpdate(Realm realm, com.anubis.phlix.models.Common object, Map<RealmModel,Long> cache) {
+    public static long insertOrUpdate(Realm realm, com.anubis.commons.models.Common object, Map<RealmModel,Long> cache) {
         if (object instanceof RealmObjectProxy && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm() != null && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm().getPath().equals(realm.getPath())) {
             return ((RealmObjectProxy)object).realmGet$proxyState().getRow$realm().getIndex();
         }
-        Table table = realm.getTable(com.anubis.phlix.models.Common.class);
+        Table table = realm.getTable(com.anubis.commons.models.Common.class);
         long tableNativePtr = table.getNativeTablePointer();
-        CommonColumnInfo columnInfo = (CommonColumnInfo) realm.schema.getColumnInfo(com.anubis.phlix.models.Common.class);
+        CommonColumnInfo columnInfo = (CommonColumnInfo) realm.schema.getColumnInfo(com.anubis.commons.models.Common.class);
         long pkColumnIndex = table.getPrimaryKey();
         String primaryKeyValue = ((CommonRealmProxyInterface) object).realmGet$id();
         long rowIndex = TableOrView.NO_MATCH;
@@ -627,6 +704,12 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
             rowIndex = table.addEmptyRowWithPrimaryKey(primaryKeyValue, false);
         }
         cache.put(object, rowIndex);
+        String realmGet$color = ((CommonRealmProxyInterface)object).realmGet$color();
+        if (realmGet$color != null) {
+            Table.nativeSetString(tableNativePtr, columnInfo.colorIndex, rowIndex, realmGet$color, false);
+        } else {
+            Table.nativeSetNull(tableNativePtr, columnInfo.colorIndex, rowIndex, false);
+        }
         java.util.Date realmGet$timestamp = ((CommonRealmProxyInterface)object).realmGet$timestamp();
         if (realmGet$timestamp != null) {
             Table.nativeSetTimestamp(tableNativePtr, columnInfo.timestampIndex, rowIndex, realmGet$timestamp.getTime(), false);
@@ -636,9 +719,9 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
 
         long commonPhotosNativeLinkViewPtr = Table.nativeGetLinkView(tableNativePtr, columnInfo.commonPhotosIndex, rowIndex);
         LinkView.nativeClear(commonPhotosNativeLinkViewPtr);
-        RealmList<com.anubis.phlix.models.Photo> commonPhotosList = ((CommonRealmProxyInterface) object).realmGet$commonPhotos();
+        RealmList<com.anubis.commons.models.Photo> commonPhotosList = ((CommonRealmProxyInterface) object).realmGet$commonPhotos();
         if (commonPhotosList != null) {
-            for (com.anubis.phlix.models.Photo commonPhotosItem : commonPhotosList) {
+            for (com.anubis.commons.models.Photo commonPhotosItem : commonPhotosList) {
                 Long cacheItemIndexcommonPhotos = cache.get(commonPhotosItem);
                 if (cacheItemIndexcommonPhotos == null) {
                     cacheItemIndexcommonPhotos = PhotoRealmProxy.insertOrUpdate(realm, commonPhotosItem, cache);
@@ -652,13 +735,13 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
     }
 
     public static void insertOrUpdate(Realm realm, Iterator<? extends RealmModel> objects, Map<RealmModel,Long> cache) {
-        Table table = realm.getTable(com.anubis.phlix.models.Common.class);
+        Table table = realm.getTable(com.anubis.commons.models.Common.class);
         long tableNativePtr = table.getNativeTablePointer();
-        CommonColumnInfo columnInfo = (CommonColumnInfo) realm.schema.getColumnInfo(com.anubis.phlix.models.Common.class);
+        CommonColumnInfo columnInfo = (CommonColumnInfo) realm.schema.getColumnInfo(com.anubis.commons.models.Common.class);
         long pkColumnIndex = table.getPrimaryKey();
-        com.anubis.phlix.models.Common object = null;
+        com.anubis.commons.models.Common object = null;
         while (objects.hasNext()) {
-            object = (com.anubis.phlix.models.Common) objects.next();
+            object = (com.anubis.commons.models.Common) objects.next();
             if(!cache.containsKey(object)) {
                 if (object instanceof RealmObjectProxy && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm() != null && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm().getPath().equals(realm.getPath())) {
                     cache.put(object, ((RealmObjectProxy)object).realmGet$proxyState().getRow$realm().getIndex());
@@ -675,6 +758,12 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
                     rowIndex = table.addEmptyRowWithPrimaryKey(primaryKeyValue, false);
                 }
                 cache.put(object, rowIndex);
+                String realmGet$color = ((CommonRealmProxyInterface)object).realmGet$color();
+                if (realmGet$color != null) {
+                    Table.nativeSetString(tableNativePtr, columnInfo.colorIndex, rowIndex, realmGet$color, false);
+                } else {
+                    Table.nativeSetNull(tableNativePtr, columnInfo.colorIndex, rowIndex, false);
+                }
                 java.util.Date realmGet$timestamp = ((CommonRealmProxyInterface)object).realmGet$timestamp();
                 if (realmGet$timestamp != null) {
                     Table.nativeSetTimestamp(tableNativePtr, columnInfo.timestampIndex, rowIndex, realmGet$timestamp.getTime(), false);
@@ -684,9 +773,9 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
 
                 long commonPhotosNativeLinkViewPtr = Table.nativeGetLinkView(tableNativePtr, columnInfo.commonPhotosIndex, rowIndex);
                 LinkView.nativeClear(commonPhotosNativeLinkViewPtr);
-                RealmList<com.anubis.phlix.models.Photo> commonPhotosList = ((CommonRealmProxyInterface) object).realmGet$commonPhotos();
+                RealmList<com.anubis.commons.models.Photo> commonPhotosList = ((CommonRealmProxyInterface) object).realmGet$commonPhotos();
                 if (commonPhotosList != null) {
-                    for (com.anubis.phlix.models.Photo commonPhotosItem : commonPhotosList) {
+                    for (com.anubis.commons.models.Photo commonPhotosItem : commonPhotosList) {
                         Long cacheItemIndexcommonPhotos = cache.get(commonPhotosItem);
                         if (cacheItemIndexcommonPhotos == null) {
                             cacheItemIndexcommonPhotos = PhotoRealmProxy.insertOrUpdate(realm, commonPhotosItem, cache);
@@ -700,53 +789,55 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
         }
     }
 
-    public static com.anubis.phlix.models.Common createDetachedCopy(com.anubis.phlix.models.Common realmObject, int currentDepth, int maxDepth, Map<RealmModel, CacheData<RealmModel>> cache) {
+    public static com.anubis.commons.models.Common createDetachedCopy(com.anubis.commons.models.Common realmObject, int currentDepth, int maxDepth, Map<RealmModel, CacheData<RealmModel>> cache) {
         if (currentDepth > maxDepth || realmObject == null) {
             return null;
         }
         CacheData<RealmModel> cachedObject = cache.get(realmObject);
-        com.anubis.phlix.models.Common unmanagedObject;
+        com.anubis.commons.models.Common unmanagedObject;
         if (cachedObject != null) {
             // Reuse cached object or recreate it because it was encountered at a lower depth.
             if (currentDepth >= cachedObject.minDepth) {
-                return (com.anubis.phlix.models.Common)cachedObject.object;
+                return (com.anubis.commons.models.Common)cachedObject.object;
             } else {
-                unmanagedObject = (com.anubis.phlix.models.Common)cachedObject.object;
+                unmanagedObject = (com.anubis.commons.models.Common)cachedObject.object;
                 cachedObject.minDepth = currentDepth;
             }
         } else {
-            unmanagedObject = new com.anubis.phlix.models.Common();
+            unmanagedObject = new com.anubis.commons.models.Common();
             cache.put(realmObject, new RealmObjectProxy.CacheData(currentDepth, unmanagedObject));
         }
         ((CommonRealmProxyInterface) unmanagedObject).realmSet$id(((CommonRealmProxyInterface) realmObject).realmGet$id());
+        ((CommonRealmProxyInterface) unmanagedObject).realmSet$color(((CommonRealmProxyInterface) realmObject).realmGet$color());
         ((CommonRealmProxyInterface) unmanagedObject).realmSet$timestamp(((CommonRealmProxyInterface) realmObject).realmGet$timestamp());
 
         // Deep copy of commonPhotos
         if (currentDepth == maxDepth) {
             ((CommonRealmProxyInterface) unmanagedObject).realmSet$commonPhotos(null);
         } else {
-            RealmList<com.anubis.phlix.models.Photo> managedcommonPhotosList = ((CommonRealmProxyInterface) realmObject).realmGet$commonPhotos();
-            RealmList<com.anubis.phlix.models.Photo> unmanagedcommonPhotosList = new RealmList<com.anubis.phlix.models.Photo>();
+            RealmList<com.anubis.commons.models.Photo> managedcommonPhotosList = ((CommonRealmProxyInterface) realmObject).realmGet$commonPhotos();
+            RealmList<com.anubis.commons.models.Photo> unmanagedcommonPhotosList = new RealmList<com.anubis.commons.models.Photo>();
             ((CommonRealmProxyInterface) unmanagedObject).realmSet$commonPhotos(unmanagedcommonPhotosList);
             int nextDepth = currentDepth + 1;
             int size = managedcommonPhotosList.size();
             for (int i = 0; i < size; i++) {
-                com.anubis.phlix.models.Photo item = PhotoRealmProxy.createDetachedCopy(managedcommonPhotosList.get(i), nextDepth, maxDepth, cache);
+                com.anubis.commons.models.Photo item = PhotoRealmProxy.createDetachedCopy(managedcommonPhotosList.get(i), nextDepth, maxDepth, cache);
                 unmanagedcommonPhotosList.add(item);
             }
         }
         return unmanagedObject;
     }
 
-    static com.anubis.phlix.models.Common update(Realm realm, com.anubis.phlix.models.Common realmObject, com.anubis.phlix.models.Common newObject, Map<RealmModel, RealmObjectProxy> cache) {
+    static com.anubis.commons.models.Common update(Realm realm, com.anubis.commons.models.Common realmObject, com.anubis.commons.models.Common newObject, Map<RealmModel, RealmObjectProxy> cache) {
+        ((CommonRealmProxyInterface) realmObject).realmSet$color(((CommonRealmProxyInterface) newObject).realmGet$color());
         ((CommonRealmProxyInterface) realmObject).realmSet$timestamp(((CommonRealmProxyInterface) newObject).realmGet$timestamp());
-        RealmList<com.anubis.phlix.models.Photo> commonPhotosList = ((CommonRealmProxyInterface) newObject).realmGet$commonPhotos();
-        RealmList<com.anubis.phlix.models.Photo> commonPhotosRealmList = ((CommonRealmProxyInterface) realmObject).realmGet$commonPhotos();
+        RealmList<com.anubis.commons.models.Photo> commonPhotosList = ((CommonRealmProxyInterface) newObject).realmGet$commonPhotos();
+        RealmList<com.anubis.commons.models.Photo> commonPhotosRealmList = ((CommonRealmProxyInterface) realmObject).realmGet$commonPhotos();
         commonPhotosRealmList.clear();
         if (commonPhotosList != null) {
             for (int i = 0; i < commonPhotosList.size(); i++) {
-                com.anubis.phlix.models.Photo commonPhotosItem = commonPhotosList.get(i);
-                com.anubis.phlix.models.Photo cachecommonPhotos = (com.anubis.phlix.models.Photo) cache.get(commonPhotosItem);
+                com.anubis.commons.models.Photo commonPhotosItem = commonPhotosList.get(i);
+                com.anubis.commons.models.Photo cachecommonPhotos = (com.anubis.commons.models.Photo) cache.get(commonPhotosItem);
                 if (cachecommonPhotos != null) {
                     commonPhotosRealmList.add(cachecommonPhotos);
                 } else {
@@ -765,6 +856,10 @@ public class CommonRealmProxy extends com.anubis.phlix.models.Common
         StringBuilder stringBuilder = new StringBuilder("Common = [");
         stringBuilder.append("{id:");
         stringBuilder.append(realmGet$id() != null ? realmGet$id() : "null");
+        stringBuilder.append("}");
+        stringBuilder.append(",");
+        stringBuilder.append("{color:");
+        stringBuilder.append(realmGet$color() != null ? realmGet$color() : "null");
         stringBuilder.append("}");
         stringBuilder.append(",");
         stringBuilder.append("{timestamp:");

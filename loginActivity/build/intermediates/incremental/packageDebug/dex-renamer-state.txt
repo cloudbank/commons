@@ -1,7 +1,7 @@
-#Tue Nov 22 17:47:51 PST 2016
-base.0=/Users/sabine/github/myfriendflickr2016/flockr/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_b508fbc31e9f0600f9421695f3bccb32fefa5f5d
-renamed.1=classes2.dex
-renamed.0=classes.dex
-file.1=/Users/sabine/github/myfriendflickr2016/flockr/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_9a80fb1819f07b74bd1eb0dffa17946e149ccef1/classes.dex
-base.1=/Users/sabine/github/myfriendflickr2016/flockr/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_9a80fb1819f07b74bd1eb0dffa17946e149ccef1
-file.0=/Users/sabine/github/myfriendflickr2016/flockr/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_b508fbc31e9f0600f9421695f3bccb32fefa5f5d/classes.dex
+#Wed Nov 30 18:41:21 PST 2016
+base.0=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_efa2dbb94e9997d47ee475af86ff0abbd4ee6a23
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_8fdb7d0a1991570f361e5cf51390a6154111225f/classes.dex
+base.1=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_8fdb7d0a1991570f361e5cf51390a6154111225f
+file.0=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_efa2dbb94e9997d47ee475af86ff0abbd4ee6a23/classes.dex

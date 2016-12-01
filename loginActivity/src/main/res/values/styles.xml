@@ -8,15 +8,15 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#E03D81</item>
-        <item name="colorPrimaryDark">#E00065</item>
+        <item name="colorPrimary">@color/RoyalBlue</item>
+        <item name="colorPrimaryDark">#0abab5</item>
         <item name="colorAccent">@color/AliceBlue</item>
 
     </style>
 
 
     <style name="MyDarkToolbarStyle" parent="ThemeOverlay.AppCompat.Light">
-        <item name="android:colorBackground">#E00065</item>
+        <item name="android:colorBackground">@color/AliceBlue</item>
         <item name="android:textColor">@color/AliceBlue</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -36,7 +36,7 @@
 
     <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
         <item name="tabTextAppearance">@style/MyCustomTabText</item>
-        <item name="tabSelectedTextColor">@color/RoyalBlue</item>
+        <item name="tabSelectedTextColor">#0abab5</item>
     </style>
 
     <style name="MyCustomTabText" parent="TextAppearance.AppCompat.Button">
@@ -94,13 +94,13 @@
 
     <style name="MyButton" parent="Theme.AppCompat.Light">
         <item name="colorControlHighlight">@color/RoyalBlue</item>
-        <item name="colorButtonNormal">@color/DeepPink</item>
+        <item name="colorButtonNormal">#0abab5</item>
 
     </style>
 
     <style name="MyLoginButton" parent="Theme.AppCompat.Light">
-        <item name="colorControlHighlight">@color/PaleVioletRed</item>
-        <item name="colorButtonNormal">#E00065</item>
+        <item name="colorControlHighlight">@color/AliceBlue</item>
+        <item name="colorButtonNormal">#0abab5</item>
 
     </style>
 

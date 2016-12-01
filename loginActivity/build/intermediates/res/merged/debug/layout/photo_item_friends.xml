@@ -23,9 +23,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
-        <include
-            layout="@layout/checkbox_tag"
-            android:orientation="horizontal"></include>
+
 
     </RelativeLayout>
 

@@ -21,16 +21,16 @@ public final class R {
 		public static final int scopeUris = 0x7f010123;
 	}
 	public static final class color {
-		public static final int common_google_signin_btn_text_dark = 0x7f0c006c;
-		public static final int common_google_signin_btn_text_dark_default = 0x7f0c001f;
-		public static final int common_google_signin_btn_text_dark_disabled = 0x7f0c0020;
-		public static final int common_google_signin_btn_text_dark_focused = 0x7f0c0021;
-		public static final int common_google_signin_btn_text_dark_pressed = 0x7f0c0022;
-		public static final int common_google_signin_btn_text_light = 0x7f0c006d;
-		public static final int common_google_signin_btn_text_light_default = 0x7f0c0023;
-		public static final int common_google_signin_btn_text_light_disabled = 0x7f0c0024;
-		public static final int common_google_signin_btn_text_light_focused = 0x7f0c0025;
-		public static final int common_google_signin_btn_text_light_pressed = 0x7f0c0026;
+		public static final int common_google_signin_btn_text_dark = 0x7f0c0070;
+		public static final int common_google_signin_btn_text_dark_default = 0x7f0c0020;
+		public static final int common_google_signin_btn_text_dark_disabled = 0x7f0c0021;
+		public static final int common_google_signin_btn_text_dark_focused = 0x7f0c0022;
+		public static final int common_google_signin_btn_text_dark_pressed = 0x7f0c0023;
+		public static final int common_google_signin_btn_text_light = 0x7f0c0071;
+		public static final int common_google_signin_btn_text_light_default = 0x7f0c0024;
+		public static final int common_google_signin_btn_text_light_disabled = 0x7f0c0025;
+		public static final int common_google_signin_btn_text_light_focused = 0x7f0c0026;
+		public static final int common_google_signin_btn_text_light_pressed = 0x7f0c0027;
 	}
 	public static final class dimen {
 	}
@@ -69,8 +69,8 @@ public final class R {
 		public static final int normal = 0x7f0d000c;
 		public static final int radio = 0x7f0d0063;
 		public static final int standard = 0x7f0d0043;
-		public static final int text = 0x7f0d00b0;
-		public static final int text2 = 0x7f0d00ae;
+		public static final int text = 0x7f0d00b2;
+		public static final int text2 = 0x7f0d00b0;
 		public static final int toolbar = 0x7f0d0079;
 		public static final int wide = 0x7f0d0044;
 		public static final int wrap_content = 0x7f0d0028;

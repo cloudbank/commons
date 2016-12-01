@@ -29,7 +29,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class TagRealmProxy extends com.anubis.phlix.models.Tag
+public class TagRealmProxy extends com.anubis.commons.models.Tag
     implements RealmObjectProxy, TagRealmProxyInterface {
 
     static final class TagColumnInfo extends ColumnInfo
@@ -103,7 +103,7 @@ public class TagRealmProxy extends com.anubis.phlix.models.Tag
     private void injectObjectContext() {
         final BaseRealm.RealmObjectContext context = BaseRealm.objectContext.get();
         this.columnInfo = (TagColumnInfo) context.getColumnInfo();
-        this.proxyState = new ProxyState(com.anubis.phlix.models.Tag.class, this);
+        this.proxyState = new ProxyState(com.anubis.commons.models.Tag.class, this);
         proxyState.setRealm$realm(context.getRealm());
         proxyState.setRow$realm(context.getRow());
         proxyState.setAcceptDefaultValue$realm(context.getAcceptDefaultValue());
@@ -449,10 +449,10 @@ public class TagRealmProxy extends com.anubis.phlix.models.Tag
     }
 
     @SuppressWarnings("cast")
-    public static com.anubis.phlix.models.Tag createOrUpdateUsingJsonObject(Realm realm, JSONObject json, boolean update)
+    public static com.anubis.commons.models.Tag createOrUpdateUsingJsonObject(Realm realm, JSONObject json, boolean update)
         throws JSONException {
         final List<String> excludeFields = Collections.<String> emptyList();
-        com.anubis.phlix.models.Tag obj = realm.createObjectInternal(com.anubis.phlix.models.Tag.class, true, excludeFields);
+        com.anubis.commons.models.Tag obj = realm.createObjectInternal(com.anubis.commons.models.Tag.class, true, excludeFields);
         if (json.has("id")) {
             if (json.isNull("id")) {
                 ((TagRealmProxyInterface) obj).realmSet$id(null);
@@ -500,9 +500,9 @@ public class TagRealmProxy extends com.anubis.phlix.models.Tag
 
     @SuppressWarnings("cast")
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public static com.anubis.phlix.models.Tag createUsingJsonStream(Realm realm, JsonReader reader)
+    public static com.anubis.commons.models.Tag createUsingJsonStream(Realm realm, JsonReader reader)
         throws IOException {
-        com.anubis.phlix.models.Tag obj = new com.anubis.phlix.models.Tag();
+        com.anubis.commons.models.Tag obj = new com.anubis.commons.models.Tag();
         reader.beginObject();
         while (reader.hasNext()) {
             String name = reader.nextName();
@@ -557,7 +557,7 @@ public class TagRealmProxy extends com.anubis.phlix.models.Tag
         return obj;
     }
 
-    public static com.anubis.phlix.models.Tag copyOrUpdate(Realm realm, com.anubis.phlix.models.Tag object, boolean update, Map<RealmModel,RealmObjectProxy> cache) {
+    public static com.anubis.commons.models.Tag copyOrUpdate(Realm realm, com.anubis.commons.models.Tag object, boolean update, Map<RealmModel,RealmObjectProxy> cache) {
         if (object instanceof RealmObjectProxy && ((RealmObjectProxy) object).realmGet$proxyState().getRealm$realm() != null && ((RealmObjectProxy) object).realmGet$proxyState().getRealm$realm().threadId != realm.threadId) {
             throw new IllegalArgumentException("Objects which belong to Realm instances in other threads cannot be copied into this Realm instance.");
         }
@@ -567,19 +567,19 @@ public class TagRealmProxy extends com.anubis.phlix.models.Tag
         final BaseRealm.RealmObjectContext objectContext = BaseRealm.objectContext.get();
         RealmObjectProxy cachedRealmObject = cache.get(object);
         if (cachedRealmObject != null) {
-            return (com.anubis.phlix.models.Tag) cachedRealmObject;
+            return (com.anubis.commons.models.Tag) cachedRealmObject;
         } else {
             return copy(realm, object, update, cache);
         }
     }
 
-    public static com.anubis.phlix.models.Tag copy(Realm realm, com.anubis.phlix.models.Tag newObject, boolean update, Map<RealmModel,RealmObjectProxy> cache) {
+    public static com.anubis.commons.models.Tag copy(Realm realm, com.anubis.commons.models.Tag newObject, boolean update, Map<RealmModel,RealmObjectProxy> cache) {
         RealmObjectProxy cachedRealmObject = cache.get(newObject);
         if (cachedRealmObject != null) {
-            return (com.anubis.phlix.models.Tag) cachedRealmObject;
+            return (com.anubis.commons.models.Tag) cachedRealmObject;
         } else {
             // rejecting default values to avoid creating unexpected objects from RealmModel/RealmList fields.
-            com.anubis.phlix.models.Tag realmObject = realm.createObjectInternal(com.anubis.phlix.models.Tag.class, false, Collections.<String>emptyList());
+            com.anubis.commons.models.Tag realmObject = realm.createObjectInternal(com.anubis.commons.models.Tag.class, false, Collections.<String>emptyList());
             cache.put(newObject, (RealmObjectProxy) realmObject);
             ((TagRealmProxyInterface) realmObject).realmSet$id(((TagRealmProxyInterface) newObject).realmGet$id());
             ((TagRealmProxyInterface) realmObject).realmSet$author(((TagRealmProxyInterface) newObject).realmGet$author());
@@ -591,13 +591,13 @@ public class TagRealmProxy extends com.anubis.phlix.models.Tag
         }
     }
 
-    public static long insert(Realm realm, com.anubis.phlix.models.Tag object, Map<RealmModel,Long> cache) {
+    public static long insert(Realm realm, com.anubis.commons.models.Tag object, Map<RealmModel,Long> cache) {
         if (object instanceof RealmObjectProxy && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm() != null && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm().getPath().equals(realm.getPath())) {
             return ((RealmObjectProxy)object).realmGet$proxyState().getRow$realm().getIndex();
         }
-        Table table = realm.getTable(com.anubis.phlix.models.Tag.class);
+        Table table = realm.getTable(com.anubis.commons.models.Tag.class);
         long tableNativePtr = table.getNativeTablePointer();
-        TagColumnInfo columnInfo = (TagColumnInfo) realm.schema.getColumnInfo(com.anubis.phlix.models.Tag.class);
+        TagColumnInfo columnInfo = (TagColumnInfo) realm.schema.getColumnInfo(com.anubis.commons.models.Tag.class);
         long rowIndex = Table.nativeAddEmptyRow(tableNativePtr, 1);
         cache.put(object, rowIndex);
         String realmGet$id = ((TagRealmProxyInterface)object).realmGet$id();
@@ -625,12 +625,12 @@ public class TagRealmProxy extends com.anubis.phlix.models.Tag
     }
 
     public static void insert(Realm realm, Iterator<? extends RealmModel> objects, Map<RealmModel,Long> cache) {
-        Table table = realm.getTable(com.anubis.phlix.models.Tag.class);
+        Table table = realm.getTable(com.anubis.commons.models.Tag.class);
         long tableNativePtr = table.getNativeTablePointer();
-        TagColumnInfo columnInfo = (TagColumnInfo) realm.schema.getColumnInfo(com.anubis.phlix.models.Tag.class);
-        com.anubis.phlix.models.Tag object = null;
+        TagColumnInfo columnInfo = (TagColumnInfo) realm.schema.getColumnInfo(com.anubis.commons.models.Tag.class);
+        com.anubis.commons.models.Tag object = null;
         while (objects.hasNext()) {
-            object = (com.anubis.phlix.models.Tag) objects.next();
+            object = (com.anubis.commons.models.Tag) objects.next();
             if(!cache.containsKey(object)) {
                 if (object instanceof RealmObjectProxy && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm() != null && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm().getPath().equals(realm.getPath())) {
                     cache.put(object, ((RealmObjectProxy)object).realmGet$proxyState().getRow$realm().getIndex());
@@ -663,13 +663,13 @@ public class TagRealmProxy extends com.anubis.phlix.models.Tag
         }
     }
 
-    public static long insertOrUpdate(Realm realm, com.anubis.phlix.models.Tag object, Map<RealmModel,Long> cache) {
+    public static long insertOrUpdate(Realm realm, com.anubis.commons.models.Tag object, Map<RealmModel,Long> cache) {
         if (object instanceof RealmObjectProxy && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm() != null && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm().getPath().equals(realm.getPath())) {
             return ((RealmObjectProxy)object).realmGet$proxyState().getRow$realm().getIndex();
         }
-        Table table = realm.getTable(com.anubis.phlix.models.Tag.class);
+        Table table = realm.getTable(com.anubis.commons.models.Tag.class);
         long tableNativePtr = table.getNativeTablePointer();
-        TagColumnInfo columnInfo = (TagColumnInfo) realm.schema.getColumnInfo(com.anubis.phlix.models.Tag.class);
+        TagColumnInfo columnInfo = (TagColumnInfo) realm.schema.getColumnInfo(com.anubis.commons.models.Tag.class);
         long rowIndex = Table.nativeAddEmptyRow(tableNativePtr, 1);
         cache.put(object, rowIndex);
         String realmGet$id = ((TagRealmProxyInterface)object).realmGet$id();
@@ -707,12 +707,12 @@ public class TagRealmProxy extends com.anubis.phlix.models.Tag
     }
 
     public static void insertOrUpdate(Realm realm, Iterator<? extends RealmModel> objects, Map<RealmModel,Long> cache) {
-        Table table = realm.getTable(com.anubis.phlix.models.Tag.class);
+        Table table = realm.getTable(com.anubis.commons.models.Tag.class);
         long tableNativePtr = table.getNativeTablePointer();
-        TagColumnInfo columnInfo = (TagColumnInfo) realm.schema.getColumnInfo(com.anubis.phlix.models.Tag.class);
-        com.anubis.phlix.models.Tag object = null;
+        TagColumnInfo columnInfo = (TagColumnInfo) realm.schema.getColumnInfo(com.anubis.commons.models.Tag.class);
+        com.anubis.commons.models.Tag object = null;
         while (objects.hasNext()) {
-            object = (com.anubis.phlix.models.Tag) objects.next();
+            object = (com.anubis.commons.models.Tag) objects.next();
             if(!cache.containsKey(object)) {
                 if (object instanceof RealmObjectProxy && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm() != null && ((RealmObjectProxy)object).realmGet$proxyState().getRealm$realm().getPath().equals(realm.getPath())) {
                     cache.put(object, ((RealmObjectProxy)object).realmGet$proxyState().getRow$realm().getIndex());
@@ -755,22 +755,22 @@ public class TagRealmProxy extends com.anubis.phlix.models.Tag
         }
     }
 
-    public static com.anubis.phlix.models.Tag createDetachedCopy(com.anubis.phlix.models.Tag realmObject, int currentDepth, int maxDepth, Map<RealmModel, CacheData<RealmModel>> cache) {
+    public static com.anubis.commons.models.Tag createDetachedCopy(com.anubis.commons.models.Tag realmObject, int currentDepth, int maxDepth, Map<RealmModel, CacheData<RealmModel>> cache) {
         if (currentDepth > maxDepth || realmObject == null) {
             return null;
         }
         CacheData<RealmModel> cachedObject = cache.get(realmObject);
-        com.anubis.phlix.models.Tag unmanagedObject;
+        com.anubis.commons.models.Tag unmanagedObject;
         if (cachedObject != null) {
             // Reuse cached object or recreate it because it was encountered at a lower depth.
             if (currentDepth >= cachedObject.minDepth) {
-                return (com.anubis.phlix.models.Tag)cachedObject.object;
+                return (com.anubis.commons.models.Tag)cachedObject.object;
             } else {
-                unmanagedObject = (com.anubis.phlix.models.Tag)cachedObject.object;
+                unmanagedObject = (com.anubis.commons.models.Tag)cachedObject.object;
                 cachedObject.minDepth = currentDepth;
             }
         } else {
-            unmanagedObject = new com.anubis.phlix.models.Tag();
+            unmanagedObject = new com.anubis.commons.models.Tag();
             cache.put(realmObject, new RealmObjectProxy.CacheData(currentDepth, unmanagedObject));
         }
         ((TagRealmProxyInterface) unmanagedObject).realmSet$id(((TagRealmProxyInterface) realmObject).realmGet$id());

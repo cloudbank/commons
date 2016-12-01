@@ -6,6 +6,6 @@ public interface InterestingRealmProxyInterface {
     public void realmSet$id(String value);
     public java.util.Date realmGet$timestamp();
     public void realmSet$timestamp(java.util.Date value);
-    public RealmList<com.anubis.phlix.models.Photo> realmGet$interestingPhotos();
-    public void realmSet$interestingPhotos(RealmList<com.anubis.phlix.models.Photo> value);
+    public RealmList<com.anubis.commons.models.Photo> realmGet$interestingPhotos();
+    public void realmSet$interestingPhotos(RealmList<com.anubis.commons.models.Photo> value);
 }

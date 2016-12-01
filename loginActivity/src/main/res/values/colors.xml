@@ -5,6 +5,8 @@ Organized by: Willie Tsang
 -->
 <resources>
 
+
+    <color name="TiffanyBlue">#0abab5</color>
     <!-- Android style -->
     <color name="android_green">#A4C639</color>
 
@@ -24,10 +26,11 @@ Organized by: Willie Tsang
     <!-- comments -->
     <!-- d -->
     <color name="DeepPink">#FF1493</color>
-    <!-- e -->
-    <!-- f -->
 
-    <!-- g -->
+
+    <color name="yellow">#FFFC33</color>
+    <color name="red">#FF0000</color>
+    <color name="violet">#CA33FF</color>
     <!-- h -->
     <!-- i -->
     <!-- j -->

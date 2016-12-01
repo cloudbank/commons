@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">phlix</string>
+    <string name="app_name">commons</string>
     <string name="image_detail">Image Detail</string>
     <string name="friends_and_you">Friends  &amp; I</string>
     <string name="interesting_today">Explore</string>
     <string name="commons_search">The Commons</string>
-    <string name="tags">Hot Tags  &amp; Recent Photos</string>
+    <string name="tags">By Color</string>
     <string name="commons"><b>The Commons</b>\n <i>Help catalog the world’s public photo archives.</i></string>
     <string name="commons_under"><u>The key goal of The Commons is to share hidden treasures\n from the world\'s public photography archives.</u> </string>
     <string name="current_user">currentUser</string>
@@ -16,8 +16,8 @@
     <string name="title">title</string>
     <string name="username">username</string>
     <string name="user_nsid">user_nsid</string>
-    <string name="account_type">com.anubis.phlix</string>
-    <string name="authority">com.anubis.phlix.provider</string>
+    <string name="account_type">com.anubis.commons</string>
+    <string name="authority">com.anubis.commons.provider</string>
     <string name="timestamp">timestamp</string>
     <string name="Me">Me</string>
     <string name="permission_grant">GET ACCOUNTS permissions must be granted for the app to work</string>

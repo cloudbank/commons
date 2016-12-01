@@ -45,7 +45,7 @@
      @com.fasterxml.jackson.annotation.JsonProperty *;
 }
 
--keep class com.anubis.phlix.models.** {*;}
+-keep class com.anubis.commons.models.** {*;}
 
 -dontwarn com.fasterxml.jackson.**
 
@@ -79,7 +79,7 @@
 -keep @io.realm.internal.Keep class *
 -dontwarn javax.**
 -dontwarn io.realm.**
--keep class com.anubis.phlix.realm.** { *; }
+-keep class com.anubis.commons.realm.** { *; }
 
 # Hide warnings about references to newer platforms in the library
 -dontwarn android.support.v7.**
