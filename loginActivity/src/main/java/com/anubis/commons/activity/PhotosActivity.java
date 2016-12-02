@@ -58,7 +58,6 @@ public class PhotosActivity extends AppCompatActivity {
      */
 
 
-
     // Identifier for the permission request
     private static final int GET_ACCOUNTS_PERMISSIONS_REQUEST = 1;
 
@@ -113,7 +112,7 @@ public class PhotosActivity extends AppCompatActivity {
                 if (showRationale) {
                     //did not grant, but did not say never ask
                     ActivityCompat.requestPermissions(getParent(),
-                            new String[]{ Manifest.permission.GET_ACCOUNTS},
+                            new String[]{Manifest.permission.GET_ACCOUNTS},
                             GET_ACCOUNTS_PERMISSIONS_REQUEST);
 
                 } else {
@@ -200,6 +199,8 @@ public class PhotosActivity extends AppCompatActivity {
 
     }
 
+
+
     private void updateUserInfo(SharedPreferences authPrefs) {
 
         this.prefs = Util.getUserPrefs();
@@ -240,7 +241,7 @@ public class PhotosActivity extends AppCompatActivity {
         ArrayList<Fragment> a = new ArrayList<Fragment>();
         a.add(SearchFragment.newInstance(0, getResources().getString(R.string.commons_search), new SearchFragment()));
         a.add(InterestingFragment.newInstance(1, getResources().getString(R.string.interesting_today), new InterestingFragment()));
-        a.add(SearchFragment.newInstance(2, getResources().getString(R.string.tags),  new TagsFragment()));
+        a.add(SearchFragment.newInstance(2, getResources().getString(R.string.tags), new TagsFragment()));
 
         return a;
     }

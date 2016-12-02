@@ -66,6 +66,7 @@ public class InterestingFragment extends FlickrBaseFragment {
             RealmChangeListener realmListener = new RealmChangeListener<Realm>() {
                 @Override
                 public void onChange(Realm r) {
+
                     updateDisplay();
                 }
             };
@@ -86,6 +87,7 @@ public class InterestingFragment extends FlickrBaseFragment {
 
 
     private void updateDisplay() {
+        Log.d("TABS", "mInteresting updateDisplay" );
         Date maxDate = interestingRealm.where(Interesting.class).maximumDate("timestamp");
         Interesting i = interestingRealm.where(Interesting.class).equalTo("timestamp", maxDate).findFirst();
         mInteresting.clear();
@@ -139,6 +141,7 @@ public class InterestingFragment extends FlickrBaseFragment {
 
 
     public void updateDisplay(Interesting i) {
+        Log.d("TABS", "mInteresting updateDisplay(i)" );
         mInteresting.clear();
         mInteresting.addAll(i.getInterestingPhotos());
         rAdapter.notifyDataSetChanged();

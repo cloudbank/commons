@@ -14,15 +14,14 @@ import android.view.ViewGroup;
 import com.anubis.commons.FlickrClientApp;
 import com.anubis.commons.R;
 import com.anubis.commons.activity.ImageDisplayActivity;
-import com.anubis.commons.adapter.TagsAdapter;
+import com.anubis.commons.adapter.SearchAdapter;
+import com.anubis.commons.models.Common;
 import com.anubis.commons.models.Photo;
-import com.anubis.commons.models.Recent;
 import com.anubis.commons.models.Tag;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import io.realm.Realm;
@@ -36,11 +35,11 @@ public class TagsFragment extends FlickrBaseFragment {
 
     AdView mPublisherAdView;
     ProgressDialog ringProgressDialog;
-    TagsAdapter tAdapter;
+    SearchAdapter searchAdapter;
     RecyclerView rvPhotos;
 
     RealmChangeListener changeListener;
-    Realm tagsRealm, r;
+    Realm commonsRealm, r;
 
 
     @Override
@@ -69,28 +68,40 @@ public class TagsFragment extends FlickrBaseFragment {
         super.onActivityCreated(savedInstanceState);
 
         Log.d("TABS", "tags activcreated");
-        changeListener = new RealmChangeListener<Recent>()
+        changeListener = new RealmChangeListener<Common>()
 
         {
             @Override
-            public void onChange(Recent r) {
+            public void onChange(Common r) {
                 updateDisplay(r);
             }
         };
 
 
-        tagsRealm = Realm.getDefaultInstance();
+        commonsRealm = Realm.getDefaultInstance();
         ringProgressDialog.setTitle("Please wait");
         ringProgressDialog.setMessage("Retrieving tags/recent photos");
         ringProgressDialog.setCancelable(true);
         ringProgressDialog.show();
-        Date maxDate = tagsRealm.where(Recent.class).maximumDate(getString(R.string.timestamp));
-        Recent recent = tagsRealm.where(Recent.class).equalTo(getString(R.string.timestamp), maxDate).findFirst();
+        //bring back red
+        //check red button
+        //onclick listeners for buttons
+        //get if no list in realm AND check some time duration
+        //Date maxDate = commonsRealm.where(Common.class).maximumDate(getString(R.string.timestamp));
+        Common recent = commonsRealm.where(Common.class)
+                .equalTo("color",Common.Colors.RED.name()).findFirst();
+
+
         if (null == recent) {
             r = Realm.getDefaultInstance();
             RealmChangeListener realmListener = new RealmChangeListener<Realm>() {
                 @Override
                 public void onChange(Realm r) {
+                    try {
+                        Thread.sleep(9000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     updateDisplay();
                 }
             };
@@ -115,7 +126,7 @@ public class TagsFragment extends FlickrBaseFragment {
         super.onCreate(savedInstanceState);
         mPhotos = new ArrayList<Photo>();
         ringProgressDialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
-        tAdapter = new TagsAdapter(getActivity(), mPhotos, false);
+        searchAdapter = new SearchAdapter(getActivity(), mPhotos, false);
 
         mTags = new ArrayList<Tag>();
         Log.d("TABS", "tags oncreate");
@@ -128,18 +139,18 @@ public class TagsFragment extends FlickrBaseFragment {
 
 
     private void updateDisplay() {
-        Date maxDate = tagsRealm.where(Recent.class).maximumDate(getString(R.string.timestamp));
-        Recent r = tagsRealm.where(Recent.class).equalTo(getString(R.string.timestamp), maxDate).findFirst();
+        Log.d("TABS", "tags updateDisplay");
+        Common c = commonsRealm.where(Common.class).equalTo("color",Common.Colors.RED.name()).findFirst();
         mPhotos.clear();
-        mPhotos.addAll(r.getRecentPhotos());
-        tAdapter.notifyDataSetChanged();
+        mPhotos.addAll(c.getCommonPhotos());
+        searchAdapter.notifyDataSetChanged();
     }
 
-
-    private void updateDisplay(Recent r) {
+    private void updateDisplay(Common c) {
+        Log.d("TABS", "tags updateDisplay(t)");
         mPhotos.clear();
-        mPhotos.addAll(r.getRecentPhotos());
-        tAdapter.notifyDataSetChanged();
+        mPhotos.addAll(c.getCommonPhotos());
+        searchAdapter.notifyDataSetChanged();
 
 
     }
@@ -156,8 +167,8 @@ public class TagsFragment extends FlickrBaseFragment {
         if (null != r && !r.isClosed()) {
             r.close();
         }
-        if (null != tagsRealm && !tagsRealm.isClosed()) {
-            tagsRealm.close();
+        if (null != commonsRealm && !commonsRealm.isClosed()) {
+            commonsRealm.close();
         }
     }
 
@@ -169,9 +180,9 @@ public class TagsFragment extends FlickrBaseFragment {
                 false);
 
         rvPhotos = (RecyclerView) view.findViewById(R.id.rvPhotos);
-        rvPhotos.setAdapter(tAdapter);
+        rvPhotos.setAdapter(searchAdapter);
         rvPhotos.setLayoutManager(new GridLayoutManager(FlickrClientApp.getAppContext(), 3));
-        tAdapter.setOnItemClickListener(new TagsAdapter.OnItemClickListener() {
+        searchAdapter.setOnItemClickListener(new SearchAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 Intent intent = new Intent(getActivity(),
@@ -187,9 +198,10 @@ public class TagsFragment extends FlickrBaseFragment {
         mPublisherAdView = (AdView) view.findViewById(R.id.publisherAdView);
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators
-                .addTestDevice("9D3A392231B42400A9CCA1CBED2D006F")  // My Galaxy Nexus test phone
+                .addTestDevice("987E90047BB899A8A6E7C102E197490B")  // My Galaxy Nexus test phone
                 .build();
         mPublisherAdView.loadAd(adRequest);
+
         setHasOptionsMenu(true);
         return view;
     }

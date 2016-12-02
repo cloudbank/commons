@@ -39,9 +39,10 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
         public long colorIndex;
         public long timestampIndex;
         public long commonPhotosIndex;
+        public long colorPhotosIndex;
 
         CommonColumnInfo(String path, Table table) {
-            final Map<String, Long> indicesMap = new HashMap<String, Long>(4);
+            final Map<String, Long> indicesMap = new HashMap<String, Long>(5);
             this.idIndex = getValidColumnIndex(path, table, "Common", "id");
             indicesMap.put("id", this.idIndex);
             this.colorIndex = getValidColumnIndex(path, table, "Common", "color");
@@ -50,6 +51,8 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
             indicesMap.put("timestamp", this.timestampIndex);
             this.commonPhotosIndex = getValidColumnIndex(path, table, "Common", "commonPhotos");
             indicesMap.put("commonPhotos", this.commonPhotosIndex);
+            this.colorPhotosIndex = getValidColumnIndex(path, table, "Common", "colorPhotos");
+            indicesMap.put("colorPhotos", this.colorPhotosIndex);
 
             setIndicesMap(indicesMap);
         }
@@ -61,6 +64,7 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
             this.colorIndex = otherInfo.colorIndex;
             this.timestampIndex = otherInfo.timestampIndex;
             this.commonPhotosIndex = otherInfo.commonPhotosIndex;
+            this.colorPhotosIndex = otherInfo.colorPhotosIndex;
 
             setIndicesMap(otherInfo.getIndicesMap());
         }
@@ -74,6 +78,7 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
     private CommonColumnInfo columnInfo;
     private ProxyState proxyState;
     private RealmList<com.anubis.commons.models.Photo> commonPhotosRealmList;
+    private RealmList<com.anubis.commons.models.Photo> colorPhotosRealmList;
     private static final List<String> FIELD_NAMES;
     static {
         List<String> fieldNames = new ArrayList<String>();
@@ -81,6 +86,7 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
         fieldNames.add("color");
         fieldNames.add("timestamp");
         fieldNames.add("commonPhotos");
+        fieldNames.add("colorPhotos");
         FIELD_NAMES = Collections.unmodifiableList(fieldNames);
     }
 
@@ -267,6 +273,67 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
         }
     }
 
+    public RealmList<com.anubis.commons.models.Photo> realmGet$colorPhotos() {
+        if (proxyState == null) {
+            // Called from model's constructor. Inject context.
+            injectObjectContext();
+        }
+
+        proxyState.getRealm$realm().checkIfValid();
+        // use the cached value if available
+        if (colorPhotosRealmList != null) {
+            return colorPhotosRealmList;
+        } else {
+            LinkView linkView = proxyState.getRow$realm().getLinkList(columnInfo.colorPhotosIndex);
+            colorPhotosRealmList = new RealmList<com.anubis.commons.models.Photo>(com.anubis.commons.models.Photo.class, linkView, proxyState.getRealm$realm());
+            return colorPhotosRealmList;
+        }
+    }
+
+    public void realmSet$colorPhotos(RealmList<com.anubis.commons.models.Photo> value) {
+        if (proxyState == null) {
+            // Called from model's constructor. Inject context.
+            injectObjectContext();
+        }
+
+        if (proxyState.isUnderConstruction()) {
+            if (!proxyState.getAcceptDefaultValue$realm()) {
+                return;
+            }
+            if (proxyState.getExcludeFields$realm().contains("colorPhotos")) {
+                return;
+            }
+            if (value != null && !value.isManaged()) {
+                final Realm realm = (Realm) proxyState.getRealm$realm();
+                final RealmList<com.anubis.commons.models.Photo> original = value;
+                value = new RealmList<com.anubis.commons.models.Photo>();
+                for (com.anubis.commons.models.Photo item : original) {
+                    if (item == null || RealmObject.isManaged(item)) {
+                        value.add(item);
+                    } else {
+                        value.add(realm.copyToRealm(item));
+                    }
+                }
+            }
+        }
+
+        proxyState.getRealm$realm().checkIfValid();
+        LinkView links = proxyState.getRow$realm().getLinkList(columnInfo.colorPhotosIndex);
+        links.clear();
+        if (value == null) {
+            return;
+        }
+        for (RealmModel linkedObject : (RealmList<? extends RealmModel>) value) {
+            if (!(RealmObject.isManaged(linkedObject) && RealmObject.isValid(linkedObject))) {
+                throw new IllegalArgumentException("Each element of 'value' must be a valid managed object.");
+            }
+            if (((RealmObjectProxy)linkedObject).realmGet$proxyState().getRealm$realm() != proxyState.getRealm$realm()) {
+                throw new IllegalArgumentException("Each element of 'value' must belong to the same Realm.");
+            }
+            links.add(((RealmObjectProxy)linkedObject).realmGet$proxyState().getRow$realm().getIndex());
+        }
+    }
+
     public static RealmObjectSchema createRealmObjectSchema(RealmSchema realmSchema) {
         if (!realmSchema.contains("Common")) {
             RealmObjectSchema realmObjectSchema = realmSchema.create("Common");
@@ -277,6 +344,10 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
                 PhotoRealmProxy.createRealmObjectSchema(realmSchema);
             }
             realmObjectSchema.add(new Property("commonPhotos", RealmFieldType.LIST, realmSchema.get("Photo")));
+            if (!realmSchema.contains("Photo")) {
+                PhotoRealmProxy.createRealmObjectSchema(realmSchema);
+            }
+            realmObjectSchema.add(new Property("colorPhotos", RealmFieldType.LIST, realmSchema.get("Photo")));
             return realmObjectSchema;
         }
         return realmSchema.get("Common");
@@ -292,6 +363,10 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
                 PhotoRealmProxy.initTable(sharedRealm);
             }
             table.addColumnLink(RealmFieldType.LIST, "commonPhotos", sharedRealm.getTable("class_Photo"));
+            if (!sharedRealm.hasTable("class_Photo")) {
+                PhotoRealmProxy.initTable(sharedRealm);
+            }
+            table.addColumnLink(RealmFieldType.LIST, "colorPhotos", sharedRealm.getTable("class_Photo"));
             table.addSearchIndex(table.getColumnIndex("id"));
             table.setPrimaryKey("id");
             return table;
@@ -303,18 +378,18 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
         if (sharedRealm.hasTable("class_Common")) {
             Table table = sharedRealm.getTable("class_Common");
             final long columnCount = table.getColumnCount();
-            if (columnCount != 4) {
-                if (columnCount < 4) {
-                    throw new RealmMigrationNeededException(sharedRealm.getPath(), "Field count is less than expected - expected 4 but was " + columnCount);
+            if (columnCount != 5) {
+                if (columnCount < 5) {
+                    throw new RealmMigrationNeededException(sharedRealm.getPath(), "Field count is less than expected - expected 5 but was " + columnCount);
                 }
                 if (allowExtraColumns) {
-                    RealmLog.debug("Field count is more than expected - expected 4 but was %1$d", columnCount);
+                    RealmLog.debug("Field count is more than expected - expected 5 but was %1$d", columnCount);
                 } else {
-                    throw new RealmMigrationNeededException(sharedRealm.getPath(), "Field count is more than expected - expected 4 but was " + columnCount);
+                    throw new RealmMigrationNeededException(sharedRealm.getPath(), "Field count is more than expected - expected 5 but was " + columnCount);
                 }
             }
             Map<String, RealmFieldType> columnTypes = new HashMap<String, RealmFieldType>();
-            for (long i = 0; i < 4; i++) {
+            for (long i = 0; i < 5; i++) {
                 columnTypes.put(table.getColumnName(i), table.getColumnType(i));
             }
 
@@ -366,6 +441,19 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
             if (!table.getLinkTarget(columnInfo.commonPhotosIndex).hasSameSchema(table_3)) {
                 throw new RealmMigrationNeededException(sharedRealm.getPath(), "Invalid RealmList type for field 'commonPhotos': '" + table.getLinkTarget(columnInfo.commonPhotosIndex).getName() + "' expected - was '" + table_3.getName() + "'");
             }
+            if (!columnTypes.containsKey("colorPhotos")) {
+                throw new RealmMigrationNeededException(sharedRealm.getPath(), "Missing field 'colorPhotos'");
+            }
+            if (columnTypes.get("colorPhotos") != RealmFieldType.LIST) {
+                throw new RealmMigrationNeededException(sharedRealm.getPath(), "Invalid type 'Photo' for field 'colorPhotos'");
+            }
+            if (!sharedRealm.hasTable("class_Photo")) {
+                throw new RealmMigrationNeededException(sharedRealm.getPath(), "Missing class 'class_Photo' for field 'colorPhotos'");
+            }
+            Table table_4 = sharedRealm.getTable("class_Photo");
+            if (!table.getLinkTarget(columnInfo.colorPhotosIndex).hasSameSchema(table_4)) {
+                throw new RealmMigrationNeededException(sharedRealm.getPath(), "Invalid RealmList type for field 'colorPhotos': '" + table.getLinkTarget(columnInfo.colorPhotosIndex).getName() + "' expected - was '" + table_4.getName() + "'");
+            }
             return columnInfo;
         } else {
             throw new RealmMigrationNeededException(sharedRealm.getPath(), "The 'Common' class is missing from the schema for this Realm.");
@@ -383,7 +471,7 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
     @SuppressWarnings("cast")
     public static com.anubis.commons.models.Common createOrUpdateUsingJsonObject(Realm realm, JSONObject json, boolean update)
         throws JSONException {
-        final List<String> excludeFields = new ArrayList<String>(1);
+        final List<String> excludeFields = new ArrayList<String>(2);
         com.anubis.commons.models.Common obj = null;
         if (update) {
             Table table = realm.getTable(com.anubis.commons.models.Common.class);
@@ -407,6 +495,9 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
         if (obj == null) {
             if (json.has("commonPhotos")) {
                 excludeFields.add("commonPhotos");
+            }
+            if (json.has("colorPhotos")) {
+                excludeFields.add("colorPhotos");
             }
             if (json.has("id")) {
                 if (json.isNull("id")) {
@@ -446,6 +537,18 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
                 for (int i = 0; i < array.length(); i++) {
                     com.anubis.commons.models.Photo item = PhotoRealmProxy.createOrUpdateUsingJsonObject(realm, array.getJSONObject(i), update);
                     ((CommonRealmProxyInterface) obj).realmGet$commonPhotos().add(item);
+                }
+            }
+        }
+        if (json.has("colorPhotos")) {
+            if (json.isNull("colorPhotos")) {
+                ((CommonRealmProxyInterface) obj).realmSet$colorPhotos(null);
+            } else {
+                ((CommonRealmProxyInterface) obj).realmGet$colorPhotos().clear();
+                JSONArray array = json.getJSONArray("colorPhotos");
+                for (int i = 0; i < array.length(); i++) {
+                    com.anubis.commons.models.Photo item = PhotoRealmProxy.createOrUpdateUsingJsonObject(realm, array.getJSONObject(i), update);
+                    ((CommonRealmProxyInterface) obj).realmGet$colorPhotos().add(item);
                 }
             }
         }
@@ -498,6 +601,19 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
                     while (reader.hasNext()) {
                         com.anubis.commons.models.Photo item = PhotoRealmProxy.createUsingJsonStream(realm, reader);
                         ((CommonRealmProxyInterface) obj).realmGet$commonPhotos().add(item);
+                    }
+                    reader.endArray();
+                }
+            } else if (name.equals("colorPhotos")) {
+                if (reader.peek() == JsonToken.NULL) {
+                    reader.skipValue();
+                    ((CommonRealmProxyInterface) obj).realmSet$colorPhotos(null);
+                } else {
+                    ((CommonRealmProxyInterface) obj).realmSet$colorPhotos(new RealmList<com.anubis.commons.models.Photo>());
+                    reader.beginArray();
+                    while (reader.hasNext()) {
+                        com.anubis.commons.models.Photo item = PhotoRealmProxy.createUsingJsonStream(realm, reader);
+                        ((CommonRealmProxyInterface) obj).realmGet$colorPhotos().add(item);
                     }
                     reader.endArray();
                 }
@@ -583,6 +699,21 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
                 }
             }
 
+
+            RealmList<com.anubis.commons.models.Photo> colorPhotosList = ((CommonRealmProxyInterface) newObject).realmGet$colorPhotos();
+            if (colorPhotosList != null) {
+                RealmList<com.anubis.commons.models.Photo> colorPhotosRealmList = ((CommonRealmProxyInterface) realmObject).realmGet$colorPhotos();
+                for (int i = 0; i < colorPhotosList.size(); i++) {
+                    com.anubis.commons.models.Photo colorPhotosItem = colorPhotosList.get(i);
+                    com.anubis.commons.models.Photo cachecolorPhotos = (com.anubis.commons.models.Photo) cache.get(colorPhotosItem);
+                    if (cachecolorPhotos != null) {
+                        colorPhotosRealmList.add(cachecolorPhotos);
+                    } else {
+                        colorPhotosRealmList.add(PhotoRealmProxy.copyOrUpdate(realm, colorPhotosList.get(i), update, cache));
+                    }
+                }
+            }
+
             return realmObject;
         }
     }
@@ -628,6 +759,20 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
                 LinkView.nativeAdd(commonPhotosNativeLinkViewPtr, cacheItemIndexcommonPhotos);
             }
             LinkView.nativeClose(commonPhotosNativeLinkViewPtr);
+        }
+
+
+        RealmList<com.anubis.commons.models.Photo> colorPhotosList = ((CommonRealmProxyInterface) object).realmGet$colorPhotos();
+        if (colorPhotosList != null) {
+            long colorPhotosNativeLinkViewPtr = Table.nativeGetLinkView(tableNativePtr, columnInfo.colorPhotosIndex, rowIndex);
+            for (com.anubis.commons.models.Photo colorPhotosItem : colorPhotosList) {
+                Long cacheItemIndexcolorPhotos = cache.get(colorPhotosItem);
+                if (cacheItemIndexcolorPhotos == null) {
+                    cacheItemIndexcolorPhotos = PhotoRealmProxy.insert(realm, colorPhotosItem, cache);
+                }
+                LinkView.nativeAdd(colorPhotosNativeLinkViewPtr, cacheItemIndexcolorPhotos);
+            }
+            LinkView.nativeClose(colorPhotosNativeLinkViewPtr);
         }
 
         return rowIndex;
@@ -681,6 +826,20 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
                     LinkView.nativeClose(commonPhotosNativeLinkViewPtr);
                 }
 
+
+                RealmList<com.anubis.commons.models.Photo> colorPhotosList = ((CommonRealmProxyInterface) object).realmGet$colorPhotos();
+                if (colorPhotosList != null) {
+                    long colorPhotosNativeLinkViewPtr = Table.nativeGetLinkView(tableNativePtr, columnInfo.colorPhotosIndex, rowIndex);
+                    for (com.anubis.commons.models.Photo colorPhotosItem : colorPhotosList) {
+                        Long cacheItemIndexcolorPhotos = cache.get(colorPhotosItem);
+                        if (cacheItemIndexcolorPhotos == null) {
+                            cacheItemIndexcolorPhotos = PhotoRealmProxy.insert(realm, colorPhotosItem, cache);
+                        }
+                        LinkView.nativeAdd(colorPhotosNativeLinkViewPtr, cacheItemIndexcolorPhotos);
+                    }
+                    LinkView.nativeClose(colorPhotosNativeLinkViewPtr);
+                }
+
             }
         }
     }
@@ -730,6 +889,21 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
             }
         }
         LinkView.nativeClose(commonPhotosNativeLinkViewPtr);
+
+
+        long colorPhotosNativeLinkViewPtr = Table.nativeGetLinkView(tableNativePtr, columnInfo.colorPhotosIndex, rowIndex);
+        LinkView.nativeClear(colorPhotosNativeLinkViewPtr);
+        RealmList<com.anubis.commons.models.Photo> colorPhotosList = ((CommonRealmProxyInterface) object).realmGet$colorPhotos();
+        if (colorPhotosList != null) {
+            for (com.anubis.commons.models.Photo colorPhotosItem : colorPhotosList) {
+                Long cacheItemIndexcolorPhotos = cache.get(colorPhotosItem);
+                if (cacheItemIndexcolorPhotos == null) {
+                    cacheItemIndexcolorPhotos = PhotoRealmProxy.insertOrUpdate(realm, colorPhotosItem, cache);
+                }
+                LinkView.nativeAdd(colorPhotosNativeLinkViewPtr, cacheItemIndexcolorPhotos);
+            }
+        }
+        LinkView.nativeClose(colorPhotosNativeLinkViewPtr);
 
         return rowIndex;
     }
@@ -785,6 +959,21 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
                 }
                 LinkView.nativeClose(commonPhotosNativeLinkViewPtr);
 
+
+                long colorPhotosNativeLinkViewPtr = Table.nativeGetLinkView(tableNativePtr, columnInfo.colorPhotosIndex, rowIndex);
+                LinkView.nativeClear(colorPhotosNativeLinkViewPtr);
+                RealmList<com.anubis.commons.models.Photo> colorPhotosList = ((CommonRealmProxyInterface) object).realmGet$colorPhotos();
+                if (colorPhotosList != null) {
+                    for (com.anubis.commons.models.Photo colorPhotosItem : colorPhotosList) {
+                        Long cacheItemIndexcolorPhotos = cache.get(colorPhotosItem);
+                        if (cacheItemIndexcolorPhotos == null) {
+                            cacheItemIndexcolorPhotos = PhotoRealmProxy.insertOrUpdate(realm, colorPhotosItem, cache);
+                        }
+                        LinkView.nativeAdd(colorPhotosNativeLinkViewPtr, cacheItemIndexcolorPhotos);
+                    }
+                }
+                LinkView.nativeClose(colorPhotosNativeLinkViewPtr);
+
             }
         }
     }
@@ -825,6 +1014,21 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
                 unmanagedcommonPhotosList.add(item);
             }
         }
+
+        // Deep copy of colorPhotos
+        if (currentDepth == maxDepth) {
+            ((CommonRealmProxyInterface) unmanagedObject).realmSet$colorPhotos(null);
+        } else {
+            RealmList<com.anubis.commons.models.Photo> managedcolorPhotosList = ((CommonRealmProxyInterface) realmObject).realmGet$colorPhotos();
+            RealmList<com.anubis.commons.models.Photo> unmanagedcolorPhotosList = new RealmList<com.anubis.commons.models.Photo>();
+            ((CommonRealmProxyInterface) unmanagedObject).realmSet$colorPhotos(unmanagedcolorPhotosList);
+            int nextDepth = currentDepth + 1;
+            int size = managedcolorPhotosList.size();
+            for (int i = 0; i < size; i++) {
+                com.anubis.commons.models.Photo item = PhotoRealmProxy.createDetachedCopy(managedcolorPhotosList.get(i), nextDepth, maxDepth, cache);
+                unmanagedcolorPhotosList.add(item);
+            }
+        }
         return unmanagedObject;
     }
 
@@ -842,6 +1046,20 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
                     commonPhotosRealmList.add(cachecommonPhotos);
                 } else {
                     commonPhotosRealmList.add(PhotoRealmProxy.copyOrUpdate(realm, commonPhotosList.get(i), true, cache));
+                }
+            }
+        }
+        RealmList<com.anubis.commons.models.Photo> colorPhotosList = ((CommonRealmProxyInterface) newObject).realmGet$colorPhotos();
+        RealmList<com.anubis.commons.models.Photo> colorPhotosRealmList = ((CommonRealmProxyInterface) realmObject).realmGet$colorPhotos();
+        colorPhotosRealmList.clear();
+        if (colorPhotosList != null) {
+            for (int i = 0; i < colorPhotosList.size(); i++) {
+                com.anubis.commons.models.Photo colorPhotosItem = colorPhotosList.get(i);
+                com.anubis.commons.models.Photo cachecolorPhotos = (com.anubis.commons.models.Photo) cache.get(colorPhotosItem);
+                if (cachecolorPhotos != null) {
+                    colorPhotosRealmList.add(cachecolorPhotos);
+                } else {
+                    colorPhotosRealmList.add(PhotoRealmProxy.copyOrUpdate(realm, colorPhotosList.get(i), true, cache));
                 }
             }
         }
@@ -868,6 +1086,10 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
         stringBuilder.append(",");
         stringBuilder.append("{commonPhotos:");
         stringBuilder.append("RealmList<Photo>[").append(realmGet$commonPhotos().size()).append("]");
+        stringBuilder.append("}");
+        stringBuilder.append(",");
+        stringBuilder.append("{colorPhotos:");
+        stringBuilder.append("RealmList<Photo>[").append(realmGet$colorPhotos().size()).append("]");
         stringBuilder.append("}");
         stringBuilder.append("]");
         return stringBuilder.toString();

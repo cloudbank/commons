@@ -28,7 +28,6 @@ import com.anubis.commons.models.Common;
 import com.anubis.commons.models.Interesting;
 import com.anubis.commons.models.Photo;
 import com.anubis.commons.models.Photos;
-import com.anubis.commons.models.Recent;
 import com.anubis.commons.util.Util;
 
 import java.util.Calendar;
@@ -57,7 +56,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     public static final int MIN_IN_SECS = 60;
     public static final int SYNC_FLEXTIME = 20 * MIN_IN_SECS;  // within 20 minutes
     private static final int DATA_NOTIFICATION_ID = 3004;
-    Realm realm2, realm3, realm4, realm5;
+    Realm realm2, realm3, realm4;
     Subscription friendSubscription, recentSubscription, interestingSubscription, commonsSubscription;
 
 
@@ -92,13 +91,10 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
         Log.d("SYNC", "starting onPerformSync");
         getCommonsPage1();
-
         getInterestingPhotos();
-       //// getRecentAndHotags();
-
-        //getCommonsAll 1 time this should not need update
+        getColor();
         notifyMe();
-        Log.d("SYNC", "onPeformSync");
+        Log.d("SYNC", "END onPeformSync");
 
     }
 
@@ -258,8 +254,6 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     }
 
 
-
-
     public void getInterestingPhotos() {
         //@todo offline mode
         //@TODO need iterableFLATMAP TO GET ALL PAGES
@@ -268,76 +262,75 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                 .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
                 .observeOn(Schedulers.immediate())
                 .subscribe(new Subscriber<Photos>() {
-                    @Override
-                    public void onCompleted() {
+                               @Override
+                               public void onCompleted() {
 
 
-                        Log.d("DEBUG", "oncompleted interesting");
+                                   Log.d("DEBUG", "oncompleted interesting");
 
-                    }
+                               }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        // cast to retrofit.HttpException to get the response code
-                        if (e instanceof HttpException) {
-                            HttpException response = (HttpException) e;
-                            int code = response.code();
-                            Log.e("ERROR", String.valueOf(code));
-                        }
-                        Log.e("ERROR", "error getting interesting photos" + e);
-                    }
+                               @Override
+                               public void onError(Throwable e) {
+                                   // cast to retrofit.HttpException to get the response code
+                                   if (e instanceof HttpException) {
+                                       HttpException response = (HttpException) e;
+                                       int code = response.code();
+                                       Log.e("ERROR", String.valueOf(code));
+                                   }
+                                   Log.e("ERROR", "error getting interesting photos" + e);
+                               }
 
-                    @Override
-                    public void onNext(Photos p) {
-                        //og.d("DEBUG", "onNext interesting: " + p.getPhotos().getPhotoList());
-                        //pass photos to fragment
+                               @Override
+                               public void onNext(Photos p) {
+                                   //og.d("DEBUG", "onNext interesting: " + p.getPhotos().getPhotoList());
+                                   //pass photos to fragment
 
-                            try {
-
-
-                                realm3 = Realm.getDefaultInstance();
-                                realm3.beginTransaction();
-
-                                String user_id = Util.getUserId();
+                                   try {
 
 
-                               //realm3.copyToRealmOrUpdate(i);
+                                       realm3 = Realm.getDefaultInstance();
+                                       realm3.beginTransaction();
 
-                                //@todo probably can change this w algo
-
-
-                                Date maxDate = realm3.where(Interesting.class).maximumDate("timestamp");
-                                Interesting interesting = realm3.where(Interesting.class).equalTo("timestamp", maxDate).findFirst();
-                                Log.d("SYNC", "interesting" + interesting);
-
-                                Log.d("SYNC", "interesting" + interesting);
+                                       //String user_id = Util.getUserId();
 
 
-                                for (Photo photo : p.getPhotos().getPhotoList()) {
-                                    photo.isInteresting = true;
-                                    interesting.interestingPhotos.add(photo);
+                                       //realm3.copyToRealmOrUpdate(i);
 
-                                }
-
-                                interesting.timestamp = interesting.getTimestamp();
-                                realm3.copyToRealmOrUpdate(interesting);  //deep copy
-                                realm3.commitTransaction();
-                                Log.d("DEBUG", "end get interesting: " + interesting);
-                            } finally {
-                                if (null != realm3) {
-                                    realm3.close();
-                                }
-                            }
-
-                        }
-                    }
-
-                    );
-
-                }
+                                       //@todo probably can change this w algo
 
 
+                                       Date maxDate = realm3.where(Interesting.class).maximumDate("timestamp");
+                                       Interesting interesting = realm3.where(Interesting.class).equalTo("timestamp", maxDate).findFirst();
+                                       /*if (null == interesting) {
+                                           interesting = realm3.createObject(Interesting.class, Calendar.getInstance().getTime().toString());
+                                           interesting.setTimestamp(Calendar.getInstance().getTime());
+                                           realm3.copyToRealmOrUpdate(interesting);
+                                       }*/
 
+
+                                       for (Photo photo : p.getPhotos().getPhotoList()) {
+                                           photo.isInteresting = true;
+                                           interesting.interestingPhotos.add(photo);
+
+                                       }
+
+                                       interesting.timestamp = Calendar.getInstance().getTime();
+                                       realm3.copyToRealmOrUpdate(interesting);  //deep copy
+                                       realm3.commitTransaction();
+                                       Log.d("DEBUG", "end get interesting: " + interesting);
+                                   } finally {
+                                       if (null != realm3) {
+                                           realm3.close();
+                                       }
+                                   }
+
+                               }
+                           }
+
+                );
+
+    }
 
 
     private void getCommonsPage1() {
@@ -348,75 +341,92 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                 .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
                 .observeOn(Schedulers.immediate())
                 .subscribe(new Subscriber<Photos>() {
-                    @Override
-                    public void onCompleted() {
-                        //update total/page for next sync
+                               @Override
+                               public void onCompleted() {
+                                   //update total/page for next sync
 
-                        //Log.d("DEBUG","oncompleted");
+                                   //Log.d("DEBUG","oncompleted");
 
-                    }
+                               }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        // cast to retrofit.HttpException to get the response code
-                        if (e instanceof HttpException) {
-                            HttpException response = (HttpException) e;
-                            int code = response.code();
-                            Log.e("ERROR", String.valueOf(code));
-                        }
-                        Log.e("ERROR", "error getting commons1/photos" + e);
-                    }
+                               @Override
+                               public void onError(Throwable e) {
+                                   // cast to retrofit.HttpException to get the response code
+                                   if (e instanceof HttpException) {
+                                       HttpException response = (HttpException) e;
+                                       int code = response.code();
+                                       Log.e("ERROR", String.valueOf(code));
+                                   }
+                                   Log.e("ERROR", "error getting commons1/photos" + e);
+                               }
 
-                    @Override
-                    public void onNext(Photos p) {
-                        try {
-                            realm5 = Realm.getDefaultInstance();
-                            realm5.beginTransaction();
-
-                            Date d = Calendar.getInstance().getTime();
-                            Common c = realm5.createObject(Common.class, d.toString());
-                            c.setTimestamp(d);
-                            realm5.copyToRealmOrUpdate(c);
-                            Recent r = realm5.createObject(Recent.class, d.toString());
-                            r.setTimestamp(d);
-                            realm5.copyToRealmOrUpdate(r);
-                            Interesting i = realm5.createObject(Interesting.class, d.toString());
-                            i.setTimestamp(d);
-                            realm5.copyToRealmOrUpdate(i);
+                               @Override
+                               public void onNext(Photos p) {
+                                   try {
+                                       realm4 = Realm.getDefaultInstance();
+                                       realm4.beginTransaction();
 
 
-                            Date maxDate = realm5.where(Common.class).maximumDate("timestamp");
-                            c = realm5.where(Common.class).equalTo("timestamp", maxDate).findFirst();
 
-                            Log.d("DEBUG", "commons" + c);
-                            for (Photo photo : p.getPhotos().getPhotoList()) {
-                                photo.isCommon = true;
-                                c.commonPhotos.add(photo);
+                                       Calendar cal = Calendar.getInstance();
+                                       cal.add(Calendar.SECOND, 15);
+                                       Common c2 = realm4.createObject(Common.class, cal.getTime().toString());
+                                       //c2.setTimestamp(cal.getTime());
+                                       c2.setColor(Common.Colors.RED.name());
+                                       realm4.copyToRealmOrUpdate(c2);
 
-                            }
-                            c.setColor(Common.Colors.ALL.name());
-                            realm5.copyToRealmOrUpdate(c);
+                                       Date d = Calendar.getInstance().getTime();
+                                       Common c = realm4.createObject(Common.class, d.toString());
+                                       c.setTimestamp(d);
+                                       c.setColor(Common.Colors.ALL.name());
+                                       realm4.copyToRealmOrUpdate(c);
 
-
-                            realm5.commitTransaction();
-                            Log.d("DEBUG", "end commons");
-                        } finally {
-                            if (null != realm5) {
-                                realm5.close();
-                            }
-                        }
+                                       Interesting i = realm4.createObject(Interesting.class, d.toString());
+                                       i.setTimestamp(d);
+                                       realm4.copyToRealmOrUpdate(i);
 
 
-                    }
-                });
+
+
+                                       //Date maxDate = realm4.where(Common.class).maximumDate("timestamp");
+                                       //Common c = realm4.where(Common.class).equalTo("color", Common.Colors.ALL.name()).findFirst();
+
+                                       Log.d("DEBUG&&&&&", "commons" + c);
+                                       for (Photo photo : p.getPhotos().getPhotoList()) {
+                                           photo.isCommon = true;
+                                           c.commonPhotos.add(photo);
+
+                                       }
+
+                                       c.setColor(Common.Colors.ALL.name());
+                                       c.timestamp = c.getTimestamp();
+                                       realm4.copyToRealmOrUpdate(c);
+
+
+                                       realm4.commitTransaction();
+                                       Log.d("DEBUG&&&&&", "commons" + c);
+                                   } finally
+
+                                   {
+                                       if (null != realm4) {
+                                           realm4.close();
+                                       }
+                                   }
+
+
+                               }
+                           }
+
+                );
 
     }
+
 
     private void getColor() {
 
         //@todo check for page total if not then process with page 1
         //@todo while realm total is less than total increment page else stop
-        HashMap<String,String> data = new HashMap<>();
+        HashMap<String, String> data = new HashMap<>();
         data.put("page", "1");
         data.put("color_codes", "0");  //start w red
         commonsSubscription = getJacksonService().bycolor(data)
@@ -439,37 +449,36 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                             int code = response.code();
                             Log.e("ERROR", String.valueOf(code));
                         }
-                        Log.e("ERROR", "error getting commons1/photos" + e);
+                        Log.e("ERROR", "error getting color/photos" + e);
                     }
 
                     @Override
                     public void onNext(Photos p) {
                         try {
-                            realm5 = Realm.getDefaultInstance();
-                            realm5.beginTransaction();
+                            realm2 = Realm.getDefaultInstance();
+                            realm2.beginTransaction();
 
+                            // Date maxDate = realm2.where(Common.class).maximumDate("timestamp");
+                            Common c = realm2.where(Common.class).equalTo("color", Common.Colors.RED.name()).findFirst();
                             Date d = Calendar.getInstance().getTime();
-                            Common c = realm5.createObject(Common.class, d.toString());
-                            c.setTimestamp(d);
-                            Log.d("DEBUG", "commons" + c);
+
+
                             for (Photo photo : p.getPhotos().getPhotoList()) {
                                 photo.isCommon = true;
                                 c.commonPhotos.add(photo);
 
                             }
                             c.setColor(Common.Colors.RED.name());
-                            realm5.copyToRealmOrUpdate(c);
-
-                            Recent r = realm5.createObject(Recent.class, d.toString());
-                            r.setTimestamp(d);
-                            realm5.copyToRealmOrUpdate(r);
+                            c.timestamp = d;
+                            realm2.copyToRealmOrUpdate(c);
 
 
-                            realm5.commitTransaction();
-                            Log.d("DEBUG", "end commons");
+                            realm2.commitTransaction();
+                            Log.d("DEBUG&&&&&&", "colors" + c);
+                            Log.d("DEBUG", "end colors");
                         } finally {
-                            if (null != realm5) {
-                                realm5.close();
+                            if (null != realm2) {
+                                realm2.close();
                             }
                         }
 

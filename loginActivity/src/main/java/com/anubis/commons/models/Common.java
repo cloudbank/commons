@@ -54,6 +54,17 @@ public class Common extends RealmObject implements RealmModel {
 
     public RealmList<Photo> commonPhotos;
 
+    public RealmList<Photo> getColorPhotos() {
+        return colorPhotos;
+    }
+
+    public void setColorPhotos(RealmList<Photo> colorPhotos) {
+        this.colorPhotos = colorPhotos;
+    }
+
+    public RealmList<Photo> colorPhotos;
+
+
     public String getId() {
         return id;
     }

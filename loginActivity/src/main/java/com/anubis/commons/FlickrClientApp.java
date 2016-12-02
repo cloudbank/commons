@@ -6,6 +6,7 @@ import android.content.Context;
 
 import com.anubis.commons.service.FlickrService;
 import com.anubis.commons.service.ServiceGenerator;
+import com.facebook.stetho.Stetho;
 import com.jakewharton.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
@@ -77,7 +78,8 @@ public class FlickrClientApp extends Application {
         built.setLoggingEnabled(false);
         Picasso.setSingletonInstance(built);
 
-
+        super.onCreate();
+        Stetho.initializeWithDefaults(this);
     }
 
 

@@ -129,6 +129,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.facebook.stetho/stetho-okhttp3/1.4.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7ff6b36b86cc5d50475d396ee60671200dbe419c">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/com.facebook.stetho-stetho-okhttp3-1.4.1_f9e11263285d49cac389564a81a0e41829e8a8bc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/sabine/github/myfriendflickr2016/flockr/loginActivity/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -376,7 +385,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="3a3933d7031891d1c33a2702cbc93f0dde880ae5">
+        sha1="f0937d23c88072e1f6d7a5bcaf4c987f803c4b4e">
         <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_efa2dbb94e9997d47ee475af86ff0abbd4ee6a23/classes.dex" />
     </item>
     <item
@@ -750,6 +759,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.facebook.stetho/stetho/1.4.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="26b6f0185cbba8917ba9d9d0bd170f95311622ab">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/com.facebook.stetho-stetho-1.4.1_75cd3de5f64ef373b0095993f74120106ecd7379/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/sabine/github/myfriendflickr2016/flockr/loginActivity/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -781,7 +799,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="f9a3e1d586bcc24b6bcf125e94a6f0cccacd0cb5">
+        sha1="6624b8cca4dcd3f12e14dbe36a729a40fe9c8a71">
         <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_8fdb7d0a1991570f361e5cf51390a6154111225f/classes.dex" />
     </item>
     <item
@@ -921,6 +939,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.1/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/jsr305-2.0.1_7feef7e9c3a9966932f9724e7f76dae16d45a2f9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/sabine/github/myfriendflickr2016/flockr/loginActivity/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
@@ -990,6 +1017,15 @@
         revision="24.0.3"
         sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
         <dex dex="/Users/sabine/github/myfriendflickr2016/flockr/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_c030f02a7dcced68a72c7d534dd9df19501b6d0d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/commons-cli/commons-cli/1.2/2bf96b7aa8b611c177d329452af1dc933e14501c/commons-cli-1.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="2bf96b7aa8b611c177d329452af1dc933e14501c">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/commons-cli-1.2_b2233a9eb1c763f419fef88984ca706cdbbcb12f/classes.dex" />
     </item>
     <item
         is-multidex="true"

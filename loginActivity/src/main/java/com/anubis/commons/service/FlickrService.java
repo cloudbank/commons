@@ -7,12 +7,8 @@ import com.anubis.commons.models.Who;
 
 import java.util.Map;
 
-import okhttp3.MultipartBody;
-import okhttp3.ResponseBody;
 import retrofit2.http.GET;
-import retrofit2.http.Multipart;
 import retrofit2.http.POST;
-import retrofit2.http.Part;
 import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 import rx.Observable;
@@ -52,32 +48,29 @@ public interface FlickrService {
         @GET(API_BASE_URL + "?method=flickr.photos.search&per_page=500&extras=date_taken,owner_name,tags,description&format=json&nojsoncallback=1&api_key=3b9d2687f93eb4b4835a112b41d28db0")
         Observable<Photos> search(@QueryMap Map<String, String> options);
     */
-    @GET(API_BASE_URL + "?method=flickr.photos.search&per_page=500&extras=date_taken,owner_name,tags,description,url_s&format=json&nojsoncallback=1&api_key=3b9d2687f93eb4b4835a112b41d28db0&is_commons=true&view_all=1")
+    @GET(API_BASE_URL + "?method=flickr.photos.search&per_page=500&extras=date_taken,owner_name,tags,description,url_s&format=json&nojsoncallback=1&api_key=c34e0bbc909c580a4a442f280f686d6b&is_commons=true&view_all=1")
     Observable<Photos> commons(@Query("page") String page);
 
-    @GET(API_BASE_URL + "?method=flickr.photos.search&per_page=500&extras=date_taken,owner_name,tags,description,url_s&format=json&nojsoncallback=1&api_key=3b9d2687f93eb4b4835a112b41d28db0&is_commons=true&sort=relevant")
+    @GET(API_BASE_URL + "?method=flickr.photos.search&per_page=500&extras=date_taken,owner_name,tags,description,url_s&format=json&nojsoncallback=1&api_key=c34e0bbc909c580a4a442f280f686d6b&is_commons=true&sort=relevant")
     Observable<Photos> bycolor(@QueryMap Map<String, String> options);
 
 
-    @GET(API_BASE_URL + "?method=flickr.photos.search&per_page=500&extras=date_taken,owner_name,tags,description,url_s&format=json&nojsoncallback=1&api_key=3b9d2687f93eb4b4835a112b41d28db0&is_commons=true&sort=interestingness-desc")
+    @GET(API_BASE_URL + "?method=flickr.photos.search&per_page=500&extras=date_taken,owner_name,tags,description,url_s&format=json&nojsoncallback=1&api_key=c34e0bbc909c580a4a442f280f686d6b&is_commons=true&sort=interestingness-desc")
     Observable<Photos> explore(@Query("page") String page);
 
-    @GET(API_BASE_URL + "?method=flickr.photos.comments.getList&format=json&nojsoncallback=1&api_key=3b9d2687f93eb4b4835a112b41d28db0")
+    @GET(API_BASE_URL + "?method=flickr.photos.comments.getList&format=json&nojsoncallback=1&api_key=c34e0bbc909c580a4a442f280f686d6b")
     Observable<Comments> getComments(@Query("photo_id") String photoId);
 
-    @POST(API_BASE_URL + "?method=flickr.photos.comments.addComment&format=json&nojsoncallback=1&api_key=3b9d2687f93eb4b4835a112b41d28db0")
+    @POST(API_BASE_URL + "?method=flickr.photos.comments.addComment&format=json&nojsoncallback=1&api_key=c34e0bbc909c580a4a442f280f686d6b")
     Observable<Comment> addComment(@QueryMap Map<String, String> options);
 
 
-    @GET(API_BASE_URL + "?method=flickr.photos.getRecent&format=json&nojsoncallback=1&api_key=3b9d2687f93eb4b4835a112b41d28db0&extras=date_taken,owner_name,tags&per_page=500")
+    @GET(API_BASE_URL + "?method=flickr.photos.getRecent&format=json&nojsoncallback=1&api_key=c34e0bbc909c580a4a442f280f686d6b&extras=date_taken,owner_name,tags&per_page=500")
     Observable<Photos> getRecentPhotos();
 
-    @GET(API_BASE_URL + "?method=flickr.tags.getListUser&format=json&nojsoncallback=1&api_key=3b9d2687f93eb4b4835a112b41d28db0")
+    @GET(API_BASE_URL + "?method=flickr.tags.getListUser&format=json&nojsoncallback=1&api_key=c34e0bbc909c580a4a442f280f686d6b")
     Observable<Who> getTags(@Query("user_id") String uid);
 
-    @Multipart
-    @POST("https://up.flickr.com/services/upload?format=json&nojsoncallback=1&api_key=3b9d2687f93eb4b4835a112b41d28db0")
-    Observable<ResponseBody> postPhoto(@Part MultipartBody.Part filePart);
 
 
 }
