@@ -3187,8 +3187,8 @@ containing a value of this type.
         public static final int line3=0x7f0d00b1;
         public static final int listMode=0x7f0d000b;
         public static final int list_item=0x7f0d0050;
-        public static final int loginBtn=0x7f0d0082;
-        public static final int loginTvLogo=0x7f0d0083;
+        public static final int loginBtn=0x7f0d0083;
+        public static final int loginTvLogo=0x7f0d0082;
         public static final int ltr=0x7f0d001b;
         public static final int media_actions=0x7f0d00ab;
         public static final int middle=0x7f0d003a;

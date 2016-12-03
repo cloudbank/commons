@@ -46,6 +46,8 @@
     <include
         layout="@layout/color_buttons"
         android:id="@+id/color_btns"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:gravity="center_horizontal"
         android:layout_below="@+id/tvPhotostream"
         android:layout_alignParentRight="false"

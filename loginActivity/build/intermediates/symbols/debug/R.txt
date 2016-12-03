@@ -842,8 +842,8 @@ int id line1 0x7f0d00ad
 int id line3 0x7f0d00b1
 int id listMode 0x7f0d000b
 int id list_item 0x7f0d0050
-int id loginBtn 0x7f0d0082
-int id loginTvLogo 0x7f0d0083
+int id loginBtn 0x7f0d0083
+int id loginTvLogo 0x7f0d0082
 int id ltr 0x7f0d001b
 int id media_actions 0x7f0d00ab
 int id middle 0x7f0d003a

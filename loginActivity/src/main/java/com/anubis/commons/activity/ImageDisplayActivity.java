@@ -126,7 +126,7 @@ public class ImageDisplayActivity extends AppCompatActivity {
         mPublisherAdView = (AdView) findViewById(R.id.publisherAdView);
         AdRequest adRequest = new AdRequest.Builder()
                // .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators
-                .addTestDevice("987E90047BB899A8A6E7C102E197490B")  // My Galaxy Nexus test phone
+                .addTestDevice("E0A1F5B182052F3D0E7A96A9B862BFC8")  // My Galaxy Nexus test phone
                 .build();
         mPublisherAdView.loadAd(adRequest);
 

@@ -27,13 +27,13 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
     private static final Set<Class<? extends RealmModel>> MODEL_CLASSES;
     static {
         Set<Class<? extends RealmModel>> modelClasses = new HashSet<Class<? extends RealmModel>>();
-        modelClasses.add(com.anubis.commons.models.UserModel.class);
-        modelClasses.add(com.anubis.commons.models.Recent.class);
         modelClasses.add(com.anubis.commons.models.Comment.class);
+        modelClasses.add(com.anubis.commons.models.UserModel.class);
+        modelClasses.add(com.anubis.commons.models.Comments_.class);
         modelClasses.add(com.anubis.commons.models.Photo.class);
+        modelClasses.add(com.anubis.commons.models.Color.class);
         modelClasses.add(com.anubis.commons.models.Interesting.class);
         modelClasses.add(com.anubis.commons.models.Tag.class);
-        modelClasses.add(com.anubis.commons.models.Comments_.class);
         modelClasses.add(com.anubis.commons.models.Common.class);
         MODEL_CLASSES = Collections.unmodifiableSet(modelClasses);
     }
@@ -42,20 +42,20 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
     public Table createTable(Class<? extends RealmModel> clazz, SharedRealm sharedRealm) {
         checkClass(clazz);
 
-        if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
-            return io.realm.UserModelRealmProxy.initTable(sharedRealm);
-        } else if (clazz.equals(com.anubis.commons.models.Recent.class)) {
-            return io.realm.RecentRealmProxy.initTable(sharedRealm);
-        } else if (clazz.equals(com.anubis.commons.models.Comment.class)) {
+        if (clazz.equals(com.anubis.commons.models.Comment.class)) {
             return io.realm.CommentRealmProxy.initTable(sharedRealm);
+        } else if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
+            return io.realm.UserModelRealmProxy.initTable(sharedRealm);
+        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
+            return io.realm.Comments_RealmProxy.initTable(sharedRealm);
         } else if (clazz.equals(com.anubis.commons.models.Photo.class)) {
             return io.realm.PhotoRealmProxy.initTable(sharedRealm);
+        } else if (clazz.equals(com.anubis.commons.models.Color.class)) {
+            return io.realm.ColorRealmProxy.initTable(sharedRealm);
         } else if (clazz.equals(com.anubis.commons.models.Interesting.class)) {
             return io.realm.InterestingRealmProxy.initTable(sharedRealm);
         } else if (clazz.equals(com.anubis.commons.models.Tag.class)) {
             return io.realm.TagRealmProxy.initTable(sharedRealm);
-        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
-            return io.realm.Comments_RealmProxy.initTable(sharedRealm);
         } else if (clazz.equals(com.anubis.commons.models.Common.class)) {
             return io.realm.CommonRealmProxy.initTable(sharedRealm);
         } else {
@@ -67,20 +67,20 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
     public RealmObjectSchema createRealmObjectSchema(Class<? extends RealmModel> clazz, RealmSchema realmSchema) {
         checkClass(clazz);
 
-        if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
-            return io.realm.UserModelRealmProxy.createRealmObjectSchema(realmSchema);
-        } else if (clazz.equals(com.anubis.commons.models.Recent.class)) {
-            return io.realm.RecentRealmProxy.createRealmObjectSchema(realmSchema);
-        } else if (clazz.equals(com.anubis.commons.models.Comment.class)) {
+        if (clazz.equals(com.anubis.commons.models.Comment.class)) {
             return io.realm.CommentRealmProxy.createRealmObjectSchema(realmSchema);
+        } else if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
+            return io.realm.UserModelRealmProxy.createRealmObjectSchema(realmSchema);
+        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
+            return io.realm.Comments_RealmProxy.createRealmObjectSchema(realmSchema);
         } else if (clazz.equals(com.anubis.commons.models.Photo.class)) {
             return io.realm.PhotoRealmProxy.createRealmObjectSchema(realmSchema);
+        } else if (clazz.equals(com.anubis.commons.models.Color.class)) {
+            return io.realm.ColorRealmProxy.createRealmObjectSchema(realmSchema);
         } else if (clazz.equals(com.anubis.commons.models.Interesting.class)) {
             return io.realm.InterestingRealmProxy.createRealmObjectSchema(realmSchema);
         } else if (clazz.equals(com.anubis.commons.models.Tag.class)) {
             return io.realm.TagRealmProxy.createRealmObjectSchema(realmSchema);
-        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
-            return io.realm.Comments_RealmProxy.createRealmObjectSchema(realmSchema);
         } else if (clazz.equals(com.anubis.commons.models.Common.class)) {
             return io.realm.CommonRealmProxy.createRealmObjectSchema(realmSchema);
         } else {
@@ -92,20 +92,20 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
     public ColumnInfo validateTable(Class<? extends RealmModel> clazz, SharedRealm sharedRealm, boolean allowExtraColumns) {
         checkClass(clazz);
 
-        if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
-            return io.realm.UserModelRealmProxy.validateTable(sharedRealm, allowExtraColumns);
-        } else if (clazz.equals(com.anubis.commons.models.Recent.class)) {
-            return io.realm.RecentRealmProxy.validateTable(sharedRealm, allowExtraColumns);
-        } else if (clazz.equals(com.anubis.commons.models.Comment.class)) {
+        if (clazz.equals(com.anubis.commons.models.Comment.class)) {
             return io.realm.CommentRealmProxy.validateTable(sharedRealm, allowExtraColumns);
+        } else if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
+            return io.realm.UserModelRealmProxy.validateTable(sharedRealm, allowExtraColumns);
+        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
+            return io.realm.Comments_RealmProxy.validateTable(sharedRealm, allowExtraColumns);
         } else if (clazz.equals(com.anubis.commons.models.Photo.class)) {
             return io.realm.PhotoRealmProxy.validateTable(sharedRealm, allowExtraColumns);
+        } else if (clazz.equals(com.anubis.commons.models.Color.class)) {
+            return io.realm.ColorRealmProxy.validateTable(sharedRealm, allowExtraColumns);
         } else if (clazz.equals(com.anubis.commons.models.Interesting.class)) {
             return io.realm.InterestingRealmProxy.validateTable(sharedRealm, allowExtraColumns);
         } else if (clazz.equals(com.anubis.commons.models.Tag.class)) {
             return io.realm.TagRealmProxy.validateTable(sharedRealm, allowExtraColumns);
-        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
-            return io.realm.Comments_RealmProxy.validateTable(sharedRealm, allowExtraColumns);
         } else if (clazz.equals(com.anubis.commons.models.Common.class)) {
             return io.realm.CommonRealmProxy.validateTable(sharedRealm, allowExtraColumns);
         } else {
@@ -117,20 +117,20 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
     public List<String> getFieldNames(Class<? extends RealmModel> clazz) {
         checkClass(clazz);
 
-        if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
-            return io.realm.UserModelRealmProxy.getFieldNames();
-        } else if (clazz.equals(com.anubis.commons.models.Recent.class)) {
-            return io.realm.RecentRealmProxy.getFieldNames();
-        } else if (clazz.equals(com.anubis.commons.models.Comment.class)) {
+        if (clazz.equals(com.anubis.commons.models.Comment.class)) {
             return io.realm.CommentRealmProxy.getFieldNames();
+        } else if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
+            return io.realm.UserModelRealmProxy.getFieldNames();
+        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
+            return io.realm.Comments_RealmProxy.getFieldNames();
         } else if (clazz.equals(com.anubis.commons.models.Photo.class)) {
             return io.realm.PhotoRealmProxy.getFieldNames();
+        } else if (clazz.equals(com.anubis.commons.models.Color.class)) {
+            return io.realm.ColorRealmProxy.getFieldNames();
         } else if (clazz.equals(com.anubis.commons.models.Interesting.class)) {
             return io.realm.InterestingRealmProxy.getFieldNames();
         } else if (clazz.equals(com.anubis.commons.models.Tag.class)) {
             return io.realm.TagRealmProxy.getFieldNames();
-        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
-            return io.realm.Comments_RealmProxy.getFieldNames();
         } else if (clazz.equals(com.anubis.commons.models.Common.class)) {
             return io.realm.CommonRealmProxy.getFieldNames();
         } else {
@@ -142,20 +142,20 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
     public String getTableName(Class<? extends RealmModel> clazz) {
         checkClass(clazz);
 
-        if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
-            return io.realm.UserModelRealmProxy.getTableName();
-        } else if (clazz.equals(com.anubis.commons.models.Recent.class)) {
-            return io.realm.RecentRealmProxy.getTableName();
-        } else if (clazz.equals(com.anubis.commons.models.Comment.class)) {
+        if (clazz.equals(com.anubis.commons.models.Comment.class)) {
             return io.realm.CommentRealmProxy.getTableName();
+        } else if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
+            return io.realm.UserModelRealmProxy.getTableName();
+        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
+            return io.realm.Comments_RealmProxy.getTableName();
         } else if (clazz.equals(com.anubis.commons.models.Photo.class)) {
             return io.realm.PhotoRealmProxy.getTableName();
+        } else if (clazz.equals(com.anubis.commons.models.Color.class)) {
+            return io.realm.ColorRealmProxy.getTableName();
         } else if (clazz.equals(com.anubis.commons.models.Interesting.class)) {
             return io.realm.InterestingRealmProxy.getTableName();
         } else if (clazz.equals(com.anubis.commons.models.Tag.class)) {
             return io.realm.TagRealmProxy.getTableName();
-        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
-            return io.realm.Comments_RealmProxy.getTableName();
         } else if (clazz.equals(com.anubis.commons.models.Common.class)) {
             return io.realm.CommonRealmProxy.getTableName();
         } else {
@@ -170,20 +170,20 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
             objectContext.set((BaseRealm) baseRealm, row, columnInfo, acceptDefaultValue, excludeFields);
             checkClass(clazz);
 
-            if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
-                return clazz.cast(new io.realm.UserModelRealmProxy());
-            } else if (clazz.equals(com.anubis.commons.models.Recent.class)) {
-                return clazz.cast(new io.realm.RecentRealmProxy());
-            } else if (clazz.equals(com.anubis.commons.models.Comment.class)) {
+            if (clazz.equals(com.anubis.commons.models.Comment.class)) {
                 return clazz.cast(new io.realm.CommentRealmProxy());
+            } else if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
+                return clazz.cast(new io.realm.UserModelRealmProxy());
+            } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
+                return clazz.cast(new io.realm.Comments_RealmProxy());
             } else if (clazz.equals(com.anubis.commons.models.Photo.class)) {
                 return clazz.cast(new io.realm.PhotoRealmProxy());
+            } else if (clazz.equals(com.anubis.commons.models.Color.class)) {
+                return clazz.cast(new io.realm.ColorRealmProxy());
             } else if (clazz.equals(com.anubis.commons.models.Interesting.class)) {
                 return clazz.cast(new io.realm.InterestingRealmProxy());
             } else if (clazz.equals(com.anubis.commons.models.Tag.class)) {
                 return clazz.cast(new io.realm.TagRealmProxy());
-            } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
-                return clazz.cast(new io.realm.Comments_RealmProxy());
             } else if (clazz.equals(com.anubis.commons.models.Common.class)) {
                 return clazz.cast(new io.realm.CommonRealmProxy());
             } else {
@@ -205,20 +205,20 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
         // generated by RealmProxy or the original type extending directly from RealmObject
         @SuppressWarnings("unchecked") Class<E> clazz = (Class<E>) ((obj instanceof RealmObjectProxy) ? obj.getClass().getSuperclass() : obj.getClass());
 
-        if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
-            return clazz.cast(io.realm.UserModelRealmProxy.copyOrUpdate(realm, (com.anubis.commons.models.UserModel) obj, update, cache));
-        } else if (clazz.equals(com.anubis.commons.models.Recent.class)) {
-            return clazz.cast(io.realm.RecentRealmProxy.copyOrUpdate(realm, (com.anubis.commons.models.Recent) obj, update, cache));
-        } else if (clazz.equals(com.anubis.commons.models.Comment.class)) {
+        if (clazz.equals(com.anubis.commons.models.Comment.class)) {
             return clazz.cast(io.realm.CommentRealmProxy.copyOrUpdate(realm, (com.anubis.commons.models.Comment) obj, update, cache));
+        } else if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
+            return clazz.cast(io.realm.UserModelRealmProxy.copyOrUpdate(realm, (com.anubis.commons.models.UserModel) obj, update, cache));
+        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
+            return clazz.cast(io.realm.Comments_RealmProxy.copyOrUpdate(realm, (com.anubis.commons.models.Comments_) obj, update, cache));
         } else if (clazz.equals(com.anubis.commons.models.Photo.class)) {
             return clazz.cast(io.realm.PhotoRealmProxy.copyOrUpdate(realm, (com.anubis.commons.models.Photo) obj, update, cache));
+        } else if (clazz.equals(com.anubis.commons.models.Color.class)) {
+            return clazz.cast(io.realm.ColorRealmProxy.copyOrUpdate(realm, (com.anubis.commons.models.Color) obj, update, cache));
         } else if (clazz.equals(com.anubis.commons.models.Interesting.class)) {
             return clazz.cast(io.realm.InterestingRealmProxy.copyOrUpdate(realm, (com.anubis.commons.models.Interesting) obj, update, cache));
         } else if (clazz.equals(com.anubis.commons.models.Tag.class)) {
             return clazz.cast(io.realm.TagRealmProxy.copyOrUpdate(realm, (com.anubis.commons.models.Tag) obj, update, cache));
-        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
-            return clazz.cast(io.realm.Comments_RealmProxy.copyOrUpdate(realm, (com.anubis.commons.models.Comments_) obj, update, cache));
         } else if (clazz.equals(com.anubis.commons.models.Common.class)) {
             return clazz.cast(io.realm.CommonRealmProxy.copyOrUpdate(realm, (com.anubis.commons.models.Common) obj, update, cache));
         } else {
@@ -232,20 +232,20 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
         // generated by RealmProxy or the original type extending directly from RealmObject
         @SuppressWarnings("unchecked") Class<RealmModel> clazz = (Class<RealmModel>) ((object instanceof RealmObjectProxy) ? object.getClass().getSuperclass() : object.getClass());
 
-        if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
-            io.realm.UserModelRealmProxy.insert(realm, (com.anubis.commons.models.UserModel) object, cache);
-        } else if (clazz.equals(com.anubis.commons.models.Recent.class)) {
-            io.realm.RecentRealmProxy.insert(realm, (com.anubis.commons.models.Recent) object, cache);
-        } else if (clazz.equals(com.anubis.commons.models.Comment.class)) {
+        if (clazz.equals(com.anubis.commons.models.Comment.class)) {
             io.realm.CommentRealmProxy.insert(realm, (com.anubis.commons.models.Comment) object, cache);
+        } else if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
+            io.realm.UserModelRealmProxy.insert(realm, (com.anubis.commons.models.UserModel) object, cache);
+        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
+            io.realm.Comments_RealmProxy.insert(realm, (com.anubis.commons.models.Comments_) object, cache);
         } else if (clazz.equals(com.anubis.commons.models.Photo.class)) {
             io.realm.PhotoRealmProxy.insert(realm, (com.anubis.commons.models.Photo) object, cache);
+        } else if (clazz.equals(com.anubis.commons.models.Color.class)) {
+            io.realm.ColorRealmProxy.insert(realm, (com.anubis.commons.models.Color) object, cache);
         } else if (clazz.equals(com.anubis.commons.models.Interesting.class)) {
             io.realm.InterestingRealmProxy.insert(realm, (com.anubis.commons.models.Interesting) object, cache);
         } else if (clazz.equals(com.anubis.commons.models.Tag.class)) {
             io.realm.TagRealmProxy.insert(realm, (com.anubis.commons.models.Tag) object, cache);
-        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
-            io.realm.Comments_RealmProxy.insert(realm, (com.anubis.commons.models.Comments_) object, cache);
         } else if (clazz.equals(com.anubis.commons.models.Common.class)) {
             io.realm.CommonRealmProxy.insert(realm, (com.anubis.commons.models.Common) object, cache);
         } else {
@@ -265,40 +265,40 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
             // generated by RealmProxy or the original type extending directly from RealmObject
             @SuppressWarnings("unchecked") Class<RealmModel> clazz = (Class<RealmModel>) ((object instanceof RealmObjectProxy) ? object.getClass().getSuperclass() : object.getClass());
 
-            if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
-                io.realm.UserModelRealmProxy.insert(realm, (com.anubis.commons.models.UserModel) object, cache);
-            } else if (clazz.equals(com.anubis.commons.models.Recent.class)) {
-                io.realm.RecentRealmProxy.insert(realm, (com.anubis.commons.models.Recent) object, cache);
-            } else if (clazz.equals(com.anubis.commons.models.Comment.class)) {
+            if (clazz.equals(com.anubis.commons.models.Comment.class)) {
                 io.realm.CommentRealmProxy.insert(realm, (com.anubis.commons.models.Comment) object, cache);
+            } else if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
+                io.realm.UserModelRealmProxy.insert(realm, (com.anubis.commons.models.UserModel) object, cache);
+            } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
+                io.realm.Comments_RealmProxy.insert(realm, (com.anubis.commons.models.Comments_) object, cache);
             } else if (clazz.equals(com.anubis.commons.models.Photo.class)) {
                 io.realm.PhotoRealmProxy.insert(realm, (com.anubis.commons.models.Photo) object, cache);
+            } else if (clazz.equals(com.anubis.commons.models.Color.class)) {
+                io.realm.ColorRealmProxy.insert(realm, (com.anubis.commons.models.Color) object, cache);
             } else if (clazz.equals(com.anubis.commons.models.Interesting.class)) {
                 io.realm.InterestingRealmProxy.insert(realm, (com.anubis.commons.models.Interesting) object, cache);
             } else if (clazz.equals(com.anubis.commons.models.Tag.class)) {
                 io.realm.TagRealmProxy.insert(realm, (com.anubis.commons.models.Tag) object, cache);
-            } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
-                io.realm.Comments_RealmProxy.insert(realm, (com.anubis.commons.models.Comments_) object, cache);
             } else if (clazz.equals(com.anubis.commons.models.Common.class)) {
                 io.realm.CommonRealmProxy.insert(realm, (com.anubis.commons.models.Common) object, cache);
             } else {
                 throw getMissingProxyClassException(clazz);
             }
             if (iterator.hasNext()) {
-                if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
-                    io.realm.UserModelRealmProxy.insert(realm, iterator, cache);
-                } else if (clazz.equals(com.anubis.commons.models.Recent.class)) {
-                    io.realm.RecentRealmProxy.insert(realm, iterator, cache);
-                } else if (clazz.equals(com.anubis.commons.models.Comment.class)) {
+                if (clazz.equals(com.anubis.commons.models.Comment.class)) {
                     io.realm.CommentRealmProxy.insert(realm, iterator, cache);
+                } else if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
+                    io.realm.UserModelRealmProxy.insert(realm, iterator, cache);
+                } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
+                    io.realm.Comments_RealmProxy.insert(realm, iterator, cache);
                 } else if (clazz.equals(com.anubis.commons.models.Photo.class)) {
                     io.realm.PhotoRealmProxy.insert(realm, iterator, cache);
+                } else if (clazz.equals(com.anubis.commons.models.Color.class)) {
+                    io.realm.ColorRealmProxy.insert(realm, iterator, cache);
                 } else if (clazz.equals(com.anubis.commons.models.Interesting.class)) {
                     io.realm.InterestingRealmProxy.insert(realm, iterator, cache);
                 } else if (clazz.equals(com.anubis.commons.models.Tag.class)) {
                     io.realm.TagRealmProxy.insert(realm, iterator, cache);
-                } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
-                    io.realm.Comments_RealmProxy.insert(realm, iterator, cache);
                 } else if (clazz.equals(com.anubis.commons.models.Common.class)) {
                     io.realm.CommonRealmProxy.insert(realm, iterator, cache);
                 } else {
@@ -314,20 +314,20 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
         // generated by RealmProxy or the original type extending directly from RealmObject
         @SuppressWarnings("unchecked") Class<RealmModel> clazz = (Class<RealmModel>) ((obj instanceof RealmObjectProxy) ? obj.getClass().getSuperclass() : obj.getClass());
 
-        if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
-            io.realm.UserModelRealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.UserModel) obj, cache);
-        } else if (clazz.equals(com.anubis.commons.models.Recent.class)) {
-            io.realm.RecentRealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.Recent) obj, cache);
-        } else if (clazz.equals(com.anubis.commons.models.Comment.class)) {
+        if (clazz.equals(com.anubis.commons.models.Comment.class)) {
             io.realm.CommentRealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.Comment) obj, cache);
+        } else if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
+            io.realm.UserModelRealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.UserModel) obj, cache);
+        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
+            io.realm.Comments_RealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.Comments_) obj, cache);
         } else if (clazz.equals(com.anubis.commons.models.Photo.class)) {
             io.realm.PhotoRealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.Photo) obj, cache);
+        } else if (clazz.equals(com.anubis.commons.models.Color.class)) {
+            io.realm.ColorRealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.Color) obj, cache);
         } else if (clazz.equals(com.anubis.commons.models.Interesting.class)) {
             io.realm.InterestingRealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.Interesting) obj, cache);
         } else if (clazz.equals(com.anubis.commons.models.Tag.class)) {
             io.realm.TagRealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.Tag) obj, cache);
-        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
-            io.realm.Comments_RealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.Comments_) obj, cache);
         } else if (clazz.equals(com.anubis.commons.models.Common.class)) {
             io.realm.CommonRealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.Common) obj, cache);
         } else {
@@ -347,40 +347,40 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
             // generated by RealmProxy or the original type extending directly from RealmObject
             @SuppressWarnings("unchecked") Class<RealmModel> clazz = (Class<RealmModel>) ((object instanceof RealmObjectProxy) ? object.getClass().getSuperclass() : object.getClass());
 
-            if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
-                io.realm.UserModelRealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.UserModel) object, cache);
-            } else if (clazz.equals(com.anubis.commons.models.Recent.class)) {
-                io.realm.RecentRealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.Recent) object, cache);
-            } else if (clazz.equals(com.anubis.commons.models.Comment.class)) {
+            if (clazz.equals(com.anubis.commons.models.Comment.class)) {
                 io.realm.CommentRealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.Comment) object, cache);
+            } else if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
+                io.realm.UserModelRealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.UserModel) object, cache);
+            } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
+                io.realm.Comments_RealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.Comments_) object, cache);
             } else if (clazz.equals(com.anubis.commons.models.Photo.class)) {
                 io.realm.PhotoRealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.Photo) object, cache);
+            } else if (clazz.equals(com.anubis.commons.models.Color.class)) {
+                io.realm.ColorRealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.Color) object, cache);
             } else if (clazz.equals(com.anubis.commons.models.Interesting.class)) {
                 io.realm.InterestingRealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.Interesting) object, cache);
             } else if (clazz.equals(com.anubis.commons.models.Tag.class)) {
                 io.realm.TagRealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.Tag) object, cache);
-            } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
-                io.realm.Comments_RealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.Comments_) object, cache);
             } else if (clazz.equals(com.anubis.commons.models.Common.class)) {
                 io.realm.CommonRealmProxy.insertOrUpdate(realm, (com.anubis.commons.models.Common) object, cache);
             } else {
                 throw getMissingProxyClassException(clazz);
             }
             if (iterator.hasNext()) {
-                if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
-                    io.realm.UserModelRealmProxy.insertOrUpdate(realm, iterator, cache);
-                } else if (clazz.equals(com.anubis.commons.models.Recent.class)) {
-                    io.realm.RecentRealmProxy.insertOrUpdate(realm, iterator, cache);
-                } else if (clazz.equals(com.anubis.commons.models.Comment.class)) {
+                if (clazz.equals(com.anubis.commons.models.Comment.class)) {
                     io.realm.CommentRealmProxy.insertOrUpdate(realm, iterator, cache);
+                } else if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
+                    io.realm.UserModelRealmProxy.insertOrUpdate(realm, iterator, cache);
+                } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
+                    io.realm.Comments_RealmProxy.insertOrUpdate(realm, iterator, cache);
                 } else if (clazz.equals(com.anubis.commons.models.Photo.class)) {
                     io.realm.PhotoRealmProxy.insertOrUpdate(realm, iterator, cache);
+                } else if (clazz.equals(com.anubis.commons.models.Color.class)) {
+                    io.realm.ColorRealmProxy.insertOrUpdate(realm, iterator, cache);
                 } else if (clazz.equals(com.anubis.commons.models.Interesting.class)) {
                     io.realm.InterestingRealmProxy.insertOrUpdate(realm, iterator, cache);
                 } else if (clazz.equals(com.anubis.commons.models.Tag.class)) {
                     io.realm.TagRealmProxy.insertOrUpdate(realm, iterator, cache);
-                } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
-                    io.realm.Comments_RealmProxy.insertOrUpdate(realm, iterator, cache);
                 } else if (clazz.equals(com.anubis.commons.models.Common.class)) {
                     io.realm.CommonRealmProxy.insertOrUpdate(realm, iterator, cache);
                 } else {
@@ -395,20 +395,20 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
         throws JSONException {
         checkClass(clazz);
 
-        if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
-            return clazz.cast(io.realm.UserModelRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
-        } else if (clazz.equals(com.anubis.commons.models.Recent.class)) {
-            return clazz.cast(io.realm.RecentRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
-        } else if (clazz.equals(com.anubis.commons.models.Comment.class)) {
+        if (clazz.equals(com.anubis.commons.models.Comment.class)) {
             return clazz.cast(io.realm.CommentRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
+        } else if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
+            return clazz.cast(io.realm.UserModelRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
+        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
+            return clazz.cast(io.realm.Comments_RealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
         } else if (clazz.equals(com.anubis.commons.models.Photo.class)) {
             return clazz.cast(io.realm.PhotoRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
+        } else if (clazz.equals(com.anubis.commons.models.Color.class)) {
+            return clazz.cast(io.realm.ColorRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
         } else if (clazz.equals(com.anubis.commons.models.Interesting.class)) {
             return clazz.cast(io.realm.InterestingRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
         } else if (clazz.equals(com.anubis.commons.models.Tag.class)) {
             return clazz.cast(io.realm.TagRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
-        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
-            return clazz.cast(io.realm.Comments_RealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
         } else if (clazz.equals(com.anubis.commons.models.Common.class)) {
             return clazz.cast(io.realm.CommonRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
         } else {
@@ -421,20 +421,20 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
         throws IOException {
         checkClass(clazz);
 
-        if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
-            return clazz.cast(io.realm.UserModelRealmProxy.createUsingJsonStream(realm, reader));
-        } else if (clazz.equals(com.anubis.commons.models.Recent.class)) {
-            return clazz.cast(io.realm.RecentRealmProxy.createUsingJsonStream(realm, reader));
-        } else if (clazz.equals(com.anubis.commons.models.Comment.class)) {
+        if (clazz.equals(com.anubis.commons.models.Comment.class)) {
             return clazz.cast(io.realm.CommentRealmProxy.createUsingJsonStream(realm, reader));
+        } else if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
+            return clazz.cast(io.realm.UserModelRealmProxy.createUsingJsonStream(realm, reader));
+        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
+            return clazz.cast(io.realm.Comments_RealmProxy.createUsingJsonStream(realm, reader));
         } else if (clazz.equals(com.anubis.commons.models.Photo.class)) {
             return clazz.cast(io.realm.PhotoRealmProxy.createUsingJsonStream(realm, reader));
+        } else if (clazz.equals(com.anubis.commons.models.Color.class)) {
+            return clazz.cast(io.realm.ColorRealmProxy.createUsingJsonStream(realm, reader));
         } else if (clazz.equals(com.anubis.commons.models.Interesting.class)) {
             return clazz.cast(io.realm.InterestingRealmProxy.createUsingJsonStream(realm, reader));
         } else if (clazz.equals(com.anubis.commons.models.Tag.class)) {
             return clazz.cast(io.realm.TagRealmProxy.createUsingJsonStream(realm, reader));
-        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
-            return clazz.cast(io.realm.Comments_RealmProxy.createUsingJsonStream(realm, reader));
         } else if (clazz.equals(com.anubis.commons.models.Common.class)) {
             return clazz.cast(io.realm.CommonRealmProxy.createUsingJsonStream(realm, reader));
         } else {
@@ -448,20 +448,20 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
         // generated by RealmProxy or the original type extending directly from RealmObject
         @SuppressWarnings("unchecked") Class<E> clazz = (Class<E>) realmObject.getClass().getSuperclass();
 
-        if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
-            return clazz.cast(io.realm.UserModelRealmProxy.createDetachedCopy((com.anubis.commons.models.UserModel) realmObject, 0, maxDepth, cache));
-        } else if (clazz.equals(com.anubis.commons.models.Recent.class)) {
-            return clazz.cast(io.realm.RecentRealmProxy.createDetachedCopy((com.anubis.commons.models.Recent) realmObject, 0, maxDepth, cache));
-        } else if (clazz.equals(com.anubis.commons.models.Comment.class)) {
+        if (clazz.equals(com.anubis.commons.models.Comment.class)) {
             return clazz.cast(io.realm.CommentRealmProxy.createDetachedCopy((com.anubis.commons.models.Comment) realmObject, 0, maxDepth, cache));
+        } else if (clazz.equals(com.anubis.commons.models.UserModel.class)) {
+            return clazz.cast(io.realm.UserModelRealmProxy.createDetachedCopy((com.anubis.commons.models.UserModel) realmObject, 0, maxDepth, cache));
+        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
+            return clazz.cast(io.realm.Comments_RealmProxy.createDetachedCopy((com.anubis.commons.models.Comments_) realmObject, 0, maxDepth, cache));
         } else if (clazz.equals(com.anubis.commons.models.Photo.class)) {
             return clazz.cast(io.realm.PhotoRealmProxy.createDetachedCopy((com.anubis.commons.models.Photo) realmObject, 0, maxDepth, cache));
+        } else if (clazz.equals(com.anubis.commons.models.Color.class)) {
+            return clazz.cast(io.realm.ColorRealmProxy.createDetachedCopy((com.anubis.commons.models.Color) realmObject, 0, maxDepth, cache));
         } else if (clazz.equals(com.anubis.commons.models.Interesting.class)) {
             return clazz.cast(io.realm.InterestingRealmProxy.createDetachedCopy((com.anubis.commons.models.Interesting) realmObject, 0, maxDepth, cache));
         } else if (clazz.equals(com.anubis.commons.models.Tag.class)) {
             return clazz.cast(io.realm.TagRealmProxy.createDetachedCopy((com.anubis.commons.models.Tag) realmObject, 0, maxDepth, cache));
-        } else if (clazz.equals(com.anubis.commons.models.Comments_.class)) {
-            return clazz.cast(io.realm.Comments_RealmProxy.createDetachedCopy((com.anubis.commons.models.Comments_) realmObject, 0, maxDepth, cache));
         } else if (clazz.equals(com.anubis.commons.models.Common.class)) {
             return clazz.cast(io.realm.CommonRealmProxy.createDetachedCopy((com.anubis.commons.models.Common) realmObject, 0, maxDepth, cache));
         } else {

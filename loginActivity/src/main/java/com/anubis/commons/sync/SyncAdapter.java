@@ -17,13 +17,17 @@ import android.content.SyncRequest;
 import android.content.SyncResult;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Looper;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
+import android.widget.Toast;
+import android.os.Handler;
 
 import com.anubis.commons.FlickrClientApp;
 import com.anubis.commons.R;
 import com.anubis.commons.activity.LoginActivity;
+import com.anubis.commons.models.Color;
 import com.anubis.commons.models.Common;
 import com.anubis.commons.models.Interesting;
 import com.anubis.commons.models.Photo;
@@ -57,7 +61,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     public static final int SYNC_FLEXTIME = 20 * MIN_IN_SECS;  // within 20 minutes
     private static final int DATA_NOTIFICATION_ID = 3004;
     Realm realm2, realm3, realm4;
-    Subscription friendSubscription, recentSubscription, interestingSubscription, commonsSubscription;
+    Subscription  interestingSubscription, commonsSubscription;
 
 
     /**
@@ -90,9 +94,13 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
      */
 
         Log.d("SYNC", "starting onPerformSync");
+
+
+
         getCommonsPage1();
+        getColorPhotos();
         getInterestingPhotos();
-        getColor();
+
         notifyMe();
         Log.d("SYNC", "END onPeformSync");
 
@@ -300,14 +308,14 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                                        //@todo probably can change this w algo
 
 
-                                       Date maxDate = realm3.where(Interesting.class).maximumDate("timestamp");
-                                       Interesting interesting = realm3.where(Interesting.class).equalTo("timestamp", maxDate).findFirst();
-                                       /*if (null == interesting) {
+                                        /*if (null == interesting) {
                                            interesting = realm3.createObject(Interesting.class, Calendar.getInstance().getTime().toString());
                                            interesting.setTimestamp(Calendar.getInstance().getTime());
                                            realm3.copyToRealmOrUpdate(interesting);
                                        }*/
+                                       Date d = Calendar.getInstance().getTime();
 
+                                       Interesting interesting = realm3.createObject(Interesting.class, d.toString());
 
                                        for (Photo photo : p.getPhotos().getPhotoList()) {
                                            photo.isInteresting = true;
@@ -315,7 +323,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
                                        }
 
-                                       interesting.timestamp = Calendar.getInstance().getTime();
+                                       interesting.timestamp =d;
                                        realm3.copyToRealmOrUpdate(interesting);  //deep copy
                                        realm3.commitTransaction();
                                        Log.d("DEBUG", "end get interesting: " + interesting);
@@ -343,9 +351,16 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                 .subscribe(new Subscriber<Photos>() {
                                @Override
                                public void onCompleted() {
-                                   //update total/page for next sync
+                                   Handler handler = new Handler(Looper.getMainLooper());
 
-                                   //Log.d("DEBUG","oncompleted");
+                                   handler.post(new Runnable() {
+
+                                       @Override
+                                       public void run() {
+                                           //Your UI code here
+                                           Toast.makeText(FlickrClientApp.getAppContext(), "Got our photos", Toast.LENGTH_SHORT).show();
+                                       }
+                                   });
 
                                }
 
@@ -368,43 +383,29 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
 
 
-                                       Calendar cal = Calendar.getInstance();
-                                       cal.add(Calendar.SECOND, 15);
-                                       Common c2 = realm4.createObject(Common.class, cal.getTime().toString());
-                                       //c2.setTimestamp(cal.getTime());
-                                       c2.setColor(Common.Colors.RED.name());
-                                       realm4.copyToRealmOrUpdate(c2);
-
                                        Date d = Calendar.getInstance().getTime();
+
+
                                        Common c = realm4.createObject(Common.class, d.toString());
                                        c.setTimestamp(d);
-                                       c.setColor(Common.Colors.ALL.name());
-                                       realm4.copyToRealmOrUpdate(c);
-
-                                       Interesting i = realm4.createObject(Interesting.class, d.toString());
-                                       i.setTimestamp(d);
-                                       realm4.copyToRealmOrUpdate(i);
-
 
 
 
                                        //Date maxDate = realm4.where(Common.class).maximumDate("timestamp");
                                        //Common c = realm4.where(Common.class).equalTo("color", Common.Colors.ALL.name()).findFirst();
 
-                                       Log.d("DEBUG&&&&&", "commons" + c);
+
                                        for (Photo photo : p.getPhotos().getPhotoList()) {
                                            photo.isCommon = true;
                                            c.commonPhotos.add(photo);
 
                                        }
+                                       Log.d("DEBUG&&&&&", "commonsPhotos" + c);
 
-                                       c.setColor(Common.Colors.ALL.name());
                                        c.timestamp = c.getTimestamp();
                                        realm4.copyToRealmOrUpdate(c);
 
-
                                        realm4.commitTransaction();
-                                       Log.d("DEBUG&&&&&", "commons" + c);
                                    } finally
 
                                    {
@@ -422,7 +423,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     }
 
 
-    private void getColor() {
+    private void getColorPhotos() {
 
         //@todo check for page total if not then process with page 1
         //@todo while realm total is less than total increment page else stop
@@ -458,24 +459,25 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                             realm2 = Realm.getDefaultInstance();
                             realm2.beginTransaction();
 
-                            // Date maxDate = realm2.where(Common.class).maximumDate("timestamp");
-                            Common c = realm2.where(Common.class).equalTo("color", Common.Colors.RED.name()).findFirst();
+
                             Date d = Calendar.getInstance().getTime();
+                            Color c = realm2.createObject(Color.class, d.toString());
+
 
 
                             for (Photo photo : p.getPhotos().getPhotoList()) {
                                 photo.isCommon = true;
-                                c.commonPhotos.add(photo);
+                                c.colorPhotos.add(photo);
+
 
                             }
-                            c.setColor(Common.Colors.RED.name());
+                            c.setColor(Color.Colors.RED.name());
                             c.timestamp = d;
                             realm2.copyToRealmOrUpdate(c);
 
 
                             realm2.commitTransaction();
                             Log.d("DEBUG&&&&&&", "colors" + c);
-                            Log.d("DEBUG", "end colors");
                         } finally {
                             if (null != realm2) {
                                 realm2.close();

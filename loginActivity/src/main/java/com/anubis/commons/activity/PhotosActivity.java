@@ -30,7 +30,7 @@ import com.anubis.commons.R;
 import com.anubis.commons.fragments.FlickrBaseFragment;
 import com.anubis.commons.fragments.InterestingFragment;
 import com.anubis.commons.fragments.SearchFragment;
-import com.anubis.commons.fragments.TagsFragment;
+import com.anubis.commons.fragments.ColorFragment;
 import com.anubis.commons.models.Photos;
 import com.anubis.commons.sync.SyncAdapter;
 import com.anubis.commons.util.Util;
@@ -241,7 +241,7 @@ public class PhotosActivity extends AppCompatActivity {
         ArrayList<Fragment> a = new ArrayList<Fragment>();
         a.add(SearchFragment.newInstance(0, getResources().getString(R.string.commons_search), new SearchFragment()));
         a.add(InterestingFragment.newInstance(1, getResources().getString(R.string.interesting_today), new InterestingFragment()));
-        a.add(SearchFragment.newInstance(2, getResources().getString(R.string.tags), new TagsFragment()));
+        a.add(SearchFragment.newInstance(2, getResources().getString(R.string.tags), new ColorFragment()));
 
         return a;
     }

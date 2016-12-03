@@ -13,26 +13,11 @@ import io.realm.annotations.PrimaryKey;
 
 public class Common extends RealmObject implements RealmModel {
 
-    public enum Colors {
-        RED("red"), YELLOW("yellow"), BLUE("blue"), VIOLET("violet"), ALL("all");
-        private String name;
-        Colors(String name) {
-            this.name=name;
-        }
 
-    }
     @PrimaryKey
     public String id;
 
-    public String getColor() {
-        return color;
-    }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public String color;
 
     public Date timestamp;
 

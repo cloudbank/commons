@@ -70,7 +70,7 @@ public class SearchFragment extends FlickrBaseFragment {
         ringProgressDialog.setMessage("Retrieving tags/recent photos");
         ringProgressDialog.setCancelable(true);
         ringProgressDialog.show();
-        Common c = commonsRealm.where(Common.class).equalTo("color",Common.Colors.ALL.name()).findFirst();
+        Common c = commonsRealm.where(Common.class).findFirst();
         Log.d("DEBUG", "commonsFragment" + c);
         if (null == c) {
             r = Realm.getDefaultInstance();
@@ -108,7 +108,8 @@ public class SearchFragment extends FlickrBaseFragment {
 
     private void updateDisplay() {
         Log.d("TABS", "search updateDisplay");
-        Common c = commonsRealm.where(Common.class).equalTo("color",Common.Colors.ALL.name()).findFirst();
+        Common c = commonsRealm.where(Common.class).findFirst();
+
         sPhotos.clear();
         sPhotos.addAll(c.getCommonPhotos());
         searchAdapter.notifyDataSetChanged();
