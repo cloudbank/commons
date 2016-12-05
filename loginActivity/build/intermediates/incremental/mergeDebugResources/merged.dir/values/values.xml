@@ -679,6 +679,7 @@
         <item name="colorPrimary">@color/RoyalBlue</item>
         <item name="colorPrimaryDark">#0abab5</item>
         <item name="colorAccent">@color/AliceBlue</item>
+        <item name="android:colorBackground">@color/AliceBlue</item>
 
     </style>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">

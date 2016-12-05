@@ -25,12 +25,6 @@ public abstract class FlickrBaseFragment extends Fragment {
     public final String APP_TAG = "Commons";
 
 
-
-
-
-
-
-
     private Bitmap photoBitmap;
 
     // newInstance constructor for creating fragment with arguments
@@ -51,7 +45,6 @@ public abstract class FlickrBaseFragment extends Fragment {
     }
 
 
-
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -63,13 +56,11 @@ public abstract class FlickrBaseFragment extends Fragment {
         int itemId = item.getItemId();
 
 
-
         if (itemId == R.id.action_logout) {
             signOut();
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 
     public void signOut() {
@@ -79,5 +70,4 @@ public abstract class FlickrBaseFragment extends Fragment {
         startActivity(bye);
     }
 
-    abstract void customLoadMoreDataFromApi(int page);
 }

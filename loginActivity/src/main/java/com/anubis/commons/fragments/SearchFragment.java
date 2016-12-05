@@ -1,9 +1,10 @@
 package com.anubis.commons.fragments;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.os.HandlerThread;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
@@ -18,12 +19,21 @@ import com.anubis.commons.adapter.SearchAdapter;
 import com.anubis.commons.adapter.SpacesItemDecoration;
 import com.anubis.commons.models.Common;
 import com.anubis.commons.models.Photo;
+import com.anubis.commons.models.Photos;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
+import retrofit2.adapter.rxjava.HttpException;
+import rx.Subscriber;
+import rx.Subscription;
+import rx.schedulers.Schedulers;
+
+import static com.anubis.commons.FlickrClientApp.getJacksonService;
 
 
 public class SearchFragment extends FlickrBaseFragment {
@@ -32,93 +42,112 @@ public class SearchFragment extends FlickrBaseFragment {
     RecyclerView rvPhotos;
     SearchAdapter searchAdapter;
     List<Photo> sPhotos = new ArrayList<Photo>();
-    Realm commonsRealm, r;
+    Realm commonsRealm;
     RealmChangeListener changeListener;
     ProgressDialog ringProgressDialog;
+    Subscription commonSubscription;
+    HandlerThread handlerThread;
+    Common mCommon;
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (null != r && !r.isClosed()) {
-            r.close();
+        if (null != commonSubscription) {
+            commonSubscription.unsubscribe();
         }
-        if (null != commonsRealm && !commonsRealm.isClosed())
-        commonsRealm.close();
+
+        if (null != commonsRealm && !commonsRealm.isClosed()) {
+            commonsRealm.close();
+        }
+
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        ringProgressDialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
+
+        changeListener = new RealmChangeListener<Common>() {
+
+            @Override
+            public void onChange(Common c) {
+
+                updateDisplay(c);
+            }
+        };
+        commonsRealm = Realm.getDefaultInstance();
+
+        Date maxDate = commonsRealm.where(Common.class).maximumDate("timestamp");
+        mCommon = commonsRealm.where(Common.class).equalTo("timestamp", maxDate).findFirst();
+        if (mCommon == null) {
+            commonsRealm.beginTransaction();
+            mCommon = commonsRealm.createObject(Common.class, Calendar.getInstance().getTime().toString());
+            //not in bg!
+            mCommon.timestamp = Calendar.getInstance().getTime();
+            commonsRealm.commitTransaction();
+            mCommon.addChangeListener(changeListener);
+            getCommonsPage1();  //<---- change
+        } else {
+            mCommon.addChangeListener(changeListener); //<--sync adapter
+            updateDisplay(mCommon);
+        }
+
+        ringProgressDialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
+        ringProgressDialog.setTitle("Please wait");
+        ringProgressDialog.setMessage("Retrieving photos");
+        ringProgressDialog.setCancelable(true);
+        ringProgressDialog.show();
+
     }
 
     @Override
     public void onResume() {
         super.onResume();
+
+
         Log.d("TABS", "search onresume");
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         Log.d("TABS", "search activcreated");
-        changeListener = new RealmChangeListener<Common>()
 
 
-        {
-            @Override
-            public void onChange(Common c) {
-                updateDisplay(c);
-            }
-        };
-        commonsRealm = Realm.getDefaultInstance();
-        ringProgressDialog.setTitle("Please wait");
-        ringProgressDialog.setMessage("Retrieving tags/recent photos");
-        ringProgressDialog.setCancelable(true);
-        ringProgressDialog.show();
-        Common c = commonsRealm.where(Common.class).findFirst();
-        Log.d("DEBUG", "commonsFragment" + c);
-        if (null == c) {
-            r = Realm.getDefaultInstance();
-            RealmChangeListener realmListener = new RealmChangeListener<Realm>() {
-                @Override
-                public void onChange(Realm r) {
 
-                    updateDisplay();
-                }
-            };
-            r.addChangeListener(realmListener);
+        //do in bg to avoid blocking UI
+        //Date maxDate = commonsRealm.where(Common.class).maximumDate("timestamp");
+       // mCommon = commonsRealm.where(Common.class).equalTo("timestamp", maxDate).findFirst();
 
-        } else {
-            Log.d("COMMON PRESENT", "list: " + c);
-            updateDisplay(c);
-            c.addChangeListener(changeListener);
-            if (null != r) {
-                r.removeAllChangeListeners();
-                r.close();
-            }
-        }
+       //updateDisplay(mCommon);
         ringProgressDialog.dismiss();
 
 
     }
+
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         searchAdapter = new SearchAdapter(FlickrClientApp.getAppContext(), sPhotos, true);
         Log.d("TABS", "search oncreate");
-        ringProgressDialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
         setRetainInstance(true);
+
+
+
+
+
     }
 
-    private void updateDisplay() {
-        Log.d("TABS", "search updateDisplay");
-        Common c = commonsRealm.where(Common.class).findFirst();
-
-        sPhotos.clear();
-        sPhotos.addAll(c.getCommonPhotos());
-        searchAdapter.notifyDataSetChanged();
-    }
 
     private void updateDisplay(Common c) {
         Log.d("TABS", "search updateDisplay(s)");
         sPhotos.clear();
-        sPhotos.addAll(c.getCommonPhotos());
+        if (null != c) {
+            sPhotos.addAll(c.getCommonPhotos());
+        }
         searchAdapter.notifyDataSetChanged();
 
 
@@ -148,14 +177,72 @@ public class SearchFragment extends FlickrBaseFragment {
         });
 
 
+        Log.d("TABS", "search oncreateview");
         setHasOptionsMenu(true);
         return view;
 
     }
 
+    private void getCommonsPage1() {
 
-    void customLoadMoreDataFromApi(int page) {
+        //@todo check for page total if not then process with page 1
+        //@todo while realm total is less than total increment page else stop
+        commonSubscription = getJacksonService().commons("1")
+                .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
+                .observeOn(Schedulers.io())
+                .subscribe(new Subscriber<Photos>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        // cast to retrofit.HttpException to get the response code
+                        if (e instanceof HttpException) {
+                            HttpException response = (HttpException) e;
+                            int code = response.code();
+                            Log.e("ERROR", String.valueOf(code));
+                        }
+                        Log.e("ERROR", "error getting commons1/photos" + e);
+                    }
+
+                    @Override
+                    public void onNext(Photos p) {
+                        Realm realm = null;
+                        try {
+                            realm = Realm.getDefaultInstance();
+                            realm.beginTransaction();
+
+
+                            Date maxDate = realm.where(Common.class).maximumDate("timestamp");
+                            Common c = realm.where(Common.class).equalTo("timestamp", maxDate).findFirst();
+
+
+                            for (Photo photo : p.getPhotos().getPhotoList()) {
+                                photo.isCommon = true;
+                                c.commonPhotos.add(photo);
+
+                            }
+
+                            c.timestamp = Calendar.getInstance().getTime();;
+
+                            realm.copyToRealmOrUpdate(c);
+
+                            realm.commitTransaction();
+                        } finally {
+
+                            if (null != realm) {
+                                realm.close();
+                            }
+                        }
+
+
+                    }
+                });
     }
 
 
 }
+
+

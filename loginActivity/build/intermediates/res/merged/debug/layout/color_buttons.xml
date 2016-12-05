@@ -12,8 +12,7 @@
 
         <Button
             android:id="@+id/red"
-            android:textSize="12sp"
-            android:layout_width="wrap_content"
+            android:layout_width="75dp"
             android:layout_height="wrap_content"
             android:padding="15dp"
             android:background="@color/red"
@@ -22,13 +21,12 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:theme="@style/Widget.AppCompat.Button.Colored"
-            android:drawableLeft="@mipmap/ic_launcher"
-            android:text="Red" />
+            android:drawableRight="@drawable/check"
+             />
 
         <Button
             android:id="@+id/yellow"
-            android:textSize="12sp"
-            android:layout_width="wrap_content"
+            android:layout_width="75dp"
             android:layout_height="wrap_content"
             android:padding="15dp"
             android:background="@color/yellow"
@@ -37,17 +35,15 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:theme="@style/Widget.AppCompat.Button.Colored"
-            android:text="Yellow" />
+            />
 
 
         <Button
             android:id="@+id/blue"
-            android:textSize="12sp"
-            android:layout_width="wrap_content"
+            android:layout_width="75dp"
             android:layout_height="wrap_content"
             android:padding="15dp"
             android:background="@color/RoyalBlue"
-            android:text="Blue"
             android:layout_margin="5dp"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="5dp"
@@ -56,8 +52,7 @@
             />
         <Button
             android:id="@+id/violet"
-            android:textSize="12sp"
-            android:layout_width="wrap_content"
+            android:layout_width="75dp"
             android:layout_height="wrap_content"
             android:padding="15dp"
             android:background="@color/violet"
@@ -66,7 +61,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:theme="@style/Widget.AppCompat.Button.Colored"
-            android:text="Violet" />
+             />
 
     </LinearLayout>
 

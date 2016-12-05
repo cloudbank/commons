@@ -9,7 +9,6 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.HandlerThread;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -27,18 +26,14 @@ import android.widget.Toast;
 
 import com.anubis.commons.FlickrClientApp;
 import com.anubis.commons.R;
+import com.anubis.commons.fragments.ColorFragment;
 import com.anubis.commons.fragments.FlickrBaseFragment;
 import com.anubis.commons.fragments.InterestingFragment;
 import com.anubis.commons.fragments.SearchFragment;
-import com.anubis.commons.fragments.ColorFragment;
-import com.anubis.commons.models.Photos;
-import com.anubis.commons.sync.SyncAdapter;
 import com.anubis.commons.util.Util;
 import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
-
-import rx.Subscription;
 
 public class PhotosActivity extends AppCompatActivity {
 
@@ -47,9 +42,6 @@ public class PhotosActivity extends AppCompatActivity {
 
     protected SharedPreferences prefs;
     protected SharedPreferences.Editor editor;
-    private Subscription subscription;
-    private Photos mPhotos;
-    HandlerThread handlerThread;
     View rootView;
 
     /**
@@ -139,8 +131,10 @@ public class PhotosActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //initDb();
         setContentView(R.layout.activity_photos);
         //for snackbar
+
         rootView = findViewById(android.R.id.content);
         //oauthkit shared prefs
         SharedPreferences authPrefs = getApplicationContext().getSharedPreferences(getString(R.string.OAuthKit_Prefs), 0);
@@ -169,7 +163,8 @@ public class PhotosActivity extends AppCompatActivity {
         }
         //@todo check that sync adapter is running as planned for repeat login
         //this only runs the sync if no account account exists; else it should be running
-        SyncAdapter.initializeSyncAdapter(this);
+        //move and delay @todo
+        //SyncAdapter.initializeSyncAdapter(this);
 
 
         setContentView(R.layout.activity_photos);
@@ -196,9 +191,8 @@ public class PhotosActivity extends AppCompatActivity {
         vpPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(onTabSelectedListener(vpPager));
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-8660045387738182~7164386158");
-
+        //SyncAdapter.initializeSyncAdapter(this);  //delay with handlerthread
     }
-
 
 
     private void updateUserInfo(SharedPreferences authPrefs) {
@@ -245,6 +239,8 @@ public class PhotosActivity extends AppCompatActivity {
 
         return a;
     }
+
+
 
 
     @Override
@@ -333,5 +329,15 @@ public class PhotosActivity extends AppCompatActivity {
         //this.subscription.unsubscribe();
         super.onDestroy();
 
+
     }
+
+
+
+
+
+
+
+
+
 }

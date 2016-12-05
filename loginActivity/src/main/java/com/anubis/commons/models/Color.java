@@ -13,10 +13,13 @@ import io.realm.annotations.PrimaryKey;
 
 public class Color extends RealmObject implements RealmModel {
     public enum Colors {
-        RED("red"), YELLOW("yellow"), BLUE("blue"), VIOLET("violet"), ALL("all");
+        RED("red","0"), YELLOW("yellow","4"), BLUE("blue","8"), VIOLET("violet","9");
         private String name;
-        Colors(String name) {
+        public String code;
+
+        Colors(String name, String code) {
             this.name=name;
+            this.code=code;
         }
 
     }

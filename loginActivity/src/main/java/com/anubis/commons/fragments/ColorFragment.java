@@ -1,15 +1,16 @@
 package com.anubis.commons.fragments;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.anubis.commons.FlickrClientApp;
 import com.anubis.commons.R;
@@ -17,32 +18,42 @@ import com.anubis.commons.activity.ImageDisplayActivity;
 import com.anubis.commons.adapter.ColorAdapter;
 import com.anubis.commons.models.Color;
 import com.anubis.commons.models.Photo;
+import com.anubis.commons.models.Photos;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
+import retrofit2.adapter.rxjava.HttpException;
+import rx.Subscriber;
+import rx.Subscription;
+import rx.schedulers.Schedulers;
 
-import static android.R.attr.maxDate;
+import static com.anubis.commons.FlickrClientApp.getJacksonService;
+import static com.anubis.commons.R.id.blue;
 
 
 public class ColorFragment extends FlickrBaseFragment {
 
     List mTags;
     private List<Photo> mPhotos;
-
+    Subscription colorSubscription, colorSubscription2;
     AdView mPublisherAdView;
     ProgressDialog ringProgressDialog;
     ColorAdapter colorAdapter;
     RecyclerView rvPhotos;
 
     RealmChangeListener changeListener;
-    Realm colorRealm, r;
-    Color color;
+    Realm colorRealm;
+    Color mColor;
+    HashMap<Integer, String> colors = new HashMap<>();
+
 
     @Override
     public void onPause() {
@@ -63,13 +74,10 @@ public class ColorFragment extends FlickrBaseFragment {
         }
     }
 
-
-
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        Log.d("TABS", "tags activcreated");
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        ringProgressDialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
         changeListener = new RealmChangeListener<Color>()
 
         {
@@ -79,40 +87,38 @@ public class ColorFragment extends FlickrBaseFragment {
             }
         };
 
-
         colorRealm = Realm.getDefaultInstance();
-        ringProgressDialog.setTitle("Please wait");
-        ringProgressDialog.setMessage("Retrieving tags/recent photos");
-        ringProgressDialog.setCancelable(true);
-        ringProgressDialog.show();
-        //bring back red
-        //check red button
-        //onclick listeners for buttons
-        //get if no list in realm AND check some time duration
-        Date maxDate = colorRealm.where(Color.class).maximumDate(getString(R.string.timestamp));
-        color = colorRealm.where(Color.class)
-                .equalTo("color",Color.Colors.RED.name()).equalTo("timestamp", maxDate).findFirst();
-
-
-        if (null == color) {
-            r = Realm.getDefaultInstance();
-            RealmChangeListener realmListener = new RealmChangeListener<Realm>() {
-                @Override
-                public void onChange(Realm r) {
-                    updateDisplay();
-                }
-            };
-            r.addChangeListener(realmListener);
+        Date maxDate = colorRealm.where(Color.class).maximumDate("timestamp");
+        //@todo get the last selected color?
+        mColor = colorRealm.where(Color.class).equalTo("timestamp", maxDate).equalTo("color","0").findFirst();
+        if (mColor == null) {
+            colorRealm.beginTransaction();
+            mColor = colorRealm.createObject(Color.class, Calendar.getInstance().getTime().toString());
+            //not in bg!
+            mColor.timestamp = Calendar.getInstance().getTime();
+            colorRealm.commitTransaction();
+            mColor.addChangeListener(changeListener);
+            //last color?
+            getColor("0");
 
         } else {
-            Log.d("TAGS PRESENT", "list: " + color);
-            updateDisplay(color);
-            color.addChangeListener(changeListener);
-            if (null != r) {
-                r.removeAllChangeListeners();
-                r.close();
-            }
+            mColor.addChangeListener(changeListener); //<--sync adapter
+            updateDisplay(mColor);
         }
+        ringProgressDialog.setTitle("Please wait");
+        ringProgressDialog.setMessage("Retrieving photos");
+        ringProgressDialog.setCancelable(true);
+        ringProgressDialog.show();
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        Log.d("TABS", "tags activcreated");
+
+
+
         ringProgressDialog.dismiss();
 
     }
@@ -122,36 +128,32 @@ public class ColorFragment extends FlickrBaseFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPhotos = new ArrayList<Photo>();
-        ringProgressDialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
         colorAdapter = new ColorAdapter(getActivity(), mPhotos, false);
 
         Log.d("TABS", "tags oncreate");
+        colors.put(blue, "8");
+        colors.put(R.id.red, "0");
+        colors.put(R.id.yellow, "4");
+        colors.put(R.id.violet, "9");
+
         setRetainInstance(true);
     }
 
 
-    void customLoadMoreDataFromApi(int page) {
-    }
 
 
-    private void updateDisplay() {
-        Log.d("TABS", "tags updateDisplay");
-        Color c = colorRealm.where(Color.class).equalTo("color",Color.Colors.RED.name()).equalTo("timestamp", maxDate).findFirst();
-        mPhotos.clear();
-        mPhotos.addAll(c.getColorPhotos());
-        colorAdapter.notifyDataSetChanged();
-    }
+
 
     private void updateDisplay(Color c) {
         Log.d("TABS", "tags updateDisplay(t)");
         mPhotos.clear();
-        mPhotos.addAll(c.getColorPhotos());
+        if (null != c) {
+            mPhotos.addAll(c.getColorPhotos());
+        }
         colorAdapter.notifyDataSetChanged();
 
 
     }
-
-
 
 
     @Override
@@ -160,14 +162,33 @@ public class ColorFragment extends FlickrBaseFragment {
             mPublisherAdView.pause();
         }
         super.onDestroy();
-        if (null != r && !r.isClosed()) {
-            r.close();
-        }
+
         if (null != colorRealm && !colorRealm.isClosed()) {
             colorRealm.close();
         }
+        
     }
 
+
+    private void getPhotos(View v) {
+        //from onclick buttons
+        final String color = colors.get(v.getId());
+        Realm realm = Realm.getDefaultInstance();
+        realm.beginTransaction();
+        Color colorObj = realm.where(Color.class)
+                .equalTo("color", color).findFirst();
+        realm.close();
+        if (null != colorObj) {
+            mPhotos.clear();
+            mPhotos.addAll(colorObj.getColorPhotos());
+            colorAdapter.notifyDataSetChanged();
+        } else {
+            getColor(color);
+            //udpateDisplay--the listener should be attached already
+
+        }
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -189,7 +210,7 @@ public class ColorFragment extends FlickrBaseFragment {
             }
         });
         //button on clicks
-        //get color if not in realm and store it
+        //get mColor if not in mRealm and store it
 
         mPublisherAdView = (AdView) view.findViewById(R.id.publisherAdView);
         AdRequest adRequest = new AdRequest.Builder()
@@ -198,8 +219,134 @@ public class ColorFragment extends FlickrBaseFragment {
                 .build();
         mPublisherAdView.loadAd(adRequest);
 
+        final Button red = (Button) view.findViewById(R.id.red);
+        final Button violet = (Button) view.findViewById(R.id.violet);
+        final Button yellow = (Button) view.findViewById(R.id.yellow);
+        final Button blue = (Button) view.findViewById(R.id.blue);
+
+        red.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //get from mRealm, if null or stale
+                //get from network once per 48 hrs;
+                red.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
+                yellow.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                blue.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                violet.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                getPhotos(v);
+            }
+        });
+        yellow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //get from mRealm, if null or stale
+                //get from network once per 48 hrs;
+                yellow.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
+                red.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                blue.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                violet.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                getPhotos(v);
+            }
+        });
+
+
+        blue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                blue.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
+                red.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                yellow.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                violet.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                //get from mRealm, if null or stale
+                //get from network once per 48 hrs;
+                getPhotos(v);
+            }
+        });
+
+
+        violet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                violet.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
+                red.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                blue.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                yellow.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                //get from mRealm, if null or stale
+                //get from network once per 48 hrs;
+                getPhotos(v);
+            }
+        });
+
+
         setHasOptionsMenu(true);
         return view;
+    }
+
+
+    private void getColor(String color) {
+
+        //@todo check for page total if not then process with page 1
+        //@todo while realm total is less than total increment page else stop
+        HashMap<String, String> data = new HashMap<>();
+        data.put("page", "1");
+        data.put("color_codes", color);  //start w red
+        colorSubscription = getJacksonService().bycolor(data)
+                .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
+                .observeOn(Schedulers.io())
+                .subscribe(new Subscriber<Photos>() {
+                    @Override
+                    public void onCompleted() {
+                        //update total/page for next sync
+
+                        //Log.d("DEBUG","oncompleted");
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        // cast to retrofit.HttpException to get the response code
+                        if (e instanceof HttpException) {
+                            HttpException response = (HttpException) e;
+                            int code = response.code();
+                            Log.e("ERROR", String.valueOf(code));
+                        }
+                        Log.e("ERROR", "error getting mColor/photos" + e);
+                    }
+
+                    @Override
+                    public void onNext(Photos p) {
+                        Realm mRealm = null;
+
+                        try {
+                            mRealm = Realm.getDefaultInstance();
+                            mRealm.beginTransaction();
+
+
+                            Date maxDate = colorRealm.where(Color.class).maximumDate("timestamp");
+                            Color c = colorRealm.where(Color.class).equalTo("timestamp", maxDate).equalTo("color","0").findFirst();
+
+                            for (Photo photo : p.getPhotos().getPhotoList()) {
+                                photo.isCommon = true;
+                                c.colorPhotos.add(photo);
+
+
+                            }
+                            c.setColor("0");
+                            c.timestamp = Calendar.getInstance().getTime();;
+                            mRealm.copyToRealmOrUpdate(c);
+
+
+                            mRealm.commitTransaction();
+                        } finally {
+                            if (null != mRealm) {
+                                mRealm.close();
+                            }
+                        }
+
+
+                    }
+                });
+
     }
 
 

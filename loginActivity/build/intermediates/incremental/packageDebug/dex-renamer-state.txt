@@ -1,4 +1,4 @@
-#Fri Dec 02 18:43:49 PST 2016
+#Sun Dec 04 18:31:10 PST 2016
 base.0=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_efa2dbb94e9997d47ee475af86ff0abbd4ee6a23
 renamed.1=classes.dex
 renamed.0=classes2.dex

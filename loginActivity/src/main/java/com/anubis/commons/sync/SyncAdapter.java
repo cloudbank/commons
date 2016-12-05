@@ -56,9 +56,9 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     // Define a variable to contain a content resolver instance
     ContentResolver mContentResolver;
     public static final int HOUR_IN_SECS = 60 * 60;
-    public static final int SYNC_INTERVAL = 12 * HOUR_IN_SECS;    //every 12 hours
+    public static final int SYNC_INTERVAL = 3* 60; //12 * HOUR_IN_SECS;    //every 12 hours
     public static final int MIN_IN_SECS = 60;
-    public static final int SYNC_FLEXTIME = 20 * MIN_IN_SECS;  // within 20 minutes
+    public static final int SYNC_FLEXTIME = 20; //* MIN_IN_SECS;  // within 20 minutes
     private static final int DATA_NOTIFICATION_ID = 3004;
     Realm realm2, realm3, realm4;
     Subscription  interestingSubscription, commonsSubscription;
@@ -300,22 +300,10 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                                        realm3 = Realm.getDefaultInstance();
                                        realm3.beginTransaction();
 
-                                       //String user_id = Util.getUserId();
+                                       Date maxDate = realm3.where(Interesting.class).maximumDate("timestamp");
+                                       Interesting interesting = realm3.where(Interesting.class).equalTo("timestamp", maxDate).findFirst();
 
 
-                                       //realm3.copyToRealmOrUpdate(i);
-
-                                       //@todo probably can change this w algo
-
-
-                                        /*if (null == interesting) {
-                                           interesting = realm3.createObject(Interesting.class, Calendar.getInstance().getTime().toString());
-                                           interesting.setTimestamp(Calendar.getInstance().getTime());
-                                           realm3.copyToRealmOrUpdate(interesting);
-                                       }*/
-                                       Date d = Calendar.getInstance().getTime();
-
-                                       Interesting interesting = realm3.createObject(Interesting.class, d.toString());
 
                                        for (Photo photo : p.getPhotos().getPhotoList()) {
                                            photo.isInteresting = true;
@@ -323,7 +311,8 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
                                        }
 
-                                       interesting.timestamp =d;
+                                       interesting.timestamp =  Calendar.getInstance().getTime();
+
                                        realm3.copyToRealmOrUpdate(interesting);  //deep copy
                                        realm3.commitTransaction();
                                        Log.d("DEBUG", "end get interesting: " + interesting);
@@ -383,16 +372,11 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
 
 
-                                       Date d = Calendar.getInstance().getTime();
-
-
-                                       Common c = realm4.createObject(Common.class, d.toString());
-                                       c.setTimestamp(d);
 
 
 
-                                       //Date maxDate = realm4.where(Common.class).maximumDate("timestamp");
-                                       //Common c = realm4.where(Common.class).equalTo("color", Common.Colors.ALL.name()).findFirst();
+                                       Date maxDate = realm4.where(Common.class).maximumDate("timestamp");
+                                       Common c = realm4.where(Common.class).equalTo("timestamp", maxDate).findFirst();
 
 
                                        for (Photo photo : p.getPhotos().getPhotoList()) {
@@ -402,7 +386,8 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                                        }
                                        Log.d("DEBUG&&&&&", "commonsPhotos" + c);
 
-                                       c.timestamp = c.getTimestamp();
+                                       c.timestamp =   Calendar.getInstance().getTime();
+
                                        realm4.copyToRealmOrUpdate(c);
 
                                        realm4.commitTransaction();
@@ -460,8 +445,11 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                             realm2.beginTransaction();
 
 
-                            Date d = Calendar.getInstance().getTime();
-                            Color c = realm2.createObject(Color.class, d.toString());
+                            Date maxDate = realm2.where(Color.class).maximumDate("timestamp");
+                            Color c = realm2.where(Color.class).equalTo("timestamp", maxDate).equalTo("color", "0").findFirst();
+
+
+
 
 
 
@@ -471,8 +459,8 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
 
                             }
-                            c.setColor(Color.Colors.RED.name());
-                            c.timestamp = d;
+                            c.setColor("0");
+                            c.timestamp = Calendar.getInstance().getTime();
                             realm2.copyToRealmOrUpdate(c);
 
 

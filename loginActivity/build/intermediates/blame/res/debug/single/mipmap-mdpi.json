@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/mipmap-mdpi/ic_launcher.png",
+        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/mipmap-mdpi/ic_check.png",
+        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/mipmap-mdpi/ic_check.png"
+    }
+]
