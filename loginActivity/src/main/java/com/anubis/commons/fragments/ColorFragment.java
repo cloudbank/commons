@@ -23,6 +23,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -31,6 +32,7 @@ import java.util.List;
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
 import retrofit2.adapter.rxjava.HttpException;
+import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.schedulers.Schedulers;
@@ -42,7 +44,8 @@ import static com.anubis.commons.R.id.blue;
 public class ColorFragment extends FlickrBaseFragment {
 
     List mTags;
-    private List<Photo> mPhotos;
+    private List<Photo> mPhotos = new ArrayList<Photo>();
+    ;
     Subscription colorSubscription, colorSubscription2;
     AdView mPublisherAdView;
     ProgressDialog ringProgressDialog;
@@ -78,6 +81,9 @@ public class ColorFragment extends FlickrBaseFragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         ringProgressDialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
+
+        colorAdapter = new ColorAdapter(getActivity(), mPhotos, false);
+
         changeListener = new RealmChangeListener<Color>()
 
         {
@@ -89,20 +95,26 @@ public class ColorFragment extends FlickrBaseFragment {
 
         colorRealm = Realm.getDefaultInstance();
         Date maxDate = colorRealm.where(Color.class).maximumDate("timestamp");
-        //@todo get the last selected color?
-        mColor = colorRealm.where(Color.class).equalTo("timestamp", maxDate).equalTo("color","0").findFirst();
+        //@todo get the last selected color esp with SA
+        //shared prefs
+
+        mColor = colorRealm.where(Color.class).equalTo("timestamp", maxDate).equalTo("color", "0").findFirst();
+        //init
         if (mColor == null) {
             colorRealm.beginTransaction();
             mColor = colorRealm.createObject(Color.class, Calendar.getInstance().getTime().toString());
             //not in bg!
             mColor.timestamp = Calendar.getInstance().getTime();
+            mColor.color = "0";
             colorRealm.commitTransaction();
+
             mColor.addChangeListener(changeListener);
             //last color?
             getColor("0");
 
         } else {
             mColor.addChangeListener(changeListener); //<--sync adapter
+
             updateDisplay(mColor);
         }
         ringProgressDialog.setTitle("Please wait");
@@ -118,7 +130,6 @@ public class ColorFragment extends FlickrBaseFragment {
         Log.d("TABS", "tags activcreated");
 
 
-
         ringProgressDialog.dismiss();
 
     }
@@ -127,8 +138,6 @@ public class ColorFragment extends FlickrBaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPhotos = new ArrayList<Photo>();
-        colorAdapter = new ColorAdapter(getActivity(), mPhotos, false);
 
         Log.d("TABS", "tags oncreate");
         colors.put(blue, "8");
@@ -138,10 +147,6 @@ public class ColorFragment extends FlickrBaseFragment {
 
         setRetainInstance(true);
     }
-
-
-
-
 
 
     private void updateDisplay(Color c) {
@@ -166,26 +171,35 @@ public class ColorFragment extends FlickrBaseFragment {
         if (null != colorRealm && !colorRealm.isClosed()) {
             colorRealm.close();
         }
-        
+
     }
 
 
     private void getPhotos(View v) {
         //from onclick buttons
         final String color = colors.get(v.getId());
-        Realm realm = Realm.getDefaultInstance();
-        realm.beginTransaction();
-        Color colorObj = realm.where(Color.class)
-                .equalTo("color", color).findFirst();
-        realm.close();
-        if (null != colorObj) {
-            mPhotos.clear();
-            mPhotos.addAll(colorObj.getColorPhotos());
-            colorAdapter.notifyDataSetChanged();
-        } else {
-            getColor(color);
-            //udpateDisplay--the listener should be attached already
+        Realm realm2 = null;
 
+        try {
+            realm2 = Realm.getDefaultInstance();
+
+            Color colorObj = realm2.where(Color.class)
+                    .equalTo("color", color).findFirst();
+
+            if (null != colorObj) {
+                mPhotos.clear();
+                mPhotos.addAll(colorObj.getColorPhotos());
+                colorAdapter.notifyDataSetChanged();
+            } else {
+                Log.d("COLOR", "color not in db" + color);
+                //getColor(color);
+                //udpateDisplay--the listener should be attached already
+
+            }
+        } finally {
+            if (realm2 != null) {
+                realm2.close();
+            }
         }
 
     }
@@ -282,25 +296,27 @@ public class ColorFragment extends FlickrBaseFragment {
         return view;
     }
 
+    private static Observable<List<String>> getIds() {
+        return Observable.just(Arrays.<String>asList("0", "4", "8", "9"));
+    }
 
-    private void getColor(String color) {
+    private void getColor(final String color) {
 
         //@todo check for page total if not then process with page 1
         //@todo while realm total is less than total increment page else stop
         HashMap<String, String> data = new HashMap<>();
-        data.put("page", "1");
-        data.put("color_codes", color);  //start w red
-        colorSubscription = getJacksonService().bycolor(data)
+
+        colorSubscription = getIds().concatMapIterable(ids -> ids)
+                .concatMap(ColorFragment::setColorId)
                 .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
                 .observeOn(Schedulers.io())
+                //@todo change type to ColorListGroup
                 .subscribe(new Subscriber<Photos>() {
                     @Override
                     public void onCompleted() {
-                        //update total/page for next sync
-
-                        //Log.d("DEBUG","oncompleted");
-
+                        //close the progress bar
                     }
+
 
                     @Override
                     public void onError(Throwable e) {
@@ -315,24 +331,34 @@ public class ColorFragment extends FlickrBaseFragment {
 
                     @Override
                     public void onNext(Photos p) {
+
+                        Log.d("COLOR", "Photos&&&&&&" + p.getPhotos().getPhotoList().size());
                         Realm mRealm = null;
 
                         try {
                             mRealm = Realm.getDefaultInstance();
                             mRealm.beginTransaction();
 
+//change this to createObject and then fix the flicker on page one with progress dialog over app until
+                            //color done
+                            Date maxDate = mRealm.where(Color.class).maximumDate("timestamp");
+                            Color c = mRealm.where(Color.class).equalTo("timestamp", maxDate).equalTo("color", color).findFirst();
+                            if (null == c) {
+                                c = mRealm.createObject(Color.class, Calendar.getInstance().getTime().toString());
+                                //not in bg!
+                                c.timestamp = Calendar.getInstance().getTime();
+                                c.color = color;
 
-                            Date maxDate = colorRealm.where(Color.class).maximumDate("timestamp");
-                            Color c = colorRealm.where(Color.class).equalTo("timestamp", maxDate).equalTo("color","0").findFirst();
-
+                            }
                             for (Photo photo : p.getPhotos().getPhotoList()) {
                                 photo.isCommon = true;
                                 c.colorPhotos.add(photo);
 
 
                             }
-                            c.setColor("0");
-                            c.timestamp = Calendar.getInstance().getTime();;
+                            c.setColor(color);
+                            c.timestamp = Calendar.getInstance().getTime();
+
                             mRealm.copyToRealmOrUpdate(c);
 
 
@@ -347,6 +373,13 @@ public class ColorFragment extends FlickrBaseFragment {
                     }
                 });
 
+    }
+
+    private static Observable<Photos> setColorId(String id) {
+        HashMap<String, String> data = new HashMap<>();
+        data.put("page", "1");
+        data.put("color_codes", id);  //start w red
+        return getJacksonService().bycolor(data);
     }
 
 

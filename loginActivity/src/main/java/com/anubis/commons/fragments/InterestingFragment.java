@@ -54,6 +54,8 @@ public class InterestingFragment extends FlickrBaseFragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         ringProgressDialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
+        rAdapter = new InterestingAdapter(FlickrClientApp.getAppContext(), mPhotos, true);
+
         changeListener = new RealmChangeListener<Interesting>() {
             @Override
             public void onChange(Interesting i) {
@@ -100,7 +102,6 @@ public class InterestingFragment extends FlickrBaseFragment {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         Log.d("TABS", "interesting oncreate");
-        rAdapter = new InterestingAdapter(FlickrClientApp.getAppContext(), mPhotos, true);
 
 
     }
@@ -197,8 +198,8 @@ public class InterestingFragment extends FlickrBaseFragment {
                                        realm = Realm.getDefaultInstance();
                                        realm.beginTransaction();
 
-                                       Date maxDate = interestingRealm.where(Interesting.class).maximumDate("timestamp");
-                                       Interesting interesting = interestingRealm.where(Interesting.class).equalTo("timestamp", maxDate).findFirst();
+                                       Date maxDate = realm.where(Interesting.class).maximumDate("timestamp");
+                                       Interesting interesting = realm.where(Interesting.class).equalTo("timestamp", maxDate).findFirst();
 
 
                                        for (Photo photo : p.getPhotos().getPhotoList()) {

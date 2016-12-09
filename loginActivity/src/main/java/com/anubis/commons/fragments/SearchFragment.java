@@ -66,7 +66,7 @@ public class SearchFragment extends FlickrBaseFragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         ringProgressDialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
-
+        searchAdapter = new SearchAdapter(FlickrClientApp.getAppContext(), sPhotos, true);
         changeListener = new RealmChangeListener<Common>() {
 
             @Override
@@ -131,7 +131,7 @@ public class SearchFragment extends FlickrBaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        searchAdapter = new SearchAdapter(FlickrClientApp.getAppContext(), sPhotos, true);
+
         Log.d("TABS", "search oncreate");
         setRetainInstance(true);
 
