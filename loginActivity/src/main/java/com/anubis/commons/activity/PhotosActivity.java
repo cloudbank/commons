@@ -175,7 +175,7 @@ public class PhotosActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         //getSupportActionBar().setElevation(3);
         //getSupportActionBar().setTitle(R.string.app_name);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.Seashell));
+        toolbar.setTitleTextColor(getResources().getColor(R.color.TiffanyBlue));
         getSupportActionBar().setSubtitle(Util.getCurrentUser());
         toolbar.setSubtitleTextColor(getResources().getColor(R.color.Azure));
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);

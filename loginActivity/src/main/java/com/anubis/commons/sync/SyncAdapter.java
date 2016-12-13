@@ -239,7 +239,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                         .setColor(context.getResources().getColor(R.color.PaleVioletRed))
                         .setSmallIcon(iconId)
                         .setContentTitle("Commons Data")
-                        .setContentText("Photos updated");
+                        .setContentText("Photos updated every 12 hrs");
 
 
         Intent resultIntent = new Intent(context, LoginActivity.class);

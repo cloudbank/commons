@@ -21,6 +21,16 @@ public class Photos {
     public Photos() {
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String color;
+
     @JsonProperty("photos")
 
     private Photos_ photos;

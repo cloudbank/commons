@@ -90,7 +90,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View photosView = inflater.inflate(R.layout.photo_item_search, parent, false);
+        View photosView = inflater.inflate(R.layout.photo_item,  parent, false);
 
         ViewHolder viewHolder = new ViewHolder(photosView, getListener());
         return viewHolder;

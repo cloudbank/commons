@@ -57,7 +57,7 @@
         <item name="android:layout_centerInParent">true</item>
         <item name="android:padding">5dp</item>
         <item name="android:textSize">21sp</item>
-        <item name="android:textStyle">italic</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
@@ -87,11 +87,6 @@
         <item name="colorControlActivated">@color/DeepPink</item>
     </style>
 
-    <style name="CustomProgessBarStyle" parent="@android:style/Theme.Dialog">
-        <item name="android:alertDialogStyle">@style/CustomAlertDialogStyle</item>
-        <item name="android:background">@color/Snow</item>
-        <item name="android:textColorPrimary">#E00065</item>
-    </style>
 
     <style name="MyButton" parent="Theme.AppCompat.Light">
         <item name="colorControlHighlight">@color/RoyalBlue</item>
@@ -107,23 +102,15 @@
 
     <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <!--buttons color-->
-        <item name="colorAccent">@color/DeepPink</item>
+        <item name="colorAccent">@color/TiffanyBlue</item>
         <!--title and message color-->
-        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorPrimary">@color/TiffanyBlue</item>
         <!--dialog background-->
         <item name="android:windowBackground">@color/AliceBlue</item>
+
+
     </style>
 
-    <style name="CustomAlertDialogStyle">
-        <item name="android:bottomDark">#E00065</item>
-        <item name="android:bottomMedium">@color/WhiteSmoke</item>
-        <item name="android:centerBright">@color/WhiteSmoke</item>
-        <item name="android:centerDark">#E00065</item>
-        <item name="android:centerMedium">@color/WhiteSmoke</item>
-        <item name="android:fullBright">@color/WhiteSmoke</item>
-        <item name="android:fullDark">#E00065</item>
-        <item name="android:topBright">@color/WhiteSmoke</item>
-        <item name="android:topDark">#E00065</item>
-    </style>
+
 
 </resources>

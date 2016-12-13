@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,6 +19,7 @@ import com.anubis.commons.R;
 import com.anubis.commons.activity.ImageDisplayActivity;
 import com.anubis.commons.adapter.ColorAdapter;
 import com.anubis.commons.models.Color;
+import com.anubis.commons.models.ColorPhotos;
 import com.anubis.commons.models.Photo;
 import com.anubis.commons.models.Photos;
 import com.google.android.gms.ads.AdRequest;
@@ -25,9 +28,9 @@ import com.google.android.gms.ads.AdView;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
@@ -38,7 +41,6 @@ import rx.Subscription;
 import rx.schedulers.Schedulers;
 
 import static com.anubis.commons.FlickrClientApp.getJacksonService;
-import static com.anubis.commons.R.id.blue;
 
 
 public class ColorFragment extends FlickrBaseFragment {
@@ -48,14 +50,14 @@ public class ColorFragment extends FlickrBaseFragment {
     ;
     Subscription colorSubscription, colorSubscription2;
     AdView mPublisherAdView;
-    ProgressDialog ringProgressDialog;
+    ProgressDialog dialog;
     ColorAdapter colorAdapter;
     RecyclerView rvPhotos;
 
     RealmChangeListener changeListener;
     Realm colorRealm;
     Color mColor;
-    HashMap<Integer, String> colors = new HashMap<>();
+    TreeMap<Integer, String> colors = new TreeMap<>();
 
 
     @Override
@@ -80,7 +82,7 @@ public class ColorFragment extends FlickrBaseFragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        ringProgressDialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
+
 
         colorAdapter = new ColorAdapter(getActivity(), mPhotos, false);
 
@@ -92,45 +94,37 @@ public class ColorFragment extends FlickrBaseFragment {
                 updateDisplay(r);
             }
         };
-
         colorRealm = Realm.getDefaultInstance();
-        Date maxDate = colorRealm.where(Color.class).maximumDate("timestamp");
-        //@todo get the last selected color esp with SA
-        //shared prefs
-
-        mColor = colorRealm.where(Color.class).equalTo("timestamp", maxDate).equalTo("color", "0").findFirst();
+        mColor = colorRealm.where(Color.class).equalTo("color", "0").findFirst();
         //init
         if (mColor == null) {
+
+            showProgress("Please wait, loading data...");
             colorRealm.beginTransaction();
             mColor = colorRealm.createObject(Color.class, Calendar.getInstance().getTime().toString());
             //not in bg!
-            mColor.timestamp = Calendar.getInstance().getTime();
             mColor.color = "0";
             colorRealm.commitTransaction();
 
             mColor.addChangeListener(changeListener);
             //last color?
-            getColor("0");
+            getColors();
+
 
         } else {
-            mColor.addChangeListener(changeListener); //<--sync adapter
-
+            mColor.addChangeListener(changeListener);
             updateDisplay(mColor);
         }
-        ringProgressDialog.setTitle("Please wait");
-        ringProgressDialog.setMessage("Retrieving photos");
-        ringProgressDialog.setCancelable(true);
-        ringProgressDialog.show();
+
+
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        Log.d("TABS", "tags activcreated");
 
-
-        ringProgressDialog.dismiss();
+        //Date maxDate = colorRealm.where(Color.class).maximumDate("timestamp");
 
     }
 
@@ -140,8 +134,9 @@ public class ColorFragment extends FlickrBaseFragment {
         super.onCreate(savedInstanceState);
 
         Log.d("TABS", "tags oncreate");
-        colors.put(blue, "8");
+
         colors.put(R.id.red, "0");
+        colors.put(R.id.blue, "8");
         colors.put(R.id.yellow, "4");
         colors.put(R.id.violet, "9");
 
@@ -192,7 +187,7 @@ public class ColorFragment extends FlickrBaseFragment {
                 colorAdapter.notifyDataSetChanged();
             } else {
                 Log.d("COLOR", "color not in db" + color);
-                //getColor(color);
+                //getColors(color);
                 //udpateDisplay--the listener should be attached already
 
             }
@@ -300,87 +295,127 @@ public class ColorFragment extends FlickrBaseFragment {
         return Observable.just(Arrays.<String>asList("0", "4", "8", "9"));
     }
 
-    private void getColor(final String color) {
 
+    private void getColors() {
         //@todo check for page total if not then process with page 1
         //@todo while realm total is less than total increment page else stop
-        HashMap<String, String> data = new HashMap<>();
-
-        colorSubscription = getIds().concatMapIterable(ids -> ids)
+        Observable<String> getIdFromList = getIds().concatMapIterable(ids -> ids);
+        colorSubscription = getIdFromList
                 .concatMap(ColorFragment::setColorId)
+                .zipWith(getIdFromList, (Photos p, String s) -> new ColorPhotos(s, p))
                 .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
                 .observeOn(Schedulers.io())
                 //@todo change type to ColorListGroup
-                .subscribe(new Subscriber<Photos>() {
-                    @Override
-                    public void onCompleted() {
-                        //close the progress bar
-                    }
+                .subscribe(new Subscriber<ColorPhotos>() {
+
+                               @Override
+                               public void onCompleted() {
+
+                                   Handler handler = new Handler(Looper.getMainLooper());
+                                   handler.post(new Runnable() {
+
+                                       @Override
+                                       public void run() {
+                                           dismissProgress();
+                                       }
+                                   });
+
+                               }
 
 
-                    @Override
-                    public void onError(Throwable e) {
-                        // cast to retrofit.HttpException to get the response code
-                        if (e instanceof HttpException) {
-                            HttpException response = (HttpException) e;
-                            int code = response.code();
-                            Log.e("ERROR", String.valueOf(code));
-                        }
-                        Log.e("ERROR", "error getting mColor/photos" + e);
-                    }
+                               @Override
+                               public void onError(Throwable e) {
+                                   // cast to retrofit.HttpException to get the response code
+                                   if (e instanceof HttpException) {
+                                       HttpException response = (HttpException) e;
+                                       int code = response.code();
+                                       Log.e("ERROR", String.valueOf(code));
+                                   }
+                                   Log.e("ERROR", "error getting friends" + e);
+                                   //signout
 
-                    @Override
-                    public void onNext(Photos p) {
-
-                        Log.d("COLOR", "Photos&&&&&&" + p.getPhotos().getPhotoList().size());
-                        Realm mRealm = null;
-
-                        try {
-                            mRealm = Realm.getDefaultInstance();
-                            mRealm.beginTransaction();
-
-//change this to createObject and then fix the flicker on page one with progress dialog over app until
-                            //color done
-                            Date maxDate = mRealm.where(Color.class).maximumDate("timestamp");
-                            Color c = mRealm.where(Color.class).equalTo("timestamp", maxDate).equalTo("color", color).findFirst();
-                            if (null == c) {
-                                c = mRealm.createObject(Color.class, Calendar.getInstance().getTime().toString());
-                                //not in bg!
-                                c.timestamp = Calendar.getInstance().getTime();
-                                c.color = color;
-
-                            }
-                            for (Photo photo : p.getPhotos().getPhotoList()) {
-                                photo.isCommon = true;
-                                c.colorPhotos.add(photo);
+                               }
 
 
-                            }
-                            c.setColor(color);
-                            c.timestamp = Calendar.getInstance().getTime();
+                               @Override
+                               public void onNext(ColorPhotos cp) {
 
-                            mRealm.copyToRealmOrUpdate(c);
+                                   Log.d("COLOR", "Photos&&&&&&");
+                                   Realm mRealm = null;
+
+                                   try {
+                                       mRealm = Realm.getDefaultInstance();
+                                       mRealm.beginTransaction();
+                                       Color c = null;
+                                       if (cp.getCode().equals("0")) {
+                                           c = mRealm.where(Color.class).equalTo("color", "0").findFirst();
+                                       } else {
+                                           c = mRealm.createObject(Color.class, Calendar.getInstance().getTime().toString());
+                                       }
+
+                                       c.timestamp = Calendar.getInstance().getTime();
+                                       c.color = cp.getCode();
+
+                                       for (Photo photo : cp.getP().getPhotos().getPhotoList()) {
+                                           photo.isCommon = true;
+                                           c.colorPhotos.add(photo);
 
 
-                            mRealm.commitTransaction();
-                        } finally {
-                            if (null != mRealm) {
-                                mRealm.close();
-                            }
-                        }
+                                       }
+                                       // c.setColor(color);
+                                       //c.timestamp = Calendar.getInstance().getTime();
+
+                                       mRealm.copyToRealmOrUpdate(c);
 
 
-                    }
-                });
+                                       mRealm.commitTransaction();
+
+
+                                   } finally {
+                                       if (null != mRealm) {
+                                           mRealm.close();
+                                       }
+                                   }
+
+
+                               }
+                           }
+
+                );
 
     }
 
-    private static Observable<Photos> setColorId(String id) {
+    private static Observable<Photos> setColorId(String ids) {
         HashMap<String, String> data = new HashMap<>();
         data.put("page", "1");
-        data.put("color_codes", id);  //start w red
+        data.put("color_codes", ids);
+
         return getJacksonService().bycolor(data);
     }
 
+    public void showProgress(String msg)
+    {
+        if(dialog == null){
+            dialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
+            dialog.setTitle(null);
+            dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            dialog.setCancelable(false);
+            dialog.setCanceledOnTouchOutside(false);
+        }
+
+        if(dialog.isShowing())
+        {
+            dialog.dismiss();
+        }
+
+        dialog.setMessage(msg);
+        dialog.show();
+    }
+
+    public void dismissProgress()
+    {
+        if(dialog != null && dialog.isShowing())
+            dialog.dismiss();
+    }
 
 }

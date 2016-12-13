@@ -385,7 +385,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="896901b99bcb4ebc4b1de2675e1b23689524fd2f">
+        sha1="ce2e645dc37cffef8ac35150ff224ac91a5b760a">
         <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_efa2dbb94e9997d47ee475af86ff0abbd4ee6a23/classes.dex" />
     </item>
     <item
@@ -799,7 +799,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="ca99706bf0ab980ed1ab0f29bcf6323f002e8815">
+        sha1="0222f84cd0ce7f6d7ab992315b709418451f4664">
         <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_8fdb7d0a1991570f361e5cf51390a6154111225f/classes.dex" />
     </item>
     <item

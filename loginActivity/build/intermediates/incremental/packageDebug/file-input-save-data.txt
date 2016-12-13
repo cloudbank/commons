@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Dec 07 19:37:22 PST 2016
+#Mon Dec 12 18:12:29 PST 2016
 20.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 143.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 340.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color/abc_primary_text_material_light.xml
@@ -32,7 +32,7 @@
 192.file=/Users/sabine/github/commons/loginActivity/build/intermediates/assets/debug/bin/classes/com/example/flickr/R$style.class
 363.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/activity_image_display.xml
 76.base=/Users/sabine/github/commons/loginActivity/build/intermediates/assets/debug
-396.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/common_google_signin_btn_text_light_pressed.9.png
+396.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/mipmap-xhdpi-v4/ic_rocket.png
 259.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/abc_text_select_handle_left_mtrl_dark.png
 97.set=ANDROID_RESOURCE
 348.set=ANDROID_RESOURCE
@@ -99,7 +99,7 @@
 314.file=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/commons-cli-1.2_b2233a9eb1c763f419fef88984ca706cdbbcb12f/classes.dex
 179.set=DEX
 27.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
-176.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-v21/abc_btn_colored_material.xml
+176.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/design_navigation_item_subheader.xml
 347.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/background_gradient.xml
 432.set=ANDROID_RESOURCE
 387.set=DEX
@@ -141,7 +141,7 @@
 104.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/abc_tab_indicator_material.xml
 137.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/fragment_search.xml
 308.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/color_buttons.xml
-47.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/abc_btn_check_to_on_mtrl_015.png
+47.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/design_navigation_item_separator.xml
 372.set=ANDROID_RESOURCE
 16.set=ANDROID_RESOURCE
 81.base=/Users/sabine/github/commons/loginActivity/build/intermediates/assets/debug
@@ -196,7 +196,7 @@
 107.set=ANDROID_RESOURCE
 181.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png
 335.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
-352.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/common_google_signin_btn_icon_light_pressed.9.png
+352.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color/switch_thumb_material_dark.xml
 180.set=ANDROID_RESOURCE
 197.base=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_008f1365ace7755889cb4ee04788798b03b704b9
 91.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout-v17/select_dialog_multichoice_material.xml
@@ -204,7 +204,7 @@
 215.file=/Users/sabine/github/commons/loginActivity/build/intermediates/assets/debug/fonts/Exo-Medium.otf
 405.set=ANDROID_RESOURCE
 32.set=ASSET
-248.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color/common_google_signin_btn_text_light.xml
+248.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/abc_vector_test.xml
 206.set=ASSET
 112.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 145.base=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-lite-10.0.0_dfcef52526a37d94965b8384f5b23923b2ea8605
@@ -215,10 +215,10 @@
 86.set=ANDROID_RESOURCE
 337.set=ANDROID_RESOURCE
 358.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
-375.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color-v23/design_tint_password_toggle.xml
+375.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/anim-v21/design_bottom_sheet_slide_out.xml
 205.file=/Users/sabine/github/commons/loginActivity/build/intermediates/assets/debug/bin/classes/com/example/flickr/PhotoArrayAdapter.class
 88.base=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/mergeJavaRes/debug/folders/2/1f/main
-238.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/abc_list_pressed_holo_dark.9.png
+238.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/menu/photos.xml
 409.file=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_8988e4f2e394f24f010b5ea5e794bf446e7f64fc/classes.dex
 138.set=DEX
 272.base=/Users/sabine/github/commons/loginActivity/build/intermediates/assets/debug
@@ -236,7 +236,7 @@
 365.file=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-24.2.1_8f6b1389273b4ac2d401126c725a6eaf4da1674c/classes.dex
 115.set=ANDROID_RESOURCE
 78.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
-398.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color/abc_secondary_text_material_dark.xml
+398.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/common_google_signin_btn_text_light_pressed.9.png
 228.file=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v13-24.0.0_b178426a34dbbf3eec81c1f464584627dba98fcb/classes.dex
 413.set=ANDROID_RESOURCE
 400.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
@@ -269,7 +269,7 @@
 16.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 165.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/design_layout_snackbar_include.xml
 148.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
-42.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color/design_error.xml
+42.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/abc_list_divider_mtrl_alpha.9.png
 399.set=ASSET
 319.base=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/rxjava-1.1.6_31a95f9e7f62055976dd7cce505cc3d93dbbf004
 71.set=DEX
@@ -376,7 +376,7 @@
 73.base=/Users/sabine/github/commons/loginActivity/build/intermediates/assets/debug
 393.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout-v21/abc_screen_toolbar.xml
 256.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/abc_cab_background_internal_bg.xml
-427.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/tag_fc_enable.xml
+427.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/support_simple_spinner_dropdown_item.xml
 67.set=ANDROID_RESOURCE
 318.set=ASSET
 289.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/anim-v21/design_appbar_state_list_animator.xml
@@ -389,7 +389,7 @@
 324.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 63.base=/Users/sabine/github/commons/loginActivity/build/intermediates/assets/debug
 186.base=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/realm-annotations-2.0.2_17eb8d01d60cd2dae44f8e5a7520fdc2b7f7ba70
-80.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/abc_alert_dialog_material.xml
+80.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/fragment_interesting.xml
 417.set=DEX
 383.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/select_dialog_multichoice_material.xml
 44.set=ASSET
@@ -475,7 +475,7 @@
 288.set=ASSET
 211.set=DEX
 254.base=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_d2e9a980d094521157e3477f0810b65b03b453c1
-271.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/design_navigation_item.xml
+271.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/abc_btn_radio_to_on_mtrl_015.png
 425.base=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_ffc8ed6aa2b48b098c247c0b66981bb39e44afeb
 166.set=ANDROID_RESOURCE
 101.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/abc_screen_simple.xml
@@ -483,24 +483,24 @@
 134.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/menu/preview_photo.xml
 305.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/mipmap-xxhdpi-v4/ic_rocket.png
 44.file=/Users/sabine/github/commons/loginActivity/build/intermediates/assets/debug/bin/dexedLibs/android-async-http-1.4.3-3a6e1036318712ad05a19cc34cfecf58.jar
-167.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color/common_google_signin_btn_text_dark.xml
+167.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/abc_select_dialog_material.xml
 91.set=ANDROID_RESOURCE
 342.set=ANDROID_RESOURCE
-77.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color-v11/abc_background_cache_hint_selector_material_dark.xml
+77.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/abc_dialog_material_background.xml
 265.set=ANDROID_RESOURCE
 381.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 143.set=ANDROID_RESOURCE
 0.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 188.set=ANDROID_RESOURCE
 261.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png
-432.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/mipmap-xxxhdpi-v4/ic_launcher.png
+432.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/abc_action_mode_bar.xml
 415.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 294.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/abc_list_pressed_holo_light.9.png
 277.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 396.set=ANDROID_RESOURCE
 124.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/abc_ic_star_half_black_48dp.png
 157.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/abc_ic_voice_search_api_material.xml
-328.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/abc_ic_go_search_api_material.xml
+328.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/toolbar_main.xml
 242.set=ASSET
 67.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/mipmap-mdpi-v4/ic_launcher.png
 120.set=NATIVE_RESOURCE
@@ -510,7 +510,7 @@
 251.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color/abc_btn_colored_borderless_text_material.xml
 422.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png
 17.set=ANDROID_RESOURCE
-284.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png
+284.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/tag_bar_red.xml
 438.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 296.set=ANDROID_RESOURCE
 15.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png
@@ -554,13 +554,13 @@
 245.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/indicator_autocrop.png
 281.set=ANDROID_RESOURCE
 108.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color/abc_primary_text_disable_only_material_dark.xml
-18.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout-v17/abc_dialog_title_material.xml
+18.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/abc_action_bar_title_item.xml
 142.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 429.set=ANDROID_RESOURCE
 52.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 56.set=DEX
 307.set=DEX
-372.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/abc_seekbar_track_material.xml
+372.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/mipmap-xxhdpi-v4/ic_launcher.png
 355.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 202.file=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-24.2.1_fc2a8c685be224c033aef0fc800bc99b79c26586/classes.dex
 85.base=/Users/sabine/github/commons/loginActivity/build/intermediates/assets/debug
@@ -639,7 +639,7 @@
 10.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/tag_fc_green_bb.xml
 313.file=/Users/sabine/github/commons/loginActivity/build/intermediates/assets/debug/bin/res/crunch/drawable-xxhdpi/ic_launcher.png
 26.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
-175.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/design_navigation_item_subheader.xml
+175.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-v21/abc_btn_colored_material.xml
 346.file=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-clearcut-10.0.0_4951d58818fe54b101b0a61dddce4f6b02406062/classes.dex
 422.set=ANDROID_RESOURCE
 59.base=/Users/sabine/github/commons/loginActivity/build/intermediates/assets/debug
@@ -680,7 +680,7 @@
 56.file=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-core-2.8.2_c0fad985e6a90c41d44233b9af2e18913cb7319b/classes.dex
 177.set=ANDROID_RESOURCE
 359.file=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex
-89.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color-v23/abc_tint_switch_thumb.xml
+89.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/abc_edit_text_material.xml
 360.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 430.set=ANDROID_RESOURCE
 385.set=ANDROID_RESOURCE
@@ -697,7 +697,7 @@
 46.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/abc_btn_radio_material.xml
 169.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout-v17/activity_login.xml
 362.set=ASSET
-79.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/fragment_interesting.xml
+79.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/abc_alert_dialog_material.xml
 80.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 285.set=ANDROID_RESOURCE
 383.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
@@ -736,11 +736,11 @@
 217.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 293.set=ANDROID_RESOURCE
 414.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/abc_action_bar_view_list_nav_layout.xml
-276.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/fragment_friends.xml
+276.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color-v23/abc_tint_spinner.xml
 68.set=DEX
 319.set=DEX
 311.base=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-10.0.0_5b2fcf0f877025d8df80df056b2a209bc522e067
-190.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/navigation_empty_icon.xml
+190.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/common_google_signin_btn_text_dark_disabled.9.png
 173.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 344.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 270.set=ANDROID_RESOURCE
@@ -759,7 +759,7 @@
 351.file=/Users/sabine/github/commons/loginActivity/build/intermediates/assets/debug/bin/dexedLibs/universal-image-loader-1.8.4-e0c5af80cc0f8ded7522f4201c77dcc4.jar
 170.set=ANDROID_RESOURCE
 196.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
-90.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/abc_edit_text_material.xml
+90.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color-v23/abc_tint_switch_thumb.xml
 367.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 214.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/common_google_signin_btn_text_light_normal.9.png
 99.set=ASSET
@@ -777,7 +777,7 @@
 374.file=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/5/slice_9/classes.dex
 204.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/mipmap-hdpi-v4/ic_rocket.png
 87.base=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7
-237.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/menu/photos.xml
+237.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/abc_list_pressed_holo_dark.9.png
 9.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 408.file=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/mergeJavaRes/debug/folders/2/1f/main/META-INF/services/com.fasterxml.jackson.core.JsonFactory
 128.set=DEX
@@ -797,7 +797,7 @@
 364.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color/abc_tint_default.xml
 105.set=ANDROID_RESOURCE
 77.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
-397.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/mipmap-xhdpi-v4/ic_rocket.png
+397.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color/abc_secondary_text_material_dark.xml
 403.set=ANDROID_RESOURCE
 358.set=ANDROID_RESOURCE
 30.set=NATIVE_RESOURCE
@@ -811,7 +811,7 @@
 157.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 51.file=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-annotations-2.8.2_fa5cc6a3ad8061c0e6c10f4159cd958645d8c1a0/classes.dex
 328.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
-354.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color/switch_thumb_material_dark.xml
+354.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/mipmap-xhdpi-v4/ic_check.png
 67.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 84.file=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/1f/main/lib/mips/librealm-jni.so
 387.file=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/converter-simplexml-2.1.0_7a8288753712bc14710b6850beea78c46bf58fac/classes.dex
@@ -829,7 +829,7 @@
 434.set=ASSET
 164.file=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_8fdb7d0a1991570f361e5cf51390a6154111225f/classes.dex
 147.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
-41.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/abc_list_divider_mtrl_alpha.9.png
+41.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color/design_error.xml
 389.set=ANDROID_RESOURCE
 318.base=/Users/sabine/github/commons/loginActivity/build/intermediates/assets/debug
 61.set=ANDROID_RESOURCE
@@ -903,7 +903,7 @@
 105.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color/abc_tint_edittext.xml
 174.set=DEX
 138.file=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/5/slice_1/classes.dex
-48.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/design_navigation_item_separator.xml
+48.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/abc_btn_check_to_on_mtrl_015.png
 382.set=ANDROID_RESOURCE
 26.set=ANDROID_RESOURCE
 82.base=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/picasso2-okhttp3-downloader-1.1.0_754f7de32f7f437708c01bcd0c7c0033a358dd00
@@ -922,7 +922,7 @@
 72.base=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/com.facebook.stetho-stetho-okhttp3-1.4.1_f9e11263285d49cac389564a81a0e41829e8a8bc
 392.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/anim/abc_fade_out.xml
 255.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/notification_template_part_chronometer.xml
-426.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/support_simple_spinner_dropdown_item.xml
+426.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/tag_fc_enable.xml
 57.set=ANDROID_RESOURCE
 308.set=ANDROID_RESOURCE
 288.file=/Users/sabine/github/commons/loginActivity/build/intermediates/assets/debug/bin/classes/com/example/flickr/activity/PhotosActivity.class
@@ -941,7 +941,7 @@
 219.base=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_186f9348f67a6438327022f5efa4d484f4d0bc82
 416.file=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_9fbbb7c0aa65572bcd1f1cb612393369011466e9/classes.dex
 208.set=ANDROID_RESOURCE
-278.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color-v23/abc_tint_spinner.xml
+278.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/fragment_friends.xml
 10.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 88.set=JAVA_RESOURCE
 339.set=ASSET
@@ -962,7 +962,7 @@
 117.set=ANDROID_RESOURCE
 182.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/design_text_input_password_icon.xml
 336.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
-353.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/mipmap-xhdpi-v4/ic_check.png
+353.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/common_google_signin_btn_icon_light_pressed.9.png
 190.set=ANDROID_RESOURCE
 198.base=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_35363b14afff10c4c0c9762049e5b78bcc31e793
 92.file=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-10.0.0_f87db5260f18eefed35195241b58e3743148f610/classes.dex
@@ -970,7 +970,7 @@
 216.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/abc_ic_ab_back_material.xml
 415.set=ANDROID_RESOURCE
 42.set=ANDROID_RESOURCE
-249.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/abc_vector_test.xml
+249.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color/common_google_signin_btn_text_light.xml
 216.set=ANDROID_RESOURCE
 113.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 310.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color/abc_tint_seek_thumb.xml
@@ -982,7 +982,7 @@
 96.set=DEX
 347.set=ANDROID_RESOURCE
 359.base=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8
-376.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/anim-v21/design_bottom_sheet_slide_out.xml
+376.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color-v23/design_tint_password_toggle.xml
 206.file=/Users/sabine/github/commons/loginActivity/build/intermediates/assets/debug/bin/dexedLibs/codepath-utils-8bc85749845572c9c0c0f652891801b6.jar
 89.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 239.file=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/5/slice_0/classes.dex
@@ -1031,7 +1031,7 @@
 390.base=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.0.0_14a6947646c66e8ecd9416ba030bcb1d99d045f4
 278.set=ANDROID_RESOURCE
 201.set=ANDROID_RESOURCE
-270.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/abc_btn_radio_to_on_mtrl_015.png
+270.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/design_navigation_item.xml
 253.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 424.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 156.set=ANDROID_RESOURCE
@@ -1039,7 +1039,7 @@
 286.base=/Users/sabine/github/commons/loginActivity/build/intermediates/assets/debug
 133.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/abc_activity_chooser_view.xml
 304.file=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/mergeJavaRes/debug/folders/2/1f/main/META-INF/services/org.ocpsoft.prettytime.PrettyTime
-166.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/abc_select_dialog_material.xml
+166.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color/common_google_signin_btn_text_dark.xml
 149.base=/Users/sabine/github/commons/loginActivity/build/intermediates/assets/debug
 43.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/abc_ratingbar_indicator_material.xml
 81.set=ASSET
@@ -1058,9 +1058,9 @@
 386.set=ANDROID_RESOURCE
 123.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/common_google_signin_btn_icon_dark_disabled.9.png
 156.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/common_google_signin_btn_text_light_disabled.9.png
-327.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/toolbar_main.xml
+327.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/abc_ic_go_search_api_material.xml
 232.set=ANDROID_RESOURCE
-189.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/common_google_signin_btn_text_dark_disabled.9.png
+189.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/navigation_empty_icon.xml
 66.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/abc_cab_background_top_mtrl_alpha.9.png
 110.set=DEX
 190.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
@@ -1069,7 +1069,7 @@
 363.set=ANDROID_RESOURCE
 250.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/notification_media_action.xml
 421.file=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-24.2.1_a65ca40f2ac97830ce15fcc63a9abec905caa00b/classes.dex
-283.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/tag_bar_red.xml
+283.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png
 437.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 286.set=ASSET
 164.set=DEX
@@ -1115,12 +1115,12 @@
 107.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color-v23/abc_tint_seek_thumb.xml
 3.set=ANDROID_RESOURCE
 194.set=ASSET
-17.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/abc_action_bar_title_item.xml
+17.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout-v17/abc_dialog_title_material.xml
 141.base=/Users/sabine/github/commons/loginActivity/build/intermediates/assets/debug
 419.set=ANDROID_RESOURCE
 46.set=ANDROID_RESOURCE
 51.base=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-annotations-2.8.2_fa5cc6a3ad8061c0e6c10f4159cd958645d8c1a0
-371.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/mipmap-xxhdpi-v4/ic_launcher.png
+371.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/abc_seekbar_track_material.xml
 354.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 201.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/design_navigation_menu.xml
 84.base=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/1f/main
@@ -1243,7 +1243,7 @@ count=439
 45.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-v23/abc_control_background_material.xml
 168.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/ic_logout.png
 352.set=ANDROID_RESOURCE
-78.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable/abc_dialog_material_background.xml
+78.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/color-v11/abc_background_cache_hint_selector_material_dark.xml
 275.set=ANDROID_RESOURCE
 382.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_
 153.set=DEX
@@ -1252,7 +1252,7 @@ count=439
 7.set=DEX
 198.set=DEX
 262.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/abc_text_select_handle_middle_mtrl_dark.png
-433.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/abc_action_mode_bar.xml
+433.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/mipmap-xxxhdpi-v4/ic_launcher.png
 416.base=/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_9fbbb7c0aa65572bcd1f1cb612393369011466e9
 295.file=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_/res/layout/abc_screen_content_include.xml
 278.base=/Users/sabine/github/commons/loginActivity/build/intermediates/res/resources-debug.ap_

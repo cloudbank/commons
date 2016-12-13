@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
@@ -49,6 +51,7 @@ public class SearchFragment extends FlickrBaseFragment {
     HandlerThread handlerThread;
     Common mCommon;
 
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -59,14 +62,16 @@ public class SearchFragment extends FlickrBaseFragment {
         if (null != commonsRealm && !commonsRealm.isClosed()) {
             commonsRealm.close();
         }
+        //@todo remove changelisteners
 
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        ringProgressDialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
+
         searchAdapter = new SearchAdapter(FlickrClientApp.getAppContext(), sPhotos, true);
+
         changeListener = new RealmChangeListener<Common>() {
 
             @Override
@@ -75,28 +80,31 @@ public class SearchFragment extends FlickrBaseFragment {
                 updateDisplay(c);
             }
         };
-        commonsRealm = Realm.getDefaultInstance();
 
+
+        commonsRealm = Realm.getDefaultInstance();
         Date maxDate = commonsRealm.where(Common.class).maximumDate("timestamp");
         mCommon = commonsRealm.where(Common.class).equalTo("timestamp", maxDate).findFirst();
         if (mCommon == null) {
+            ringProgressDialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
+            ringProgressDialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
+            ringProgressDialog.setTitle("Please wait");
+            ringProgressDialog.setMessage("Retrieving common photos");
+            ringProgressDialog.setCancelable(true);
+            ringProgressDialog.show();
+
             commonsRealm.beginTransaction();
-            mCommon = commonsRealm.createObject(Common.class, Calendar.getInstance().getTime().toString());
-            //not in bg!
-            mCommon.timestamp = Calendar.getInstance().getTime();
+            mCommon  = commonsRealm.createObject(Common.class, Calendar.getInstance().getTime().toString());
             commonsRealm.commitTransaction();
             mCommon.addChangeListener(changeListener);
             getCommonsPage1();  //<---- change
         } else {
-            mCommon.addChangeListener(changeListener); //<--sync adapter
+            //<--sync adapter
+            mCommon.addChangeListener(changeListener);
             updateDisplay(mCommon);
         }
 
-        ringProgressDialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
-        ringProgressDialog.setTitle("Please wait");
-        ringProgressDialog.setMessage("Retrieving photos");
-        ringProgressDialog.setCancelable(true);
-        ringProgressDialog.show();
+
 
     }
 
@@ -120,7 +128,7 @@ public class SearchFragment extends FlickrBaseFragment {
        // mCommon = commonsRealm.where(Common.class).equalTo("timestamp", maxDate).findFirst();
 
        //updateDisplay(mCommon);
-        ringProgressDialog.dismiss();
+
 
 
     }
@@ -193,6 +201,15 @@ public class SearchFragment extends FlickrBaseFragment {
                 .subscribe(new Subscriber<Photos>() {
                     @Override
                     public void onCompleted() {
+
+                        Handler handler = new Handler(Looper.getMainLooper());
+                        handler.post(new Runnable() {
+
+                            @Override
+                            public void run() {
+                                ringProgressDialog.dismiss();
+                            }
+                        });
 
                     }
 

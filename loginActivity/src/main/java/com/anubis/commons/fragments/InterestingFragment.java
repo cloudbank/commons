@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -53,7 +55,7 @@ public class InterestingFragment extends FlickrBaseFragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        ringProgressDialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
+
         rAdapter = new InterestingAdapter(FlickrClientApp.getAppContext(), mPhotos, true);
 
         changeListener = new RealmChangeListener<Interesting>() {
@@ -63,27 +65,29 @@ public class InterestingFragment extends FlickrBaseFragment {
             }
         };
 
+
         interestingRealm = Realm.getDefaultInstance();
         Date maxDate = interestingRealm.where(Interesting.class).maximumDate("timestamp");
         //@todo get the last selected color?
         mInteresting = interestingRealm.where(Interesting.class).equalTo("timestamp", maxDate).findFirst();
         if (mInteresting == null) {
+            ringProgressDialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
+            ringProgressDialog.setTitle("Please wait");
+            ringProgressDialog.setMessage("Retrieving interesting photos");
+            ringProgressDialog.setCancelable(true);
+            ringProgressDialog.show();
             interestingRealm.beginTransaction();
             mInteresting = interestingRealm.createObject(Interesting.class, Calendar.getInstance().getTime().toString());
             //not in bg!
-            mInteresting.timestamp = Calendar.getInstance().getTime();
             interestingRealm.commitTransaction();
             mInteresting.addChangeListener(changeListener);
             getInterestingPhotos();
 
         } else {
-            mInteresting.addChangeListener(changeListener); //<--sync adapter
+            mInteresting.addChangeListener(changeListener);
             updateDisplay(mInteresting);
         }
-        ringProgressDialog.setTitle("Please wait");
-        ringProgressDialog.setMessage("Retrieving photos");
-        ringProgressDialog.setCancelable(true);
-        ringProgressDialog.show();
+
     }
 
     @Override
@@ -92,7 +96,6 @@ public class InterestingFragment extends FlickrBaseFragment {
         Log.d("TABS", "interesting activcreated");
 
 
-        ringProgressDialog.dismiss();
 
     }
 
@@ -169,12 +172,18 @@ public class InterestingFragment extends FlickrBaseFragment {
                 .observeOn(Schedulers.io())
                 .subscribe(new Subscriber<Photos>() {
                                @Override
-                               public void onCompleted() {
+                    public void onCompleted() {
 
+                        Handler handler = new Handler(Looper.getMainLooper());
+                        handler.post(new Runnable() {
 
-                                   Log.d("DEBUG", "oncompleted interesting");
+                            @Override
+                            public void run() {
+                                ringProgressDialog.dismiss();
+                            }
+                        });
 
-                               }
+                    }
 
                                @Override
                                public void onError(Throwable e) {
@@ -208,7 +217,8 @@ public class InterestingFragment extends FlickrBaseFragment {
 
                                        }
 
-                                       interesting.timestamp = Calendar.getInstance().getTime();;
+                                       interesting.timestamp = Calendar.getInstance().getTime();
+                                       ;
 
                                        realm.copyToRealmOrUpdate(interesting);  //deep copy
                                        realm.commitTransaction();

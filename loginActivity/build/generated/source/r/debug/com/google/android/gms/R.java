@@ -69,8 +69,8 @@ public final class R {
 		public static final int normal = 0x7f0d000c;
 		public static final int radio = 0x7f0d0063;
 		public static final int standard = 0x7f0d0043;
-		public static final int text = 0x7f0d00b2;
-		public static final int text2 = 0x7f0d00b0;
+		public static final int text = 0x7f0d00b3;
+		public static final int text2 = 0x7f0d00b1;
 		public static final int toolbar = 0x7f0d0079;
 		public static final int wide = 0x7f0d0044;
 		public static final int wrap_content = 0x7f0d0028;
@@ -112,7 +112,7 @@ public final class R {
 		public static final int store_picture_title = 0x7f07002f;
 	}
 	public static final class style {
-		public static final int Theme_IAPTheme = 0x7f09011f;
+		public static final int Theme_IAPTheme = 0x7f09011d;
 	}
 	public static final class styleable {
 		public static final int[] AdsAttrs = { 0x7f010021, 0x7f010022, 0x7f010023 };

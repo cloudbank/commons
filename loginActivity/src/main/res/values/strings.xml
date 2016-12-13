@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">commons</string>
+    <string name="app_name">the commons</string>
     <string name="image_detail">Image Detail</string>
     <string name="friends_and_you">Friends  &amp; I</string>
     <string name="interesting_today">Explore</string>
-    <string name="commons_search">The Commons</string>
+    <string name="commons_search">All</string>
     <string name="tags">By Color</string>
-    <string name="commons"><b>The Commons</b>\n <i>Help catalog the world’s public photo archives.</i></string>
+    <string name="commons"><i>Help catalog the world’s public photo archives.</i></string>
     <string name="commons_under"><u>The key goal of The Commons is to share hidden treasures\n from the world\'s public photography archives.</u> </string>
     <string name="current_user">currentUser</string>
     <string name="user_id">userId</string>

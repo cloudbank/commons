@@ -83,7 +83,7 @@ public class LoginActivity extends OAuthLoginActivity {
     }
 
     public void loginToRest(View view) {
-        final ProgressDialog ringProgressDialog = new ProgressDialog(this, R.style.CustomProgessBarStyle);
+        final ProgressDialog ringProgressDialog = new ProgressDialog(this, R.style.MyDialogTheme);
         ringProgressDialog.setTitle("Please wait");
         ringProgressDialog.setMessage("Preparing to login");
         ringProgressDialog.setCancelable(true);
