@@ -16,11 +16,9 @@
 
 >>>>CURATE
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/VAxLK7w.png" height="500" /><img src="http://i.imgur.com/qS0bmHD.png" height="500" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/diVSarN.png" height="500" /><img src="http://i.imgur.com/svGnMq5.png" height="500" />
 
->>>>CREATE
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/dMZfxer.png" height="500"/><img src="http://i.imgur.com/M85iUwd.png" height="500" />
 
 
 ### Designed with the Material theme and latest, greatest android libs for best viewing pleasure!
