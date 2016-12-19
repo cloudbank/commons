@@ -47,7 +47,7 @@ It also uses many other open source libraries such as:
  * [Retrofit]() Type-safe HTTP client for Android and Java by Square
  * [RxJava]() Observable for easy, reliable threading and beautiful code that works with Retrofit
  * [Realm]() A new db for devices that is faster than naked sqlite!
-  * [Retrolambda]() the java 1.8 lambda backport for android
+ * [Retrolambda]() the java 1.8 lambda backport for android
  * [Picasso]() Square's optimized image loading library with built in caching and bg thread capability
  * [Jackson]()  Streaming treemap for fastest JSON parsing available
  * [simple-crop-image] (https://github.com/biokys/cropimage)
