@@ -50,7 +50,7 @@ It also uses many other open source libraries such as:
  * [Retrolambda]() the java 1.8 lambda backport for android
  * [Picasso]() Square's optimized image loading library with built in caching and bg thread capability
  * [Jackson]()  Streaming treemap for fastest JSON parsing available
- * [simple-crop-image] (https://github.com/biokys/cropimage)
+ 
  
 
 
