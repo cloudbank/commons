@@ -8,7 +8,7 @@
 
 >>>>VIEW   
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/bDoHZIz.png" height="500"/> <img src="http://i.imgur.com/vU3SboF.png" height="500" />     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/LuTPSF5.png" height="500"/> <img src="http://i.imgur.com/vU3SboF.png" height="500" />     
 
 >>>>COMMENT
 
