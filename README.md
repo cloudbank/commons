@@ -1,10 +1,10 @@
-# Phlix v 1.0   <img src="http://i.imgur.com/PG50tzr.jpg" height="100"/> 
+# Commons v 1.0   <img src="http://i.imgur.com/PG50tzr.jpg" height="100"/> 
 ### An android client for the Flickr photo API  [SDK 14+, Nougat compatible]
 
-* *Friends' & your photostreams*
-* *The 'Interesting' collection*
-* *Hot tags and Recent Uploads*
 * *The Commons collection--rare pictures from around the world curated by you!*
+* *The 'Interesting' collection*
+* *View by Color*
+
 
 >>>>VIEW   
 
@@ -49,6 +49,7 @@ It also uses many other open source libraries such as:
  * [Retrofit]() Type-safe HTTP client for Android and Java by Square
  * [RxJava]() Observable for easy, reliable threading and beautiful code that works with Retrofit
  * [Realm]() A new db for devices that is faster than naked sqlite!
+  * [Retrolambda]() the java 1.8 lambda backport for android
  * [Picasso]() Square's optimized image loading library with built in caching and bg thread capability
  * [Jackson]()  Streaming treemap for fastest JSON parsing available
  * [simple-crop-image] (https://github.com/biokys/cropimage)
