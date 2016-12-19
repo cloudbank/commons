@@ -4,16 +4,8 @@
         "source": "/Users/sabine/github/commons/loginActivity/src/main/res/layout/color_buttons.xml"
     },
     {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/main.xml",
-        "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/commons/simplecropimagelib/unspecified/res/layout/main.xml"
-    },
-    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/design_navigation_menu_item.xml",
         "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/layout/design_navigation_menu_item.xml"
-    },
-    {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/fragment_friends.xml",
-        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/layout/fragment_friends.xml"
     },
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
@@ -110,10 +102,6 @@
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/notification_template_lines.xml",
         "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/notification_template_lines.xml"
-    },
-    {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/activity_preview_photo.xml",
-        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/layout/activity_preview_photo.xml"
     },
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
@@ -238,10 +226,6 @@
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
         "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_screen_toolbar.xml"
-    },
-    {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/cropimage.xml",
-        "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/commons/simplecropimagelib/unspecified/res/layout/cropimage.xml"
     },
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",

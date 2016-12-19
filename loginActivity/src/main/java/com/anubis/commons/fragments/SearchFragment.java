@@ -86,12 +86,7 @@ public class SearchFragment extends FlickrBaseFragment {
         Date maxDate = commonsRealm.where(Common.class).maximumDate("timestamp");
         mCommon = commonsRealm.where(Common.class).equalTo("timestamp", maxDate).findFirst();
         if (mCommon == null) {
-            ringProgressDialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
-            ringProgressDialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
-            ringProgressDialog.setTitle("Please wait");
-            ringProgressDialog.setMessage("Retrieving common photos");
-            ringProgressDialog.setCancelable(true);
-            ringProgressDialog.show();
+            showProgress("Loading data, please wait...");
 
             commonsRealm.beginTransaction();
             mCommon  = commonsRealm.createObject(Common.class, Calendar.getInstance().getTime().toString());
@@ -207,7 +202,7 @@ public class SearchFragment extends FlickrBaseFragment {
 
                             @Override
                             public void run() {
-                                ringProgressDialog.dismiss();
+                                dismissProgress();
                             }
                         });
 

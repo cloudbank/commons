@@ -1,3 +1,2 @@
 include ':oauthkit'
-include ':simplecropimagelib'
 include ':loginActivity'

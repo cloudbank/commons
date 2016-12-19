@@ -99,3 +99,8 @@
 -keep class org.ocpsoft.prettytime.i18n.**
 
 -keepnames class * { *; }
+
+## Retrolambda specific rules ##
+
+# as per official recommendation: https://github.com/evant/gradle-retrolambda#proguard
+-dontwarn java.lang.invoke.*

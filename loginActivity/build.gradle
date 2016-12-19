@@ -15,7 +15,11 @@ android {
             sourceCompatibility JavaVersion.VERSION_1_8
             targetCompatibility JavaVersion.VERSION_1_8
         }
-
+        multiDexEnabled true
+        def propsFile = rootProject.file('local.properties')
+        def props = new Properties()
+        props.load(new FileInputStream(propsFile))
+        buildConfigField "String", "consumerKey", props['consumerKey']
     }
 
 
@@ -38,7 +42,6 @@ android {
 
 dependencies {
 
-    compile project(':simplecropimagelib')
     compile project(':oauthkit')
     compile 'com.android.support:support-v4:24.2.1'
     compile 'com.android.support:design:24.2.1'
@@ -78,5 +81,9 @@ dependencies {
     compile 'com.google.firebase:firebase-ads:10.0.0'
     compile 'com.facebook.stetho:stetho:1.4.1'
     compile 'com.facebook.stetho:stetho-okhttp3:1.4.1'
+    compile 'com.google.firebase:firebase-core:10.0.0'
+    compile 'com.google.firebase:firebase-ads:10.0.0'
+    compile 'com.android.support:multidex:1.0.0'
 
 }
+apply plugin: 'com.google.gms.google-services'

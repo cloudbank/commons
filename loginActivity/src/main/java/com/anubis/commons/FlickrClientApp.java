@@ -1,8 +1,8 @@
 package com.anubis.commons;
 
 import android.accounts.Account;
-import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDexApplication;
 
 import com.anubis.commons.service.FlickrService;
 import com.anubis.commons.service.ServiceGenerator;
@@ -16,7 +16,7 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 import se.akerfeldt.okhttp.signpost.OkHttpOAuthConsumer;
 
-public class FlickrClientApp extends Application {
+public class FlickrClientApp extends MultiDexApplication {
 
 
     private static FlickrService jacksonService;
@@ -59,14 +59,13 @@ public class FlickrClientApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        this.context = this;
+        context = this;
 
         Realm.init(this);
         RealmConfiguration config = new RealmConfiguration.Builder().build();
         Realm.setDefaultConfiguration(config);
 
 
-        FlickrClientApp.context = getApplicationContext();
 
 
         //TypefaceUtil.setDefaultFont(this, "SERIF", "fonts/Exo-Medium.otf");

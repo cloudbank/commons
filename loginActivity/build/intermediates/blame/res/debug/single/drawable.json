@@ -4,10 +4,6 @@
         "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.hkm.taglib/tag/1.6.0/res/drawable/tag_fc_blue.xml"
     },
     {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/selector_crop_button.xml",
-        "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/commons/simplecropimagelib/unspecified/res/drawable/selector_crop_button.xml"
-    },
-    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light.xml",
         "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.0/res/drawable/common_google_signin_btn_icon_light.xml"
     },
@@ -20,16 +16,16 @@
         "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_seekbar_thumb_material.xml"
     },
     {
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/commons_banner5.png",
+        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/commons_banner5.png"
+    },
+    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/tag_fc_green_bb.xml",
         "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.hkm.taglib/tag/1.6.0/res/drawable/tag_fc_green_bb.xml"
     },
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/abc_ic_clear_material.xml",
         "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_clear_material.xml"
-    },
-    {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/phlix.png",
-        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/phlix.png"
     },
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/abc_ic_voice_search_api_material.xml",
@@ -190,6 +186,10 @@
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
         "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_btn_check_material.xml"
+    },
+    {
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/commons_banner3.png",
+        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/commons_banner3.png"
     },
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_dark.xml",

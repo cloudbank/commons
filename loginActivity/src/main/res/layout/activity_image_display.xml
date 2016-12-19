@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             ads:adSize="BANNER"
-            ads:adUnitId="@string/ad_unit3" />
+            ads:adUnitId="@string/ad_unit" />
 
         <TextView
             android:id="@+id/title"
@@ -114,7 +114,7 @@
             android:layout_below="@id/tag_group"
             android:layout_marginBottom="15dp"
             android:layout_marginTop="10dp"
-            android:hint="Comment on this pic..."
+            android:hint="@string/comment_on_this_pic"
             android:inputType="textMultiLine"
             android:lines="6"
             android:minLines="6"
@@ -133,7 +133,7 @@
             android:layout_marginTop="10dp"
             android:onClick="addComment"
             android:padding="5dp"
-            android:text="add comment"
+            android:text="@string/add_comment"
             android:textColor="@color/AliceBlue"
             android:textSize="12sp"
             android:theme="@style/MyButton"></Button>

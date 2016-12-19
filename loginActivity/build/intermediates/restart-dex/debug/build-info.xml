@@ -4,30 +4,30 @@
     api-level="21"
     density="xhdpi"
     format="8"
-    plugin-version="2.2.2"
-    timestamp="118444198361171"
+    plugin-version="2.2.3"
+    timestamp="307062446523063"
     token="797905190886704399"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="15827" />
+        duration="10325" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="4711" />
+        duration="2186" />
     <task
         name="verifier"
-        duration="627" />
+        duration="334" />
 
     <artifact
         location="/Users/sabine/github/commons/loginActivity/build/outputs/apk/loginActivity-debug.apk"
         type="MAIN" />
 
     <build
-        timestamp="118444198361171"
+        timestamp="307062446523063"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/sabine/github/commons/loginActivity/build/outputs/apk/loginActivity-debug.apk"

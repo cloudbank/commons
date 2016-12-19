@@ -1,6 +1,5 @@
 package com.anubis.commons.fragments;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -39,7 +38,6 @@ import static com.anubis.commons.FlickrClientApp.getJacksonService;
 public class InterestingFragment extends FlickrBaseFragment {
     InterestingAdapter rAdapter;
     RecyclerView rvPhotos;
-    ProgressDialog ringProgressDialog;
     List<Photo> mPhotos = new ArrayList<Photo>();
     RealmChangeListener changeListener;
     Realm interestingRealm;
@@ -71,11 +69,7 @@ public class InterestingFragment extends FlickrBaseFragment {
         //@todo get the last selected color?
         mInteresting = interestingRealm.where(Interesting.class).equalTo("timestamp", maxDate).findFirst();
         if (mInteresting == null) {
-            ringProgressDialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
-            ringProgressDialog.setTitle("Please wait");
-            ringProgressDialog.setMessage("Retrieving interesting photos");
-            ringProgressDialog.setCancelable(true);
-            ringProgressDialog.show();
+            showProgress("Please wait, loading interesting data...");
             interestingRealm.beginTransaction();
             mInteresting = interestingRealm.createObject(Interesting.class, Calendar.getInstance().getTime().toString());
             //not in bg!
@@ -150,8 +144,8 @@ public class InterestingFragment extends FlickrBaseFragment {
     public void onDestroy() {
         super.onDestroy();
 
-        if (null != ringProgressDialog) {
-            ringProgressDialog = null;
+        if (null != mInteresting ) {
+            mInteresting.removeChangeListeners();
         }
         if (null != interestingRealm && !interestingRealm.isClosed()) {
             interestingRealm.close();
@@ -179,7 +173,7 @@ public class InterestingFragment extends FlickrBaseFragment {
 
                             @Override
                             public void run() {
-                                ringProgressDialog.dismiss();
+                                dismissProgress();
                             }
                         });
 

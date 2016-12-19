@@ -1,6 +1,5 @@
 package com.anubis.commons.fragments;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -50,7 +49,7 @@ public class ColorFragment extends FlickrBaseFragment {
     ;
     Subscription colorSubscription, colorSubscription2;
     AdView mPublisherAdView;
-    ProgressDialog dialog;
+
     ColorAdapter colorAdapter;
     RecyclerView rvPhotos;
 
@@ -58,6 +57,10 @@ public class ColorFragment extends FlickrBaseFragment {
     Realm colorRealm;
     Color mColor;
     TreeMap<Integer, String> colors = new TreeMap<>();
+    Button red = null;
+    Button orange = null;
+    Button yellow = null;
+    Button blue = null;
 
 
     @Override
@@ -86,12 +89,15 @@ public class ColorFragment extends FlickrBaseFragment {
 
         colorAdapter = new ColorAdapter(getActivity(), mPhotos, false);
 
+
         changeListener = new RealmChangeListener<Color>()
 
         {
             @Override
             public void onChange(Color r) {
+
                 updateDisplay(r);
+
             }
         };
         colorRealm = Realm.getDefaultInstance();
@@ -99,7 +105,7 @@ public class ColorFragment extends FlickrBaseFragment {
         //init
         if (mColor == null) {
 
-            showProgress("Please wait, loading data...");
+            showProgress("Please wait, loading color data...");
             colorRealm.beginTransaction();
             mColor = colorRealm.createObject(Color.class, Calendar.getInstance().getTime().toString());
             //not in bg!
@@ -138,7 +144,7 @@ public class ColorFragment extends FlickrBaseFragment {
         colors.put(R.id.red, "0");
         colors.put(R.id.blue, "8");
         colors.put(R.id.yellow, "4");
-        colors.put(R.id.violet, "9");
+        colors.put(R.id.orange, "2");
 
         setRetainInstance(true);
     }
@@ -151,6 +157,12 @@ public class ColorFragment extends FlickrBaseFragment {
             mPhotos.addAll(c.getColorPhotos());
         }
         colorAdapter.notifyDataSetChanged();
+        if (null != red) {
+            red.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
+            yellow.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            blue.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            orange.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+        }
 
 
     }
@@ -162,10 +174,14 @@ public class ColorFragment extends FlickrBaseFragment {
             mPublisherAdView.pause();
         }
         super.onDestroy();
+        if (null != mColor) {
+            mColor.removeChangeListeners();
+        }
 
         if (null != colorRealm && !colorRealm.isClosed()) {
             colorRealm.close();
         }
+
 
     }
 
@@ -204,6 +220,11 @@ public class ColorFragment extends FlickrBaseFragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tags, container,
                 false);
+        red = (Button) view.findViewById(R.id.red);
+        orange = (Button) view.findViewById(R.id.orange);
+        yellow = (Button) view.findViewById(R.id.yellow);
+        blue = (Button) view.findViewById(R.id.blue);
+
 
         rvPhotos = (RecyclerView) view.findViewById(R.id.rvPhotos);
         rvPhotos.setAdapter(colorAdapter);
@@ -224,14 +245,10 @@ public class ColorFragment extends FlickrBaseFragment {
         mPublisherAdView = (AdView) view.findViewById(R.id.publisherAdView);
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators
-                .addTestDevice("E0A1F5B182052F3D0E7A96A9B862BFC8")  // My Galaxy Nexus test phone
+                .addTestDevice("39EA0A51CB1E58F7B6CFC094BD01CA18")  // My Galaxy Nexus test phone
                 .build();
         mPublisherAdView.loadAd(adRequest);
 
-        final Button red = (Button) view.findViewById(R.id.red);
-        final Button violet = (Button) view.findViewById(R.id.violet);
-        final Button yellow = (Button) view.findViewById(R.id.yellow);
-        final Button blue = (Button) view.findViewById(R.id.blue);
 
         red.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -241,7 +258,7 @@ public class ColorFragment extends FlickrBaseFragment {
                 red.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
                 yellow.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                 blue.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                violet.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                orange.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                 getPhotos(v);
             }
         });
@@ -253,7 +270,7 @@ public class ColorFragment extends FlickrBaseFragment {
                 yellow.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
                 red.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                 blue.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                violet.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                orange.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                 getPhotos(v);
             }
         });
@@ -265,7 +282,7 @@ public class ColorFragment extends FlickrBaseFragment {
                 blue.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
                 red.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                 yellow.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                violet.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                orange.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                 //get from mRealm, if null or stale
                 //get from network once per 48 hrs;
                 getPhotos(v);
@@ -273,10 +290,10 @@ public class ColorFragment extends FlickrBaseFragment {
         });
 
 
-        violet.setOnClickListener(new View.OnClickListener() {
+        orange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                violet.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
+                orange.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
                 red.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                 blue.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                 yellow.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
@@ -292,7 +309,7 @@ public class ColorFragment extends FlickrBaseFragment {
     }
 
     private static Observable<List<String>> getIds() {
-        return Observable.just(Arrays.<String>asList("0", "4", "8", "9"));
+        return Observable.just(Arrays.<String>asList("0", "4", "8", "2"));
     }
 
 
@@ -331,7 +348,7 @@ public class ColorFragment extends FlickrBaseFragment {
                                        int code = response.code();
                                        Log.e("ERROR", String.valueOf(code));
                                    }
-                                   Log.e("ERROR", "error getting friends" + e);
+                                   Log.e("ERROR", "error getting color" + e);
                                    //signout
 
                                }
@@ -350,7 +367,7 @@ public class ColorFragment extends FlickrBaseFragment {
                                        if (cp.getCode().equals("0")) {
                                            c = mRealm.where(Color.class).equalTo("color", "0").findFirst();
                                        } else {
-                                           c = mRealm.createObject(Color.class, Calendar.getInstance().getTime().toString());
+                                           c = mRealm.createObject(Color.class, cp.getCode() + Calendar.getInstance().getTime().toString());
                                        }
 
                                        c.timestamp = Calendar.getInstance().getTime();
@@ -393,29 +410,5 @@ public class ColorFragment extends FlickrBaseFragment {
         return getJacksonService().bycolor(data);
     }
 
-    public void showProgress(String msg)
-    {
-        if(dialog == null){
-            dialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
-            dialog.setTitle(null);
-            dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            dialog.setCancelable(false);
-            dialog.setCanceledOnTouchOutside(false);
-        }
-
-        if(dialog.isShowing())
-        {
-            dialog.dismiss();
-        }
-
-        dialog.setMessage(msg);
-        dialog.show();
-    }
-
-    public void dismissProgress()
-    {
-        if(dialog != null && dialog.isShowing())
-            dialog.dismiss();
-    }
 
 }

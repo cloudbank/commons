@@ -387,27 +387,8 @@
                     "startLine": 22,
                     "startColumn": 4,
                     "startOffset": 2139,
-                    "endColumn": 41,
-                    "endOffset": 2176
-                },
-                "from": {
-                    "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/commons/simplecropimagelib/unspecified/res/values-cs/values-cs.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 55,
-                        "endColumn": 41,
-                        "endOffset": 92
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 23,
-                    "startColumn": 4,
-                    "startOffset": 2181,
                     "endColumn": 107,
-                    "endOffset": 2284
+                    "endOffset": 2242
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.0/res/values-cs/values.xml",
@@ -422,11 +403,11 @@
             },
             {
                 "to": {
-                    "startLine": 24,
+                    "startLine": 23,
                     "startColumn": 4,
-                    "startOffset": 2289,
+                    "startOffset": 2247,
                     "endColumn": 191,
-                    "endOffset": 2476
+                    "endOffset": 2434
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.0/res/values-cs/values.xml",
@@ -441,11 +422,11 @@
             },
             {
                 "to": {
-                    "startLine": 25,
+                    "startLine": 24,
                     "startColumn": 4,
-                    "startOffset": 2481,
+                    "startOffset": 2439,
                     "endColumn": 126,
-                    "endOffset": 2603
+                    "endOffset": 2561
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.0/res/values-cs/values.xml",
@@ -460,11 +441,11 @@
             },
             {
                 "to": {
-                    "startLine": 26,
+                    "startLine": 25,
                     "startColumn": 4,
-                    "startOffset": 2608,
+                    "startOffset": 2566,
                     "endColumn": 111,
-                    "endOffset": 2715
+                    "endOffset": 2673
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.0/res/values-cs/values.xml",
@@ -479,11 +460,11 @@
             },
             {
                 "to": {
-                    "startLine": 27,
+                    "startLine": 26,
                     "startColumn": 4,
-                    "startOffset": 2720,
+                    "startOffset": 2678,
                     "endColumn": 211,
-                    "endOffset": 2927
+                    "endOffset": 2885
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.0/res/values-cs/values.xml",
@@ -498,11 +479,11 @@
             },
             {
                 "to": {
-                    "startLine": 28,
+                    "startLine": 27,
                     "startColumn": 4,
-                    "startOffset": 2932,
+                    "startOffset": 2890,
                     "endColumn": 128,
-                    "endOffset": 3056
+                    "endOffset": 3014
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.0/res/values-cs/values.xml",
@@ -517,11 +498,11 @@
             },
             {
                 "to": {
-                    "startLine": 29,
+                    "startLine": 28,
                     "startColumn": 4,
-                    "startOffset": 3061,
+                    "startOffset": 3019,
                     "endColumn": 129,
-                    "endOffset": 3186
+                    "endOffset": 3144
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.0/res/values-cs/values.xml",
@@ -536,11 +517,11 @@
             },
             {
                 "to": {
-                    "startLine": 30,
+                    "startLine": 29,
                     "startColumn": 4,
-                    "startOffset": 3191,
+                    "startOffset": 3149,
                     "endColumn": 201,
-                    "endOffset": 3388
+                    "endOffset": 3346
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.0/res/values-cs/values.xml",
@@ -555,11 +536,11 @@
             },
             {
                 "to": {
-                    "startLine": 31,
+                    "startLine": 30,
                     "startColumn": 4,
-                    "startOffset": 3393,
+                    "startOffset": 3351,
                     "endColumn": 233,
-                    "endOffset": 3622
+                    "endOffset": 3580
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.0/res/values-cs/values.xml",
@@ -574,11 +555,11 @@
             },
             {
                 "to": {
-                    "startLine": 32,
+                    "startLine": 31,
                     "startColumn": 4,
-                    "startOffset": 3627,
+                    "startOffset": 3585,
                     "endColumn": 112,
-                    "endOffset": 3735
+                    "endOffset": 3693
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.0/res/values-cs/values.xml",
@@ -593,11 +574,11 @@
             },
             {
                 "to": {
-                    "startLine": 33,
+                    "startLine": 32,
                     "startColumn": 4,
-                    "startOffset": 3740,
+                    "startOffset": 3698,
                     "endColumn": 194,
-                    "endOffset": 3930
+                    "endOffset": 3888
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.0/res/values-cs/values.xml",
@@ -612,11 +593,11 @@
             },
             {
                 "to": {
-                    "startLine": 34,
+                    "startLine": 33,
                     "startColumn": 4,
-                    "startOffset": 3935,
+                    "startOffset": 3893,
                     "endColumn": 129,
-                    "endOffset": 4060
+                    "endOffset": 4018
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.0/res/values-cs/values.xml",
@@ -631,11 +612,11 @@
             },
             {
                 "to": {
-                    "startLine": 35,
+                    "startLine": 34,
                     "startColumn": 4,
-                    "startOffset": 4065,
+                    "startOffset": 4023,
                     "endColumn": 219,
-                    "endOffset": 4280
+                    "endOffset": 4238
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.0/res/values-cs/values.xml",
@@ -650,11 +631,11 @@
             },
             {
                 "to": {
-                    "startLine": 36,
+                    "startLine": 35,
                     "startColumn": 4,
-                    "startOffset": 4285,
+                    "startOffset": 4243,
                     "endColumn": 184,
-                    "endOffset": 4465
+                    "endOffset": 4423
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.0/res/values-cs/values.xml",
@@ -669,11 +650,11 @@
             },
             {
                 "to": {
-                    "startLine": 37,
+                    "startLine": 36,
                     "startColumn": 4,
-                    "startOffset": 4470,
+                    "startOffset": 4428,
                     "endColumn": 97,
-                    "endOffset": 4563
+                    "endOffset": 4521
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.0/res/values-cs/values.xml",
@@ -688,11 +669,11 @@
             },
             {
                 "to": {
-                    "startLine": 38,
+                    "startLine": 37,
                     "startColumn": 4,
-                    "startOffset": 4568,
+                    "startOffset": 4526,
                     "endColumn": 96,
-                    "endOffset": 4660
+                    "endOffset": 4618
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.0/res/values-cs/values.xml",
@@ -707,11 +688,11 @@
             },
             {
                 "to": {
-                    "startLine": 39,
+                    "startLine": 38,
                     "startColumn": 4,
-                    "startOffset": 4665,
+                    "startOffset": 4623,
                     "endColumn": 114,
-                    "endOffset": 4775
+                    "endOffset": 4733
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.0/res/values-cs/values.xml",
@@ -726,11 +707,11 @@
             },
             {
                 "to": {
-                    "startLine": 40,
+                    "startLine": 39,
                     "startColumn": 4,
-                    "startOffset": 4780,
+                    "startOffset": 4738,
                     "endColumn": 131,
-                    "endOffset": 4907
+                    "endOffset": 4865
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.0/res/values-cs/values.xml",
@@ -745,11 +726,11 @@
             },
             {
                 "to": {
-                    "startLine": 41,
+                    "startLine": 40,
                     "startColumn": 4,
-                    "startOffset": 4912,
+                    "startOffset": 4870,
                     "endColumn": 108,
-                    "endOffset": 5016
+                    "endOffset": 4974
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.0/res/values-cs/values.xml",
@@ -764,11 +745,11 @@
             },
             {
                 "to": {
-                    "startLine": 42,
+                    "startLine": 41,
                     "startColumn": 4,
-                    "startOffset": 5021,
+                    "startOffset": 4979,
                     "endColumn": 103,
-                    "endOffset": 5120
+                    "endOffset": 5078
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.0/res/values-cs/values.xml",
@@ -783,11 +764,11 @@
             },
             {
                 "to": {
-                    "startLine": 43,
+                    "startLine": 42,
                     "startColumn": 4,
-                    "startOffset": 5125,
+                    "startOffset": 5083,
                     "endColumn": 101,
-                    "endOffset": 5222
+                    "endOffset": 5180
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.0/res/values-cs/values.xml",
@@ -802,11 +783,11 @@
             },
             {
                 "to": {
-                    "startLine": 44,
+                    "startLine": 43,
                     "startColumn": 4,
-                    "startOffset": 5227,
+                    "startOffset": 5185,
                     "endColumn": 94,
-                    "endOffset": 5317
+                    "endOffset": 5275
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.0/res/values-cs/values.xml",
@@ -821,11 +802,11 @@
             },
             {
                 "to": {
-                    "startLine": 45,
+                    "startLine": 44,
                     "startColumn": 4,
-                    "startOffset": 5322,
+                    "startOffset": 5280,
                     "endColumn": 106,
-                    "endOffset": 5424
+                    "endOffset": 5382
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.0/res/values-cs/values.xml",
@@ -840,11 +821,11 @@
             },
             {
                 "to": {
-                    "startLine": 46,
+                    "startLine": 45,
                     "startColumn": 4,
-                    "startOffset": 5429,
+                    "startOffset": 5387,
                     "endColumn": 75,
-                    "endOffset": 5500
+                    "endOffset": 5458
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.0/res/values-cs/values.xml",
@@ -859,106 +840,11 @@
             },
             {
                 "to": {
-                    "startLine": 47,
+                    "startLine": 46,
                     "startColumn": 4,
-                    "startOffset": 5505,
-                    "endColumn": 58,
-                    "endOffset": 5559
-                },
-                "from": {
-                    "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/commons/simplecropimagelib/unspecified/res/values-cs/values-cs.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 97,
-                        "endColumn": 58,
-                        "endOffset": 151
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 48,
-                    "startColumn": 4,
-                    "startOffset": 5564,
-                    "endColumn": 76,
-                    "endOffset": 5636
-                },
-                "from": {
-                    "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/commons/simplecropimagelib/unspecified/res/values-cs/values-cs.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 156,
-                        "endColumn": 76,
-                        "endOffset": 228
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 49,
-                    "startColumn": 4,
-                    "startOffset": 5641,
-                    "endColumn": 59,
-                    "endOffset": 5696
-                },
-                "from": {
-                    "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/commons/simplecropimagelib/unspecified/res/values-cs/values-cs.xml",
-                    "position": {
-                        "startLine": 5,
-                        "startColumn": 4,
-                        "startOffset": 233,
-                        "endColumn": 59,
-                        "endOffset": 288
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 50,
-                    "startColumn": 4,
-                    "startOffset": 5701,
-                    "endColumn": 39,
-                    "endOffset": 5736
-                },
-                "from": {
-                    "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/commons/simplecropimagelib/unspecified/res/values-cs/values-cs.xml",
-                    "position": {
-                        "startLine": 6,
-                        "startColumn": 4,
-                        "startOffset": 293,
-                        "endColumn": 39,
-                        "endOffset": 328
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 51,
-                    "startColumn": 4,
-                    "startOffset": 5741,
-                    "endColumn": 56,
-                    "endOffset": 5793
-                },
-                "from": {
-                    "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/commons/simplecropimagelib/unspecified/res/values-cs/values-cs.xml",
-                    "position": {
-                        "startLine": 7,
-                        "startColumn": 4,
-                        "startOffset": 333,
-                        "endColumn": 56,
-                        "endOffset": 385
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 52,
-                    "startColumn": 4,
-                    "startOffset": 5798,
+                    "startOffset": 5463,
                     "endColumn": 81,
-                    "endOffset": 5875
+                    "endOffset": 5540
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-cs/values-cs.xml",
@@ -973,11 +859,11 @@
             },
             {
                 "to": {
-                    "startLine": 53,
+                    "startLine": 47,
                     "startColumn": 4,
-                    "startOffset": 5880,
+                    "startOffset": 5545,
                     "endColumn": 100,
-                    "endOffset": 5976
+                    "endOffset": 5641
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-cs/values-cs.xml",
@@ -992,11 +878,11 @@
             },
             {
                 "to": {
-                    "startLine": 54,
+                    "startLine": 48,
                     "startColumn": 4,
-                    "startOffset": 5981,
+                    "startOffset": 5646,
                     "endColumn": 129,
-                    "endOffset": 6106
+                    "endOffset": 5771
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.0/res/values-cs/values.xml",
@@ -1011,11 +897,11 @@
             },
             {
                 "to": {
-                    "startLine": 55,
+                    "startLine": 49,
                     "startColumn": 4,
-                    "startOffset": 6111,
+                    "startOffset": 5776,
                     "endColumn": 92,
-                    "endOffset": 6199
+                    "endOffset": 5864
                 },
                 "from": {
                     "file": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.0/res/values-cs/values.xml",

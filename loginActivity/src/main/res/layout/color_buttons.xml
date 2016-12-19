@@ -51,11 +51,11 @@
             android:theme="@style/Widget.AppCompat.Button.Colored"
             />
         <Button
-            android:id="@+id/violet"
+            android:id="@+id/orange"
             android:layout_width="75dp"
             android:layout_height="wrap_content"
             android:padding="15dp"
-            android:background="@color/violet"
+            android:background="@color/orange"
             android:layout_margin="5dp"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="5dp"

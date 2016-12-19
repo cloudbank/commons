@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -30,10 +31,12 @@ import com.anubis.commons.fragments.ColorFragment;
 import com.anubis.commons.fragments.FlickrBaseFragment;
 import com.anubis.commons.fragments.InterestingFragment;
 import com.anubis.commons.fragments.SearchFragment;
+import com.anubis.commons.sync.SyncAdapter;
 import com.anubis.commons.util.Util;
 import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class PhotosActivity extends AppCompatActivity {
 
@@ -139,10 +142,10 @@ public class PhotosActivity extends AppCompatActivity {
         //oauthkit shared prefs
         SharedPreferences authPrefs = getApplicationContext().getSharedPreferences(getString(R.string.OAuthKit_Prefs), 0);
 
-        if (!Util.getCurrentUser().equals(authPrefs.getString(getString(R.string.username), ""))) {
+        if ( !Util.getCurrentUser().equals(authPrefs.getString(getString(R.string.username), ""))) {
             //@todo stop the sync adapter and restart
             Log.d("SYNC", "changing accounts for sync adapter");
-            //find out how to properly stop before restart
+            //find out how to properly stop before restartchanging
             AccountManager am = AccountManager.get(this.getApplicationContext());
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 checkAccountsPermission();
@@ -190,8 +193,28 @@ public class PhotosActivity extends AppCompatActivity {
         vpPager.setAdapter(adapterViewPager);
         vpPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(onTabSelectedListener(vpPager));
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-8660045387738182~7164386158");
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-8660045387738182~8507434555");
         //SyncAdapter.initializeSyncAdapter(this);  //delay with handlerthread
+        delaySync(this);
+    }
+
+
+    static final long c_delayMax = 120 * 1000;
+    static Random r = new Random();
+
+    void delaySync(android.content.Context c) {
+        Handler h = new Handler();
+        long delay = r.nextLong() % c_delayMax;
+        h.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.d("SYNC", "starting after delay " + delay);
+                SyncAdapter.initializeSyncAdapter(c);
+            }
+
+
+        }, delay);
+
     }
 
 
@@ -239,8 +262,6 @@ public class PhotosActivity extends AppCompatActivity {
 
         return a;
     }
-
-
 
 
     @Override
@@ -331,13 +352,6 @@ public class PhotosActivity extends AppCompatActivity {
 
 
     }
-
-
-
-
-
-
-
 
 
 }

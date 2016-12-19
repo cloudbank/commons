@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1051131001475",
+    "firebase_url": "https://commons-ddb62.firebaseio.com",
+    "project_id": "commons-ddb62",
+    "storage_bucket": "commons-ddb62.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1051131001475:android:a6863b6d0ceb6463",
+        "android_client_info": {
+          "package_name": "com.anubis.commons"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1051131001475-d61vc6egg943c029oijcas3r8sjvsg6f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfhVK0GfdotTLpJzRd2b6A1t1Cw2t2TtQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

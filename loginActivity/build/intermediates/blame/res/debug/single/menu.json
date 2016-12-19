@@ -4,10 +4,6 @@
         "source": "/Users/sabine/github/commons/loginActivity/src/main/res/menu/photos.xml"
     },
     {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/menu/preview_photo.xml",
-        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/menu/preview_photo.xml"
-    },
-    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/menu/login.xml",
         "source": "/Users/sabine/github/commons/loginActivity/src/main/res/menu/login.xml"
     }

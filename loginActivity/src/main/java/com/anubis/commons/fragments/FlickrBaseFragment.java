@@ -1,7 +1,7 @@
 package com.anubis.commons.fragments;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.Menu;
@@ -15,18 +15,12 @@ import com.anubis.oauthkit.OAuthBaseClient;
 public abstract class FlickrBaseFragment extends Fragment {
 
     public static final String RESULT = "result";
-    public static final String PHOTO_BITMAP = "photo_bitmap";
     protected static final String PAGE = "page";
     protected static final String TITLE = "title";
-    private static final int TAKE_PHOTO_CODE = 1;
-    private static final int CROP_PHOTO_CODE = 3;
-    private static final int POST_PHOTO_CODE = 4;
-
-    public final String APP_TAG = "Commons";
 
 
-    private Bitmap photoBitmap;
 
+    ProgressDialog dialog;
     // newInstance constructor for creating fragment with arguments
     public static FlickrBaseFragment newInstance(int page, String title, FlickrBaseFragment f) {
         Bundle args = new Bundle();
@@ -69,5 +63,32 @@ public abstract class FlickrBaseFragment extends Fragment {
         Intent bye = new Intent(getActivity(), LoginActivity.class);
         startActivity(bye);
     }
+
+    public void showProgress(String msg)
+    {
+        if(dialog == null){
+            dialog = new ProgressDialog(getActivity(), R.style.MyDialogTheme);
+            dialog.setTitle(null);
+            dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            dialog.setCancelable(false);
+            dialog.setCanceledOnTouchOutside(false);
+        }
+
+        if(dialog.isShowing())
+        {
+            dialog.dismiss();
+        }
+
+        dialog.setMessage(msg);
+        dialog.show();
+    }
+
+    public void dismissProgress()
+    {
+        if(dialog != null && dialog.isShowing())
+            dialog.dismiss();
+    }
+
+
 
 }
