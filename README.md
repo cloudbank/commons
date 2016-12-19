@@ -8,11 +8,11 @@
 
 >>>>VIEW   
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/iePBsAf.png" height="500"/> <img src="http://i.imgur.com/nguN38p.png" height="500" />     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/bDoHZIz.png" height="500"/> <img src="http://i.imgur.com/nguN38p.png" height="500" />     
 
 >>>>COMMENT
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/ObJP1fz.png" height="500" /><img src="http://i.imgur.com/7RUXx9k.png" height="500" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/rdVlkIs.png" height="500" /><img src="http://i.imgur.com/7RUXx9k.png" height="500" />
 
 >>>>CURATE
 
