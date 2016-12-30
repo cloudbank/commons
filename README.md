@@ -1,5 +1,5 @@
 # Commons v 1.0   <img src="http://i.imgur.com/BQKFhhi.png" height="100"/> 
-### An android client for the Flickr photo API  [SDK 14+, Nougat compatible]
+### An android client for the Flickr photo API  [SDK 21+, Nougat compatible]
 
 * *The Commons collection--rare pictures from around the world curated by you!*
 * *The 'Interesting' collection*
