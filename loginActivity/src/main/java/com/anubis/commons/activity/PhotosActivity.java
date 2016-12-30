@@ -141,8 +141,8 @@ public class PhotosActivity extends AppCompatActivity {
         rootView = findViewById(android.R.id.content);
         //oauthkit shared prefs
         SharedPreferences authPrefs = getApplicationContext().getSharedPreferences(getString(R.string.OAuthKit_Prefs), 0);
-
-        if ( !Util.getCurrentUser().equals(authPrefs.getString(getString(R.string.username), ""))) {
+        //need to update user prefs either way
+        if (Util.getCurrentUser().length() > 0  && !Util.getCurrentUser().equals(authPrefs.getString(getString(R.string.username), ""))) {
             //@todo stop the sync adapter and restart
             Log.d("SYNC", "changing accounts for sync adapter");
             //find out how to properly stop before restartchanging
@@ -162,12 +162,9 @@ public class PhotosActivity extends AppCompatActivity {
             }
             ContentResolver.cancelSync(new Account(authPrefs.getString(getString(R.string.username), ""), getApplication().getString(R.string.account_type)), getApplication().getString(R.string.authority));
             // could also cancelSync(null);
-            updateUserInfo(authPrefs);
+
         }
-        //@todo check that sync adapter is running as planned for repeat login
-        //this only runs the sync if no account account exists; else it should be running
-        //move and delay @todo
-        //SyncAdapter.initializeSyncAdapter(this);
+        updateUserInfo(authPrefs);
 
 
         setContentView(R.layout.activity_photos);
@@ -195,7 +192,7 @@ public class PhotosActivity extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(onTabSelectedListener(vpPager));
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-8660045387738182~8507434555");
         //SyncAdapter.initializeSyncAdapter(this);  //delay with handlerthread
-        delaySync(this);
+        delaySync(FlickrClientApp.getAppContext());
     }
 
 
@@ -204,15 +201,12 @@ public class PhotosActivity extends AppCompatActivity {
 
     void delaySync(android.content.Context c) {
         Handler h = new Handler();
+
         long delay = r.nextLong() % c_delayMax;
-        h.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Log.d("SYNC", "starting after delay " + delay);
-                SyncAdapter.initializeSyncAdapter(c);
-            }
-
-
+        //new Runnable
+        h.postDelayed(() -> {
+            Log.d("SYNC", "starting after delay " + delay);
+            SyncAdapter.initializeSyncAdapter(c);
         }, delay);
 
     }

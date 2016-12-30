@@ -169,13 +169,7 @@ public class InterestingFragment extends FlickrBaseFragment {
                     public void onCompleted() {
 
                         Handler handler = new Handler(Looper.getMainLooper());
-                        handler.post(new Runnable() {
-
-                            @Override
-                            public void run() {
-                                dismissProgress();
-                            }
-                        });
+                        handler.post(() -> dismissProgress());
 
                     }
 

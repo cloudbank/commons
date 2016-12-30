@@ -47,7 +47,7 @@ public class ColorFragment extends FlickrBaseFragment {
     List mTags;
     private List<Photo> mPhotos = new ArrayList<Photo>();
     ;
-    Subscription colorSubscription, colorSubscription2;
+    Subscription colorSubscription;
     AdView mPublisherAdView;
 
     ColorAdapter colorAdapter;
@@ -130,7 +130,6 @@ public class ColorFragment extends FlickrBaseFragment {
         super.onActivityCreated(savedInstanceState);
 
 
-        //Date maxDate = colorRealm.where(Color.class).maximumDate("timestamp");
 
     }
 
@@ -229,78 +228,63 @@ public class ColorFragment extends FlickrBaseFragment {
         rvPhotos = (RecyclerView) view.findViewById(R.id.rvPhotos);
         rvPhotos.setAdapter(colorAdapter);
         rvPhotos.setLayoutManager(new GridLayoutManager(FlickrClientApp.getAppContext(), 3));
-        colorAdapter.setOnItemClickListener(new ColorAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                Intent intent = new Intent(getActivity(),
-                        ImageDisplayActivity.class);
-                Photo photo = mPhotos.get(position);
-                intent.putExtra(RESULT, photo.getId());
-                startActivity(intent);
-            }
+        colorAdapter.setOnItemClickListener((view1, position) -> {
+            Intent intent = new Intent(getActivity(),
+                    ImageDisplayActivity.class);
+            Photo photo = mPhotos.get(position);
+            intent.putExtra(RESULT, photo.getId());
+            startActivity(intent);
         });
         //button on clicks
         //get mColor if not in mRealm and store it
 
         mPublisherAdView = (AdView) view.findViewById(R.id.publisherAdView);
         AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators
-                .addTestDevice("39EA0A51CB1E58F7B6CFC094BD01CA18")  // My Galaxy Nexus test phone
+                //.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators
+                //.addTestDevice("39EA0A51CB1E58F7B6CFC094BD01CA18")  // My Galaxy Nexus test phone
                 .build();
         mPublisherAdView.loadAd(adRequest);
 
 
-        red.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //get from mRealm, if null or stale
-                //get from network once per 48 hrs;
-                red.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
-                yellow.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                blue.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                orange.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                getPhotos(v);
-            }
+        red.setOnClickListener(v -> {
+            //get from mRealm, if null or stale
+            //get from network once per 48 hrs;
+            red.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
+            yellow.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            blue.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            orange.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            getPhotos(v);
         });
-        yellow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //get from mRealm, if null or stale
-                //get from network once per 48 hrs;
-                yellow.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
-                red.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                blue.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                orange.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                getPhotos(v);
-            }
+        yellow.setOnClickListener(v -> {
+            //get from mRealm, if null or stale
+            //get from network once per 48 hrs;
+            yellow.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
+            red.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            blue.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            orange.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            getPhotos(v);
         });
 
 
-        blue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                blue.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
-                red.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                yellow.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                orange.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                //get from mRealm, if null or stale
-                //get from network once per 48 hrs;
-                getPhotos(v);
-            }
+        blue.setOnClickListener(v -> {
+            blue.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
+            red.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            yellow.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            orange.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            //get from mRealm, if null or stale
+            //get from network once per 48 hrs;
+            getPhotos(v);
         });
 
 
-        orange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                orange.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
-                red.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                blue.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                yellow.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                //get from mRealm, if null or stale
-                //get from network once per 48 hrs;
-                getPhotos(v);
-            }
+        orange.setOnClickListener(v -> {
+            orange.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
+            red.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            blue.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            yellow.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            //get from mRealm, if null or stale
+            //get from network once per 48 hrs;
+            getPhotos(v);
         });
 
 
@@ -329,13 +313,7 @@ public class ColorFragment extends FlickrBaseFragment {
                                public void onCompleted() {
 
                                    Handler handler = new Handler(Looper.getMainLooper());
-                                   handler.post(new Runnable() {
-
-                                       @Override
-                                       public void run() {
-                                           dismissProgress();
-                                       }
-                                   });
+                                   handler.post(() -> dismissProgress());
 
                                }
 

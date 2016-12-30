@@ -28,7 +28,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     private OnItemClickListener listener;
 
 
-
     public OnItemClickListener getListener() {
         return this.listener;
 
@@ -90,7 +89,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View photosView = inflater.inflate(R.layout.photo_item,  parent, false);
+        View photosView = inflater.inflate(R.layout.photo_item, parent, false);
 
         ViewHolder viewHolder = new ViewHolder(photosView, getListener());
         return viewHolder;
@@ -112,9 +111,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         cb.setVisibility(View.GONE);
         int id = Resources.getSystem().getIdentifier("btn_check_holo_dark", "drawable", "android");
         cb.setButtonDrawable(id);
-        cb.setHint("Batch Tag");
-        cb.setChecked(true);*/
-        int aspectRatio = (null != photo.getWidth()  && null != photo.getHeight()) ? Integer.parseInt(photo.getHeight())/Integer.parseInt(photo.getWidth()): 1;
+        cb.setHint("Batch Tag"); */
+        int aspectRatio = (null != photo.getWidth() && null != photo.getHeight()) ? Integer.parseInt(photo.getHeight()) / Integer.parseInt(photo.getWidth()) : 1;
 
         if (mStaggered) {
             Random rand = new Random();
@@ -122,13 +120,14 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             lp.height = n; // photo.getPhotoHeight() * 2;
             //n = rand.nextInt(200) + 100;
 
-             lp.width =  aspectRatio > 0 ? n/aspectRatio : n; // photo.getPhotoList//set the title, name, comments
+            lp.width = aspectRatio > 0 ? n / aspectRatio : n; // photo.getPhotoList//set the title, name, comments
             imageView.setLayoutParams(lp);
 
         } else {
-            lp.height= 250;
+            lp.height = 250;
             //lp.width = 300;
         }
+
         Picasso.with(this.getContext()).load(photo.getUrl()).fit().centerCrop()
                 //.placeholder(android.R.drawable.btn_star)
                 .error(android.R.drawable.btn_star)

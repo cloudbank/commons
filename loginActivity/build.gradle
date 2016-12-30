@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.anubis.commons"
-        minSdkVersion 14
+        minSdkVersion 21
         targetSdkVersion 24
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_8

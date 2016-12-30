@@ -60,9 +60,9 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     // Define a variable to contain a content resolver instance
     ContentResolver mContentResolver;
     public static final int HOUR_IN_SECS = 60 * 60;
-    public static final int SYNC_INTERVAL = 3 * 60; //12 * HOUR_IN_SECS;    //every 12 hours
+    public static final int SYNC_INTERVAL = 12 * HOUR_IN_SECS;    //every 12 hours
     public static final int MIN_IN_SECS = 60;
-    public static final int SYNC_FLEXTIME = 20; //* MIN_IN_SECS;  // within 20 minutes
+    public static final int SYNC_FLEXTIME =  20 * MIN_IN_SECS;  // within 20 minutes
     private static final int DATA_NOTIFICATION_ID = 3004;
     Subscription interestingSubscription, commonsSubscription, colorSubscription;
 

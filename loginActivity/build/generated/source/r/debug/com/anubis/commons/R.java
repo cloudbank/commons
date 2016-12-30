@@ -3099,7 +3099,7 @@ containing a value of this type.
         public static final int action_bar_title=0x7f0d0049;
         public static final int action_context_bar=0x7f0d006b;
         public static final int action_divider=0x7f0d00a2;
-        public static final int action_logout=0x7f0d00ac;
+        public static final int action_logout=0x7f0d00ad;
         public static final int action_menu_divider=0x7f0d0002;
         public static final int action_menu_presenter=0x7f0d0003;
         public static final int action_mode_bar=0x7f0d0067;
@@ -3120,6 +3120,7 @@ containing a value of this type.
         public static final int btnComments=0x7f0d0080;
         public static final int buttonPanel=0x7f0d0053;
         public static final int cancel_action=0x7f0d009f;
+        public static final int cardView=0x7f0d00ab;
         public static final int center=0x7f0d0015;
         public static final int center_horizontal=0x7f0d002b;
         public static final int center_vertical=0x7f0d002c;
@@ -3167,7 +3168,7 @@ containing a value of this type.
         public static final int info=0x7f0d00a9;
         public static final int item_touch_helper_previous_elevation=0x7f0d0005;
         public static final int ivCommons=0x7f0d009b;
-        public static final int ivPhoto=0x7f0d00ab;
+        public static final int ivPhoto=0x7f0d00ac;
         public static final int ivResult=0x7f0d007b;
         public static final int left=0x7f0d0016;
         public static final int light=0x7f0d0046;

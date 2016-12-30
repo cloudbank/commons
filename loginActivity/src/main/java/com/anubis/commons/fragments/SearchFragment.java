@@ -1,12 +1,10 @@
 package com.anubis.commons.fragments;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.HandlerThread;
-import android.os.Looper;
 import android.os.Handler;
+import android.os.Looper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
@@ -46,9 +44,7 @@ public class SearchFragment extends FlickrBaseFragment {
     List<Photo> sPhotos = new ArrayList<Photo>();
     Realm commonsRealm;
     RealmChangeListener changeListener;
-    ProgressDialog ringProgressDialog;
     Subscription commonSubscription;
-    HandlerThread handlerThread;
     Common mCommon;
 
 
@@ -62,7 +58,10 @@ public class SearchFragment extends FlickrBaseFragment {
         if (null != commonsRealm && !commonsRealm.isClosed()) {
             commonsRealm.close();
         }
-        //@todo remove changelisteners
+       if (null != mCommon) {
+           mCommon.removeChangeListeners();
+
+       }
 
     }
 
@@ -198,13 +197,7 @@ public class SearchFragment extends FlickrBaseFragment {
                     public void onCompleted() {
 
                         Handler handler = new Handler(Looper.getMainLooper());
-                        handler.post(new Runnable() {
-
-                            @Override
-                            public void run() {
-                                dismissProgress();
-                            }
-                        });
+                        handler.post(() -> dismissProgress());
 
                     }
 

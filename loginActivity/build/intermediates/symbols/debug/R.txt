@@ -754,7 +754,7 @@ int id action_bar_subtitle 0x7f0d004a
 int id action_bar_title 0x7f0d0049
 int id action_context_bar 0x7f0d006b
 int id action_divider 0x7f0d00a2
-int id action_logout 0x7f0d00ac
+int id action_logout 0x7f0d00ad
 int id action_menu_divider 0x7f0d0002
 int id action_menu_presenter 0x7f0d0003
 int id action_mode_bar 0x7f0d0067
@@ -775,6 +775,7 @@ int id bottom 0x7f0d002a
 int id btnComments 0x7f0d0080
 int id buttonPanel 0x7f0d0053
 int id cancel_action 0x7f0d009f
+int id cardView 0x7f0d00ab
 int id center 0x7f0d0015
 int id center_horizontal 0x7f0d002b
 int id center_vertical 0x7f0d002c
@@ -822,7 +823,7 @@ int id imgView 0x7f0d0083
 int id info 0x7f0d00a9
 int id item_touch_helper_previous_elevation 0x7f0d0005
 int id ivCommons 0x7f0d009b
-int id ivPhoto 0x7f0d00ab
+int id ivPhoto 0x7f0d00ac
 int id ivResult 0x7f0d007b
 int id left 0x7f0d0016
 int id light 0x7f0d0046
