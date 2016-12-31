@@ -8,12 +8,12 @@
         "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/layout/design_navigation_menu_item.xml"
     },
     {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
-        "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/notification_template_part_time.xml"
-    },
-    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/design_text_input_password_icon.xml",
         "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/layout/design_text_input_password_icon.xml"
+    },
+    {
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
+        "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/notification_template_part_time.xml"
     },
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/design_navigation_item.xml",
@@ -48,12 +48,12 @@
         "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_list_menu_item_layout.xml"
     },
     {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/comment_item.xml",
-        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/layout/comment_item.xml"
-    },
-    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
         "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/comment_item.xml",
+        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/layout/comment_item.xml"
     },
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",

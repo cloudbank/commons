@@ -32,12 +32,12 @@
         "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_voice_search_api_material.xml"
     },
     {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/design_fab_background.xml",
-        "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/drawable/design_fab_background.xml"
-    },
-    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/abc_ratingbar_material.xml",
         "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ratingbar_material.xml"
+    },
+    {
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/design_fab_background.xml",
+        "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/drawable/design_fab_background.xml"
     },
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/abc_tab_indicator_material.xml",
