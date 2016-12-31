@@ -45,7 +45,7 @@ import static com.anubis.commons.FlickrClientApp.getJacksonService;
 public class ColorFragment extends FlickrBaseFragment {
 
     List mTags;
-    private List<Photo> mPhotos = new ArrayList<Photo>();
+    private List<Photo> mPhotos = new ArrayList<>();
     ;
     Subscription colorSubscription;
     AdView mPublisherAdView;

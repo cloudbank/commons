@@ -164,10 +164,6 @@
         "source": "/Users/sabine/github/commons/loginActivity/src/main/res/layout/activity_photos.xml"
     },
     {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/photo_item_search.xml",
-        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/layout/photo_item_search.xml"
-    },
-    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
         "source": "/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/support_simple_spinner_dropdown_item.xml"
     },

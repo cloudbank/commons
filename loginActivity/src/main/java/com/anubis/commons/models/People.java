@@ -21,7 +21,7 @@ public class People {
     @JsonProperty("haspeople")
     private Integer haspeople;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      * 

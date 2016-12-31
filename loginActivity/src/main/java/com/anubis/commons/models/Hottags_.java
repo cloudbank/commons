@@ -37,10 +37,10 @@ public class Hottags_  {
 
     @Ignore
     @JsonProperty("tag")
-    private List<Tag> tag = new ArrayList<Tag>();
+    private List<Tag> tag = new ArrayList<>();
     @JsonIgnore
     @Ignore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      * 

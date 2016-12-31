@@ -24,7 +24,7 @@ public class Permissions {
     @JsonProperty("permaddmeta")
     private Integer permaddmeta;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      * 

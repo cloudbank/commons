@@ -38,7 +38,7 @@ import static com.anubis.commons.FlickrClientApp.getJacksonService;
 public class InterestingFragment extends FlickrBaseFragment {
     InterestingAdapter rAdapter;
     RecyclerView rvPhotos;
-    List<Photo> mPhotos = new ArrayList<Photo>();
+    List<Photo> mPhotos = new ArrayList<>();
     RealmChangeListener changeListener;
     Realm interestingRealm;
     Subscription interestingSubscription;
@@ -114,16 +114,13 @@ public class InterestingFragment extends FlickrBaseFragment {
                 new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         rvPhotos.setLayoutManager(gridLayoutManager);
 
-        rAdapter.setOnItemClickListener(new InterestingAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                Intent intent = new Intent(getActivity(),
-                        ImageDisplayActivity.class);
-                Photo photo = mPhotos.get(position);
+        rAdapter.setOnItemClickListener((view1, position) -> {
+            Intent intent = new Intent(getActivity(),
+                    ImageDisplayActivity.class);
+            Photo photo = mPhotos.get(position);
 
-                intent.putExtra(RESULT, photo.getId());
-                startActivity(intent);
-            }
+            intent.putExtra(RESULT, photo.getId());
+            startActivity(intent);
         });
         setHasOptionsMenu(true);
         return view;

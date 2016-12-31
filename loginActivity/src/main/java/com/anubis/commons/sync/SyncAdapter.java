@@ -348,13 +348,9 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                                public void onCompleted() {
                                    Handler handler = new Handler(Looper.getMainLooper());
 
-                                   handler.post(new Runnable() {
-
-                                       @Override
-                                       public void run() {
-                                           //Your UI code here
-                                           Toast.makeText(FlickrClientApp.getAppContext(), "Got our photos", Toast.LENGTH_SHORT).show();
-                                       }
+                                   handler.post(() -> {
+                                       //Your UI code here
+                                       Toast.makeText(FlickrClientApp.getAppContext(), "Got our photos", Toast.LENGTH_SHORT).show();
                                    });
 
                                }
@@ -434,12 +430,8 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                                public void onCompleted() {
 
                                    Handler handler = new Handler(Looper.getMainLooper());
-                                   handler.post(new Runnable() {
+                                   handler.post(() -> {
 
-                                       @Override
-                                       public void run() {
-
-                                       }
                                    });
 
                                }

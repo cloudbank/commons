@@ -21,9 +21,9 @@ import java.util.Map;
 public class Notes {
 
     @JsonProperty("note")
-    private List<Object> note = new ArrayList<Object>();
+    private List<Object> note = new ArrayList<>();
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      * 

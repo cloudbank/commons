@@ -57,10 +57,10 @@ public class Comments_ extends RealmObject {
     }
 
     @Ignore
-    private List<Comment> comments = new ArrayList<Comment>();
+    private List<Comment> comments = new ArrayList<>();
     @JsonIgnore
     @Ignore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      * @return The photoId

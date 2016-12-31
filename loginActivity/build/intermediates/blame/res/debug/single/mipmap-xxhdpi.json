@@ -1,13 +1,5 @@
 [
     {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_rocket.png",
-        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/mipmap-xxhdpi/ic_rocket.png"
-    },
-    {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_check.png",
-        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/mipmap-xxhdpi/ic_check.png"
-    },
-    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
         "source": "/Users/sabine/github/commons/loginActivity/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     }

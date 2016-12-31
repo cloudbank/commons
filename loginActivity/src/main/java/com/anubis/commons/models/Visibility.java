@@ -27,7 +27,7 @@ public class Visibility {
     @JsonProperty("isfamily")
     private Integer isfamily;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      * 

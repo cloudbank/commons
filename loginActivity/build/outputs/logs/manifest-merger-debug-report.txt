@@ -232,7 +232,7 @@ MERGED from [com.android.support:support-core-utils:24.2.1] /Users/sabine/github
 MERGED from [com.android.support:support-compat:24.2.1] /Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
 MERGED from [com.facebook.stetho:stetho-okhttp3:1.4.1] /Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.facebook.stetho/stetho-okhttp3/1.4.1/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.stetho:stetho:1.4.1] /Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.facebook.stetho/stetho/1.4.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:multidex:1.0.0] /Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/multidex/1.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:multidex:1.0.1] /Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/multidex/1.0.1/AndroidManifest.xml:18:5-42
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:24.2.1] /Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/AndroidManifest.xml:23:9-75
 	android:targetSdkVersion

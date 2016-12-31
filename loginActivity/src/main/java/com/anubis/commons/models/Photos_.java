@@ -26,7 +26,7 @@ public class Photos_ {
     }
 
     @JsonProperty("photo")
-    private List<Photo> photoList = new ArrayList<Photo>();
+    private List<Photo> photoList = new ArrayList<>();
     @JsonProperty("total")
     private Integer total;
     @JsonProperty("page")
@@ -36,7 +36,7 @@ public class Photos_ {
     @JsonProperty("pages")
     private Integer pages;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      * 

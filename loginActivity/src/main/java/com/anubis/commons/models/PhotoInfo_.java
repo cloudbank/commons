@@ -98,7 +98,7 @@ public class PhotoInfo_ {
     @JsonProperty("media")
     private String media;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      * 

@@ -1,13 +1,5 @@
 [
     {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable-xxhdpi-v11/ic_data.png",
-        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable-xxhdpi-v11/ic_data.png"
-    },
-    {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable-xxhdpi-v11/ic_star.png",
-        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable-xxhdpi-v11/ic_star.png"
-    },
-    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable-xxhdpi-v11/ic_flower.png",
         "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable-xxhdpi-v11/ic_flower.png"
     }

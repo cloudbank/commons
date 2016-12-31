@@ -107,7 +107,7 @@ public class Photo extends RealmObject implements Serializable {
 
     @Ignore
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
 
     void setUrl(Photo p) {

@@ -21,9 +21,9 @@ import java.util.Map;
 public class Urls {
 
     @JsonProperty("url")
-    private List<Url> url = new ArrayList<Url>();
+    private List<Url> url = new ArrayList<>();
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      * 

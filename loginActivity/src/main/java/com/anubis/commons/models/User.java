@@ -24,7 +24,7 @@ public class User {
     @JsonProperty("stat")
     private String stat;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
 
     /**

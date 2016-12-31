@@ -30,7 +30,7 @@ public class Usage {
     @JsonProperty("canshare")
     private Integer canshare;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      * 

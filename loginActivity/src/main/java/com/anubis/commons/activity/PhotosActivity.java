@@ -69,14 +69,11 @@ public class PhotosActivity extends AppCompatActivity {
             // Need to show permission rationale, display a snackbar and then request
             // the permission again when the snackbar is dismissed to re-request it
             Snackbar.make(rootView, R.string.permission_grant, Snackbar.LENGTH_INDEFINITE)
-                    .setAction("OK", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            // Request the permission again.
-                            ActivityCompat.requestPermissions(getParent(),
-                                    new String[]{perm},
-                                    GET_ACCOUNTS_PERMISSIONS_REQUEST);
-                        }
+                    .setAction("OK", v -> {
+                        // Request the permission again.
+                        ActivityCompat.requestPermissions(getParent(),
+                                new String[]{perm},
+                                GET_ACCOUNTS_PERMISSIONS_REQUEST);
                     }).show();
             return false;
         } else {
@@ -249,7 +246,7 @@ public class PhotosActivity extends AppCompatActivity {
 
 
     public ArrayList<Fragment> intializeItems() {
-        ArrayList<Fragment> a = new ArrayList<Fragment>();
+        ArrayList<Fragment> a = new ArrayList<>();
         a.add(SearchFragment.newInstance(0, getResources().getString(R.string.commons_search), new SearchFragment()));
         a.add(InterestingFragment.newInstance(1, getResources().getString(R.string.interesting_today), new InterestingFragment()));
         a.add(SearchFragment.newInstance(2, getResources().getString(R.string.tags), new ColorFragment()));

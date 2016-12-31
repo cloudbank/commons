@@ -27,12 +27,7 @@ public class LoginActivity extends OAuthLoginActivity {
         //@todo clear tokens for notifications open--don't want someone to access someone else's account this way
         setContentView(R.layout.activity_login);
         View v = findViewById(R.id.loginBtn);
-        v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loginToRest(v);
-            }
-        });
+        v.setOnClickListener(v1 -> loginToRest(v1));
 
 
     }

@@ -39,7 +39,7 @@ public class Tag extends RealmObject {
 
     @JsonIgnore
     @Ignore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      *

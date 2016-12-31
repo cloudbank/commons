@@ -39,7 +39,7 @@ public class Owner {
     @JsonProperty("path_alias")
     private String pathAlias;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      * 

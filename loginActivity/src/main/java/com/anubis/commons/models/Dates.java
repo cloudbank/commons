@@ -32,7 +32,7 @@ public class Dates {
     @JsonProperty("lastupdate")
     private String lastupdate;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      * 

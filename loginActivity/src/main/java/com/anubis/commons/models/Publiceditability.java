@@ -24,7 +24,7 @@ public class Publiceditability {
     @JsonProperty("canaddmeta")
     private Integer canaddmeta;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      * 

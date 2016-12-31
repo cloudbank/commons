@@ -41,7 +41,7 @@ public class SearchFragment extends FlickrBaseFragment {
 
     RecyclerView rvPhotos;
     SearchAdapter searchAdapter;
-    List<Photo> sPhotos = new ArrayList<Photo>();
+    List<Photo> sPhotos = new ArrayList<>();
     Realm commonsRealm;
     RealmChangeListener changeListener;
     Subscription commonSubscription;
@@ -167,15 +167,12 @@ public class SearchFragment extends FlickrBaseFragment {
         rvPhotos.setLayoutManager(gridLayoutManager);
         SpacesItemDecoration decoration = new SpacesItemDecoration(15);
         rvPhotos.addItemDecoration(decoration);
-        searchAdapter.setOnItemClickListener(new SearchAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                Intent intent = new Intent(getActivity(),
-                        ImageDisplayActivity.class);
-                Photo photo = sPhotos.get(position);
-                intent.putExtra(RESULT, photo.getId());
-                startActivity(intent);
-            }
+        searchAdapter.setOnItemClickListener((view1, position) -> {
+            Intent intent = new Intent(getActivity(),
+                    ImageDisplayActivity.class);
+            Photo photo = sPhotos.get(position);
+            intent.putExtra(RESULT, photo.getId());
+            startActivity(intent);
         });
 
 

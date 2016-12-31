@@ -20,9 +20,9 @@ import java.util.Map;
 public class Tags {
 
     @JsonProperty("tag")
-    private List<Tag> tag = new ArrayList<Tag>();
+    private List<Tag> tag = new ArrayList<>();
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      * 

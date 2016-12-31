@@ -87,13 +87,13 @@ public class ImageDisplayActivity extends AppCompatActivity {
         wvComments.setHorizontalScrollBarEnabled(true);
         wvComments.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         wvComments.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        wvComments.getSettings().setJavaScriptEnabled(true);
+        //wvComments.getSettings().setJavaScriptEnabled(true);
 
         mUid = mPhoto.getId();
         //@todo comments do not get refreshed w sync adapter
         //@todo this needs to check if 24 hr has passed
         Comments_ c = pRealm.where(Comments_.class).equalTo("photoId", mUid).findFirst();
-        if (null == c || (null != c && !withinADay(c.getTimestamp()))) {
+        if (null == c || (!withinADay(c.getTimestamp()))) {
             //network call
             getComments(mUid);
         } else {
@@ -215,31 +215,27 @@ public class ImageDisplayActivity extends AppCompatActivity {
         handlerThread = new HandlerThread("BackgroundHandler");
         handlerThread.start();
         final Handler backgroundHandler = new Handler(handlerThread.getLooper());
-        return backgroundHandler.post(new Runnable() {
+        return backgroundHandler.post(() -> {
+            Realm realm = null;
+            try {
+                realm = Realm.getDefaultInstance();
+                realm.beginTransaction();
+                Comments_ c = realm.where(Comments_.class).equalTo("photoId", uid).findFirst();
+                if (null == c) {
+                    c = realm.createObject(Comments_.class, uid);
+                }
 
-            @Override
-            public void run() {
-                Realm realm = null;
-                try {
-                    realm = Realm.getDefaultInstance();
-                    realm.beginTransaction();
-                    Comments_ c = realm.where(Comments_.class).equalTo("photoId", uid).findFirst();
-                    if (null == c) {
-                        c = realm.createObject(Comments_.class, uid);
+                for (Comment comment : cList) {
+                    if (!c.commentsList.contains(comment)) {
+                        c.commentsList.add(comment);
                     }
-
-                    for (Comment comment : cList) {
-                        if (!c.commentsList.contains(comment)) {
-                            c.commentsList.add(comment);
-                        }
-                    }
-                    c.setTimestamp(new Date());
-                    realm.copyToRealmOrUpdate(c);
-                    realm.commitTransaction();
-                } finally {
-                    if (realm != null) {
-                        realm.close();
-                    }
+                }
+                c.setTimestamp(new Date());
+                realm.copyToRealmOrUpdate(c);
+                realm.commitTransaction();
+            } finally {
+                if (realm != null) {
+                    realm.close();
                 }
             }
         });
@@ -280,7 +276,7 @@ public class ImageDisplayActivity extends AppCompatActivity {
                         @Override
                         public void onNext(Comment c) {
                             //@todo maybe we should let this be a network call to have fresh data?
-                            List<Comment> displayList = new ArrayList<Comment>();
+                            List<Comment> displayList = new ArrayList<>();
                             Realm cRealm = Realm.getDefaultInstance();
                             Comments_ comments = cRealm.where(Comments_.class).equalTo("photoId", mUid).findFirst();
                             if (null != comments && comments.getCommentsList().size() > 0) {
@@ -288,7 +284,7 @@ public class ImageDisplayActivity extends AppCompatActivity {
                             }
 
 
-                            List<Comment> commentsList = new ArrayList<Comment>();
+                            List<Comment> commentsList = new ArrayList<>();
                             Comment comment = new Comment();
                             //@todo  workaround the json maps anon obj { comment: {
                             Map comObj = (Map) c.getAdditionalProperties().get("comment");

@@ -26,7 +26,7 @@ public class Who_ {
     @JsonProperty("tags")
     private Tags tags;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      * 
