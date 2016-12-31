@@ -11,10 +11,13 @@ android {
         applicationId "com.anubis.commons"
         minSdkVersion 21
         targetSdkVersion 24
+        versionCode 4
+        versionName "1.3"
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_8
             targetCompatibility JavaVersion.VERSION_1_8
         }
+
         multiDexEnabled true
         def propsFile = rootProject.file('local.properties')
         def props = new Properties()
