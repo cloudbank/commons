@@ -75,15 +75,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/multidex/1.0.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="6666dd525c3da197e7d07f4f23ef5fc7881a697b">
-        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-multidex-1.0.0_e9d21ea8d7731704b4a122f6d17c0e13cc5ea0e7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.facebook.stetho/stetho-okhttp3/1.4.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -97,7 +88,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="56098435db02d6023f65e8cb514c44d4c679a73c">
+        sha1="ed7b81bd1ccdee3791d9a6f0f545049cf6c60f66">
         <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_8fdb7d0a1991570f361e5cf51390a6154111225f/classes.dex" />
     </item>
     <item
@@ -255,11 +246,20 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/sabine/github/commons/loginActivity/build/intermediates/exploded-aar/com.android.support/multidex/1.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-multidex-1.0.1_edf3737ec878f812d9160225086d7224cd43b4f3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/sabine/github/commons/loginActivity/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="78cf6a0e2e52e018e4ac8b933bd76be9f5b6cef2">
+        sha1="1031d8ab50843127ec7eda631a5951d99e8ef474">
         <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_efa2dbb94e9997d47ee475af86ff0abbd4ee6a23/classes.dex" />
     </item>
     <item

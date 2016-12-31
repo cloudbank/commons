@@ -203,7 +203,7 @@ public class InterestingFragment extends FlickrBaseFragment {
                                        }
 
                                        interesting.timestamp = Calendar.getInstance().getTime();
-                                       ;
+
 
                                        realm.copyToRealmOrUpdate(interesting);  //deep copy
                                        realm.commitTransaction();

@@ -46,7 +46,6 @@ public class ColorFragment extends FlickrBaseFragment {
 
     List mTags;
     private List<Photo> mPhotos = new ArrayList<>();
-    ;
     Subscription colorSubscription;
     AdView mPublisherAdView;
 
