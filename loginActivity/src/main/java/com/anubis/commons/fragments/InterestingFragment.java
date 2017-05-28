@@ -1,7 +1,6 @@
 package com.anubis.commons.fragments;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -15,7 +14,6 @@ import android.view.ViewGroup;
 
 import com.anubis.commons.FlickrClientApp;
 import com.anubis.commons.R;
-import com.anubis.commons.activity.ImageDisplayActivity;
 import com.anubis.commons.adapter.InterestingAdapter;
 import com.anubis.commons.models.Interesting;
 import com.anubis.commons.models.Photo;
@@ -69,7 +67,7 @@ public class InterestingFragment extends FlickrBaseFragment {
         //@todo get the last selected color?
         mInteresting = interestingRealm.where(Interesting.class).equalTo("timestamp", maxDate).findFirst();
         if (mInteresting == null) {
-            showProgress("Please wait, loading interesting data...");
+            //showProgress("Please wait, loading interesting data...");
             interestingRealm.beginTransaction();
             mInteresting = interestingRealm.createObject(Interesting.class, Calendar.getInstance().getTime().toString());
             //not in bg!
@@ -114,14 +112,7 @@ public class InterestingFragment extends FlickrBaseFragment {
                 new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         rvPhotos.setLayoutManager(gridLayoutManager);
 
-        rAdapter.setOnItemClickListener((view1, position) -> {
-            Intent intent = new Intent(getActivity(),
-                    ImageDisplayActivity.class);
-            Photo photo = mPhotos.get(position);
-
-            intent.putExtra(RESULT, photo.getId());
-            startActivity(intent);
-        });
+        setItemListener(rAdapter, mPhotos);
         setHasOptionsMenu(true);
         return view;
     }
@@ -153,7 +144,14 @@ public class InterestingFragment extends FlickrBaseFragment {
         }
     }
 
+    public static Handler UIHandler = new Handler(Looper.getMainLooper());
 
+    private static final Runnable sRunnable = new Runnable() {
+        @Override
+        public void run() {
+            //dismissProgress();
+        }
+    };
     public void getInterestingPhotos() {
         //@todo offline mode
         //@TODO need iterableFLATMAP TO GET ALL PAGES
@@ -165,8 +163,7 @@ public class InterestingFragment extends FlickrBaseFragment {
                                @Override
                     public void onCompleted() {
 
-                        Handler handler = new Handler(Looper.getMainLooper());
-                        handler.post(() -> dismissProgress());
+                        //UIHandler.post(sRunnable);
 
                     }
 

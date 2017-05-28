@@ -48,8 +48,14 @@
             android:windowSoftInputMode="adjustPan"></activity>
         <activity
             android:name="com.anubis.commons.activity.ImageDisplayActivity"
-            android:label="@string/app_name"></activity>
-        <activity android:name="eu.janmuller.android.simplecropimage.CropImage" />
+            android:label="@string/app_name">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.anubis.commons.activity.PhotosActivity" />
+
+
+        </activity>
+
 
 
         <provider

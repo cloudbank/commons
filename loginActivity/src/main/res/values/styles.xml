@@ -8,49 +8,51 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/RoyalBlue</item>
-        <item name="colorPrimaryDark">#0abab5</item>
-        <item name="colorAccent">@color/AliceBlue</item>
-        <item name="android:colorBackground">@color/AliceBlue</item>
+        <item name="colorPrimary">@color/sand</item>
+        <item name="colorPrimaryDark">@color/BlackReed</item>
+        <item name="colorAccent">@color/LithiumPool</item>
+        <item name="android:statusBarColor">@color/limon</item>
+
+        <item name="android:colorBackground">@color/Ivory</item>
+        <!-- Applies to views in their activated state (i.e checked or switches) -->
+        <item name="colorControlActivated">@color/LithiumPool</item>
+        <!-- Applied to framework control highlights (i.e ripples or list selectors) -->
+        <item name="colorControlHighlight">@color/LithiumPool</item>
+        <!-- Default color of the status bar at the top of your device  -->
+        <item name="selectableItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackgroundBorderless</item>
+
+        <item name="android:actionBarPopupTheme">@style/Theme.YourAppsName.ActionBarPopupTheme</item>
 
     </style>
 
-
-    <style name="MyDarkToolbarStyle" parent="ThemeOverlay.AppCompat.Light">
-        <item name="android:colorBackground">@color/AliceBlue</item>
-        <item name="android:textColor">@color/AliceBlue</item>
-        <item name="android:textStyle">bold</item>
+    <style name="Theme.YourAppsName.ActionBarPopupTheme" parent="android:ThemeOverlay.Material.Light">
+        <item name="android:colorBackground">@color/limon</item>
+        <item name="android:textColor">@color/Ivory</item>
     </style>
 
 
-    <style name="MySwitch" parent="Theme.AppCompat.Light">
-        <!-- active thumb & track color (30% transparency) -->
-        <item name="colorControlActivated">@color/RoyalBlue</item>
 
-        <!-- inactive thumb color -->
-        <item name="colorSwitchThumbNormal">@color/DeepPink</item>
 
-        <!-- inactive track color (30% transparency) -->
-        <item name="android:colorForeground">@color/AliceBlue</item>
+
+    <style name="TabLayoutStyle" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/ice</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabPaddingStart">8dp</item>
+        <item name="tabPaddingEnd">8dp</item>
+        <item name="tabBackground">?attr/colorPrimary</item>
+        <item name="tabTextAppearance">@style/TabTextAppearance</item>
+        <item name="tabSelectedTextColor">?attr/colorAccent</item>
+
+
     </style>
 
-
-    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
-        <item name="tabTextAppearance">@style/MyCustomTabText</item>
-        <item name="tabSelectedTextColor">#0abab5</item>
+    <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/Ivory</item>
+        <item name="textAllCaps">true</item>
     </style>
 
-    <style name="MyCustomTabText" parent="TextAppearance.AppCompat.Button">
-        <item name="android:textSize">13sp</item>
-        <item name="android:textAllCaps">true</item>
-        <item name="android:textColor">@color/AliceBlue</item>
-    </style>
-
-    <style name="MyRadioButton" parent="Theme.AppCompat.Light">
-        <item name="colorControlNormal">@color/RoyalBlue</item>
-        <item name="colorControlActivated">@color/DeepPink</item>
-        <item name="android:textColor">@color/RoyalBlue</item>
-    </style>
 
 
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
@@ -60,56 +62,23 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-        <!-- android:textColorPrimary is the color of the title text in the Toolbar  -->
-        <item name="android:textColorPrimary">@color/AliceBlue</item>
-        <!-- actionMenuTextColor is the color of the text of action (menu) items  -->
-        <item name="actionMenuTextColor">@android:color/holo_green_light</item>
-        <!-- Tints the input fields like checkboxes and text fields -->
-        <item name="colorAccent">@color/android_green</item>
-        <!-- Applies to views in their normal state. -->
-        <item name="colorControlNormal">@color/android_green</item>
-        <!-- Applies to views in their activated state (i.e checked or switches) -->
-        <item name="colorControlActivated">@color/android_green</item>
-        <!-- Applied to framework control highlights (i.e ripples or list selectors) -->
-        <item name="colorControlHighlight">@color/AliceBlue</item>
 
-        <!-- Enable these below if you want clicking icons to trigger a ripple effect -->
 
-        <item name="selectableItemBackground">?android:selectableItemBackground</item>
-        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackground</item>
-
-    </style>
 
 
     <style name="MyEditText" parent="Theme.AppCompat.Light">
-        <item name="colorControlNormal">@color/RoyalBlue</item>
-        <item name="colorControlActivated">@color/DeepPink</item>
+        <item name="colorControlNormal">?attr/colorPrimary</item>
+        <item name="colorControlActivated">?attr/colorAccent</item>
     </style>
 
 
     <style name="MyButton" parent="Theme.AppCompat.Light">
-        <item name="colorControlHighlight">@color/RoyalBlue</item>
-        <item name="colorButtonNormal">#0abab5</item>
+        <item name="colorControlHighlight">?attr/colorAccent</item>
+        <item name="colorButtonNormal">?attr/colorPrimary</item>
 
     </style>
 
-    <style name="MyLoginButton" parent="Theme.AppCompat.Light">
-        <item name="colorControlHighlight">@color/AliceBlue</item>
-        <item name="colorButtonNormal">#0abab5</item>
 
-    </style>
-
-    <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <!--buttons color-->
-        <item name="colorAccent">@color/TiffanyBlue</item>
-        <!--title and message color-->
-        <item name="android:textColorPrimary">@color/TiffanyBlue</item>
-        <!--dialog background-->
-        <item name="android:windowBackground">@color/AliceBlue</item>
-
-
-    </style>
 
 
 

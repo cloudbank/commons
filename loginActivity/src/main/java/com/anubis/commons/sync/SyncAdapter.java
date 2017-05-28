@@ -17,12 +17,9 @@ import android.content.SyncRequest;
 import android.content.SyncResult;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.anubis.commons.FlickrClientApp;
 import com.anubis.commons.R;
@@ -239,7 +236,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         int iconId = R.drawable.ic_flower;
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(context)
-                        .setColor(context.getResources().getColor(R.color.PaleVioletRed))
+                        .setColor(context.getResources().getColor(R.color.WhiskeySour))
                         .setSmallIcon(iconId)
                         .setContentTitle("Commons Data")
                         .setContentText("Photos updated daily")
@@ -346,13 +343,14 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                 .subscribe(new Subscriber<Photos>() {
                                @Override
                                public void onCompleted() {
+                                   /*
                                    Handler handler = new Handler(Looper.getMainLooper());
 
                                    handler.post(() -> {
                                        //Your UI code here
                                        Toast.makeText(FlickrClientApp.getAppContext(), "Got our photos", Toast.LENGTH_SHORT).show();
                                    });
-
+                                    */
                                }
 
                                @Override
@@ -428,12 +426,12 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
                                @Override
                                public void onCompleted() {
-
+                                    /*
                                    Handler handler = new Handler(Looper.getMainLooper());
                                    handler.post(() -> {
 
                                    });
-
+*/
                                }
 
 

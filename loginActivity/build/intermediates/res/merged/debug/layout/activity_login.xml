@@ -1,37 +1,65 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/background_gradient"
     tools:context=".LoginActivity">
 
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="380dp"
+        android:orientation="vertical">
 
-    <Button
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="center"
+
+            android:layout_marginBottom="0dp"
+            android:layout_weight="0.3"
+            android:src="@mipmap/login" />
+
+        <ImageView
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="0dp"
+            android:alpha="0.5"
+
+            android:src="@drawable/spinner"
+            android:visibility="invisible" />
+
+
+    </FrameLayout>
+
+    <ImageButton
         android:id="@+id/loginBtn"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:onClick="loginToRest"
-        android:shadowColor="#2B2351"
-        android:shadowDx="2"
-        android:shadowDy="3"
-        android:shadowRadius="5"
-        android:text="@string/log_in"
-        android:textColor="@color/AliceBlue"
-        android:textSize="25sp"
-        android:theme="@style/MyLoginButton"
-        android:layout_marginBottom="57dp"
-        android:layout_alignBottom="@+id/imgView"
-        android:layout_centerHorizontal="true" />
-
-    <ImageView
-        android:id="@+id/imgView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/commons_banner5"
+        android:layout_gravity="center"
+        android:layout_marginBottom="60dp"
+        android:onClick="loginToRest"
+        android:alpha="0.6"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:src="@drawable/arrow" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="98dp" />
+        android:visibility="gone"
+        android:layout_below="@id/loginBtn"
+        android:layout_gravity="center"
+        android:alpha="0.4"
+
+        android:src="@drawable/teahouse" />
 
 
-</RelativeLayout>
+</LinearLayout>

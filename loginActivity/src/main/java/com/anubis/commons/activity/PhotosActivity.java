@@ -5,6 +5,7 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.annotation.TargetApi;
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -22,7 +23,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.anubis.commons.FlickrClientApp;
@@ -33,10 +37,13 @@ import com.anubis.commons.fragments.InterestingFragment;
 import com.anubis.commons.fragments.SearchFragment;
 import com.anubis.commons.sync.SyncAdapter;
 import com.anubis.commons.util.Util;
+import com.anubis.oauthkit.OAuthBaseClient;
 import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+import static android.R.attr.delay;
 
 public class PhotosActivity extends AppCompatActivity {
 
@@ -133,13 +140,14 @@ public class PhotosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //initDb();
         setContentView(R.layout.activity_photos);
-        //for snackbar
+        FrameLayout fragmentItemDetail = (FrameLayout) findViewById(R.id.flDetailContainer);
+        FlickrBaseFragment.setPane(fragmentItemDetail != null);
 
         rootView = findViewById(android.R.id.content);
         //oauthkit shared prefs
         SharedPreferences authPrefs = getApplicationContext().getSharedPreferences(getString(R.string.OAuthKit_Prefs), 0);
         //need to update user prefs either way
-        if (Util.getCurrentUser().length() > 0  && !Util.getCurrentUser().equals(authPrefs.getString(getString(R.string.username), ""))) {
+        if (Util.getCurrentUser().length() > 0 && !Util.getCurrentUser().equals(authPrefs.getString(getString(R.string.username), ""))) {
             //@todo stop the sync adapter and restart
             Log.d("SYNC", "changing accounts for sync adapter");
             //find out how to properly stop before restartchanging
@@ -164,17 +172,18 @@ public class PhotosActivity extends AppCompatActivity {
         updateUserInfo(authPrefs);
 
 
-        setContentView(R.layout.activity_photos);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setLogo(R.mipmap.ic_launcher);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        toolbar.setNavigationIcon(R.drawable.infinity);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        toolbar.inflateMenu(R.menu.photos);
+
         //getSupportActionBar().setElevation(3);
         //getSupportActionBar().setTitle(R.string.app_name);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.TiffanyBlue));
-        getSupportActionBar().setSubtitle(Util.getCurrentUser());
-        toolbar.setSubtitleTextColor(getResources().getColor(R.color.Azure));
+        //getSupportActionBar().setSubtitle(Util.getCurrentUser());
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.commons_search));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.interesting_today));
@@ -189,22 +198,62 @@ public class PhotosActivity extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(onTabSelectedListener(vpPager));
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-8660045387738182~8507434555");
         //SyncAdapter.initializeSyncAdapter(this);  //delay with handlerthread
-        delaySync(FlickrClientApp.getAppContext());
+        delaySync();
+
+
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.photos, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_logout) {
+            signOut();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void signOut() {
+
+        OAuthBaseClient.getInstance(getApplicationContext(), null).clearTokens();
+        Intent bye = new Intent(this, LoginActivity.class);
+        startActivity(bye);
     }
 
 
     static final long c_delayMax = 120 * 1000;
     static Random r = new Random();
 
-    void delaySync(android.content.Context c) {
-        Handler h = new Handler();
+    public static Handler sHandler = new Handler();
+
+    private static final Runnable sRunnable = new Runnable() {
+
+
+        @Override
+        public void run() {
+            Log.d("SYNC", "starting after delay " + delay);
+            SyncAdapter.initializeSyncAdapter(FlickrClientApp.getAppContext());
+        }
+    };
+
+    void delaySync() {
 
         long delay = r.nextLong() % c_delayMax;
         //new Runnable
-        h.postDelayed(() -> {
-            Log.d("SYNC", "starting after delay " + delay);
-            SyncAdapter.initializeSyncAdapter(c);
-        }, delay);
+        sHandler.postDelayed(sRunnable, delay);
 
     }
 

@@ -6,12 +6,9 @@
     <string name="interesting_today">Explore</string>
     <string name="commons_search">All</string>
     <string name="tags">By Color</string>
-    <string name="commons"><i>Help catalog the world’s public photo archives.</i></string>
-    <string name="commons_under"><u>The key goal of The Commons is to share hidden treasures\n from the world\'s public photography archives.</u> </string>
     <string name="current_user">currentUser</string>
     <string name="user_id">userId</string>
     <string name="OAuthKit_Prefs">OAuthKit_Prefs</string>
-    <string name="Phlix_User_Prefs">Phlix_User_Prefs</string>
     <string name="title">title</string>
     <string name="username">username</string>
     <string name="user_nsid">user_nsid</string>
@@ -23,5 +20,8 @@
     <string name="comment_on_this_pic">Comment on this pic...</string>
     <string name="add_comment">add comment</string>
     <string name="log_in">Log In</string>
+    <string name="yellow">yellow</string>
+    <string name="blue">blue</string>
+    <string name="orange">orange</string>
 
 </resources>

@@ -4,10 +4,10 @@
 
     <item
         android:id="@+id/action_logout"
-        android:icon="@drawable/ic_logout"
-        app:showAsAction="always"
+        app:showAsAction="never"
         android:orderInCategory="999"
         android:title="logout" />
+
 
 
 </menu>

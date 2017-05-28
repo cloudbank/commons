@@ -45,6 +45,10 @@
      @com.fasterxml.jackson.annotation.JsonProperty *;
 }
 
+-keep class java.beans.Transient.** {*;}
+-keep class java.beans.ConstructorProperties.** {*;}
+-keep class java.nio.file.Path.** {*;}
+
 -keep class com.anubis.commons.models.** {*;}
 
 -dontwarn com.fasterxml.jackson.**

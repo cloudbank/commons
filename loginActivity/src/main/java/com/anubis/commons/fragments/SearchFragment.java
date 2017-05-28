@@ -1,7 +1,6 @@
 package com.anubis.commons.fragments;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -14,9 +13,7 @@ import android.view.ViewGroup;
 
 import com.anubis.commons.FlickrClientApp;
 import com.anubis.commons.R;
-import com.anubis.commons.activity.ImageDisplayActivity;
 import com.anubis.commons.adapter.SearchAdapter;
-import com.anubis.commons.adapter.SpacesItemDecoration;
 import com.anubis.commons.models.Common;
 import com.anubis.commons.models.Photo;
 import com.anubis.commons.models.Photos;
@@ -68,8 +65,7 @@ public class SearchFragment extends FlickrBaseFragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
-        searchAdapter = new SearchAdapter(FlickrClientApp.getAppContext(), sPhotos, true);
+        searchAdapter= new SearchAdapter(FlickrClientApp.getAppContext(), sPhotos, true);
 
         changeListener = new RealmChangeListener<Common>() {
 
@@ -85,7 +81,7 @@ public class SearchFragment extends FlickrBaseFragment {
         Date maxDate = commonsRealm.where(Common.class).maximumDate("timestamp");
         mCommon = commonsRealm.where(Common.class).equalTo("timestamp", maxDate).findFirst();
         if (mCommon == null) {
-            showProgress("Loading data, please wait...");
+           // showProgress("Loading data, please wait...");
 
             commonsRealm.beginTransaction();
             mCommon  = commonsRealm.createObject(Common.class, Calendar.getInstance().getTime().toString());
@@ -150,7 +146,7 @@ public class SearchFragment extends FlickrBaseFragment {
         if (null != c) {
             sPhotos.addAll(c.getCommonPhotos());
         }
-        searchAdapter.notifyDataSetChanged();
+        searchAdapter.notifyItemRangeChanged(0, c.getCommonPhotos().size()-1);
 
 
     }
@@ -161,27 +157,35 @@ public class SearchFragment extends FlickrBaseFragment {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
 
         rvPhotos = (RecyclerView) view.findViewById(R.id.rvSearch);
+        searchAdapter.setmAnimator(rvPhotos);
 
-        rvPhotos.setAdapter(searchAdapter);
+
         StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+
         rvPhotos.setLayoutManager(gridLayoutManager);
-        SpacesItemDecoration decoration = new SpacesItemDecoration(15);
-        rvPhotos.addItemDecoration(decoration);
-        searchAdapter.setOnItemClickListener((view1, position) -> {
-            Intent intent = new Intent(getActivity(),
-                    ImageDisplayActivity.class);
-            Photo photo = sPhotos.get(position);
-            intent.putExtra(RESULT, photo.getId());
-            startActivity(intent);
-        });
+        //animationAdapter.setFirstOnly(true);
+        rvPhotos.setAdapter(searchAdapter);
+        rvPhotos.setHasFixedSize(true);
+
+        setItemListener(searchAdapter, sPhotos);
+
 
 
         Log.d("TABS", "search oncreateview");
         setHasOptionsMenu(true);
+        //showProgress("");
         return view;
 
     }
 
+    public static Handler UIHandler = new Handler(Looper.getMainLooper());
+
+    private static final Runnable sRunnable = new Runnable() {
+        @Override
+        public void run() {
+            //dismissProgress();
+        }
+    };
     private void getCommonsPage1() {
 
         //@todo check for page total if not then process with page 1
@@ -193,8 +197,7 @@ public class SearchFragment extends FlickrBaseFragment {
                     @Override
                     public void onCompleted() {
 
-                        Handler handler = new Handler(Looper.getMainLooper());
-                        handler.post(() -> dismissProgress());
+                       // UIHandler.post(sRunnable);
 
                     }
 

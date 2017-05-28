@@ -1,57 +1,53 @@
 package com.anubis.commons.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.anubis.commons.R;
 import com.anubis.commons.models.Photo;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
-import java.util.Random;
 
 
 /**
  * Created by sabine on 9/26/16.
  */
 
-public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ViewHolder> {
+public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ViewHolder>  implements RecyclerViewAdapter {
 
 
-    private OnItemClickListener listener;
+    private ItemClickListener listener;
 
 
-    public OnItemClickListener getListener() {
+    public ItemClickListener getListener() {
         return this.listener;
 
     }
 
-    public interface OnItemClickListener {
-        void onItemClick(View itemView, int position);
-    }
 
-    public void setOnItemClickListener(OnItemClickListener listener) {
+
+    public void setItemClickListener(ItemClickListener listener) {
         this.listener = listener;
     }
 
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tags;
-        ImageView imageView;
-        CheckBox checkbox;
 
-        public ViewHolder(final View itemView, final OnItemClickListener listener) {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageView;
+        CardView cardView;
+
+        public ViewHolder(final View itemView, final ItemClickListener listener) {
             super(itemView);
 
 
             imageView = (ImageView) itemView.findViewById(R.id.ivPhoto);
+            cardView = (CardView)itemView.findViewById(R.id.cardView);
 
             itemView.setOnClickListener(v -> {
                 if (listener != null) {
@@ -78,6 +74,7 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ViewHolder> 
 
     }
 
+
     private Context getContext() {
         return mContext;
     }
@@ -98,25 +95,20 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ViewHolder> 
         Photo photo = mPhotos.get(position);
 
         ImageView imageView = viewHolder.imageView;
-        RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) viewHolder.imageView
-                .getLayoutParams();
+        CardView cv = viewHolder.cardView;
 
-        int aspectRatio = (null != photo.getWidth()  && null != photo.getHeight()) ? Integer.parseInt(photo.getHeight())/Integer.parseInt(photo.getWidth()): 1;
+        cv.setUseCompatPadding(true);
+        cv.setCardElevation(2.0f);
+        //StaggeredGridLayoutManager.LayoutParams fp = (StaggeredGridLayoutManager.LayoutParams) viewHolder.cardView.getLayoutParams();
 
-        if (mStaggered) {
-            Random rand = new Random();
-            int n = rand.nextInt(200) + 200;
-            lp.height = n; // photo.getPhotoHeight() * 2;
-            //n = rand.nextInt(200) + 100;
+        //int aspectRatio = (null != photo.getWidth()  && null != photo.getHeight()) ? Integer.parseInt(photo.getHeight())/Integer.parseInt(photo.getWidth()): 1;
 
-            lp.width =  aspectRatio > 0 ? n/aspectRatio : n; // photo.getPhotoList//set the title, name, comments
-            imageView.setLayoutParams(lp);
 
-        } else {
-            lp.height= 250;
-            //lp.width = 300;
 
-        }
+
+
+
+
         Picasso.with(this.getContext()).load(photo.getUrl()).fit().centerCrop()
                 //.placeholder(android.R.drawable.btn_star)
                 .error(android.R.drawable.btn_star)

@@ -1,26 +1,30 @@
 package com.anubis.commons.fragments;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.annotation.ColorRes;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.anubis.commons.FlickrClientApp;
 import com.anubis.commons.R;
-import com.anubis.commons.activity.ImageDisplayActivity;
 import com.anubis.commons.adapter.ColorAdapter;
 import com.anubis.commons.models.Color;
 import com.anubis.commons.models.ColorPhotos;
 import com.anubis.commons.models.Photo;
 import com.anubis.commons.models.Photos;
+import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
+import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.facebook.rebound.BaseSpringSystem;
+import com.facebook.rebound.Spring;
+import com.facebook.rebound.SpringSystem;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
@@ -29,7 +33,6 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
-import java.util.TreeMap;
 
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
@@ -48,6 +51,7 @@ public class ColorFragment extends FlickrBaseFragment {
     private List<Photo> mPhotos = new ArrayList<>();
     Subscription colorSubscription;
     AdView mPublisherAdView;
+    com.aurelhubert.ahbottomnavigation.AHBottomNavigation bottomNavigation;
 
     ColorAdapter colorAdapter;
     RecyclerView rvPhotos;
@@ -55,13 +59,9 @@ public class ColorFragment extends FlickrBaseFragment {
     RealmChangeListener changeListener;
     Realm colorRealm;
     Color mColor;
-    TreeMap<Integer, String> colors = new TreeMap<>();
-    Button red = null;
-    Button orange = null;
-    Button yellow = null;
-    Button blue = null;
-
-
+    String[] colors = new String[3];
+    private final BaseSpringSystem mSpringSystem = SpringSystem.create();
+    private Spring mScaleSpring;
     @Override
     public void onPause() {
         if (mPublisherAdView != null) {
@@ -100,7 +100,7 @@ public class ColorFragment extends FlickrBaseFragment {
             }
         };
         colorRealm = Realm.getDefaultInstance();
-        mColor = colorRealm.where(Color.class).equalTo("color", "0").findFirst();
+        mColor = colorRealm.where(Color.class).equalTo("color", "4").findFirst();
         //init
         if (mColor == null) {
 
@@ -108,7 +108,7 @@ public class ColorFragment extends FlickrBaseFragment {
             colorRealm.beginTransaction();
             mColor = colorRealm.createObject(Color.class, Calendar.getInstance().getTime().toString());
             //not in bg!
-            mColor.color = "0";
+            mColor.color = "4";
             colorRealm.commitTransaction();
 
             mColor.addChangeListener(changeListener);
@@ -129,7 +129,6 @@ public class ColorFragment extends FlickrBaseFragment {
         super.onActivityCreated(savedInstanceState);
 
 
-
     }
 
 
@@ -139,12 +138,59 @@ public class ColorFragment extends FlickrBaseFragment {
 
         Log.d("TABS", "tags oncreate");
 
-        colors.put(R.id.red, "0");
-        colors.put(R.id.blue, "8");
-        colors.put(R.id.yellow, "4");
-        colors.put(R.id.orange, "2");
+        colors[0] = "4"; //yellow
+        colors[1] = "8"; // blue
+        colors[2] = "2";  //orange
 
         setRetainInstance(true);
+
+    }
+
+    private void setupBottomNav(com.aurelhubert.ahbottomnavigation.AHBottomNavigation bottomNavigation) {
+        // Create items
+        AHBottomNavigationItem item1 = new AHBottomNavigationItem(getActivity().getString(R.string.yellow), R.drawable.ic_invert_colors_black_24dp, fetchColor(R.color.pee));
+        AHBottomNavigationItem item2 = new AHBottomNavigationItem(getActivity().getString(R.string.blue), R.drawable.ic_invert_colors_black_24dp, fetchColor(android.R.color.holo_blue_dark));
+        AHBottomNavigationItem item3 = new AHBottomNavigationItem(getActivity().getString(R.string.orange), R.drawable.ic_invert_colors_black_24dp, fetchColor(android.R.color.holo_orange_dark));
+
+        // Add items
+        bottomNavigation.addItem(item1);
+        bottomNavigation.addItem(item2);
+        bottomNavigation.addItem(item3);
+
+        // Set background color
+        bottomNavigation.setDefaultBackgroundColor(fetchColor(R.color.back_sand_40));
+
+        // Change colors
+        bottomNavigation.setAccentColor(fetchColor(R.color.pee));
+        bottomNavigation.setInactiveColor(fetchColor(android.R.color.darker_gray));
+
+
+        // Use colored navigation with circle reveal effect
+        //bottomNavigation.setColored(true);
+        bottomNavigation.setBehaviorTranslationEnabled(true);
+
+        // Set current item programmatically
+        bottomNavigation.setCurrentItem(0);
+
+
+        // Set listeners
+        bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(int position, boolean wasSelected) {
+                if (position == 1) {
+                    bottomNavigation.setAccentColor(fetchColor(android.R.color.holo_blue_dark));
+
+                } else if (position == 2) {
+                    bottomNavigation.setAccentColor(fetchColor(android.R.color.holo_orange_dark));
+                } else {
+                    bottomNavigation.setAccentColor(fetchColor(R.color.pee));
+                }
+                getPhotos(position);
+                //return true;
+            }
+        });
+
+
     }
 
 
@@ -155,15 +201,12 @@ public class ColorFragment extends FlickrBaseFragment {
             mPhotos.addAll(c.getColorPhotos());
         }
         colorAdapter.notifyDataSetChanged();
-        if (null != red) {
-            red.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
-            yellow.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-            blue.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-            orange.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-        }
 
 
     }
+
+
+
 
 
     @Override
@@ -184,9 +227,9 @@ public class ColorFragment extends FlickrBaseFragment {
     }
 
 
-    private void getPhotos(View v) {
+    private void getPhotos(int position) {
         //from onclick buttons
-        final String color = colors.get(v.getId());
+        final String color = colors[position];
         Realm realm2 = null;
 
         try {
@@ -218,22 +261,16 @@ public class ColorFragment extends FlickrBaseFragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tags, container,
                 false);
-        red = (Button) view.findViewById(R.id.red);
-        orange = (Button) view.findViewById(R.id.orange);
-        yellow = (Button) view.findViewById(R.id.yellow);
-        blue = (Button) view.findViewById(R.id.blue);
 
 
         rvPhotos = (RecyclerView) view.findViewById(R.id.rvPhotos);
+        //colorAdapter.setmAnimator(rvPhotos);
         rvPhotos.setAdapter(colorAdapter);
+
         rvPhotos.setLayoutManager(new GridLayoutManager(FlickrClientApp.getAppContext(), 3));
-        colorAdapter.setOnItemClickListener((view1, position) -> {
-            Intent intent = new Intent(getActivity(),
-                    ImageDisplayActivity.class);
-            Photo photo = mPhotos.get(position);
-            intent.putExtra(RESULT, photo.getId());
-            startActivity(intent);
-        });
+
+        bottomNavigation = (AHBottomNavigation) view.findViewById(R.id.bottom_navigation);
+        setupBottomNav(bottomNavigation);
         //button on clicks
         //get mColor if not in mRealm and store it
 
@@ -244,57 +281,24 @@ public class ColorFragment extends FlickrBaseFragment {
                 .build();
         mPublisherAdView.loadAd(adRequest);
 
-
-        red.setOnClickListener(v -> {
-            //get from mRealm, if null or stale
-            //get from network once per 48 hrs;
-            red.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
-            yellow.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-            blue.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-            orange.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-            getPhotos(v);
-        });
-        yellow.setOnClickListener(v -> {
-            //get from mRealm, if null or stale
-            //get from network once per 48 hrs;
-            yellow.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
-            red.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-            blue.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-            orange.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-            getPhotos(v);
-        });
-
-
-        blue.setOnClickListener(v -> {
-            blue.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
-            red.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-            yellow.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-            orange.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-            //get from mRealm, if null or stale
-            //get from network once per 48 hrs;
-            getPhotos(v);
-        });
-
-
-        orange.setOnClickListener(v -> {
-            orange.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
-            red.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-            blue.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-            yellow.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-            //get from mRealm, if null or stale
-            //get from network once per 48 hrs;
-            getPhotos(v);
-        });
-
-
+        setItemListener(colorAdapter, mPhotos);
         setHasOptionsMenu(true);
         return view;
     }
 
     private static Observable<List<String>> getIds() {
-        return Observable.just(Arrays.<String>asList("0", "4", "8", "2"));
+        return Observable.just(Arrays.<String>asList("4", "8", "2"));
     }
 
+
+    public static Handler UIHandler = new Handler(Looper.getMainLooper());
+
+    private static final Runnable sRunnable = new Runnable() {
+        @Override
+        public void run() {
+            dismissProgress();
+        }
+    };
 
     private void getColors() {
         //@todo check for page total if not then process with page 1
@@ -311,8 +315,7 @@ public class ColorFragment extends FlickrBaseFragment {
                                @Override
                                public void onCompleted() {
 
-                                   Handler handler = new Handler(Looper.getMainLooper());
-                                   handler.post(() -> dismissProgress());
+                                   UIHandler.post(sRunnable);
 
                                }
 
@@ -327,6 +330,7 @@ public class ColorFragment extends FlickrBaseFragment {
                                    }
                                    Log.e("ERROR", "error getting color" + e);
                                    //signout
+                                   UIHandler.post(sRunnable);
 
                                }
 
@@ -388,4 +392,7 @@ public class ColorFragment extends FlickrBaseFragment {
     }
 
 
+    private int fetchColor(@ColorRes int color) {
+        return ContextCompat.getColor(getContext(), color);
+    }
 }

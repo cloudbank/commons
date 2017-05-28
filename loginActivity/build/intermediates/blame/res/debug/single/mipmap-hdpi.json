@@ -1,5 +1,13 @@
 [
     {
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/mipmap-hdpi/arrow.png",
+        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/mipmap-hdpi/arrow.png"
+    },
+    {
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/mipmap-hdpi/login.png",
+        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/mipmap-hdpi/login.png"
+    },
+    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/mipmap-hdpi/ic_launcher.png",
         "source": "/Users/sabine/github/commons/loginActivity/src/main/res/mipmap-hdpi/ic_launcher.png"
     }

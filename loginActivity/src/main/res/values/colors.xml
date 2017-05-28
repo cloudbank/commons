@@ -1,60 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-Version: 2
-Organized by: Willie Tsang
+<?xml version="1.0" encoding="utf-8"?>
+<!--
 
 -->
 <resources>
 
+    <!-- our palette credit to Purnima Bhardwaj on materialup -->
 
-    <color name="TiffanyBlue">#0abab5</color>
-    <!-- Android style -->
-    <color name="android_green">#A4C639</color>
-
-    <!-- Windows 8 style -->
-
-    <!-- Common -->
-    <color name="white">#FFFFFF</color>
-    <!-- Generic -->
-    <!-- Generic Dark -->
-    <!-- Generic Light -->
-    <!-- Generic Medium -->
-
-    <!-- a -->
-    <color name="Azure">#F0FFFF</color>
-    <color name="AliceBlue">#F0F8FF</color>
-    <!-- b -->
-    <!-- comments -->
-    <!-- d -->
-    <color name="DeepPink">#FF1493</color>
+    <color name="Ivory">#FEFEFD</color>
+    <color name="CoralTree">#A46F65</color>
+    <color name="WhiskeySour">#D3944E</color>
+    <color name="TangerineYellow">#F1CD0C</color>
+    <color name="TulipTree">#DCA536</color>
+    <color name="Ferra">#89706E</color>
+    <color name="LithiumPool">#F2FFB3</color>
 
 
-    <color name="yellow">#FFFC33</color>
-    <color name="red">#FF0000</color>
-    <color name="orange">#FFA500</color>
+    <color name="back_alpha_40">#90A46F65</color>
 
-    <!-- h -->
-    <!-- i -->
-    <!-- j -->
-    <!-- k -->
-    <!-- l -->
-    <!-- m -->
-    <!-- n -->
-    <!-- o -->
+    <color name="back_sand_40">#90CED25C</color>
 
-    <!-- photo -->
-    <color name="PaleVioletRed">#DB7093</color>
-    <!-- q -->
-    <!-- r -->
-    <color name="RoyalBlue">#4169E1</color>
-    <!-- s -->
+    <color name="ice">#F5FFDE</color>
+    <color name="linen">#ADA57F</color>
+    <color name="BlackReed">#2A291F</color>
+    <color name="ochre">#6D6850</color>
+    <color name="sand">#CED25C</color>
+    <color name="limon">#E2E765</color>
+    <color name="pee">#F9FE6F</color>
 
-    <!-- t -->
-    <!-- u -->
-    <!-- v -->
-    <!-- w -->
-    <!-- x -->
-    <!-- y -->
 
-    <!-- z -->
 
-</resources>
+
+
+
+
+
+   </resources>

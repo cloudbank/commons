@@ -7,8 +7,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.anubis.commons.FlickrClientApp;
@@ -20,6 +23,9 @@ import se.akerfeldt.okhttp.signpost.OkHttpOAuthConsumer;
 
 public class LoginActivity extends OAuthLoginActivity {
     OAuthBaseClient client;
+    ImageView spinner;
+    private static final float ROTATE_FROM = 0.0f;
+    private static final float ROTATE_TO = 10.0f * 360.0f;// 3.141592654f * 32.0f;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,13 +56,14 @@ public class LoginActivity extends OAuthLoginActivity {
         return activeNetworkInfo != null
                 && activeNetworkInfo.isConnectedOrConnecting();
     }
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.login, menu);
+        //getMenuInflater().inflate(R.menu.login, menu);
         return true;
     }
+    */
 
     @Override
     public void onLoginSuccess(OkHttpOAuthConsumer consumer, String baseUrl) {
@@ -68,17 +75,31 @@ public class LoginActivity extends OAuthLoginActivity {
 
     @Override
     public void onLoginFailure(Exception e) {
+        spinner.setAnimation(null);
         Toast.makeText(
                 this,
                 "There is a problem with login to the app.  Please check your internet connection and try again.",
                 Toast.LENGTH_LONG).show();
 
         Log.e("ERROR", e.toString());
+
         e.printStackTrace();
     }
 
     public void loginToRest(View view) {
-        final ProgressDialog ringProgressDialog = new ProgressDialog(this, R.style.MyDialogTheme);
+        RotateAnimation anim = new RotateAnimation(ROTATE_FROM, ROTATE_TO, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        anim.setInterpolator(new LinearInterpolator());
+        anim.setRepeatCount(Animation.INFINITE);
+        anim.setDuration(700);
+
+// Start animating the image
+        spinner = (ImageView) findViewById(R.id.spinner);
+        final ImageView logo = (ImageView) findViewById(R.id.logo);
+        spinner.setVisibility(View.VISIBLE);
+        logo.setAlpha(.20f);
+        spinner.startAnimation(anim);
+
+        final ProgressDialog ringProgressDialog = new ProgressDialog(this);
         ringProgressDialog.setTitle("Please wait");
         ringProgressDialog.setMessage("Preparing to login");
         ringProgressDialog.setCancelable(true);
@@ -90,6 +111,7 @@ public class LoginActivity extends OAuthLoginActivity {
             client = OAuthBaseClient.getInstance(FlickrClientApp.getAppContext(), this);
             client.connect();
         }
+
         ringProgressDialog.dismiss();
     }
 

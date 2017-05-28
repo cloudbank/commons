@@ -45,6 +45,6 @@ public class Util {
     }
 
     public static SharedPreferences getUserPrefs() {
-        return  FlickrClientApp.getAppContext().getSharedPreferences(FlickrClientApp.getAppContext().getResources().getString(R.string.Phlix_User_Prefs), 0);
+        return  FlickrClientApp.getAppContext().getSharedPreferences(FlickrClientApp.getAppContext().getResources().getString(R.string.OAuthKit_Prefs), 0);
     }
 }

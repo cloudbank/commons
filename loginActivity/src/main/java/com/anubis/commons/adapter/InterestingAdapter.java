@@ -3,12 +3,10 @@ package com.anubis.commons.adapter;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import com.anubis.commons.R;
 import com.anubis.commons.models.Photo;
@@ -21,19 +19,17 @@ import java.util.Random;
  * Created by sabine on 9/26/16.
  */
 
-public class InterestingAdapter extends RecyclerView.Adapter<InterestingAdapter.ViewHolder> {
+public class InterestingAdapter extends RecyclerView.Adapter<InterestingAdapter.ViewHolder>  implements RecyclerViewAdapter {
 
 
-    private OnItemClickListener listener;
+    private ItemClickListener listener;
 
-    public OnItemClickListener getListener(){
+    public ItemClickListener getListener(){
         return this.listener;
 
     }
-    public interface OnItemClickListener {
-        void onItemClick(View itemView, int position);
-    }
-    public void setOnItemClickListener(OnItemClickListener listener) {
+
+    public void setItemClickListener(ItemClickListener listener) {
         this.listener = listener;
     }
 
@@ -42,7 +38,7 @@ public class InterestingAdapter extends RecyclerView.Adapter<InterestingAdapter.
         CardView cardView;
 
 
-        public ViewHolder(final View itemView, final OnItemClickListener listener) {
+        public ViewHolder(final View itemView, final ItemClickListener listener) {
             super(itemView);
 
 
@@ -80,7 +76,7 @@ public class InterestingAdapter extends RecyclerView.Adapter<InterestingAdapter.
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View photosView = inflater.inflate(R.layout.photo_item, parent, false);
+        View photosView = inflater.inflate(R.layout.photo_item_friends, parent, false);
 
         ViewHolder viewHolder = new ViewHolder(photosView, getListener());
         return viewHolder;
@@ -92,28 +88,23 @@ public class InterestingAdapter extends RecyclerView.Adapter<InterestingAdapter.
 
         ImageView imageView = viewHolder.ivImage;
 
-        RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) viewHolder.ivImage
-                .getLayoutParams();
+
         CardView cv = viewHolder.cardView;
 
         cv.setUseCompatPadding(true);
         cv.setCardElevation(2.0f);
-        StaggeredGridLayoutManager.LayoutParams fp = (StaggeredGridLayoutManager.LayoutParams) viewHolder.cardView.getLayoutParams();
+        //StaggeredGridLayoutManager.LayoutParams fp = (StaggeredGridLayoutManager.LayoutParams) viewHolder.cardView.getLayoutParams();
 
         if (mStaggered) {
             int aspectRatio = (null != photo.getWidth()  && null != photo.getHeight()) ? Integer.parseInt(photo.getHeight())/Integer.parseInt(photo.getWidth()): 1;
 
             Random rand = new Random();
-            int n = rand.nextInt(100) + 375;
-            lp.height = n; // photo.getPhotoHeight() * 2;
+            int n = rand.nextInt(60) + 75;
+            cv.setMinimumHeight(n); // photo.getPhotoHeight() * 2;
             //n = rand.nextInt(200) + 100;
-            lp.width = aspectRatio > 0 ? n/aspectRatio : n;//
-            fp.width = lp.width;
-            fp.height = lp.height;
-            cv.setLayoutParams(fp);
+            cv.setMinimumWidth(aspectRatio > 0 ? n/aspectRatio : n);
         } else {
-            lp.height= 250;
-            lp.width = 300;
+
         }
         Picasso.with(this.getContext()).load(photo.getUrl()).fit().centerCrop()
                 //.placeholder(android.R.drawable.btn_star)

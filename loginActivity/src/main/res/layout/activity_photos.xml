@@ -1,19 +1,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-
     android:fitsSystemWindows="true"
+    android:id="@+id/photosView"
+    android:orientation="vertical"
     tools:context=".PhotosActivity">
 
 
-
     <include
-
-        layout="@layout/toolbar_main"
         android:id="@+id/toolbar"
+        layout="@layout/toolbar_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -22,28 +20,21 @@
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:background="?attr/colorPrimary"
+        android:background="@color/back_sand_40"
         android:minHeight="?attr/actionBarSize"
-        style="@style/MyCustomTabLayout"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:tabGravity="fill"
+        app:tabMode="fixed" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vpPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.v4.view.PagerTitleStrip
-            android:layout_width="wrap_content"
-            android:layout_height="10dp"
-            android:layout_gravity="top"
-            android:background="@color/TiffanyBlue"
-            android:textColor="@color/AliceBlue"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp" />
-
-
     </android.support.v4.view.ViewPager>
+
+
 
 
 </LinearLayout>
