@@ -93,10 +93,10 @@ public class LoginActivity extends OAuthLoginActivity {
         anim.setDuration(700);
 
 // Start animating the image
-        spinner = (ImageView) findViewById(R.id.spinner);
+        spinner = (ImageView) findViewById(R.id.logo);
         final ImageView logo = (ImageView) findViewById(R.id.logo);
         spinner.setVisibility(View.VISIBLE);
-        logo.setAlpha(.20f);
+        ///logo.setAlpha(.20f);
         spinner.startAnimation(anim);
 
         final ProgressDialog ringProgressDialog = new ProgressDialog(this);

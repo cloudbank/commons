@@ -9,13 +9,11 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
 import android.support.annotation.ColorRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +23,7 @@ import android.widget.TextView;
 import com.anubis.commons.R;
 import com.anubis.commons.models.Comment;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import org.ocpsoft.prettytime.PrettyTime;
 
@@ -99,14 +98,43 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         //  cString = cString.replaceAll("\\[(\\s*http\\S+\\s*)\\]", "<a href=\"" + "$1" + "\"  >$1</a><br>");
         //  }
 
-        content.setMovementMethod(LinkMovementMethod.getInstance());
-        content.setLinkTextColor(fetchColor(R.color.CoralTree));
+        //content.setMovementMethod(LinkMovementMethod.getInstance());
+        content.setLinkTextColor(fetchColor(R.color.BlackReed));
+
+        content.setText(content.getText());
+//here set your spans to spanText
+
+        //content.setOnTouchListener(new TouchTextView(spanText));
+
+
 //@todo make static
         Spanned spanned = Html.fromHtml(cString, new Html.ImageGetter() {
             @Override
 
             public Drawable getDrawable(String source) {
 
+                final BitmapDrawablePlaceHolder result = new BitmapDrawablePlaceHolder();
+
+                Picasso.with(getContext()).load(source).into(new Target() {
+                    @Override public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                        final BitmapDrawable drawable = new BitmapDrawable(mContext.getResources(), bitmap);
+
+                        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+
+
+                        result.setDrawable(drawable);
+                        result.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+
+
+
+
+                        // cache is now warmed up
+                    }
+                    @Override public void onBitmapFailed(Drawable errorDrawable) { }
+                    @Override public void onPrepareLoad(Drawable placeHolderDrawable) { }
+                });
+                return result;
+                        /*
                 final BitmapDrawablePlaceHolder result = new BitmapDrawablePlaceHolder();
 
                 new AsyncTask<Void, Void, Bitmap>() {
@@ -135,13 +163,13 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
 
                             content.setText(content.getText()); // invalidate() doesn't work correctly...
                         } catch (Exception e) {
-            /* nom nom nom*/
+
                         }
                     }
 
                 }.execute((Void) null);
+                    */
 
-                return result;
             }
 
         }, null);
@@ -180,6 +208,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
     public int getItemCount() {
         return mComments.size();
     }
+
 
 
 }

@@ -16,6 +16,10 @@
         "source": "/Users/sabine/.android/build-cache/d856a8fa5535df55c875facdc144d8e3bd08f944/output/res/drawable/tag_fc_green.xml"
     },
     {
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/card_border.xml",
+        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/card_border.xml"
+    },
+    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/abc_seekbar_thumb_material.xml",
         "source": "/Users/sabine/.android/build-cache/8315da990f0dc55b48ef8a3978c9f454935b7642/output/res/drawable/abc_seekbar_thumb_material.xml"
     },
@@ -36,8 +40,16 @@
         "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/teahouse22.png"
     },
     {
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/one.png",
+        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/one.png"
+    },
+    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/abc_ic_voice_search_api_material.xml",
         "source": "/Users/sabine/.android/build-cache/8315da990f0dc55b48ef8a3978c9f454935b7642/output/res/drawable/abc_ic_voice_search_api_material.xml"
+    },
+    {
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/yellow_lens.png",
+        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/yellow_lens.png"
     },
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/menu.png",

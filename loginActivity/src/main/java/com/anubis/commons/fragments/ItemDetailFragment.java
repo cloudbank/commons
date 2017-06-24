@@ -46,6 +46,7 @@ import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
+import static android.view.View.GONE;
 import static com.anubis.commons.FlickrClientApp.getAppContext;
 
 
@@ -63,10 +64,11 @@ public class ItemDetailFragment extends Fragment {
     CommentAdapter cAdapter;
     RecyclerView rvComments;
 
-    public static ItemDetailFragment newInstance(String pid) {
+    public static ItemDetailFragment newInstance(String pid, boolean isTwoPane) {
         ItemDetailFragment itemDetailFragment = new ItemDetailFragment();
         Bundle args = new Bundle();
         args.putString("pid", pid);
+        args.putBoolean("isTwoPane", isTwoPane);
         itemDetailFragment.setArguments(args);
         return itemDetailFragment;
     }
@@ -78,11 +80,16 @@ public class ItemDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_image_display,
                 container, false);
         String pid = getArguments().getString("pid");
-
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
-        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
+        boolean isTwoPane = getArguments().getBoolean("isTwoPane");
+        if (isTwoPane) {
+            toolbar.setVisibility(GONE);
+        } else {
+
+            ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
         pRealm = Realm.getDefaultInstance();
         mPhoto = pRealm.where(Photo.class).equalTo("id", pid).findFirst();
 
@@ -157,10 +164,10 @@ public class ItemDetailFragment extends Fragment {
 
                 if (etComments.getVisibility() == View.VISIBLE) {
                     textView.setVisibility(View.VISIBLE);
-                    etComments.setVisibility(View.GONE);
-                    btn.setVisibility(View.GONE);
+                    etComments.setVisibility(GONE);
+                    btn.setVisibility(GONE);
                 } else {
-                    textView.setVisibility(View.INVISIBLE);
+                    textView.setVisibility(View.GONE);
                     etComments.setVisibility(View.VISIBLE);
                     btn.setVisibility(View.VISIBLE);
                 }

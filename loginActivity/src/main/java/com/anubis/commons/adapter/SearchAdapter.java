@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.anubis.commons.R;
 import com.anubis.commons.animation.RecyclerAnimator;
+import com.anubis.commons.listener.ItemClickListener;
 import com.anubis.commons.models.Photo;
 import com.squareup.picasso.Picasso;
 
@@ -44,6 +45,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
 
             imageView = (ImageView) itemView.findViewById(R.id.ivPhoto);
+
             itemView.setOnClickListener(v -> {
                 if (listener != null) {
                     int position = getAdapterPosition();
@@ -51,6 +53,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
                         listener.onItemClick(itemView, position);
                     }
                 }
+
+                //v.setPressed(true);
             });
 
 
@@ -61,13 +65,15 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     private Context mContext;
     private boolean mStaggered;
     private int lastPosition = -1;
+    private static boolean isTwoPane;
 
     private RecyclerAnimator mAnimator;
 
-    public SearchAdapter(Context context, List<Photo> photos, boolean staggered) {
+    public SearchAdapter(Context context, List<Photo> photos, boolean staggered, boolean isTwoPane) {
         mStaggered = staggered;
         mPhotos = photos;
         mContext = context;
+        isTwoPane = isTwoPane;
 
 
     }

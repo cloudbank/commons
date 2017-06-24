@@ -17,6 +17,8 @@ import android.content.SyncRequest;
 import android.content.SyncResult;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
@@ -24,6 +26,7 @@ import android.util.Log;
 import com.anubis.commons.FlickrClientApp;
 import com.anubis.commons.R;
 import com.anubis.commons.activity.LoginActivity;
+import com.anubis.commons.fragments.FlickrBaseFragment;
 import com.anubis.commons.models.Color;
 import com.anubis.commons.models.ColorPhotos;
 import com.anubis.commons.models.Common;
@@ -333,6 +336,14 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     }
 
 
+    public static Handler UIHandler = new Handler(Looper.getMainLooper());
+
+    private static final Runnable sRunnable = new Runnable() {
+        @Override
+        public void run() {
+            FlickrBaseFragment.dismissProgress();
+        }
+    };
     private void getCommonsPage1() {
 
         //@todo check for page total if not then process with page 1
@@ -343,14 +354,12 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                 .subscribe(new Subscriber<Photos>() {
                                @Override
                                public void onCompleted() {
-                                   /*
-                                   Handler handler = new Handler(Looper.getMainLooper());
 
-                                   handler.post(() -> {
+
+                                   UIHandler.post(sRunnable);
                                        //Your UI code here
-                                       Toast.makeText(FlickrClientApp.getAppContext(), "Got our photos", Toast.LENGTH_SHORT).show();
-                                   });
-                                    */
+                                       //Toast.makeText(FlickrClientApp.getAppContext(), "Got our photos", Toast.LENGTH_SHORT).show();
+
                                }
 
                                @Override

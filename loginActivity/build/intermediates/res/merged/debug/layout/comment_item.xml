@@ -4,19 +4,23 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardview_comment"
     android:layout_width="match_parent"
-    android:background="@color/ice"
+    android:background="@drawable/card_border"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_margin="25dp"
-    android:padding="40dp"
-    card_view:cardCornerRadius="2dp"
-    card_view:cardElevation="1dp"
+    android:layout_margin="15dp"
+    android:padding="10dp"
+    card_view:cardCornerRadius="3dp"
+    card_view:cardElevation="2dp"
     card_view:cardUseCompatPadding="true">
+
+    <FrameLayout
+        android:background="@drawable/card_border"
+        android:layout_width="5dp"
+        android:layout_height="match_parent"/>>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/Ivory"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:padding="20dp"
         android:scrollbars="vertical">
@@ -45,13 +49,11 @@
 
         <TextView
             android:id="@+id/content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
             android:layout_alignParentEnd="true"
             android:layout_alignTop="@+id/ivComment"
             android:layout_marginLeft="40dp"
-            android:ellipsize="end"
-            android:maxLines="6"
             android:text="Content blah blah lalalalalalalalalalalalala....
 sdkjfhdskjfghkjsdhgkjdshfkjsdhfkjdshfkjdshfkjsdhfkjdshfkjhdsf
 jkshdfkjsdhfkjdshfkjsdhfkjsdhkfjhdskjfhdskjfhdskjhf"

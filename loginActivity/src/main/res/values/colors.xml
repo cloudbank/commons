@@ -16,8 +16,10 @@
 
 
     <color name="back_alpha_40">#90A46F65</color>
+    <color name="back_alpha_30">#602A291F</color>
 
     <color name="back_sand_40">#90CED25C</color>
+    <color name="back_wee_20">#30F9FE6F</color>
 
     <color name="ice">#F5FFDE</color>
     <color name="linen">#ADA57F</color>

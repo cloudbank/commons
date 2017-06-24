@@ -202,6 +202,7 @@ ADDED from /Users/sabine/github/commons/loginActivity/src/main/AndroidManifest.x
 		ADDED from /Users/sabine/github/commons/loginActivity/src/main/AndroidManifest.xml:85:17-59
 uses-sdk
 INJECTED from /Users/sabine/github/commons/loginActivity/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:multidex:1.0.1] /Users/sabine/.android/build-cache/ac78fbe7bde1df1ca8b6788db771805afee169b3/output/AndroidManifest.xml:18:5-42
 MERGED from [io.realm:realm-android-library:2.0.2] /Users/sabine/.android/build-cache/288c09ee706adffad1b1a142c69820a96253c3b3/output/AndroidManifest.xml:5:5-7:41
 MERGED from [com.getkeepsafe.relinker:relinker:1.2.2] /Users/sabine/.android/build-cache/f8fe812bfb0394412b8d729582d4e78789c0d9a2/output/AndroidManifest.xml:7:5-43
 MERGED from [commons:oauthkit:unspecified] /Users/sabine/github/commons/oauthkit/build/intermediates/bundles/default/AndroidManifest.xml:7:5-9:41
@@ -239,7 +240,6 @@ MERGED from [com.android.support:support-core-utils:25.3.1] /Users/sabine/.andro
 MERGED from [com.android.support:support-compat:25.3.1] /Users/sabine/.android/build-cache/132d9028dd646fe37d2f4ad77212388d52ff69b5/output/AndroidManifest.xml:21:5-23:58
 MERGED from [com.facebook.stetho:stetho-okhttp3:1.4.1] /Users/sabine/.android/build-cache/b790b0032031a1b717170dd94ba71250667cb329/output/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.stetho:stetho:1.4.1] /Users/sabine/.android/build-cache/6f7ce4025ebbd4e3a2e32f759737771f04bec746/output/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:multidex:1.0.1] /Users/sabine/.android/build-cache/ac78fbe7bde1df1ca8b6788db771805afee169b3/output/AndroidManifest.xml:18:5-42
 	tools:overrideLibrary
 		ADDED from [com.android.support:design:25.3.1] /Users/sabine/.android/build-cache/69427badaff5a63fd7b845cb9c57ef95f0df3066/output/AndroidManifest.xml:23:9-59
 	android:targetSdkVersion

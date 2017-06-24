@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.anubis.commons.R;
+import com.anubis.commons.listener.ItemClickListener;
 import com.anubis.commons.models.Photo;
 import com.squareup.picasso.Picasso;
 

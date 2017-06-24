@@ -197,8 +197,8 @@ public class PhotosActivity extends AppCompatActivity {
         vpPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(onTabSelectedListener(vpPager));
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-8660045387738182~8507434555");
-        //SyncAdapter.initializeSyncAdapter(this);  //delay with handlerthread
-        delaySync();
+        SyncAdapter.initializeSyncAdapter(this);  //delay with handlerthread
+        //delaySync();
 
 
     }

@@ -1,4 +1,4 @@
-package com.anubis.commons.adapter;
+package com.anubis.commons.listener;
 
 import android.view.View;
 

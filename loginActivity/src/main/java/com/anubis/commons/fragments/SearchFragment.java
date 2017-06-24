@@ -55,17 +55,17 @@ public class SearchFragment extends FlickrBaseFragment {
         if (null != commonsRealm && !commonsRealm.isClosed()) {
             commonsRealm.close();
         }
-       if (null != mCommon) {
-           mCommon.removeChangeListeners();
+        if (null != mCommon) {
+            mCommon.removeChangeListeners();
 
-       }
+        }
 
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        searchAdapter= new SearchAdapter(FlickrClientApp.getAppContext(), sPhotos, true);
+        searchAdapter = new SearchAdapter(FlickrClientApp.getAppContext(), sPhotos, true, isTwoPane);
 
         changeListener = new RealmChangeListener<Common>() {
 
@@ -81,10 +81,10 @@ public class SearchFragment extends FlickrBaseFragment {
         Date maxDate = commonsRealm.where(Common.class).maximumDate("timestamp");
         mCommon = commonsRealm.where(Common.class).equalTo("timestamp", maxDate).findFirst();
         if (mCommon == null) {
-           // showProgress("Loading data, please wait...");
+            showProgress("Loading photo data, please wait...");
 
             commonsRealm.beginTransaction();
-            mCommon  = commonsRealm.createObject(Common.class, Calendar.getInstance().getTime().toString());
+            mCommon = commonsRealm.createObject(Common.class, Calendar.getInstance().getTime().toString());
             commonsRealm.commitTransaction();
             mCommon.addChangeListener(changeListener);
             getCommonsPage1();  //<---- change
@@ -95,13 +95,11 @@ public class SearchFragment extends FlickrBaseFragment {
         }
 
 
-
     }
 
     @Override
     public void onResume() {
         super.onResume();
-
 
         Log.d("TABS", "search onresume");
     }
@@ -112,18 +110,14 @@ public class SearchFragment extends FlickrBaseFragment {
         Log.d("TABS", "search activcreated");
 
 
-
         //do in bg to avoid blocking UI
         //Date maxDate = commonsRealm.where(Common.class).maximumDate("timestamp");
-       // mCommon = commonsRealm.where(Common.class).equalTo("timestamp", maxDate).findFirst();
+        // mCommon = commonsRealm.where(Common.class).equalTo("timestamp", maxDate).findFirst();
 
-       //updateDisplay(mCommon);
-
+        //updateDisplay(mCommon);
 
 
     }
-
-
 
 
     @Override
@@ -132,9 +126,6 @@ public class SearchFragment extends FlickrBaseFragment {
 
         Log.d("TABS", "search oncreate");
         setRetainInstance(true);
-
-
-
 
 
     }
@@ -146,7 +137,9 @@ public class SearchFragment extends FlickrBaseFragment {
         if (null != c) {
             sPhotos.addAll(c.getCommonPhotos());
         }
-        searchAdapter.notifyItemRangeChanged(0, c.getCommonPhotos().size()-1);
+        searchAdapter.notifyItemRangeChanged(0, c.getCommonPhotos().size() - 1);
+        searchAdapter.notifyDataSetChanged();
+
 
 
     }
@@ -170,10 +163,11 @@ public class SearchFragment extends FlickrBaseFragment {
         setItemListener(searchAdapter, sPhotos);
 
 
-
         Log.d("TABS", "search oncreateview");
         setHasOptionsMenu(true);
         //showProgress("");
+
+
         return view;
 
     }
@@ -186,6 +180,7 @@ public class SearchFragment extends FlickrBaseFragment {
             //dismissProgress();
         }
     };
+
     private void getCommonsPage1() {
 
         //@todo check for page total if not then process with page 1
@@ -197,7 +192,7 @@ public class SearchFragment extends FlickrBaseFragment {
                     @Override
                     public void onCompleted() {
 
-                       // UIHandler.post(sRunnable);
+                        // UIHandler.post(sRunnable);
 
                     }
 

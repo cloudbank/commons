@@ -104,7 +104,7 @@ public class ColorFragment extends FlickrBaseFragment {
         //init
         if (mColor == null) {
 
-            showProgress("Please wait, loading color data...");
+
             colorRealm.beginTransaction();
             mColor = colorRealm.createObject(Color.class, Calendar.getInstance().getTime().toString());
             //not in bg!
@@ -330,7 +330,7 @@ public class ColorFragment extends FlickrBaseFragment {
                                    }
                                    Log.e("ERROR", "error getting color" + e);
                                    //signout
-                                   UIHandler.post(sRunnable);
+                                   //UIHandler.post(sRunnable);
 
                                }
 

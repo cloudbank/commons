@@ -28,7 +28,7 @@ public class ImageDisplayActivity extends AppCompatActivity{
         String pid = getIntent().getStringExtra(FlickrBaseFragment.RESULT);
         if (savedInstanceState == null) {
             // Insert detail fragment based on the item passed
-            fragmentItemDetail = ItemDetailFragment.newInstance(pid);
+            fragmentItemDetail = ItemDetailFragment.newInstance(pid, false);
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.flDetailContainer, fragmentItemDetail);
             ft.commit();

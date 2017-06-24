@@ -4,13 +4,14 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.Window;
 
 import com.anubis.commons.R;
 import com.anubis.commons.activity.ImageDisplayActivity;
-import com.anubis.commons.adapter.ItemClickListener;
 import com.anubis.commons.adapter.RecyclerViewAdapter;
+import com.anubis.commons.listener.ItemClickListener;
 import com.anubis.commons.models.Photo;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public abstract class FlickrBaseFragment extends Fragment {
     public static final String RESULT = "result";
     protected static final String PAGE = "page";
     protected static final String TITLE = "title";
-    private static boolean isTwoPane = false;
+    protected static boolean isTwoPane = false;
 
 
     static ProgressDialog dialog;
@@ -56,13 +57,21 @@ public abstract class FlickrBaseFragment extends Fragment {
             @Override
             public void onItemClick(View view, int position) {
                 //user interface for activity
+                Photo photo = items.get(position);
+                view.setPressed(true);
+
                 if (isTwoPane) {
                     //start a fragment
+
+                    ItemDetailFragment fragmentItem = ItemDetailFragment.newInstance(photo.getId(), true);
+                    FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                    ft.replace(R.id.flDetailContainer, fragmentItem);
+                    ft.commit();
 
                 } else {
                     Intent intent = new Intent(getActivity(),
                             ImageDisplayActivity.class);
-                    Photo photo = items.get(position);
+
 
                     intent.putExtra(RESULT, photo.getId());
                     startActivity(intent);
