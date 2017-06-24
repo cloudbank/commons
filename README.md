@@ -1,7 +1,7 @@
 ## The Commons  v 1.0    
 >>>>A Rare Photo Archive App
 <img src="http://i.imgur.com/YVBcPFq.png" height="100"/> 
- [SDK 21+, Nougat compatible]
+>>>>SDK 21+, Nougat compatible, for phone and tablet
 
 * *The Commons collection--rare pictures from around the world curated by you!*
 * *The 'Interesting' collection*
