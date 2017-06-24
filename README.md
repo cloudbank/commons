@@ -11,7 +11,7 @@
 
 >>>>VIEW   
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/eM80CF9.png" height="500"/> <img src="http://i.imgur.comasdsad/asd.png" height="500" />     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/eM80CF9.png" height="500"/> <img src="http://i.imgur.com/qwUDZLi.png" height="500" />     
 
 >>>>COMMENT
 
