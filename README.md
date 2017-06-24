@@ -15,11 +15,11 @@
 
 >>>>COMMENT
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="httpasdasi.imgur.com/rdVlkIs.png" height="500" /><img src="http://i.imgsdfdsfur.com/asdsa.png" height="500" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/JZzoGco.png" height="500" /><img src="http://i.imgsdfdsfur.com/asdsa.png" height="500" />
 
 >>>>CURATE
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.asdasdasdsdfsdfa.com/diVSarN.png" height="500" /><img src="http://i.imgsdfdsfur.asdssdfsdfa/svGnMq5.png" height="500" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/fcYERRD.png" height="500" /><img src="http://i.imgsdfdsfur.asdssdfsdfa/svGnMq5.png" height="500" />
 
 
 
