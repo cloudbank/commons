@@ -207,7 +207,6 @@ MERGED from [io.realm:realm-android-library:2.0.2] /Users/sabine/.android/build-
 MERGED from [com.getkeepsafe.relinker:relinker:1.2.2] /Users/sabine/.android/build-cache/f8fe812bfb0394412b8d729582d4e78789c0d9a2/output/AndroidManifest.xml:7:5-43
 MERGED from [commons:oauthkit:unspecified] /Users/sabine/github/commons/oauthkit/build/intermediates/bundles/default/AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.jlmd:AnimatedCircleLoadingView:1.1.5] /Users/sabine/.android/build-cache/2c2cf1608e64d2708b1752be055a7bf7175904d7/output/AndroidManifest.xml:7:5-9:41
-MERGED from [jp.wasabeef:recyclerview-animators:2.2.6] /Users/sabine/.android/build-cache/3b19891442ca317053bdf72d7c306c9a1868c2d0/output/AndroidManifest.xml:8:5-10:41
 MERGED from [com.aurelhubert:ahbottomnavigation:0.1.3] /Users/sabine/.android/build-cache/ba4310655011d0ca60caad665b6192721aaa38b6/output/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:design:25.3.1] /Users/sabine/.android/build-cache/69427badaff5a63fd7b845cb9c57ef95f0df3066/output/AndroidManifest.xml:21:5-23:62
 MERGED from [com.android.support:transition:25.3.1] /Users/sabine/.android/build-cache/1dbe7cb99df6e83f2413abb0941d481791d2e3c4/output/AndroidManifest.xml:20:5-44

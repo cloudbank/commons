@@ -2,28 +2,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center"
     android:background="@drawable/background_gradient"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
     <ImageView
-        android:id="@+id/logo"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center|center_vertical|center_horizontal"
-        android:layout_marginBottom="0dp"
-        android:alpha=".7"
-        android:src="@drawable/one" />
-
-    <ImageButton
         android:id="@+id/loginBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|center_vertical|center_horizontal"
-        android:alpha="7"
+        android:alpha="1"
         android:layout_marginBottom="5dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
+        android:background="@color/limon"
         android:backgroundTint="@color/limon"
         android:clickable="true"
         android:onClick="loginToRest"
@@ -39,6 +31,15 @@
         android:elevation="1dp"
         android:src="@drawable/spinner"
         android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center|center_vertical|center_horizontal"
+        android:layout_marginBottom="0dp"
+        android:alpha=".7"
+        android:src="@drawable/one" />
 
 
 </FrameLayout>

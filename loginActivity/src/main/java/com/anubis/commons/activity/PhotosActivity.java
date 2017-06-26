@@ -21,6 +21,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -46,6 +47,10 @@ import java.util.Random;
 import static android.R.attr.delay;
 
 public class PhotosActivity extends AppCompatActivity {
+    //https://stackoverflow.com/questions/36867298/using-android-vector-drawables-on-pre-lollipop-crash
+    static {
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+    }
 
     private MyPagerAdapter adapterViewPager;
     private ViewPager vpPager;
@@ -172,12 +177,17 @@ public class PhotosActivity extends AppCompatActivity {
         updateUserInfo(authPrefs);
 
 
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
+
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toolbar.setNavigationIcon(R.drawable.infinity);
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+            toolbar.setNavigationIcon(R.drawable.infinity);
+        } else {
+            getSupportActionBar().setLogo(R.drawable.infinity);
+        }
+
         getSupportActionBar().setHomeButtonEnabled(true);
         toolbar.inflateMenu(R.menu.photos);
 

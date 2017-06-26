@@ -93,24 +93,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.2/1f12816593c1422be957471c98a80bfbace60fa2/jackson-databind-2.8.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="1f12816593c1422be957471c98a80bfbace60fa2">
-        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-databind-2.8.2_3dbc64f207c88cd197334fb38201e092da8adcad/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.2/1f12816593c1422be957471c98a80bfbace60fa2/jackson-databind-2.8.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="1f12816593c1422be957471c98a80bfbace60fa2">
-        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-databind-2.8.2_3dbc64f207c88cd197334fb38201e092da8adcad/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.1.0/2de7cd8b95b7021b1d597f049bcb422055119f2c/retrofit-2.1.0.jar"
         jumboMode="true"
         optimize="true"
@@ -309,15 +291,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.2/1f12816593c1422be957471c98a80bfbace60fa2/jackson-databind-2.8.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="1f12816593c1422be957471c98a80bfbace60fa2">
-        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-databind-2.8.2_3dbc64f207c88cd197334fb38201e092da8adcad/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-simplexml/2.1.0/a71c37fa341165df2c61ba93f549c4ceeb98d6c8/converter-simplexml-2.1.0.jar"
         jumboMode="true"
         optimize="true"
@@ -489,15 +462,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.8.2/a38d544583e90cf163b2e45e4a57f5c54de670d3/jackson-annotations-2.8.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="a38d544583e90cf163b2e45e4a57f5c54de670d3">
-        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-annotations-2.8.2_fa5cc6a3ad8061c0e6c10f4159cd958645d8c1a0/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/sabine/.android/build-cache/37e32fcf83f880dc98af5acf5d31babf5b7d5aca/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -624,6 +588,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.0.pr4/e96baca7953374a502eb995d3901cad7580d3741/jackson-databind-2.9.0.pr4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e96baca7953374a502eb995d3901cad7580d3741">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-databind-2.9.0.pr4_5696f5badb5c9052fcac1a90d690706c4483e7e7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/sabine/.android/build-cache/c215764c5773aa3162e2f0cb2be4bbc59839fb19/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -642,6 +615,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.9.0.pr4/66cdc0083e48897453c4b4f69860315c0e6618b/jackson-annotations-2.9.0.pr4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="066cdc0083e48897453c4b4f69860315c0e6618b">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-annotations-2.9.0.pr4_9c518bcbe8cc5b4e18f373685776cc201683433c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/sabine/.android/build-cache/03017c129abbc664d298ddbc8efad2c4e563f7ee/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -651,30 +633,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.8.2/80004060cc6f71a027b81e89ef4d74628f824f/jackson-core-2.8.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0080004060cc6f71a027b81e89ef4d74628f824f">
-        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-core-2.8.2_c0fad985e6a90c41d44233b9af2e18913cb7319b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.3/fd32786786e2adb664d5ecc965da47629dca14ba/commons-codec-1.3.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="fd32786786e2adb664d5ecc965da47629dca14ba">
         <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/commons-codec-1.3_165540aa3c0223f4b8625fbb42c52ed289039b11/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.8.2/a38d544583e90cf163b2e45e4a57f5c54de670d3/jackson-annotations-2.8.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="a38d544583e90cf163b2e45e4a57f5c54de670d3">
-        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-annotations-2.8.2_fa5cc6a3ad8061c0e6c10f4159cd958645d8c1a0/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -831,15 +795,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.8.2/a38d544583e90cf163b2e45e4a57f5c54de670d3/jackson-annotations-2.8.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="a38d544583e90cf163b2e45e4a57f5c54de670d3">
-        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-annotations-2.8.2_fa5cc6a3ad8061c0e6c10f4159cd958645d8c1a0/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/sabine/.android/build-cache/288c09ee706adffad1b1a142c69820a96253c3b3/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -993,15 +948,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.8.2/80004060cc6f71a027b81e89ef4d74628f824f/jackson-core-2.8.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="0080004060cc6f71a027b81e89ef4d74628f824f">
-        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-core-2.8.2_c0fad985e6a90c41d44233b9af2e18913cb7319b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/sabine/.android/build-cache/e0c5acf80446c073f95808f7eb499b5febdb0216/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -1026,24 +972,6 @@
         revision="25.0.0"
         sha1="7ff6b36b86cc5d50475d396ee60671200dbe419c">
         <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ba1197ef36abcdd3822817f4674d9f2dd1460c55/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.8.2/80004060cc6f71a027b81e89ef4d74628f824f/jackson-core-2.8.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0080004060cc6f71a027b81e89ef4d74628f824f">
-        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-core-2.8.2_c0fad985e6a90c41d44233b9af2e18913cb7319b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/sabine/.android/build-cache/3b19891442ca317053bdf72d7c306c9a1868c2d0/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="df9383b9739db8fafe3a673f8083ccad27a95c4f">
-        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b1486909caf03b6b2c3ee40950af0433d64c4298/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -1188,6 +1116,15 @@
         revision="25.0.0"
         sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
         <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3bbd92e9fbc169e545f805359b71c001de12877f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.9.0.pr4/565544a9badb22e546e23bd07765e30fa2cb1065/jackson-core-2.9.0.pr4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="565544a9badb22e546e23bd07765e30fa2cb1065">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-core-2.9.0.pr4_bcc99a8e2f0c335187100149a1515e26395a18cd/classes.dex" />
     </item>
     <item
         is-multidex="true"

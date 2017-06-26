@@ -745,21 +745,11 @@
     </style>
     <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/sand</item>
-        <item name="colorPrimaryDark">@color/BlackReed</item>
-        <item name="colorAccent">@color/LithiumPool</item>
-        <item name="android:statusBarColor">@color/limon</item>
+            <item name="windowNoTitle">true</item>
+            <item name="windowActionBar">false</item>
+            <item name="colorPrimary">@color/BlackReed</item>
+            <item name="colorAccent">@color/LithiumPool</item>
 
-        <item name="android:colorBackground">@color/Ivory</item>
-        <!-- Applies to views in their activated state (i.e checked or switches) -->
-        <item name="colorControlActivated">@color/LithiumPool</item>
-        <!-- Applied to framework control highlights (i.e ripples or list selectors) -->
-        <item name="colorControlHighlight">@color/LithiumPool</item>
-        <!-- Default color of the status bar at the top of your device  -->
-        <item name="selectableItemBackground">?android:selectableItemBackground</item>
-        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackgroundBorderless</item>
-
-        <item name="android:actionBarPopupTheme">@style/Theme.YourAppsName.ActionBarPopupTheme</item>
 
     </style>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
@@ -2148,7 +2138,7 @@
 <item name="android:backgroundDimEnabled">false</item>
 <item name="android:windowIsTranslucent">true</item>
 </style>
-    <style name="Theme.YourAppsName.ActionBarPopupTheme" parent="android:ThemeOverlay.Material.Light">
+    <style name="Theme.YourAppsName.ActionBarPopupTheme" parent="android:Theme.Holo">
         <item name="android:colorBackground">@color/limon</item>
         <item name="android:textColor">@color/Ivory</item>
     </style>

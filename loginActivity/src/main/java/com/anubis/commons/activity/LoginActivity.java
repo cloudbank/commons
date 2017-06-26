@@ -22,6 +22,7 @@ import com.anubis.oauthkit.OAuthLoginActivity;
 import se.akerfeldt.okhttp.signpost.OkHttpOAuthConsumer;
 
 public class LoginActivity extends OAuthLoginActivity {
+
     OAuthBaseClient client;
     ImageView spinner;
     private static final float ROTATE_FROM = 0.0f;

@@ -49,6 +49,8 @@
 -keep class java.beans.ConstructorProperties.** {*;}
 -keep class java.nio.file.Path.** {*;}
 
+-keep com.fasterxml.jackson.databind.ext.Java7SupportImpl.**{*;}
+
 -keep class com.anubis.commons.models.** {*;}
 
 -dontwarn com.fasterxml.jackson.**

@@ -240,10 +240,6 @@
         "source": "/Users/sabine/.android/build-cache/8315da990f0dc55b48ef8a3978c9f454935b7642/output/res/drawable/abc_item_background_holo_dark.xml"
     },
     {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/arrow.png",
-        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/arrow.png"
-    },
-    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/notification_bg.xml",
         "source": "/Users/sabine/.android/build-cache/8315da990f0dc55b48ef8a3978c9f454935b7642/output/res/drawable/notification_bg.xml"
     },

@@ -4,6 +4,25 @@
     <dimen name="notification_content_margin_start">0dp</dimen>
     <dimen name="notification_main_column_padding_top">0dp</dimen>
     <dimen name="notification_media_narrow_margin">12dp</dimen>
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/sand</item>
+        <item name="colorPrimaryDark">@color/BlackReed</item>
+        <item name="colorAccent">@color/LithiumPool</item>
+        <item name="android:statusBarColor">@color/limon</item>
+
+        <item name="android:colorBackground">@color/Ivory</item>
+        <!-- Applies to views in their activated state (i.e checked or switches) -->
+        <item name="colorControlActivated">@color/LithiumPool</item>
+        <!-- Applied to framework control highlights (i.e ripples or list selectors) -->
+        <item name="colorControlHighlight">@color/LithiumPool</item>
+        <!-- Default color of the status bar at the top of your device  -->
+        <item name="selectableItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackgroundBorderless</item>
+
+        <item name="android:actionBarPopupTheme">@style/Theme.YourAppsName.ActionBarPopupTheme</item>
+
+    </style>
     <style name="Base.TextAppearance.AppCompat" parent="android:TextAppearance.Material"/>
     <style name="Base.TextAppearance.AppCompat.Body1" parent="android:TextAppearance.Material.Body1"/>
     <style name="Base.TextAppearance.AppCompat.Body2" parent="android:TextAppearance.Material.Body2"/>
@@ -223,6 +242,15 @@
     <style name="Base.Widget.AppCompat.TextView.SpinnerItem" parent="android:Widget.Material.TextView.SpinnerItem"/>
     <style name="Base.Widget.AppCompat.Toolbar.Button.Navigation" parent="android:Widget.Material.Toolbar.Button.Navigation">
     </style>
+    <style name="MyButton" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">?attr/colorAccent</item>
+        <item name="colorButtonNormal">?attr/colorPrimary</item>
+
+    </style>
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">?attr/colorPrimary</item>
+        <item name="colorControlActivated">?attr/colorAccent</item>
+    </style>
     <style name="Platform.AppCompat" parent="Platform.V21.AppCompat"/>
     <style name="Platform.AppCompat.Light" parent="Platform.V21.AppCompat.Light"/>
     <style name="Platform.ThemeOverlay.AppCompat" parent="">
@@ -261,6 +289,22 @@
         <item name="android:buttonBarStyle">?attr/buttonBarStyle</item>
         <item name="android:buttonBarButtonStyle">?attr/buttonBarButtonStyle</item>
     </style>
+    <style name="TabLayoutStyle" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/ice</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabPaddingStart">8dp</item>
+        <item name="tabPaddingEnd">8dp</item>
+        <item name="tabBackground">?attr/colorPrimary</item>
+        <item name="tabTextAppearance">@style/TabTextAppearance</item>
+        <item name="tabSelectedTextColor">?attr/colorAccent</item>
+
+
+    </style>
+    <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/Ivory</item>
+        <item name="textAllCaps">true</item>
+    </style>
     <style name="TextAppearance.AppCompat.Notification" parent="@android:style/TextAppearance.Material.Notification"/>
     <style name="TextAppearance.AppCompat.Notification.Info" parent="@android:style/TextAppearance.Material.Notification.Info"/>
     <style name="TextAppearance.AppCompat.Notification.Info.Media">
@@ -276,6 +320,16 @@
     <style name="TextAppearance.AppCompat.Notification.Title" parent="@android:style/TextAppearance.Material.Notification.Title"/>
     <style name="TextAppearance.AppCompat.Notification.Title.Media">
         <item name="android:textColor">@color/primary_text_default_material_dark</item>
+    </style>
+    <style name="Theme.YourAppsName.ActionBarPopupTheme" parent="android:ThemeOverlay.Material.Light">
+        <item name="android:colorBackground">@color/limon</item>
+        <item name="android:textColor">@color/Ivory</item>
+    </style>
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
     <style name="Widget.AppCompat.NotificationActionContainer" parent="">
         <item name="android:background">@drawable/notification_action_background</item>

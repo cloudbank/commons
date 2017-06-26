@@ -1,6 +1,8 @@
 package com.anubis.commons;
 
 import android.accounts.Account;
+import android.content.Context;
+import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
 import com.anubis.commons.service.FlickrService;
@@ -17,6 +19,11 @@ import se.akerfeldt.okhttp.signpost.OkHttpOAuthConsumer;
 
 public class FlickrClientApp extends MultiDexApplication {
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
 
     private static FlickrService jacksonService;
     private static FlickrService defaultService;
