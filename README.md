@@ -1,5 +1,8 @@
-# Commons v 1.0   <img src="http://i.imgur.com/BQKFhhi.png" height="100"/> 
-### An android client for the Flickr photo API  [SDK 21+, Nougat compatible]
+## The Commons  v 1.0    
+>>>>A Rare Photo Archive App
+<img src="http://i.imgur.com/YVBcPFq.png" height="100"/> 
+
+>>>>SDK 21+, Nougat compatible, for phone and tablet
 
 * *The Commons collection--rare pictures from around the world curated by you!*
 * *The 'Interesting' collection*
@@ -8,15 +11,15 @@
 
 >>>>VIEW   
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/mofl3uH.png" height="500"/> <img src="http://i.imgur.com/vU3SboF.png" height="500" />     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/eM80CF9.png" height="500"/> <img src="http://i.imgur.com/qwUDZLi.png" height="500" />     
 
 >>>>COMMENT
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/rdVlkIs.png" height="500" /><img src="http://i.imgur.com/wO4Am1Z.png" height="500" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/JZzoGco.png" height="500" /><img src="http://i.imgsdfdsfur.com/asdsa.png" height="500" />
 
 >>>>CURATE
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/diVSarN.png" height="500" /><img src="http://i.imgur.com/svGnMq5.png" height="500" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/fcYERRD.png" height="500" /><img src="http://i.imgsdfdsfur.asdssdfsdfa/svGnMq5.png" height="500" />
 
 
 
@@ -27,7 +30,7 @@
 * *Add comments & see tags*
 * *Take your own pictures with the camera!*
 
-### --> download from the [Google Play Store](https://play.google.com/store/apps/details?userId=com.anubis.flickr)
+### --> download from the [Google Play Store](https://play.google.com/store/apps/details?userId=)
 
 ## License
 
