@@ -516,14 +516,14 @@ public final class R {
         public static final int abc_textfield_search_activated_mtrl_alpha = 0x7f02004f;
         public static final int abc_textfield_search_default_mtrl_alpha = 0x7f020050;
         public static final int abc_textfield_search_material = 0x7f020051;
-        public static final int notification_template_icon_bg = 0x7f020099;
-        public static final int tag_bar_red = 0x7f02008f;
-        public static final int tag_fc_blue = 0x7f020090;
-        public static final int tag_fc_brightblue = 0x7f020091;
-        public static final int tag_fc_enable = 0x7f020092;
-        public static final int tag_fc_green = 0x7f020093;
-        public static final int tag_fc_green_bb = 0x7f020094;
-        public static final int tag_view_box_shadow = 0x7f020095;
+        public static final int notification_template_icon_bg = 0x7f020098;
+        public static final int tag_bar_red = 0x7f02008e;
+        public static final int tag_fc_blue = 0x7f02008f;
+        public static final int tag_fc_brightblue = 0x7f020090;
+        public static final int tag_fc_enable = 0x7f020091;
+        public static final int tag_fc_green = 0x7f020092;
+        public static final int tag_fc_green_bb = 0x7f020093;
+        public static final int tag_view_box_shadow = 0x7f020094;
     }
     public static final class id {
         public static final int action0 = 0x7f0e00b0;

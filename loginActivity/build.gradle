@@ -23,9 +23,7 @@ android {
         def props = new Properties()
         props.load(new FileInputStream(propsFile))
         buildConfigField "String", "consumerKey", props['consumerKey']
-        dexOptions {
-            javaMaxHeapSize "2g"
-        }
+
     }
 
 

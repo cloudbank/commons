@@ -8,18 +8,7 @@
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
-    <ImageView
-        android:id="@+id/loginBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|center_vertical|center_horizontal"
-        android:alpha="1"
-        android:layout_marginBottom="5dp"
-        android:background="@color/limon"
-        android:backgroundTint="@color/limon"
-        android:clickable="true"
-        android:onClick="loginToRest"
-        android:src="@drawable/arrow" />
+
 
     <ImageView
         android:id="@+id/spinner"
@@ -27,7 +16,7 @@
         android:layout_height="423dp"
         android:layout_gravity="center_vertical|center_horizontal"
         android:layout_marginBottom="0dp"
-        android:alpha="0.5"
+        android:alpha="0.3"
         android:elevation="1dp"
         android:src="@drawable/spinner"
         android:visibility="invisible" />
@@ -38,8 +27,28 @@
         android:layout_height="match_parent"
         android:layout_gravity="center|center_vertical|center_horizontal"
         android:layout_marginBottom="0dp"
-        android:alpha=".7"
+        android:alpha=".6"
         android:src="@drawable/one" />
+
+    <ImageView
+        android:id="@+id/loginBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_vertical|center_horizontal"
+        android:layout_marginBottom="5dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@color/limon"
+        android:clickable="true"
+        android:alpha=".7"
+        android:onClick="loginToRest"
+        android:src="@drawable/arrow2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:textColor="@color/Ivory"
+        android:text="droid teahouse 2017"/>
 
 
 </FrameLayout>
