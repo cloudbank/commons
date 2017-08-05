@@ -23,10 +23,10 @@
     <color name="abc_search_url_text_selected">@android:color/black</color>
     <color name="accent_material_dark">@color/material_deep_teal_200</color>
     <color name="accent_material_light">@color/material_deep_teal_500</color>
+    <color name="alpha_sand_40">#90CED25C</color>
+    <color name="alpha_wee_20">#30F9FE6F</color>
     <color name="back_alpha_30">#602A291F</color>
     <color name="back_alpha_40">#90A46F65</color>
-    <color name="back_sand_40">#90CED25C</color>
-    <color name="back_wee_20">#30F9FE6F</color>
     <color name="background_floating_material_dark">@color/material_grey_800</color>
     <color name="background_floating_material_light">@android:color/white</color>
     <color name="background_material_dark">@color/material_grey_850</color>
@@ -95,7 +95,6 @@
     <color name="notification_icon_bg_color">#ff9e9e9e</color>
     <color name="notification_material_background_media_default_color">#ff424242</color>
     <color name="ochre">#6D6850</color>
-    <color name="pee">#F9FE6F</color>
     <color name="primary_dark_material_dark">@android:color/black</color>
     <color name="primary_dark_material_light">@color/material_grey_600</color>
     <color name="primary_material_dark">@color/material_grey_900</color>
@@ -115,6 +114,7 @@
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
+    <color name="vitaminb">#F9FE6F</color>
     <declare-styleable name="AHBottomNavigationBehavior_Params"><attr format="reference" name="tabLayoutId"/></declare-styleable>
     <declare-styleable name="ActionBar"><attr name="navigationMode">
             
@@ -140,7 +140,6 @@
     <declare-styleable name="AdsAttrs"><attr format="string" name="adSize"/><attr format="string" name="adSizes"/><attr format="string" name="adUnitId"/></declare-styleable>
     <declare-styleable name="AlertDialog"><attr name="android:layout"/><attr format="reference" name="buttonPanelSideLayout"/><attr format="reference" name="listLayout"/><attr format="reference" name="multiChoiceItemLayout"/><attr format="reference" name="singleChoiceItemLayout"/><attr format="reference" name="listItemLayout"/><attr format="boolean" name="showTitle"/></declare-styleable>
     <declare-styleable name="AndroidTagView"><attr format="dimension" name="vertical_interval"/><attr format="dimension" name="horizontal_interval"/><attr format="dimension" name="container_border_width"/><attr format="dimension" name="container_border_radius"/><attr format="color" name="container_border_color"/><attr format="color" name="container_background_color"/><attr format="boolean" name="container_enable_drag"/><attr format="float" name="container_drag_sensitivity"/><attr format="enum" name="container_gravity"><enum name="left" value="3"/><enum name="center" value="17"/><enum name="right" value="5"/></attr><attr format="dimension" name="tag_border_width"/><attr format="dimension" name="tag_corner_radius"/><attr format="dimension" name="tag_horizontal_padding"/><attr format="dimension" name="tag_vertical_padding"/><attr format="dimension" name="tag_text_size"/><attr format="dimension" name="tag_bd_distance"/><attr format="color" name="tag_text_color"/><attr format="color" name="tag_border_color"/><attr format="color" name="tag_background_color"/><attr format="integer" name="tag_max_length"/><attr format="reference" name="tag_drawable_state0"/><attr format="reference" name="tag_drawable_state1"/><attr format="reference" name="tag_drawable_state2"/><attr format="string" name="tag_fontface"/><attr format="enum" name="tag_theme"><enum name="none" value="-1"/><enum name="random" value="0"/><enum name="pure_cyan" value="1"/><enum name="pure_teal" value="2"/></attr><attr format="enum" name="tag_text_direction"><enum name="ltr" value="3"/><enum name="rtl" value="4"/></attr></declare-styleable>
-    <declare-styleable name="AnimatedCircleLoadingView"><attr format="color" localization="suggested" name="mainColor"/><attr format="color" localization="suggested" name="secondaryColor"/><attr format="color" localization="suggested" name="checkMarkTintColor"/><attr format="color" localization="suggested" name="failureMarkTintColor"/><attr format="color" localization="suggested" name="textColor"/></declare-styleable>
     <declare-styleable name="AppBarLayout"><attr name="elevation"/><attr name="android:background"/><attr format="boolean" name="expanded"/></declare-styleable>
     <declare-styleable name="AppBarLayoutStates"><attr format="boolean" name="state_collapsed"/><attr format="boolean" name="state_collapsible"/></declare-styleable>
     <declare-styleable name="AppBarLayout_Layout"><attr name="layout_scrollFlags">

@@ -2,6 +2,8 @@ package com.anubis.commons.fragments;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -63,6 +65,7 @@ public class ItemDetailFragment extends Fragment {
     AdView mPublisherAdView;
     CommentAdapter cAdapter;
     RecyclerView rvComments;
+    HandlerThread handlerThread;
 
     public static ItemDetailFragment newInstance(String pid, boolean isTwoPane) {
         ItemDetailFragment itemDetailFragment = new ItemDetailFragment();
@@ -238,6 +241,10 @@ public class ItemDetailFragment extends Fragment {
 
     //prevent activity leaks
     private static class SHandler extends Handler {
+        public SHandler(Looper l) {
+            super(l);
+        }
+
     }
 
     private static class SRunnable implements Runnable {
@@ -280,8 +287,10 @@ public class ItemDetailFragment extends Fragment {
     public boolean saveComments(final List<Comment> cList, final String uid) {
         Log.d("SAVE COMMENT", String.valueOf(cList.get(0).getContent()) + ":" + uid);
 
+        handlerThread = new HandlerThread("comments");
+        handlerThread.start();
+        SHandler sHandler = new SHandler(handlerThread.getLooper());
 
-        SHandler sHandler = new SHandler();
         return sHandler.post(new SRunnable(uid, cList));
 
 
@@ -334,6 +343,7 @@ public class ItemDetailFragment extends Fragment {
 
                         @Override
                         public void onNext(Comment c) {
+                            //@todo bg thread for all here?
                             //@todo maybe we should let this be a network call to have fresh data?
                             List<Comment> displayList = new ArrayList<>();
                             Realm cRealm = Realm.getDefaultInstance();
@@ -369,10 +379,38 @@ public class ItemDetailFragment extends Fragment {
 
     //
 
+    @Override
+    public synchronized void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public synchronized void onResume() {
+        super.onResume();
+
+
+    }
+
+    @Override
+    public synchronized void onPause() {
+
+
+        super.onPause();
+    }
+
+    @Override
+    public synchronized void onStop() {
+        super.onStop();
+    }
+
+
 
     @Override
     public void onDestroy() {
         super.onDestroy();
+        if (handlerThread != null) {
+            handlerThread.quitSafely();
+        }
 
         if (null != pRealm && !pRealm.isClosed()) {
             pRealm.close();

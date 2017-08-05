@@ -27,20 +27,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="center|center_vertical|center_horizontal"
         android:layout_marginBottom="0dp"
-        android:alpha=".6"
-        android:src="@drawable/one" />
-
-    <ImageView
-        android:id="@+id/loginBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|center_vertical|center_horizontal"
-        android:layout_marginBottom="5dp"
-        android:background="@android:color/transparent"
-        android:backgroundTint="@color/limon"
-        android:clickable="true"
-        android:onClick="loginToRest"
-        android:src="@drawable/arrow2" />
+        android:alpha=".8"
+        android:src="@drawable/onetwo" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -48,6 +36,19 @@
         android:layout_gravity="bottom|center_horizontal"
         android:textColor="@color/Ivory"
         android:text="droid teahouse 2017"/>
+
+    <ImageView
+        android:id="@+id/loginBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_vertical|center_horizontal"
+        android:layout_marginBottom="0dp"
+        android:alpha=".7"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@color/limon"
+        android:clickable="true"
+        android:onClick="loginToRest"
+        android:src="@drawable/arrow2" />
 
 
 </FrameLayout>

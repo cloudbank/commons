@@ -164,6 +164,10 @@
         "source": "/Users/sabine/.android/build-cache/8315da990f0dc55b48ef8a3978c9f454935b7642/output/res/drawable/abc_dialog_material_background.xml"
     },
     {
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/onetwo.png",
+        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/onetwo.png"
+    },
+    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark_focused.xml",
         "source": "/Users/sabine/.android/build-cache/f2439317684412b3ee64fefaeacda0d3caaa8a38/output/res/drawable/common_google_signin_btn_icon_dark_focused.xml"
     },

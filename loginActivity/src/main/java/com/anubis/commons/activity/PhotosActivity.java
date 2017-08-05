@@ -10,7 +10,6 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -44,8 +43,6 @@ import com.google.android.gms.ads.MobileAds;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static android.R.attr.delay;
-
 public class PhotosActivity extends AppCompatActivity {
     //https://stackoverflow.com/questions/36867298/using-android-vector-drawables-on-pre-lollipop-crash
     static {
@@ -58,6 +55,7 @@ public class PhotosActivity extends AppCompatActivity {
     protected SharedPreferences prefs;
     protected SharedPreferences.Editor editor;
     View rootView;
+
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -247,7 +245,56 @@ public class PhotosActivity extends AppCompatActivity {
     static final long c_delayMax = 120 * 1000;
     static Random r = new Random();
 
-    public static Handler sHandler = new Handler();
+    //@todo this needs a new thread/looper if using it
+/*
+ @Override
+    public synchronized void onStart() {
+        LOGGER.d("onStart " + this);
+        super.onStart();
+    }
+
+    @Override
+    public synchronized void onResume() {
+        LOGGER.d("onResume " + this);
+        super.onResume();
+
+        handlerThread = new HandlerThread("delay");
+        handlerThread.start();
+        handler = new Handler(handlerThread.getLooper());
+    }
+
+    @Override
+    public synchronized void onPause() {
+        LOGGER.d("onPause " + this);
+
+        if (!isFinishing()) {
+            LOGGER.d("Requesting finish");
+            finish();
+        }
+
+        handlerThread.quitSafely();
+        try {
+            handlerThread.join();
+            handlerThread = null;
+            handler = null;
+        } catch (final InterruptedException e) {
+            LOGGER.e(e, "Exception!");
+        }
+
+        super.onPause();
+    }
+
+    @Override
+    public synchronized void onStop() {
+        LOGGER.d("onStop " + this);
+        super.onStop();
+    }
+
+    @Override
+    public synchronized void onDestroy() {
+        LOGGER.d("onDestroy " + this);
+        super.onDestroy();
+    }
 
     private static final Runnable sRunnable = new Runnable() {
 
@@ -259,13 +306,14 @@ public class PhotosActivity extends AppCompatActivity {
         }
     };
 
+
     void delaySync() {
 
         long delay = r.nextLong() % c_delayMax;
         //new Runnable
         sHandler.postDelayed(sRunnable, delay);
 
-    }
+    }*/
 
 
     private void updateUserInfo(SharedPreferences authPrefs) {

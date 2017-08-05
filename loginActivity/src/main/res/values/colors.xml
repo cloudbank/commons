@@ -4,7 +4,6 @@
 -->
 <resources>
 
-    <!-- our palette credit to Purnima Bhardwaj on materialup -->
 
     <color name="Ivory">#FEFEFD</color>
     <color name="CoralTree">#A46F65</color>
@@ -18,8 +17,8 @@
     <color name="back_alpha_40">#90A46F65</color>
     <color name="back_alpha_30">#602A291F</color>
 
-    <color name="back_sand_40">#90CED25C</color>
-    <color name="back_wee_20">#30F9FE6F</color>
+    <color name="alpha_sand_40">#90CED25C</color>
+    <color name="alpha_wee_20">#30F9FE6F</color>
 
     <color name="ice">#F5FFDE</color>
     <color name="linen">#ADA57F</color>
@@ -27,7 +26,7 @@
     <color name="ochre">#6D6850</color>
     <color name="sand">#CED25C</color>
     <color name="limon">#E2E765</color>
-    <color name="pee">#F9FE6F</color>
+    <color name="vitaminb">#F9FE6F</color>
 
 
 

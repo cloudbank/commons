@@ -174,15 +174,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/sabine/.android/build-cache/2c2cf1608e64d2708b1752be055a7bf7175904d7/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="c5ba9c86efe8e242e947176ff8d519c0d3842534">
-        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_788f707a6ddce03008e680255e1629a3f73f3983/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/sabine/.android/build-cache/e0c5acf80446c073f95808f7eb499b5febdb0216/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"

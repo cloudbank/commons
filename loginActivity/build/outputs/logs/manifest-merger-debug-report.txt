@@ -56,7 +56,6 @@ ADDED from /Users/sabine/github/commons/loginActivity/src/main/AndroidManifest.x
 application
 ADDED from /Users/sabine/github/commons/loginActivity/src/main/AndroidManifest.xml:17:5-89:19
 MERGED from [commons:oauthkit:unspecified] /Users/sabine/github/commons/oauthkit/build/intermediates/bundles/default/AndroidManifest.xml:11:5-15:19
-MERGED from [com.github.jlmd:AnimatedCircleLoadingView:1.1.5] /Users/sabine/.android/build-cache/2c2cf1608e64d2708b1752be055a7bf7175904d7/output/AndroidManifest.xml:11:5-14:19
 MERGED from [com.aurelhubert:ahbottomnavigation:0.1.3] /Users/sabine/.android/build-cache/ba4310655011d0ca60caad665b6192721aaa38b6/output/AndroidManifest.xml:11:5-20
 MERGED from [com.android.support:design:25.3.1] /Users/sabine/.android/build-cache/69427badaff5a63fd7b845cb9c57ef95f0df3066/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:transition:25.3.1] /Users/sabine/.android/build-cache/1dbe7cb99df6e83f2413abb0941d481791d2e3c4/output/AndroidManifest.xml:26:5-20
@@ -206,7 +205,6 @@ MERGED from [com.android.support:multidex:1.0.1] /Users/sabine/.android/build-ca
 MERGED from [io.realm:realm-android-library:2.0.2] /Users/sabine/.android/build-cache/288c09ee706adffad1b1a142c69820a96253c3b3/output/AndroidManifest.xml:5:5-7:41
 MERGED from [com.getkeepsafe.relinker:relinker:1.2.2] /Users/sabine/.android/build-cache/f8fe812bfb0394412b8d729582d4e78789c0d9a2/output/AndroidManifest.xml:7:5-43
 MERGED from [commons:oauthkit:unspecified] /Users/sabine/github/commons/oauthkit/build/intermediates/bundles/default/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.jlmd:AnimatedCircleLoadingView:1.1.5] /Users/sabine/.android/build-cache/2c2cf1608e64d2708b1752be055a7bf7175904d7/output/AndroidManifest.xml:7:5-9:41
 MERGED from [com.aurelhubert:ahbottomnavigation:0.1.3] /Users/sabine/.android/build-cache/ba4310655011d0ca60caad665b6192721aaa38b6/output/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:design:25.3.1] /Users/sabine/.android/build-cache/69427badaff5a63fd7b845cb9c57ef95f0df3066/output/AndroidManifest.xml:21:5-23:62
 MERGED from [com.android.support:transition:25.3.1] /Users/sabine/.android/build-cache/1dbe7cb99df6e83f2413abb0941d481791d2e3c4/output/AndroidManifest.xml:20:5-44

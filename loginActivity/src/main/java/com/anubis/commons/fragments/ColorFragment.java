@@ -148,7 +148,7 @@ public class ColorFragment extends FlickrBaseFragment {
 
     private void setupBottomNav(com.aurelhubert.ahbottomnavigation.AHBottomNavigation bottomNavigation) {
         // Create items
-        AHBottomNavigationItem item1 = new AHBottomNavigationItem(getActivity().getString(R.string.yellow), R.drawable.ic_invert_colors_black_24dp, fetchColor(R.color.pee));
+        AHBottomNavigationItem item1 = new AHBottomNavigationItem(getActivity().getString(R.string.yellow), R.drawable.ic_invert_colors_black_24dp, fetchColor(R.color.vitaminb));
         AHBottomNavigationItem item2 = new AHBottomNavigationItem(getActivity().getString(R.string.blue), R.drawable.ic_invert_colors_black_24dp, fetchColor(android.R.color.holo_blue_dark));
         AHBottomNavigationItem item3 = new AHBottomNavigationItem(getActivity().getString(R.string.orange), R.drawable.ic_invert_colors_black_24dp, fetchColor(android.R.color.holo_orange_dark));
 
@@ -158,10 +158,10 @@ public class ColorFragment extends FlickrBaseFragment {
         bottomNavigation.addItem(item3);
 
         // Set background color
-        bottomNavigation.setDefaultBackgroundColor(fetchColor(R.color.back_sand_40));
+        bottomNavigation.setDefaultBackgroundColor(fetchColor(R.color.alpha_sand_40));
 
         // Change colors
-        bottomNavigation.setAccentColor(fetchColor(R.color.pee));
+        bottomNavigation.setAccentColor(fetchColor(R.color.vitaminb));
         bottomNavigation.setInactiveColor(fetchColor(android.R.color.darker_gray));
 
 
@@ -183,7 +183,7 @@ public class ColorFragment extends FlickrBaseFragment {
                 } else if (position == 2) {
                     bottomNavigation.setAccentColor(fetchColor(android.R.color.holo_orange_dark));
                 } else {
-                    bottomNavigation.setAccentColor(fetchColor(R.color.pee));
+                    bottomNavigation.setAccentColor(fetchColor(R.color.vitaminb));
                 }
                 getPhotos(position);
                 //return true;

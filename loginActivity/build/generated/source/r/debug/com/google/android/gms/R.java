@@ -11,12 +11,12 @@ public final class R {
         public static final int adSize = 0x7f010022;
         public static final int adSizes = 0x7f010023;
         public static final int adUnitId = 0x7f010024;
-        public static final int buttonSize = 0x7f01012a;
-        public static final int circleCrop = 0x7f010106;
-        public static final int colorScheme = 0x7f01012b;
-        public static final int imageAspectRatio = 0x7f010105;
-        public static final int imageAspectRatioAdjust = 0x7f010104;
-        public static final int scopeUris = 0x7f01012c;
+        public static final int buttonSize = 0x7f010125;
+        public static final int circleCrop = 0x7f010101;
+        public static final int colorScheme = 0x7f010126;
+        public static final int imageAspectRatio = 0x7f010100;
+        public static final int imageAspectRatioAdjust = 0x7f0100ff;
+        public static final int scopeUris = 0x7f010127;
     }
     public static final class color {
         public static final int common_google_signin_btn_text_dark = 0x7f0d007f;
@@ -111,11 +111,11 @@ public final class R {
         public static final int AdsAttrs_adSize = 0;
         public static final int AdsAttrs_adSizes = 1;
         public static final int AdsAttrs_adUnitId = 2;
-        public static final int[] LoadingImageView = { 0x7f010104, 0x7f010105, 0x7f010106 };
+        public static final int[] LoadingImageView = { 0x7f0100ff, 0x7f010100, 0x7f010101 };
         public static final int LoadingImageView_circleCrop = 2;
         public static final int LoadingImageView_imageAspectRatio = 1;
         public static final int LoadingImageView_imageAspectRatioAdjust = 0;
-        public static final int[] SignInButton = { 0x7f01012a, 0x7f01012b, 0x7f01012c };
+        public static final int[] SignInButton = { 0x7f010125, 0x7f010126, 0x7f010127 };
         public static final int SignInButton_buttonSize = 0;
         public static final int SignInButton_colorScheme = 1;
         public static final int SignInButton_scopeUris = 2;

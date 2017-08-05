@@ -72,7 +72,7 @@ public class LoginActivity extends OAuthLoginActivity {
         FlickrClientApp.setDefaultService(consumer, baseUrl);
         Intent i = new Intent(this, PhotosActivity.class);
         startActivity(i);
-    }
+     }
 
     @Override
     public void onLoginFailure(Exception e) {
