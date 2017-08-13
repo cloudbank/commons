@@ -23,5 +23,6 @@
     <string name="yellow">yellow</string>
     <string name="blue">blue</string>
     <string name="orange">orange</string>
+    <string name="color">color</string>
 
 </resources>

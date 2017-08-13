@@ -1,7 +1,7 @@
 [
     {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/ic_failure_mark.png",
-        "source": "/Users/sabine/.android/build-cache/2c2cf1608e64d2708b1752be055a7bf7175904d7/output/res/drawable/ic_failure_mark.png"
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/cropper222.png",
+        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/cropper222.png"
     },
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/tag_fc_blue.xml",
@@ -28,6 +28,10 @@
         "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/button.xml"
     },
     {
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/pipi.png",
+        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/pipi.png"
+    },
+    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/tag_fc_green_bb.xml",
         "source": "/Users/sabine/.android/build-cache/d856a8fa5535df55c875facdc144d8e3bd08f944/output/res/drawable/tag_fc_green_bb.xml"
     },
@@ -38,10 +42,6 @@
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/teahouse22.png",
         "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/teahouse22.png"
-    },
-    {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/one.png",
-        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/one.png"
     },
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/abc_ic_voice_search_api_material.xml",
@@ -196,10 +196,6 @@
         "source": "/Users/sabine/.android/build-cache/8315da990f0dc55b48ef8a3978c9f454935b7642/output/res/drawable/abc_cab_background_top_material.xml"
     },
     {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/check.png",
-        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/check.png"
-    },
-    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/abc_ic_arrow_drop_right_black_24dp.xml",
         "source": "/Users/sabine/.android/build-cache/8315da990f0dc55b48ef8a3978c9f454935b7642/output/res/drawable/abc_ic_arrow_drop_right_black_24dp.xml"
     },
@@ -210,6 +206,10 @@
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/abc_btn_colored_material.xml",
         "source": "/Users/sabine/.android/build-cache/8315da990f0dc55b48ef8a3978c9f454935b7642/output/res/drawable/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/cropper111.png",
+        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/cropper111.png"
     },
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_dark.xml",
@@ -242,6 +242,10 @@
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_dark.xml",
         "source": "/Users/sabine/.android/build-cache/8315da990f0dc55b48ef8a3978c9f454935b7642/output/res/drawable/abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/bikes.png",
+        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/bikes.png"
     },
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/notification_bg.xml",
@@ -298,9 +302,5 @@
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/spinner.png",
         "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/spinner.png"
-    },
-    {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/ic_checked_mark.png",
-        "source": "/Users/sabine/.android/build-cache/2c2cf1608e64d2708b1752be055a7bf7175904d7/output/res/drawable/ic_checked_mark.png"
     }
 ]

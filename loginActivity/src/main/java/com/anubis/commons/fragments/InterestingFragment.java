@@ -68,12 +68,18 @@ public class InterestingFragment extends FlickrBaseFragment {
         mInteresting = interestingRealm.where(Interesting.class).equalTo("timestamp", maxDate).findFirst();
         if (mInteresting == null) {
             //showProgress("Please wait, loading interesting data...");
-            interestingRealm.beginTransaction();
+            //interestingRealm.beginTransaction();
             mInteresting = interestingRealm.createObject(Interesting.class, Calendar.getInstance().getTime().toString());
             //not in bg!
-            interestingRealm.commitTransaction();
+            //interestingRealm.commitTransaction();
+            interestingRealm.executeTransaction(new Realm.Transaction() {
+                @Override
+                public void execute(Realm realm) {
+                    realm.insertOrUpdate(mInteresting);
+                }
+            });
             mInteresting.addChangeListener(changeListener);
-            getInterestingPhotos();
+            initInterestingPhotos();
 
         } else {
             mInteresting.addChangeListener(changeListener);
@@ -152,7 +158,7 @@ public class InterestingFragment extends FlickrBaseFragment {
             //dismissProgress();
         }
     };
-    public void getInterestingPhotos() {
+    public void initInterestingPhotos() {
         //@todo offline mode
         //@TODO need iterableFLATMAP TO GET ALL PAGES
         interestingSubscription = getJacksonService().explore("1")
@@ -175,7 +181,7 @@ public class InterestingFragment extends FlickrBaseFragment {
                                        int code = response.code();
                                        Log.e("ERROR", String.valueOf(code));
                                    }
-                                   Log.e("ERROR", "error getting interesting photos" + e);
+                                   Log.e("ERROR", "error init interesting photos" + e);
                                }
 
                                @Override
@@ -187,7 +193,7 @@ public class InterestingFragment extends FlickrBaseFragment {
 
 
                                        realm = Realm.getDefaultInstance();
-                                       realm.beginTransaction();
+                                       //realm.beginTransaction();
 
                                        Date maxDate = realm.where(Interesting.class).maximumDate("timestamp");
                                        Interesting interesting = realm.where(Interesting.class).equalTo("timestamp", maxDate).findFirst();
@@ -200,10 +206,15 @@ public class InterestingFragment extends FlickrBaseFragment {
                                        }
 
                                        interesting.timestamp = Calendar.getInstance().getTime();
-
-
-                                       realm.copyToRealmOrUpdate(interesting);  //deep copy
-                                       realm.commitTransaction();
+                                       interesting.page = p.getPhotos().getPage();
+                                       realm.executeTransaction(new Realm.Transaction() {
+                                           @Override
+                                           public void execute(Realm realm) {
+                                               realm.insertOrUpdate(interesting);
+                                           }
+                                       });
+                                       //realm.copyToRealmOrUpdate(interesting);  //deep copy
+                                       //realm.commitTransaction();
                                    } finally {
                                        if (null != realm) {
                                            realm.close();

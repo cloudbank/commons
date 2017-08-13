@@ -32,8 +32,8 @@ public class Photos {
     public String color;
 
     @JsonProperty("photos")
-
     private Photos_ photos;
+
     @JsonProperty("stat")
     private String stat;
     @JsonIgnore

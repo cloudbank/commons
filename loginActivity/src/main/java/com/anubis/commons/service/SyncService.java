@@ -13,7 +13,7 @@ import com.anubis.commons.sync.SyncAdapter;
 
 
 public class SyncService extends Service {
-    private static SyncAdapter sSyncAdapter = null;
+    private  static SyncAdapter sSyncAdapter = null;
     private static final Object sSyncAdapterLock = new Object();
 
     @Override

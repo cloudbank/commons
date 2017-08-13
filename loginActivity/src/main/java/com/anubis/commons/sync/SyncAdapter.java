@@ -22,11 +22,11 @@ import android.os.Looper;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.anubis.commons.FlickrClientApp;
 import com.anubis.commons.R;
 import com.anubis.commons.activity.LoginActivity;
-import com.anubis.commons.fragments.FlickrBaseFragment;
 import com.anubis.commons.models.Color;
 import com.anubis.commons.models.ColorPhotos;
 import com.anubis.commons.models.Common;
@@ -35,11 +35,8 @@ import com.anubis.commons.models.Photo;
 import com.anubis.commons.models.Photos;
 import com.anubis.commons.util.Util;
 
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
 
 import io.realm.Realm;
 import retrofit2.adapter.rxjava.HttpException;
@@ -48,6 +45,7 @@ import rx.Subscriber;
 import rx.Subscription;
 import rx.schedulers.Schedulers;
 
+import static com.anubis.commons.FlickrClientApp.getAppContext;
 import static com.anubis.commons.FlickrClientApp.getJacksonService;
 
 
@@ -62,10 +60,13 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     public static final int HOUR_IN_SECS = 60 * 60;
     public static final int SYNC_INTERVAL = 12 * HOUR_IN_SECS;    //every 12 hours
     public static final int MIN_IN_SECS = 60;
-    public static final int SYNC_FLEXTIME =  20 * MIN_IN_SECS;  // within 20 minutes
+    //flex time has to be > max(5mins, 5% of interval) that would be 37 mins
+    public static final int SYNC_FLEXTIME = 37 * MIN_IN_SECS;  // within 37 minutes
     private static final int DATA_NOTIFICATION_ID = 3004;
     Subscription interestingSubscription, commonsSubscription, colorSubscription;
-
+    Color mColor;
+    Interesting mInteresting;
+    Common mCommon;
 
     /**
      * Set up the sync adapter
@@ -98,10 +99,14 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
         Log.d("SYNC", "starting onPerformSync");
 
+        if (FlickrClientApp.getCommonsPage() < Common.pages) {
 
-        getCommonsPage1();
-        getColorPhotos();
-        getInterestingPhotos();
+            FlickrClientApp.incrementCommonsPage();
+            getCommonsPage(String.valueOf(FlickrClientApp.getCommonsPage()));
+        }
+
+        //getColorPhotos();  //there are not more than 500 of these and they bleed into others
+        getInterestingPhotos(String.valueOf(FlickrClientApp.interestingPage));
 
         notifyMe();
         Log.d("SYNC", "END onPeformSync");
@@ -239,12 +244,11 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         int iconId = R.drawable.ic_flower;
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(context)
-                        .setColor(context.getResources().getColor(R.color.WhiskeySour))
+                        .setColor(context.getResources().getColor(R.color.LithiumPool))
                         .setSmallIcon(iconId)
-                        .setContentTitle("Commons Data")
-                        .setContentText("Photos updated daily")
+                        .setContentTitle("Commons photos")
+                        .setContentText("500 Photos added daily.")
                         .setAutoCancel(true);
-
 
 
         Intent resultIntent = new Intent(context, LoginActivity.class);
@@ -257,7 +261,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                         0,
                         PendingIntent.FLAG_UPDATE_CURRENT
                 );
-       mBuilder.setContentIntent(resultPendingIntent);
+        mBuilder.setContentIntent(resultPendingIntent);
 
         NotificationManager mNotificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -267,18 +271,20 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     }
 
 
-    public void getInterestingPhotos() {
+    public void getInterestingPhotos(String page) {
         //@todo offline mode
         //@TODO need iterableFLATMAP TO GET ALL PAGES
-        interestingSubscription = getJacksonService().explore("1")
-
+        interestingSubscription = getJacksonService().explore(page)
+//sync works on bg thread already
                 .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
                 .observeOn(Schedulers.immediate())
                 .subscribe(new Subscriber<Photos>() {
                                @Override
                                public void onCompleted() {
 
-
+                                   if (FlickrClientApp.interestingPage < Interesting.pages) {
+                                       FlickrClientApp.interestingPage++;
+                                   }
                                    Log.d("DEBUG", "oncompleted interesting");
 
                                }
@@ -298,30 +304,38 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                                public void onNext(Photos p) {
                                    //og.d("DEBUG", "onNext interesting: " + p.getPhotos().getPhotoList());
                                    //pass photos to fragment
+                                   //Interesting
                                    Realm realm3 = null;
                                    try {
 
 
                                        realm3 = Realm.getDefaultInstance();
-                                       realm3.beginTransaction();
+                                       //realm3.beginTransaction();
 
                                        Date maxDate = realm3.where(Interesting.class).maximumDate("timestamp");
-                                       Interesting interesting = realm3.where(Interesting.class).equalTo("timestamp", maxDate).findFirst();
+                                       mInteresting = realm3.where(Interesting.class).equalTo("timestamp", maxDate).findFirst();
 
 
                                        for (Photo photo : p.getPhotos().getPhotoList()) {
                                            photo.isInteresting = true;
-                                           if (!interesting.interestingPhotos.contains(photo)) {
-                                               interesting.interestingPhotos.add(photo);
+                                           if (!mInteresting.interestingPhotos.contains(photo)) {
+                                               mInteresting.interestingPhotos.add(photo);
                                            }
 
                                        }
 
-                                       interesting.timestamp = Calendar.getInstance().getTime();
+                                       mInteresting.timestamp = Calendar.getInstance().getTime();
+                                       mInteresting.page = p.getPhotos().getPage();
+                                       realm3.executeTransaction(new Realm.Transaction() {
+                                           @Override
+                                           public void execute(Realm realm) {
+                                               realm.insertOrUpdate(mInteresting);
+                                           }
+                                       });
 
-                                       realm3.copyToRealmOrUpdate(interesting);  //deep copy
-                                       realm3.commitTransaction();
-                                       Log.d("SYNC", "end get interesting: " + interesting);
+                                       //realm3.copyToRealmOrUpdate(interesting);  //deep copy
+                                       //realm3.commitTransaction();
+                                       Log.d("SYNC", "end get interesting: " + mInteresting);
                                    } finally {
                                        if (null != realm3) {
                                            realm3.close();
@@ -341,14 +355,17 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     private static final Runnable sRunnable = new Runnable() {
         @Override
         public void run() {
-            FlickrBaseFragment.dismissProgress();
+            //show how many of total
+            Toast.makeText(getAppContext(), "You have " + String.valueOf(Common.count / Common.total) + " of Commons collection ", Toast.LENGTH_LONG);
+            // FlickrBaseFragment.dismissProgress();
         }
     };
-    private void getCommonsPage1() {
+
+    private void getCommonsPage(String page) {
 
         //@todo check for page total if not then process with page 1
         //@todo while realm total is less than total increment page else stop
-        commonsSubscription = getJacksonService().commons("1")
+        commonsSubscription = getJacksonService().commons(page)
                 .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
                 .observeOn(Schedulers.immediate())
                 .subscribe(new Subscriber<Photos>() {
@@ -357,8 +374,8 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
 
                                    UIHandler.post(sRunnable);
-                                       //Your UI code here
-                                       //Toast.makeText(FlickrClientApp.getAppContext(), "Got our photos", Toast.LENGTH_SHORT).show();
+                                   //Your UI code here
+                                   //Toast.makeText(FlickrClientApp.getAppContext(), "Got our photos", Toast.LENGTH_SHORT).show();
 
                                }
 
@@ -375,30 +392,42 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
                                @Override
                                public void onNext(Photos p) {
+
                                    Realm realm4 = null;
+
                                    try {
                                        realm4 = Realm.getDefaultInstance();
-                                       realm4.beginTransaction();
+                                       //realm4.beginTransaction();
 
 
-                                       Date maxDate = realm4.where(Common.class).maximumDate("timestamp");
-                                       Common c = realm4.where(Common.class).equalTo("timestamp", maxDate).findFirst();
+                                       //Date maxDate = realm4.where(Common.class).maximumDate("timestamp");
+                                       //c = realm4.where(Common.class).equalTo("timestamp", maxDate).findFirst();
+
+                                       mCommon = realm4.createObject(Common.class, Calendar.getInstance().getTime().toString());
 
 
                                        for (Photo photo : p.getPhotos().getPhotoList()) {
                                            photo.isCommon = true;
-                                           if (!c.commonPhotos.contains(photo)) {
-                                               c.commonPhotos.add(photo);
+                                           if (!mCommon.commonPhotos.contains(photo)) {
+                                               mCommon.commonPhotos.add(photo);
                                            }
 
                                        }
-                                       Log.d("SYNC", "commonsPhotos" + c);
+                                       Log.d("SYNC", "commonsPhotos" + mCommon);
 
-                                       c.timestamp = Calendar.getInstance().getTime();
+                                       mCommon.timestamp = Calendar.getInstance().getTime();
+                                       mCommon.page = p.getPhotos().getPage();
+                                       realm4.executeTransaction(new Realm.Transaction() {
+                                           @Override
+                                           public void execute(Realm realm) {
+                                               realm.insertOrUpdate(mCommon);
+                                           }
+                                       });
+                                       //realm4.copyToRealmOrUpdate(c);
 
-                                       realm4.copyToRealmOrUpdate(c);
-
-                                       realm4.commitTransaction();
+                                       //realm4.commitTransaction();
+                                   } catch (Exception e) {
+                                       //
                                    } finally
 
                                    {
@@ -416,17 +445,16 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     }
 
 
-    private static Observable<List<String>> getIds() {
-        return Observable.just(Arrays.<String>asList("0", "4", "8", "2"));
-    }
+//there are fewer than 500 color photos for most colors
+    //thereby we don't need updates for this
 
 
     private void getColorPhotos() {
         //@todo check for page total if not then process with page 1
         //@todo while realm total is less than total increment page else stop
-        Observable<String> getIdFromList = getIds().concatMapIterable(ids -> ids);
+        Observable<String> getIdFromList = Util.getIds().concatMapIterable(ids -> ids);
         colorSubscription = getIdFromList
-                .concatMap(SyncAdapter::setColorId)
+                .concatMap(Util::setColorId)
                 .zipWith(getIdFromList, (Photos p, String s) -> new ColorPhotos(s, p))
                 .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
                 .observeOn(Schedulers.immediate())
@@ -466,31 +494,36 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
                                    try {
                                        mRealm = Realm.getDefaultInstance();
-                                       mRealm.beginTransaction();
-                                       Color c = null;
-                                       c = mRealm.where(Color.class).equalTo("color", cp.getCode()).findFirst();
-                                       if (null == c) {
-                                           c = mRealm.createObject(Color.class, cp.getCode()+Calendar.getInstance().getTime().toString());
+                                       //mRealm.beginTransaction();
+                                       mColor = mRealm.where(Color.class).equalTo("color", cp.getCode()).findFirst();
+                                       if (null == mColor) {
+                                           mColor = mRealm.createObject(Color.class, cp.getCode() + Calendar.getInstance().getTime().toString());
                                        }
 
-                                       c.timestamp = Calendar.getInstance().getTime();
-                                       c.color = cp.getCode();
+                                       mColor.timestamp = Calendar.getInstance().getTime();
+                                       mColor.color = cp.getCode();
 
                                        for (Photo photo : cp.getP().getPhotos().getPhotoList()) {
                                            photo.isCommon = true;
-                                           if (!c.colorPhotos.contains(photo)) {
-                                               c.colorPhotos.add(photo);
+                                           if (!mColor.colorPhotos.contains(photo)) {
+                                               mColor.colorPhotos.add(photo);
                                            }
 
 
                                        }
+                                       mRealm.executeTransaction(new Realm.Transaction() {
+                                           @Override
+                                           public void execute(Realm realm) {
+                                               realm.insertOrUpdate(mColor);
+                                           }
+                                       });
                                        // c.setColor(color);
                                        //c.timestamp = Calendar.getInstance().getTime();
 
-                                       mRealm.copyToRealmOrUpdate(c);
+                                       //mRealm.copyToRealmOrUpdate(c);
 
 
-                                       mRealm.commitTransaction();
+                                       //mRealm.commitTransaction();
 
 
                                    } finally {
@@ -505,14 +538,6 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
                 );
 
-    }
-
-    private static Observable<Photos> setColorId(String ids) {
-        HashMap<String, String> data = new HashMap<>();
-        data.put("page", "1");
-        data.put("color_codes", ids);
-
-        return getJacksonService().bycolor(data);
     }
 
 

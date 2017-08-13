@@ -82,12 +82,25 @@ public class SearchFragment extends FlickrBaseFragment {
         mCommon = commonsRealm.where(Common.class).equalTo("timestamp", maxDate).findFirst();
         if (mCommon == null) {
             showProgress("Loading photo data, please wait...");
-
-            commonsRealm.beginTransaction();
+            //reset because there is nothing in realm
+            //@todo if db gets erased and SA is running already
+             // commonsRealm.beginTransaction();
             mCommon = commonsRealm.createObject(Common.class, Calendar.getInstance().getTime().toString());
-            commonsRealm.commitTransaction();
+            mCommon.page = 1;
+            //execute transaction
+            commonsRealm.executeTransaction(new Realm.Transaction() {
+                @Override
+                public void execute(Realm realm) {
+                    realm.insertOrUpdate(mCommon);
+                }
+            });
+            //commonsRealm.commitTransaction();
+            if (FlickrClientApp.getCommonsPage() > 1) {
+                FlickrClientApp.resetCommonsPage();
+            }
             mCommon.addChangeListener(changeListener);
-            getCommonsPage1();  //<---- change
+            initCommonsPage("1");  //
+
         } else {
             //<--sync adapter
             mCommon.addChangeListener(changeListener);
@@ -181,17 +194,17 @@ public class SearchFragment extends FlickrBaseFragment {
         }
     };
 
-    private void getCommonsPage1() {
+    private void initCommonsPage(String page) {
 
         //@todo check for page total if not then process with page 1
         //@todo while realm total is less than total increment page else stop
-        commonSubscription = getJacksonService().commons("1")
+        commonSubscription = getJacksonService().commons(page)
                 .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
                 .observeOn(Schedulers.io())
                 .subscribe(new Subscriber<Photos>() {
                     @Override
                     public void onCompleted() {
-
+                        Log.d("end INIT", "init commons1/photos");
                         // UIHandler.post(sRunnable);
 
                     }
@@ -204,20 +217,24 @@ public class SearchFragment extends FlickrBaseFragment {
                             int code = response.code();
                             Log.e("ERROR", String.valueOf(code));
                         }
-                        Log.e("ERROR", "error getting commons1/photos" + e);
+                        Log.e("ERROR", "error init commons1/photos" + e);
                     }
 
                     @Override
                     public void onNext(Photos p) {
+                        Common.pages = p.getPhotos().getPages();
+                        Common.total = p.getPhotos().getTotal();
+                        Log.d("begin INIT", "init commons1/photos");
                         Realm realm = null;
                         try {
+
                             realm = Realm.getDefaultInstance();
-                            realm.beginTransaction();
+                            //realm.beginTransaction();
 
 
                             Date maxDate = realm.where(Common.class).maximumDate("timestamp");
-                            Common c = realm.where(Common.class).equalTo("timestamp", maxDate).findFirst();
-
+                            Common c = realm.where(Common.class).equalTo("page", 1).findFirst();
+                            //if null.... recreate object although unlikely
 
                             for (Photo photo : p.getPhotos().getPhotoList()) {
                                 photo.isCommon = true;
@@ -226,10 +243,24 @@ public class SearchFragment extends FlickrBaseFragment {
                             }
 
                             c.timestamp = Calendar.getInstance().getTime();
+                            c.page = p.getPhotos().getPage();
+                            //realm.copyToRealmOrUpdate(c);
 
-                            realm.copyToRealmOrUpdate(c);
 
-                            realm.commitTransaction();
+                            realm.executeTransaction(new Realm.Transaction() {
+                                @Override
+                                public void execute(Realm realm) {
+                                    /*
+                                    Insert or update an unmanaged RealmObject. This is generally faster than {@link #copyToRealmOrUpdate(RealmModel)} since it
+                                    * doesn't return the inserted elements, and performs minimum allocations and checks.
+                                     * After being inserted any changes to the original object will not be persisted.
+                                     */
+                                    realm.insertOrUpdate(c);
+                                }
+                            });
+
+
+
                         } finally {
 
                             if (null != realm) {

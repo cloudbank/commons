@@ -13,6 +13,20 @@ import io.realm.annotations.PrimaryKey;
 
 public class Interesting extends RealmObject implements RealmModel {
 
+    public static int total;
+    public static int pages;
+    public static int count;
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public int page;
+
     @PrimaryKey
     public String id;
 

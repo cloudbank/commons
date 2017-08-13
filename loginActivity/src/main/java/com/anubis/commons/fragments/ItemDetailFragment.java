@@ -66,6 +66,7 @@ public class ItemDetailFragment extends Fragment {
     CommentAdapter cAdapter;
     RecyclerView rvComments;
     HandlerThread handlerThread;
+    static Comments_ comments_ ;
 
     public static ItemDetailFragment newInstance(String pid, boolean isTwoPane) {
         ItemDetailFragment itemDetailFragment = new ItemDetailFragment();
@@ -84,6 +85,7 @@ public class ItemDetailFragment extends Fragment {
                 container, false);
         String pid = getArguments().getString("pid");
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        toolbar.setBackground(getResources().getDrawable(R.drawable.background_toolbar));
         boolean isTwoPane = getArguments().getBoolean("isTwoPane");
         if (isTwoPane) {
             toolbar.setVisibility(GONE);
@@ -261,20 +263,26 @@ public class ItemDetailFragment extends Fragment {
             Realm realm = null;
             try {
                 realm = Realm.getDefaultInstance();
-                realm.beginTransaction();
-                Comments_ c = realm.where(Comments_.class).equalTo("photoId", uid).findFirst();
-                if (null == c) {
-                    c = realm.createObject(Comments_.class, uid);
+               // realm.beginTransaction();
+                comments_ = realm.where(Comments_.class).equalTo("photoId", uid).findFirst();
+                if (null == comments_) {
+                    comments_ = realm.createObject(Comments_.class, uid);
                 }
 
                 for (Comment comment : cList) {
-                    if (!c.commentsList.contains(comment)) {
-                        c.commentsList.add(comment);
+                    if (!comments_.commentsList.contains(comment)) {
+                        comments_.commentsList.add(comment);
                     }
                 }
-                c.setTimestamp(new Date());
-                realm.copyToRealmOrUpdate(c);
-                realm.commitTransaction();
+                comments_.setTimestamp(new Date());
+                realm.executeTransaction(new Realm.Transaction() {
+                    @Override
+                    public void execute(Realm realm) {
+                        realm.insertOrUpdate(comments_);
+                    }
+                });
+              //  realm.copyToRealmOrUpdate(c);
+                //realm.commitTransaction();
             } finally {
                 if (realm != null) {
                     realm.close();

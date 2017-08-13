@@ -2,6 +2,8 @@ package io.realm;
 
 
 public interface InterestingRealmProxyInterface {
+    public int realmGet$page();
+    public void realmSet$page(int value);
     public String realmGet$id();
     public void realmSet$id(String value);
     public java.util.Date realmGet$timestamp();

@@ -25,10 +25,10 @@ public interface FlickrService {
     String API_CALLBACK_URL = "oauth://cprest";
     String KEY = "api_key=" + BuildConfig.consumerKey;
 
-    @GET(API_BASE_URL + "?method=flickr.photos.search&per_page=500&extras=date_taken,owner_name,tags,description,url_s&format=json&nojsoncallback=1&" + KEY + "&text=Search%20The%20Commons&is_commons=true&sort=relevance")
+    @GET(API_BASE_URL + "?method=flickr.photos.search&per_page=500&extras=date_taken,owner_name,tags,description,url_s&format=json&nojsoncallback=1&" + KEY + "&is_commons=true&sort=relevance")
     Observable<Photos> commons(@Query("page") String page);
 
-    @GET(API_BASE_URL + "?method=flickr.photos.search&per_page=500&extras=date_taken,owner_name,tags,description,url_s&format=json&nojsoncallback=1&" + KEY + "&text=Search%20The%20Commons&is_commons=true&sort=relevance")
+    @GET(API_BASE_URL + "?method=flickr.photos.search&content_type=7&safe_search=1&structured=yes&per_page=500&extras=date_taken,owner_name,tags,description,url_s&format=json&nojsoncallback=1&" + KEY )
     Observable<Photos> bycolor(@QueryMap Map<String, String> options);
 
 

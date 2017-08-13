@@ -19,6 +19,34 @@ import se.akerfeldt.okhttp.signpost.OkHttpOAuthConsumer;
 
 public class FlickrClientApp extends MultiDexApplication {
 
+    //colors[0] = "4"; //yellow
+    //colors[1] = "8"; // blue
+    //colors[2] = "2";  //orange
+    public static final String YELLOW = "4";
+    public static final String BLUE = "8";
+    public static final String ORANGE = "2";
+
+    private static int commonsPage = 1;
+    public static int interestingPage = 1;
+
+    public static void incrementCommonsPage() {
+        synchronized (FlickrClientApp.class) {
+            commonsPage++;
+        }
+    }
+
+    public static void resetCommonsPage() {
+        synchronized (FlickrClientApp.class) {
+            commonsPage = 1;
+        }
+    }
+    public static int getCommonsPage() {
+        synchronized (FlickrClientApp.class) {
+            return commonsPage;
+        }
+    }
+
+
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);

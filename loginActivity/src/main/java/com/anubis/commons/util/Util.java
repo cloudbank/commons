@@ -6,16 +6,40 @@ import android.content.res.AssetManager;
 
 import com.anubis.commons.FlickrClientApp;
 import com.anubis.commons.R;
+import com.anubis.commons.models.Photos;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Properties;
+
+import rx.Observable;
+
+import static com.anubis.commons.FlickrClientApp.getJacksonService;
 
 /**
  * Created by sabine on 9/21/16.
  */
 
 public class Util {
+
+    public static Observable<Photos> setColorId(String ids) {
+        HashMap<String, String> data = new HashMap<>();
+        data.put("text","Search The Commons");
+        data.put("is_commons", "true");
+        data.put("sort","relevance");
+        //data.put("page", "1");
+        data.put("color_codes", ids);//
+
+        return getJacksonService().bycolor(data);
+    }
+
+    public static Observable<List<String>> getIds() {
+        return Observable.just(Arrays.<String>asList(FlickrClientApp.YELLOW, FlickrClientApp.BLUE, FlickrClientApp.ORANGE));
+    }
+
 
     public static String getProperty(String key, Context context) throws IOException {
         Properties properties = new Properties();

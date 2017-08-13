@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -42,6 +43,8 @@ import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+import static android.R.attr.delay;
 
 public class PhotosActivity extends AppCompatActivity {
     //https://stackoverflow.com/questions/36867298/using-android-vector-drawables-on-pre-lollipop-crash
@@ -118,7 +121,7 @@ public class PhotosActivity extends AppCompatActivity {
                             GET_ACCOUNTS_PERMISSIONS_REQUEST);
 
                 } else {
-                    Toast.makeText(this, "Get  Accounts permission denied, app must quit", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Get Accounts permission denied, app must quit", Toast.LENGTH_SHORT).show();
                     //logout
                 }
             }
@@ -180,11 +183,11 @@ public class PhotosActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
-            toolbar.setNavigationIcon(R.drawable.infinity);
+        /*if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+            toolbar.setNavigationIcon(R.drawable.logo22);
         } else {
-            getSupportActionBar().setLogo(R.drawable.infinity);
-        }
+            getSupportActionBar().setLogo(R.drawable.logo22);
+        }*/
 
         getSupportActionBar().setHomeButtonEnabled(true);
         toolbar.inflateMenu(R.menu.photos);
@@ -205,8 +208,8 @@ public class PhotosActivity extends AppCompatActivity {
         vpPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(onTabSelectedListener(vpPager));
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-8660045387738182~8507434555");
-        SyncAdapter.initializeSyncAdapter(this);  //delay with handlerthread
-        //delaySync();
+        //SyncAdapter.initializeSyncAdapter(this);  //delay with handlerthread
+        delaySync();
 
 
     }
@@ -242,8 +245,7 @@ public class PhotosActivity extends AppCompatActivity {
     }
 
 
-    static final long c_delayMax = 120 * 1000;
-    static Random r = new Random();
+
 
     //@todo this needs a new thread/looper if using it
 /*
@@ -315,6 +317,27 @@ public class PhotosActivity extends AppCompatActivity {
 
     }*/
 
+
+    private static final Runnable sRunnable = new Runnable() {
+
+
+        @Override
+        public void run() {
+            Log.d("SYNC", "starting after delay " + delay);
+            SyncAdapter.initializeSyncAdapter(FlickrClientApp.getAppContext());
+        }
+    };
+    static final long c_delayMax = 120 * 1000;
+    static Random r = new Random();
+
+    void delaySync() {
+
+        Handler sHandler = new Handler();
+        long delay = r.nextLong() % c_delayMax;
+        //new Runnable
+        sHandler.postDelayed(sRunnable, delay);
+
+    }
 
     private void updateUserInfo(SharedPreferences authPrefs) {
 

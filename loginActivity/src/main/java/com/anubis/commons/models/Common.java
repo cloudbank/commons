@@ -13,10 +13,23 @@ import io.realm.annotations.PrimaryKey;
 
 public class Common extends RealmObject implements RealmModel {
 
+    public static int total=0;
+    public static int pages =0;
+    public static int count=1;
 
     @PrimaryKey
+
     public String id;
 
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public int page;
 
 
     public Date timestamp;
@@ -39,20 +52,6 @@ public class Common extends RealmObject implements RealmModel {
 
     public RealmList<Photo> commonPhotos;
 
-    public RealmList<Photo> getColorPhotos() {
-        return colorPhotos;
-    }
-
-    public void setColorPhotos(RealmList<Photo> colorPhotos) {
-        this.colorPhotos = colorPhotos;
-    }
-
-    public RealmList<Photo> colorPhotos;
-
-
-    public String getId() {
-        return id;
-    }
 
     public void setId(String id) {
         this.id = id;

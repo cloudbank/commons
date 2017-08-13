@@ -20,6 +20,7 @@ import com.anubis.commons.models.Color;
 import com.anubis.commons.models.ColorPhotos;
 import com.anubis.commons.models.Photo;
 import com.anubis.commons.models.Photos;
+import com.anubis.commons.util.Util;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.facebook.rebound.BaseSpringSystem;
@@ -29,9 +30,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.List;
 
 import io.realm.Realm;
@@ -41,8 +40,6 @@ import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.schedulers.Schedulers;
-
-import static com.anubis.commons.FlickrClientApp.getJacksonService;
 
 
 public class ColorFragment extends FlickrBaseFragment {
@@ -62,6 +59,8 @@ public class ColorFragment extends FlickrBaseFragment {
     String[] colors = new String[3];
     private final BaseSpringSystem mSpringSystem = SpringSystem.create();
     private Spring mScaleSpring;
+
+
     @Override
     public void onPause() {
         if (mPublisherAdView != null) {
@@ -100,16 +99,23 @@ public class ColorFragment extends FlickrBaseFragment {
             }
         };
         colorRealm = Realm.getDefaultInstance();
-        mColor = colorRealm.where(Color.class).equalTo("color", "4").findFirst();
-        //init
-        if (mColor == null) {
-
-
-            colorRealm.beginTransaction();
+        mColor = colorRealm.where(Color.class).equalTo(getString(R.string.color), FlickrClientApp.YELLOW).findFirst();
+        //init or realm has been deleted
+        if ( mColor == null ) {
+            //to add the listener an object query has to return something
+            //this is primarily to add the listener--just create an empty obj w listener
+            //so it is there when data comes back
+            //colorRealm.beginTransaction();
             mColor = colorRealm.createObject(Color.class, Calendar.getInstance().getTime().toString());
             //not in bg!
-            mColor.color = "4";
-            colorRealm.commitTransaction();
+            mColor.color = FlickrClientApp.YELLOW;
+            colorRealm.executeTransaction(new Realm.Transaction() {
+                @Override
+                public void execute(Realm realm) {
+                    realm.insertOrUpdate(mColor);
+                }
+            });
+            //colorRealm.commitTransaction();
 
             mColor.addChangeListener(changeListener);
             //last color?
@@ -117,6 +123,7 @@ public class ColorFragment extends FlickrBaseFragment {
 
 
         } else {
+
             mColor.addChangeListener(changeListener);
             updateDisplay(mColor);
         }
@@ -138,9 +145,9 @@ public class ColorFragment extends FlickrBaseFragment {
 
         Log.d("TABS", "tags oncreate");
 
-        colors[0] = "4"; //yellow
-        colors[1] = "8"; // blue
-        colors[2] = "2";  //orange
+        colors[0] = FlickrClientApp.YELLOW;
+        colors[1] = FlickrClientApp.BLUE;
+        colors[2] = FlickrClientApp.ORANGE;
 
         setRetainInstance(true);
 
@@ -148,7 +155,7 @@ public class ColorFragment extends FlickrBaseFragment {
 
     private void setupBottomNav(com.aurelhubert.ahbottomnavigation.AHBottomNavigation bottomNavigation) {
         // Create items
-        AHBottomNavigationItem item1 = new AHBottomNavigationItem(getActivity().getString(R.string.yellow), R.drawable.ic_invert_colors_black_24dp, fetchColor(R.color.vitaminb));
+        AHBottomNavigationItem item1 = new AHBottomNavigationItem(getActivity().getString(R.string.yellow), R.drawable.ic_invert_colors_black_24dp, fetchColor(R.color.sand));
         AHBottomNavigationItem item2 = new AHBottomNavigationItem(getActivity().getString(R.string.blue), R.drawable.ic_invert_colors_black_24dp, fetchColor(android.R.color.holo_blue_dark));
         AHBottomNavigationItem item3 = new AHBottomNavigationItem(getActivity().getString(R.string.orange), R.drawable.ic_invert_colors_black_24dp, fetchColor(android.R.color.holo_orange_dark));
 
@@ -158,10 +165,10 @@ public class ColorFragment extends FlickrBaseFragment {
         bottomNavigation.addItem(item3);
 
         // Set background color
-        bottomNavigation.setDefaultBackgroundColor(fetchColor(R.color.alpha_sand_40));
+        bottomNavigation.setDefaultBackgroundColor(fetchColor(R.color.LithiumPool));
 
         // Change colors
-        bottomNavigation.setAccentColor(fetchColor(R.color.vitaminb));
+        bottomNavigation.setAccentColor(fetchColor(R.color.sand));
         bottomNavigation.setInactiveColor(fetchColor(android.R.color.darker_gray));
 
 
@@ -183,7 +190,7 @@ public class ColorFragment extends FlickrBaseFragment {
                 } else if (position == 2) {
                     bottomNavigation.setAccentColor(fetchColor(android.R.color.holo_orange_dark));
                 } else {
-                    bottomNavigation.setAccentColor(fetchColor(R.color.vitaminb));
+                    bottomNavigation.setAccentColor(fetchColor(R.color.sand));
                 }
                 getPhotos(position);
                 //return true;
@@ -228,7 +235,7 @@ public class ColorFragment extends FlickrBaseFragment {
 
 
     private void getPhotos(int position) {
-        //from onclick buttons
+        //from bottom nav positions
         final String color = colors[position];
         Realm realm2 = null;
 
@@ -236,7 +243,7 @@ public class ColorFragment extends FlickrBaseFragment {
             realm2 = Realm.getDefaultInstance();
 
             Color colorObj = realm2.where(Color.class)
-                    .equalTo("color", color).findFirst();
+                    .equalTo(getResources().getString(R.string.color), color).findFirst();
 
             if (null != colorObj) {
                 mPhotos.clear();
@@ -286,9 +293,7 @@ public class ColorFragment extends FlickrBaseFragment {
         return view;
     }
 
-    private static Observable<List<String>> getIds() {
-        return Observable.just(Arrays.<String>asList("4", "8", "2"));
-    }
+
 
 
     public static Handler UIHandler = new Handler(Looper.getMainLooper());
@@ -303,9 +308,9 @@ public class ColorFragment extends FlickrBaseFragment {
     private void getColors() {
         //@todo check for page total if not then process with page 1
         //@todo while realm total is less than total increment page else stop
-        Observable<String> getIdFromList = getIds().concatMapIterable(ids -> ids);
+        Observable<String> getIdFromList = Util.getIds().concatMapIterable(ids -> ids);
         colorSubscription = getIdFromList
-                .concatMap(ColorFragment::setColorId)
+                .concatMap(Util::setColorId)
                 .zipWith(getIdFromList, (Photos p, String s) -> new ColorPhotos(s, p))
                 .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
                 .observeOn(Schedulers.io())
@@ -338,35 +343,41 @@ public class ColorFragment extends FlickrBaseFragment {
                                @Override
                                public void onNext(ColorPhotos cp) {
 
-                                   Log.d("COLOR", "Photos&&&&&&");
                                    Realm mRealm = null;
 
                                    try {
                                        mRealm = Realm.getDefaultInstance();
-                                       mRealm.beginTransaction();
-                                       Color c = null;
-                                       if (cp.getCode().equals("0")) {
-                                           c = mRealm.where(Color.class).equalTo("color", "0").findFirst();
+                                      // mRealm.beginTransaction();
+
+                                       if (cp.getCode().equals(FlickrClientApp.YELLOW)) {
+                                           //init obj
+                                           mColor= mRealm.where(Color.class).equalTo(getResources().getString(R.string.color), FlickrClientApp.YELLOW).findFirst();
                                        } else {
-                                           c = mRealm.createObject(Color.class, cp.getCode() + Calendar.getInstance().getTime().toString());
+                                           mColor = mRealm.createObject(Color.class, cp.getCode() + Calendar.getInstance().getTime().toString());
                                        }
 
-                                       c.timestamp = Calendar.getInstance().getTime();
-                                       c.color = cp.getCode();
+                                       mColor.timestamp = Calendar.getInstance().getTime();
+                                       mColor.color = cp.getCode();
 
                                        for (Photo photo : cp.getP().getPhotos().getPhotoList()) {
                                            photo.isCommon = true;
-                                           c.colorPhotos.add(photo);
+                                           mColor.colorPhotos.add(photo);
 
 
                                        }
+                                       mRealm.executeTransaction(new Realm.Transaction() {
+                                           @Override
+                                           public void execute(Realm realm) {
+                                               realm.insertOrUpdate(mColor);
+                                           }
+                                       });
                                        // c.setColor(color);
                                        //c.timestamp = Calendar.getInstance().getTime();
 
-                                       mRealm.copyToRealmOrUpdate(c);
+                                       //mRealm.copyToRealmOrUpdate(c);
 
 
-                                       mRealm.commitTransaction();
+                                      // mRealm.commitTransaction();
 
 
                                    } finally {
@@ -383,13 +394,7 @@ public class ColorFragment extends FlickrBaseFragment {
 
     }
 
-    private static Observable<Photos> setColorId(String ids) {
-        HashMap<String, String> data = new HashMap<>();
-        data.put("page", "1");
-        data.put("color_codes", ids);
 
-        return getJacksonService().bycolor(data);
-    }
 
 
     private int fetchColor(@ColorRes int color) {
