@@ -263,7 +263,7 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
         if (!realmSchema.contains("Common")) {
             RealmObjectSchema realmObjectSchema = realmSchema.create("Common");
             realmObjectSchema.add(new Property("id", RealmFieldType.STRING, Property.PRIMARY_KEY, Property.INDEXED, !Property.REQUIRED));
-            realmObjectSchema.add(new Property("page", RealmFieldType.INTEGER, !Property.PRIMARY_KEY, !Property.INDEXED, Property.REQUIRED));
+            realmObjectSchema.add(new Property("page", RealmFieldType.INTEGER, !Property.PRIMARY_KEY, Property.INDEXED, Property.REQUIRED));
             realmObjectSchema.add(new Property("timestamp", RealmFieldType.DATE, !Property.PRIMARY_KEY, !Property.INDEXED, !Property.REQUIRED));
             if (!realmSchema.contains("Photo")) {
                 PhotoRealmProxy.createRealmObjectSchema(realmSchema);
@@ -285,6 +285,7 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
             }
             table.addColumnLink(RealmFieldType.LIST, "commonPhotos", sharedRealm.getTable("class_Photo"));
             table.addSearchIndex(table.getColumnIndex("id"));
+            table.addSearchIndex(table.getColumnIndex("page"));
             table.setPrimaryKey("id");
             return table;
         }
@@ -335,6 +336,9 @@ public class CommonRealmProxy extends com.anubis.commons.models.Common
             }
             if (table.isColumnNullable(columnInfo.pageIndex)) {
                 throw new RealmMigrationNeededException(sharedRealm.getPath(), "Field 'page' does support null values in the existing Realm file. Use corresponding boxed type for field 'page' or migrate using RealmObjectSchema.setNullable().");
+            }
+            if (!table.hasSearchIndex(table.getColumnIndex("page"))) {
+                throw new RealmMigrationNeededException(sharedRealm.getPath(), "Index not defined for field 'page' in existing Realm file. Either set @Index or migrate using io.realm.internal.Table.removeSearchIndex().");
             }
             if (!columnTypes.containsKey("timestamp")) {
                 throw new RealmMigrationNeededException(sharedRealm.getPath(), "Missing field 'timestamp' in existing Realm file. Either remove field or migrate using io.realm.internal.Table.addColumn().");

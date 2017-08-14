@@ -236,12 +236,12 @@
         "source": "/Users/sabine/.android/build-cache/8315da990f0dc55b48ef8a3978c9f454935b7642/output/res/drawable-xhdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
     },
     {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_star_black_16dp.png",
-        "source": "/Users/sabine/.android/build-cache/8315da990f0dc55b48ef8a3978c9f454935b7642/output/res/drawable-xhdpi-v4/abc_ic_star_black_16dp.png"
-    },
-    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable-xhdpi-v4/common_google_signin_btn_icon_light_pressed.9.png",
         "source": "/Users/sabine/.android/build-cache/f2439317684412b3ee64fefaeacda0d3caaa8a38/output/res/drawable-xhdpi-v4/common_google_signin_btn_icon_light_pressed.9.png"
+    },
+    {
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_star_black_16dp.png",
+        "source": "/Users/sabine/.android/build-cache/8315da990f0dc55b48ef8a3978c9f454935b7642/output/res/drawable-xhdpi-v4/abc_ic_star_black_16dp.png"
     },
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_star_half_black_48dp.png",

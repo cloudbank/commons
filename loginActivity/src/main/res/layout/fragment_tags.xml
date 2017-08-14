@@ -4,7 +4,7 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_centerInParent="false"
+    android:layout_centerInParent="true"
     android:layout_centerVertical="false"
     android:layout_centerHorizontal="false"
     android:layout_marginTop="5dp">
@@ -26,8 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="true"
-        android:layout_marginRight="10dp"
         android:padding="5dp"
+        android:background="@color/alpha_sand_40"
         android:scrollbars="vertical"
         android:gravity="center"
         android:layout_below="@+id/publisherAdView"

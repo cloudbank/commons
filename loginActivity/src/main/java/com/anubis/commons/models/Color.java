@@ -5,6 +5,7 @@ import java.util.Date;
 import io.realm.RealmList;
 import io.realm.RealmModel;
 import io.realm.RealmObject;
+import io.realm.annotations.Index;
 import io.realm.annotations.PrimaryKey;
 
 /**
@@ -26,6 +27,7 @@ public class Color extends RealmObject implements RealmModel {
     @PrimaryKey
     public String id;
 
+
     public Date timestamp;
 
     public String getColor() {
@@ -36,6 +38,7 @@ public class Color extends RealmObject implements RealmModel {
         this.color = color;
     }
 
+    @Index
     public String color;
 
     public RealmList<Photo> getColorPhotos() {

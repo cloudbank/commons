@@ -99,34 +99,39 @@ public class ColorFragment extends FlickrBaseFragment {
             }
         };
         colorRealm = Realm.getDefaultInstance();
+        //@todo this is on ui thread
         mColor = colorRealm.where(Color.class).equalTo(getString(R.string.color), FlickrClientApp.YELLOW).findFirst();
         //init or realm has been deleted
-        if ( mColor == null ) {
+        if (mColor == null) {
             //to add the listener an object query has to return something
             //this is primarily to add the listener--just create an empty obj w listener
             //so it is there when data comes back
             //colorRealm.beginTransaction();
-            mColor = colorRealm.createObject(Color.class, Calendar.getInstance().getTime().toString());
+
             //not in bg!
-            mColor.color = FlickrClientApp.YELLOW;
+
             colorRealm.executeTransaction(new Realm.Transaction() {
                 @Override
                 public void execute(Realm realm) {
+                    mColor = colorRealm.createObject(Color.class, Calendar.getInstance().getTime().toString());
+                    mColor.color = FlickrClientApp.YELLOW;
+
                     realm.insertOrUpdate(mColor);
+                    mColor.addChangeListener(changeListener);
+
                 }
             });
-            //colorRealm.commitTransaction();
-
-            mColor.addChangeListener(changeListener);
-            //last color?
             getColors();
-
-
         } else {
-
             mColor.addChangeListener(changeListener);
             updateDisplay(mColor);
         }
+
+
+        //colorRealm.commitTransaction();
+
+
+        //last color?
 
 
     }
@@ -213,15 +218,18 @@ public class ColorFragment extends FlickrBaseFragment {
     }
 
 
-
-
-
     @Override
     public void onDestroy() {
+
+        super.onDestroy();
+        if (colorRealm != null && !colorRealm.isClosed()) {
+            colorRealm.close();
+        }
         if (mPublisherAdView != null) {
             mPublisherAdView.pause();
         }
-        super.onDestroy();
+
+        /*  finally closes it
         if (null != mColor) {
             mColor.removeChangeListeners();
         }
@@ -229,6 +237,7 @@ public class ColorFragment extends FlickrBaseFragment {
         if (null != colorRealm && !colorRealm.isClosed()) {
             colorRealm.close();
         }
+        */
 
 
     }
@@ -294,8 +303,6 @@ public class ColorFragment extends FlickrBaseFragment {
     }
 
 
-
-
     public static Handler UIHandler = new Handler(Looper.getMainLooper());
 
     private static final Runnable sRunnable = new Runnable() {
@@ -347,27 +354,27 @@ public class ColorFragment extends FlickrBaseFragment {
 
                                    try {
                                        mRealm = Realm.getDefaultInstance();
-                                      // mRealm.beginTransaction();
+                                       // mRealm.beginTransaction();
 
-                                       if (cp.getCode().equals(FlickrClientApp.YELLOW)) {
-                                           //init obj
-                                           mColor= mRealm.where(Color.class).equalTo(getResources().getString(R.string.color), FlickrClientApp.YELLOW).findFirst();
-                                       } else {
-                                           mColor = mRealm.createObject(Color.class, cp.getCode() + Calendar.getInstance().getTime().toString());
-                                       }
-
-                                       mColor.timestamp = Calendar.getInstance().getTime();
-                                       mColor.color = cp.getCode();
-
-                                       for (Photo photo : cp.getP().getPhotos().getPhotoList()) {
-                                           photo.isCommon = true;
-                                           mColor.colorPhotos.add(photo);
-
-
-                                       }
                                        mRealm.executeTransaction(new Realm.Transaction() {
                                            @Override
                                            public void execute(Realm realm) {
+                                               if (cp.getCode().equals(FlickrClientApp.YELLOW)) {
+                                                   //init obj
+                                                   mColor = realm.where(Color.class).equalTo(getResources().getString(R.string.color), FlickrClientApp.YELLOW).findFirst();
+                                               } else {
+                                                   mColor = realm.createObject(Color.class, cp.getCode() + Calendar.getInstance().getTime().toString());
+                                               }
+
+                                               mColor.timestamp = Calendar.getInstance().getTime();
+                                               mColor.color = cp.getCode();
+
+                                               for (Photo photo : cp.getP().getPhotos().getPhotoList()) {
+                                                   photo.isCommon = true;
+                                                   mColor.colorPhotos.add(photo);
+
+
+                                               }
                                                realm.insertOrUpdate(mColor);
                                            }
                                        });
@@ -377,7 +384,7 @@ public class ColorFragment extends FlickrBaseFragment {
                                        //mRealm.copyToRealmOrUpdate(c);
 
 
-                                      // mRealm.commitTransaction();
+                                       // mRealm.commitTransaction();
 
 
                                    } finally {
@@ -393,8 +400,6 @@ public class ColorFragment extends FlickrBaseFragment {
                 );
 
     }
-
-
 
 
     private int fetchColor(@ColorRes int color) {

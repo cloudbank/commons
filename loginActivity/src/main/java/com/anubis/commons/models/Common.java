@@ -5,6 +5,7 @@ import java.util.Date;
 import io.realm.RealmList;
 import io.realm.RealmModel;
 import io.realm.RealmObject;
+import io.realm.annotations.Index;
 import io.realm.annotations.PrimaryKey;
 
 /**
@@ -29,6 +30,7 @@ public class Common extends RealmObject implements RealmModel {
         this.page = page;
     }
 
+    @Index
     public int page;
 
 

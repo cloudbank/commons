@@ -97,7 +97,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
      * Put the data transfer code here.
      */
 
-        Log.d("SYNC", "starting onPerformSync");
+        Log.d("SYNC", "starting onPerformSync " + FlickrClientApp.getCommonsPage() );
 
         if (FlickrClientApp.getCommonsPage() < Common.pages) {
 
@@ -231,7 +231,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
          * Finally, let's do a sync to get things started--
          * NOT NEEDED @todo
          */
-        //syncImmediately(context);
+        syncImmediately(context);
     }
 
     public static void initializeSyncAdapter(Context context) {
@@ -312,23 +312,24 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                                        realm3 = Realm.getDefaultInstance();
                                        //realm3.beginTransaction();
 
-                                       Date maxDate = realm3.where(Interesting.class).maximumDate("timestamp");
-                                       mInteresting = realm3.where(Interesting.class).equalTo("timestamp", maxDate).findFirst();
 
-
-                                       for (Photo photo : p.getPhotos().getPhotoList()) {
-                                           photo.isInteresting = true;
-                                           if (!mInteresting.interestingPhotos.contains(photo)) {
-                                               mInteresting.interestingPhotos.add(photo);
-                                           }
-
-                                       }
-
-                                       mInteresting.timestamp = Calendar.getInstance().getTime();
-                                       mInteresting.page = p.getPhotos().getPage();
                                        realm3.executeTransaction(new Realm.Transaction() {
                                            @Override
                                            public void execute(Realm realm) {
+                                               Date maxDate = realm.where(Interesting.class).maximumDate("timestamp");
+                                               mInteresting = realm.where(Interesting.class).equalTo("timestamp", maxDate).findFirst();
+
+
+                                               for (Photo photo : p.getPhotos().getPhotoList()) {
+                                                   photo.isInteresting = true;
+                                                   if (!mInteresting.interestingPhotos.contains(photo)) {
+                                                       mInteresting.interestingPhotos.add(photo);
+                                                   }
+
+                                               }
+
+                                               mInteresting.timestamp = Calendar.getInstance().getTime();
+                                               mInteresting.page = p.getPhotos().getPage();
                                                realm.insertOrUpdate(mInteresting);
                                            }
                                        });
@@ -403,31 +404,30 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                                        //Date maxDate = realm4.where(Common.class).maximumDate("timestamp");
                                        //c = realm4.where(Common.class).equalTo("timestamp", maxDate).findFirst();
 
-                                       mCommon = realm4.createObject(Common.class, Calendar.getInstance().getTime().toString());
 
-
-                                       for (Photo photo : p.getPhotos().getPhotoList()) {
-                                           photo.isCommon = true;
-                                           if (!mCommon.commonPhotos.contains(photo)) {
-                                               mCommon.commonPhotos.add(photo);
-                                           }
-
-                                       }
-                                       Log.d("SYNC", "commonsPhotos" + mCommon);
-
-                                       mCommon.timestamp = Calendar.getInstance().getTime();
-                                       mCommon.page = p.getPhotos().getPage();
                                        realm4.executeTransaction(new Realm.Transaction() {
                                            @Override
                                            public void execute(Realm realm) {
+                                               mCommon = realm.createObject(Common.class, Calendar.getInstance().getTime().toString());
+
+
+                                               for (Photo photo : p.getPhotos().getPhotoList()) {
+                                                   photo.isCommon = true;
+                                                   if (!mCommon.commonPhotos.contains(photo)) {
+                                                       mCommon.commonPhotos.add(photo);
+                                                   }
+
+                                               }
+                                               Log.d("SYNC", "commonsPhotos, page: " + page);
+
+                                               mCommon.timestamp = Calendar.getInstance().getTime();
+                                               mCommon.page = p.getPhotos().getPage();
                                                realm.insertOrUpdate(mCommon);
                                            }
                                        });
                                        //realm4.copyToRealmOrUpdate(c);
 
                                        //realm4.commitTransaction();
-                                   } catch (Exception e) {
-                                       //
                                    } finally
 
                                    {
@@ -495,25 +495,26 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                                    try {
                                        mRealm = Realm.getDefaultInstance();
                                        //mRealm.beginTransaction();
-                                       mColor = mRealm.where(Color.class).equalTo("color", cp.getCode()).findFirst();
-                                       if (null == mColor) {
-                                           mColor = mRealm.createObject(Color.class, cp.getCode() + Calendar.getInstance().getTime().toString());
-                                       }
 
-                                       mColor.timestamp = Calendar.getInstance().getTime();
-                                       mColor.color = cp.getCode();
-
-                                       for (Photo photo : cp.getP().getPhotos().getPhotoList()) {
-                                           photo.isCommon = true;
-                                           if (!mColor.colorPhotos.contains(photo)) {
-                                               mColor.colorPhotos.add(photo);
-                                           }
-
-
-                                       }
                                        mRealm.executeTransaction(new Realm.Transaction() {
                                            @Override
                                            public void execute(Realm realm) {
+                                               mColor = realm.where(Color.class).equalTo("color", cp.getCode()).findFirst();
+                                               if (null == mColor) {
+                                                   mColor = realm.createObject(Color.class, cp.getCode() + Calendar.getInstance().getTime().toString());
+                                               }
+
+                                               mColor.timestamp = Calendar.getInstance().getTime();
+                                               mColor.color = cp.getCode();
+
+                                               for (Photo photo : cp.getP().getPhotos().getPhotoList()) {
+                                                   photo.isCommon = true;
+                                                   if (!mColor.colorPhotos.contains(photo)) {
+                                                       mColor.colorPhotos.add(photo);
+                                                   }
+
+
+                                               }
                                                realm.insertOrUpdate(mColor);
                                            }
                                        });

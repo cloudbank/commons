@@ -61,7 +61,7 @@ public class InterestingFragment extends FlickrBaseFragment {
             }
         };
 
-
+        //@todo
         interestingRealm = Realm.getDefaultInstance();
         Date maxDate = interestingRealm.where(Interesting.class).maximumDate("timestamp");
         //@todo get the last selected color?
@@ -69,22 +69,24 @@ public class InterestingFragment extends FlickrBaseFragment {
         if (mInteresting == null) {
             //showProgress("Please wait, loading interesting data...");
             //interestingRealm.beginTransaction();
-            mInteresting = interestingRealm.createObject(Interesting.class, Calendar.getInstance().getTime().toString());
+
             //not in bg!
             //interestingRealm.commitTransaction();
             interestingRealm.executeTransaction(new Realm.Transaction() {
                 @Override
                 public void execute(Realm realm) {
+                    mInteresting = interestingRealm.createObject(Interesting.class, Calendar.getInstance().getTime().toString());
                     realm.insertOrUpdate(mInteresting);
+                    mInteresting.addChangeListener(changeListener);
                 }
             });
-            mInteresting.addChangeListener(changeListener);
-            initInterestingPhotos();
 
+            initInterestingPhotos();
         } else {
             mInteresting.addChangeListener(changeListener);
             updateDisplay(mInteresting);
         }
+
 
     }
 
@@ -92,7 +94,6 @@ public class InterestingFragment extends FlickrBaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         Log.d("TABS", "interesting activcreated");
-
 
 
     }
@@ -138,10 +139,7 @@ public class InterestingFragment extends FlickrBaseFragment {
     public void onDestroy() {
         super.onDestroy();
 
-        if (null != mInteresting ) {
-            mInteresting.removeChangeListeners();
-        }
-        if (null != interestingRealm && !interestingRealm.isClosed()) {
+        if (interestingRealm != null && !interestingRealm.isClosed()) {
             interestingRealm.close();
         }
 
@@ -158,6 +156,7 @@ public class InterestingFragment extends FlickrBaseFragment {
             //dismissProgress();
         }
     };
+
     public void initInterestingPhotos() {
         //@todo offline mode
         //@TODO need iterableFLATMAP TO GET ALL PAGES
@@ -167,11 +166,11 @@ public class InterestingFragment extends FlickrBaseFragment {
                 .observeOn(Schedulers.io())
                 .subscribe(new Subscriber<Photos>() {
                                @Override
-                    public void onCompleted() {
+                               public void onCompleted() {
 
-                        //UIHandler.post(sRunnable);
+                                   //UIHandler.post(sRunnable);
 
-                    }
+                               }
 
                                @Override
                                public void onError(Throwable e) {
@@ -195,21 +194,22 @@ public class InterestingFragment extends FlickrBaseFragment {
                                        realm = Realm.getDefaultInstance();
                                        //realm.beginTransaction();
 
-                                       Date maxDate = realm.where(Interesting.class).maximumDate("timestamp");
-                                       Interesting interesting = realm.where(Interesting.class).equalTo("timestamp", maxDate).findFirst();
 
-
-                                       for (Photo photo : p.getPhotos().getPhotoList()) {
-                                           photo.isInteresting = true;
-                                           interesting.interestingPhotos.add(photo);
-
-                                       }
-
-                                       interesting.timestamp = Calendar.getInstance().getTime();
-                                       interesting.page = p.getPhotos().getPage();
                                        realm.executeTransaction(new Realm.Transaction() {
                                            @Override
                                            public void execute(Realm realm) {
+                                               Date maxDate = realm.where(Interesting.class).maximumDate("timestamp");
+                                               Interesting interesting = realm.where(Interesting.class).equalTo("timestamp", maxDate).findFirst();
+
+
+                                               for (Photo photo : p.getPhotos().getPhotoList()) {
+                                                   photo.isInteresting = true;
+                                                   interesting.interestingPhotos.add(photo);
+
+                                               }
+
+                                               interesting.timestamp = Calendar.getInstance().getTime();
+                                               interesting.page = p.getPhotos().getPage();
                                                realm.insertOrUpdate(interesting);
                                            }
                                        });

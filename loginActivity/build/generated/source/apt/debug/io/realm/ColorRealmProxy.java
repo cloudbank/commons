@@ -272,7 +272,7 @@ public class ColorRealmProxy extends com.anubis.commons.models.Color
             RealmObjectSchema realmObjectSchema = realmSchema.create("Color");
             realmObjectSchema.add(new Property("id", RealmFieldType.STRING, Property.PRIMARY_KEY, Property.INDEXED, !Property.REQUIRED));
             realmObjectSchema.add(new Property("timestamp", RealmFieldType.DATE, !Property.PRIMARY_KEY, !Property.INDEXED, !Property.REQUIRED));
-            realmObjectSchema.add(new Property("color", RealmFieldType.STRING, !Property.PRIMARY_KEY, !Property.INDEXED, !Property.REQUIRED));
+            realmObjectSchema.add(new Property("color", RealmFieldType.STRING, !Property.PRIMARY_KEY, Property.INDEXED, !Property.REQUIRED));
             if (!realmSchema.contains("Photo")) {
                 PhotoRealmProxy.createRealmObjectSchema(realmSchema);
             }
@@ -293,6 +293,7 @@ public class ColorRealmProxy extends com.anubis.commons.models.Color
             }
             table.addColumnLink(RealmFieldType.LIST, "colorPhotos", sharedRealm.getTable("class_Photo"));
             table.addSearchIndex(table.getColumnIndex("id"));
+            table.addSearchIndex(table.getColumnIndex("color"));
             table.setPrimaryKey("id");
             return table;
         }
@@ -352,6 +353,9 @@ public class ColorRealmProxy extends com.anubis.commons.models.Color
             }
             if (!table.isColumnNullable(columnInfo.colorIndex)) {
                 throw new RealmMigrationNeededException(sharedRealm.getPath(), "Field 'color' is required. Either set @Required to field 'color' or migrate using RealmObjectSchema.setNullable().");
+            }
+            if (!table.hasSearchIndex(table.getColumnIndex("color"))) {
+                throw new RealmMigrationNeededException(sharedRealm.getPath(), "Index not defined for field 'color' in existing Realm file. Either set @Index or migrate using io.realm.internal.Table.removeSearchIndex().");
             }
             if (!columnTypes.containsKey("colorPhotos")) {
                 throw new RealmMigrationNeededException(sharedRealm.getPath(), "Missing field 'colorPhotos'");

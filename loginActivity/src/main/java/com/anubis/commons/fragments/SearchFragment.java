@@ -14,13 +14,13 @@ import android.view.ViewGroup;
 import com.anubis.commons.FlickrClientApp;
 import com.anubis.commons.R;
 import com.anubis.commons.adapter.SearchAdapter;
+import com.anubis.commons.listener.EndlessRecyclerViewScrollListener;
 import com.anubis.commons.models.Common;
 import com.anubis.commons.models.Photo;
 import com.anubis.commons.models.Photos;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import io.realm.Realm;
@@ -43,22 +43,19 @@ public class SearchFragment extends FlickrBaseFragment {
     RealmChangeListener changeListener;
     Subscription commonSubscription;
     Common mCommon;
+    private EndlessRecyclerViewScrollListener scrollListener;
 
 
     @Override
     public void onDestroy() {
         super.onDestroy();
+        if (commonsRealm != null && !commonsRealm.isClosed()) {
+            commonsRealm.close();
+        }
         if (null != commonSubscription) {
             commonSubscription.unsubscribe();
         }
 
-        if (null != commonsRealm && !commonsRealm.isClosed()) {
-            commonsRealm.close();
-        }
-        if (null != mCommon) {
-            mCommon.removeChangeListeners();
-
-        }
 
     }
 
@@ -78,37 +75,41 @@ public class SearchFragment extends FlickrBaseFragment {
 
 
         commonsRealm = Realm.getDefaultInstance();
-        Date maxDate = commonsRealm.where(Common.class).maximumDate("timestamp");
-        mCommon = commonsRealm.where(Common.class).equalTo("timestamp", maxDate).findFirst();
+        mCommon = commonsRealm.where(Common.class).equalTo("page", 1).findFirst();
         if (mCommon == null) {
             showProgress("Loading photo data, please wait...");
             //reset because there is nothing in realm
             //@todo if db gets erased and SA is running already
-             // commonsRealm.beginTransaction();
-            mCommon = commonsRealm.createObject(Common.class, Calendar.getInstance().getTime().toString());
-            mCommon.page = 1;
+            // commonsRealm.beginTransaction();
+
             //execute transaction
             commonsRealm.executeTransaction(new Realm.Transaction() {
                 @Override
                 public void execute(Realm realm) {
+                    mCommon = commonsRealm.createObject(Common.class, Calendar.getInstance().getTime().toString());
+                    mCommon.page = 1;
+
                     realm.insertOrUpdate(mCommon);
+                    mCommon.addChangeListener(changeListener);
+                    //@todo
+
                 }
             });
             //commonsRealm.commitTransaction();
             if (FlickrClientApp.getCommonsPage() > 1) {
                 FlickrClientApp.resetCommonsPage();
             }
-            mCommon.addChangeListener(changeListener);
+
             initCommonsPage("1");  //
 
         } else {
-            //<--sync adapter
             mCommon.addChangeListener(changeListener);
             updateDisplay(mCommon);
         }
 
 
     }
+
 
     @Override
     public void onResume() {
@@ -146,13 +147,13 @@ public class SearchFragment extends FlickrBaseFragment {
 
     private void updateDisplay(Common c) {
         Log.d("TABS", "search updateDisplay(s)");
-        sPhotos.clear();
+        //sPhotos.clear();
         if (null != c) {
             sPhotos.addAll(c.getCommonPhotos());
         }
+        Log.d("TABS", "ADDED to updateDisplay(s): " + sPhotos.size());
         searchAdapter.notifyItemRangeChanged(0, c.getCommonPhotos().size() - 1);
         searchAdapter.notifyDataSetChanged();
-
 
 
     }
@@ -171,7 +172,20 @@ public class SearchFragment extends FlickrBaseFragment {
         rvPhotos.setLayoutManager(gridLayoutManager);
         //animationAdapter.setFirstOnly(true);
         rvPhotos.setAdapter(searchAdapter);
-        rvPhotos.setHasFixedSize(true);
+       /*
+        scrollListener = new EndlessRecyclerViewScrollListener(gridLayoutManager) {
+
+
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                // Triggered only when new data needs to be appended to the list
+                // Add whatever code is needed to append new items to the bottom of the list
+                loadNextDataFromApi(page);
+            }
+        };
+        // Adds the scroll listener to RecyclerView
+        rvPhotos.addOnScrollListener(scrollListener);
+        */
 
         setItemListener(searchAdapter, sPhotos);
 
@@ -182,6 +196,22 @@ public class SearchFragment extends FlickrBaseFragment {
 
 
         return view;
+
+    }
+
+    public void loadNextDataFromApi(int page) {
+        // Send an API request to retrieve appropriate paginated data
+        //  --> Send the request including an offset value (i.e `page`) as a query parameter.
+        //  --> Deserialize and construct new model objects from the API response
+        //  --> Append the new data objects to the existing set of items inside the array of items
+        //  --> Notify the adapter of the new items made with `notifyItemRangeInserted()`
+        mCommon = commonsRealm.where(Common.class).equalTo("page", page).findFirst();
+        int size = sPhotos.size();
+        if (null != mCommon) {
+            sPhotos.addAll(mCommon.getCommonPhotos());
+        }
+        searchAdapter.notifyItemRangeChanged(size, mCommon.getCommonPhotos().size() - 1);
+        searchAdapter.notifyDataSetChanged();
 
     }
 
@@ -232,18 +262,6 @@ public class SearchFragment extends FlickrBaseFragment {
                             //realm.beginTransaction();
 
 
-                            Date maxDate = realm.where(Common.class).maximumDate("timestamp");
-                            Common c = realm.where(Common.class).equalTo("page", 1).findFirst();
-                            //if null.... recreate object although unlikely
-
-                            for (Photo photo : p.getPhotos().getPhotoList()) {
-                                photo.isCommon = true;
-                                c.commonPhotos.add(photo);
-
-                            }
-
-                            c.timestamp = Calendar.getInstance().getTime();
-                            c.page = p.getPhotos().getPage();
                             //realm.copyToRealmOrUpdate(c);
 
 
@@ -255,10 +273,21 @@ public class SearchFragment extends FlickrBaseFragment {
                                     * doesn't return the inserted elements, and performs minimum allocations and checks.
                                      * After being inserted any changes to the original object will not be persisted.
                                      */
+                                    //Date maxDate = realm.where(Common.class).maximumDate("timestamp");
+                                    Common c = realm.where(Common.class).equalTo("page", 1).findFirst();
+                                    //if null.... recreate object although unlikely
+
+                                    for (Photo photo : p.getPhotos().getPhotoList()) {
+                                        photo.isCommon = true;
+                                        c.commonPhotos.add(photo);
+
+                                    }
+
+                                    c.timestamp = Calendar.getInstance().getTime();
+                                    c.page = p.getPhotos().getPage();
                                     realm.insertOrUpdate(c);
                                 }
                             });
-
 
 
                         } finally {

@@ -23,7 +23,7 @@
         android:background="@color/alpha_sand_40"
         android:minHeight="?attr/actionBarSize"
         app:tabIndicatorColor="@color/ice"
-        app:tabSelectedTextColor="@color/LithiumPool"
+        app:tabSelectedTextColor="@color/ice"
         app:tabTextColor="@color/back_alpha_30"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:tabGravity="fill"

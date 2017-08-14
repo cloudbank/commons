@@ -66,7 +66,7 @@ public class ItemDetailFragment extends Fragment {
     CommentAdapter cAdapter;
     RecyclerView rvComments;
     HandlerThread handlerThread;
-    static Comments_ comments_ ;
+    static Comments_ comments_;
 
     public static ItemDetailFragment newInstance(String pid, boolean isTwoPane) {
         ItemDetailFragment itemDetailFragment = new ItemDetailFragment();
@@ -263,25 +263,26 @@ public class ItemDetailFragment extends Fragment {
             Realm realm = null;
             try {
                 realm = Realm.getDefaultInstance();
-               // realm.beginTransaction();
-                comments_ = realm.where(Comments_.class).equalTo("photoId", uid).findFirst();
-                if (null == comments_) {
-                    comments_ = realm.createObject(Comments_.class, uid);
-                }
+                // realm.beginTransaction();
 
-                for (Comment comment : cList) {
-                    if (!comments_.commentsList.contains(comment)) {
-                        comments_.commentsList.add(comment);
-                    }
-                }
-                comments_.setTimestamp(new Date());
                 realm.executeTransaction(new Realm.Transaction() {
                     @Override
                     public void execute(Realm realm) {
+                        comments_ = realm.where(Comments_.class).equalTo("photoId", uid).findFirst();
+                        if (null == comments_) {
+                            comments_ = realm.createObject(Comments_.class, uid);
+                        }
+
+                        for (Comment comment : cList) {
+                            if (!comments_.commentsList.contains(comment)) {
+                                comments_.commentsList.add(comment);
+                            }
+                        }
+                        comments_.setTimestamp(new Date());
                         realm.insertOrUpdate(comments_);
                     }
                 });
-              //  realm.copyToRealmOrUpdate(c);
+                //  realm.copyToRealmOrUpdate(c);
                 //realm.commitTransaction();
             } finally {
                 if (realm != null) {
@@ -410,7 +411,6 @@ public class ItemDetailFragment extends Fragment {
     public synchronized void onStop() {
         super.onStop();
     }
-
 
 
     @Override
