@@ -20,6 +20,7 @@ import com.anubis.commons.models.Color;
 import com.anubis.commons.models.ColorPhotos;
 import com.anubis.commons.models.Photo;
 import com.anubis.commons.models.Photos;
+import com.anubis.commons.sync.SyncAdapter;
 import com.anubis.commons.util.Util;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
@@ -122,6 +123,7 @@ public class ColorFragment extends FlickrBaseFragment {
                 }
             });
             getColors();
+
         } else {
             mColor.addChangeListener(changeListener);
             updateDisplay(mColor);
@@ -308,7 +310,9 @@ public class ColorFragment extends FlickrBaseFragment {
     private static final Runnable sRunnable = new Runnable() {
         @Override
         public void run() {
+            SyncAdapter.startSyncAdapter(Util.getCurrentUser());
             dismissProgress();
+
         }
     };
 
@@ -326,6 +330,7 @@ public class ColorFragment extends FlickrBaseFragment {
 
                                @Override
                                public void onCompleted() {
+                                   //start the SA
 
                                    UIHandler.post(sRunnable);
 

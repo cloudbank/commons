@@ -3,8 +3,11 @@ package com.anubis.commons.activity;
 import android.Manifest;
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.accounts.AccountManagerCallback;
+import android.accounts.AccountManagerFuture;
 import android.annotation.TargetApi;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -30,7 +33,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import com.anubis.commons.FlickrClientApp;
 import com.anubis.commons.R;
 import com.anubis.commons.fragments.ColorFragment;
 import com.anubis.commons.fragments.FlickrBaseFragment;
@@ -45,8 +47,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import static android.R.attr.delay;
+import static com.anubis.commons.FlickrClientApp.getAppContext;
 
 public class PhotosActivity extends AppCompatActivity {
+
     //https://stackoverflow.com/questions/36867298/using-android-vector-drawables-on-pre-lollipop-crash
     static {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
@@ -54,23 +58,109 @@ public class PhotosActivity extends AppCompatActivity {
 
     private MyPagerAdapter adapterViewPager;
     private ViewPager vpPager;
-
     protected SharedPreferences prefs;
     protected SharedPreferences.Editor editor;
     View rootView;
-
-
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-
-
-    // Identifier for the permission request
     private static final int GET_ACCOUNTS_PERMISSIONS_REQUEST = 1;
 
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_photos);
+        FrameLayout fragmentItemDetail = (FrameLayout) findViewById(R.id.flDetailContainer);
+        FlickrBaseFragment.setPane(fragmentItemDetail != null);
+        rootView = findViewById(android.R.id.content);
+        SharedPreferences authPrefs = getApplicationContext().getSharedPreferences(getString(R.string.OAuthKit_Prefs), 0);
+        //@todo persist user, sync across realm
+        //not init
+        if (Util.getCurrentUser().length() > 0) {
+            Account acct = SyncAdapter.getSyncAccount(getApplicationContext());
+            //login has changed
+            if (!Util.getCurrentUser().equals(authPrefs.getString(getString(R.string.username), ""))) {
+                Log.d("SYNC", "changing accounts for sync adapter");
+                //  AccountManager am = AccountManager.get(this.getApplicationContext());
+                //  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                //      checkAccountsPermission();
+                //  }
+
+                ContentResolver.cancelSync(acct, getApplication().getString(R.string.authority));
+                //@todo sa can start again in colorfragment once users are synced across realms
+                //for now, restart the sa and share realm; should this handler take a bg handlerthread?  future + new handler
+                ((AccountManager) getApplicationContext().getSystemService(Context.ACCOUNT_SERVICE)).removeAccount(acct, new AccountManagerCallback<Boolean>() {
+                    @Override
+                    public void run(AccountManagerFuture<Boolean> future) {
+                        SyncAdapter.startSyncAdapter(authPrefs.getString(getString(R.string.username), ""));
+
+                    }
+                }, new Handler());
+                //someone deleted their SA
+            } else if (acct == null) {   ///
+                SyncAdapter.startSyncAdapter(Util.getCurrentUser());
+            }
+        }
+        //init, change login
+        updateUserInfo(authPrefs);
+
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        toolbar.inflateMenu(R.menu.photos);
+        //getSupportActionBar().setElevation(3);
+        //getSupportActionBar().setTitle(R.string.app_name);
+        //getSupportActionBar().setSubtitle(Util.getCurrentUser());
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.commons_search));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.interesting_today));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.tags));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        adapterViewPager = new MyPagerAdapter(getSupportFragmentManager(), intializeItems());
+        vpPager = (ViewPager) findViewById(R.id.vpPager);
+        vpPager.setOffscreenPageLimit(3);
+        vpPager.setAdapter(adapterViewPager);
+        vpPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(
+                onTabSelectedListener(vpPager));
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-8660045387738182~8507434555");
+
+
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.photos, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_logout) {
+            signOut();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void signOut() {
+
+        OAuthBaseClient.getInstance(getApplicationContext(), null).clearTokens();
+        Intent bye = new Intent(this, LoginActivity.class);
+        startActivity(bye);
+    }
+
+
     // Called when the user is performing an action which requires the app to
-    //--get accounts which is under contacts; runtime permission only in M
+    //--get accounts which is under contacts; runtime permission only in M+
     @TargetApi(Build.VERSION_CODES.M)
     private boolean checkAccountsPermission() {
         final String perm = Manifest.permission.GET_ACCOUNTS;
@@ -122,216 +212,27 @@ public class PhotosActivity extends AppCompatActivity {
 
                 } else {
                     Toast.makeText(this, "Get Accounts permission denied, app must quit", Toast.LENGTH_SHORT).show();
-                    //logout
+                    signOut();
                 }
             }
         }
     }
 
 
-    public ViewPager getVpPager() {
-        return vpPager;
-    }
-
-    public MyPagerAdapter getAdapterViewPager() {
-        return adapterViewPager;
-    }
-
-    public void activateProgressBar(boolean activate) {
-        setProgressBarIndeterminateVisibility(activate);
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //initDb();
-        setContentView(R.layout.activity_photos);
-        FrameLayout fragmentItemDetail = (FrameLayout) findViewById(R.id.flDetailContainer);
-        FlickrBaseFragment.setPane(fragmentItemDetail != null);
-
-        rootView = findViewById(android.R.id.content);
-        //oauthkit shared prefs
-        SharedPreferences authPrefs = getApplicationContext().getSharedPreferences(getString(R.string.OAuthKit_Prefs), 0);
-        //need to update user prefs either way
-        if (Util.getCurrentUser().length() > 0 && !Util.getCurrentUser().equals(authPrefs.getString(getString(R.string.username), ""))) {
-            //@todo stop the sync adapter and restart
-            Log.d("SYNC", "changing accounts for sync adapter");
-            //find out how to properly stop before restartchanging
-            AccountManager am = AccountManager.get(this.getApplicationContext());
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                checkAccountsPermission();
-            }
-            Account[] accounts = new Account[]{};
-            try {
-                accounts = am.getAccounts();
-            } catch (SecurityException e) {
-
-            }
-            if (accounts.length > 0) {
-                Account accountToRemove = accounts[0];
-                am.removeAccount(accountToRemove, null, null);
-            }
-            ContentResolver.cancelSync(new Account(authPrefs.getString(getString(R.string.username), ""), getApplication().getString(R.string.account_type)), getApplication().getString(R.string.authority));
-            // could also cancelSync(null);
-
-        }
-        updateUserInfo(authPrefs);
-
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
-        setSupportActionBar(toolbar);
-
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        /*if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
-            toolbar.setNavigationIcon(R.drawable.logo22);
-        } else {
-            getSupportActionBar().setLogo(R.drawable.logo22);
-        }*/
-
-        getSupportActionBar().setHomeButtonEnabled(true);
-        toolbar.inflateMenu(R.menu.photos);
-
-        //getSupportActionBar().setElevation(3);
-        //getSupportActionBar().setTitle(R.string.app_name);
-        //getSupportActionBar().setSubtitle(Util.getCurrentUser());
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.commons_search));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.interesting_today));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.tags));
-
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-        adapterViewPager = new MyPagerAdapter(getSupportFragmentManager(), intializeItems());
-        vpPager = (ViewPager) findViewById(R.id.vpPager);
-        vpPager.setOffscreenPageLimit(3);
-        vpPager.setAdapter(adapterViewPager);
-        vpPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.addOnTabSelectedListener(onTabSelectedListener(vpPager));
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-8660045387738182~8507434555");
-        //SyncAdapter.initializeSyncAdapter(this);  //delay with handlerthread
-        delaySync();
-
-
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.photos, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_logout) {
-            signOut();
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    public void signOut() {
-
-        OAuthBaseClient.getInstance(getApplicationContext(), null).clearTokens();
-        Intent bye = new Intent(this, LoginActivity.class);
-        startActivity(bye);
-    }
-
-
-
-
-    //@todo this needs a new thread/looper if using it
-/*
- @Override
-    public synchronized void onStart() {
-        LOGGER.d("onStart " + this);
-        super.onStart();
-    }
-
-    @Override
-    public synchronized void onResume() {
-        LOGGER.d("onResume " + this);
-        super.onResume();
-
-        handlerThread = new HandlerThread("delay");
-        handlerThread.start();
-        handler = new Handler(handlerThread.getLooper());
-    }
-
-    @Override
-    public synchronized void onPause() {
-        LOGGER.d("onPause " + this);
-
-        if (!isFinishing()) {
-            LOGGER.d("Requesting finish");
-            finish();
-        }
-
-        handlerThread.quitSafely();
-        try {
-            handlerThread.join();
-            handlerThread = null;
-            handler = null;
-        } catch (final InterruptedException e) {
-            LOGGER.e(e, "Exception!");
-        }
-
-        super.onPause();
-    }
-
-    @Override
-    public synchronized void onStop() {
-        LOGGER.d("onStop " + this);
-        super.onStop();
-    }
-
-    @Override
-    public synchronized void onDestroy() {
-        LOGGER.d("onDestroy " + this);
-        super.onDestroy();
-    }
-
     private static final Runnable sRunnable = new Runnable() {
-
-
         @Override
         public void run() {
             Log.d("SYNC", "starting after delay " + delay);
-            SyncAdapter.initializeSyncAdapter(FlickrClientApp.getAppContext());
-        }
-    };
-
-
-    void delaySync() {
-
-        long delay = r.nextLong() % c_delayMax;
-        //new Runnable
-        sHandler.postDelayed(sRunnable, delay);
-
-    }*/
-
-
-    private static final Runnable sRunnable = new Runnable() {
-
-
-        @Override
-        public void run() {
-            Log.d("SYNC", "starting after delay " + delay);
-            SyncAdapter.initializeSyncAdapter(FlickrClientApp.getAppContext());
+            SyncAdapter.initializeSyncAdapter(getAppContext());
         }
     };
     static final long c_delayMax = 120 * 1000;
     static Random r = new Random();
 
     void delaySync() {
-
+        // if (realmIsEmpty && accountsExist) {
+        //     removeAccount();
+        // }
         Handler sHandler = new Handler();
         long delay = r.nextLong() % c_delayMax;
         //new Runnable
@@ -339,16 +240,13 @@ public class PhotosActivity extends AppCompatActivity {
 
     }
 
+    // @todo  bgps
     private void updateUserInfo(SharedPreferences authPrefs) {
-
         this.prefs = Util.getUserPrefs();
         this.editor = this.prefs.edit();
-
         editor.putString(getApplicationContext().getString(R.string.current_user), authPrefs.getString(getApplicationContext().getString(R.string.username), ""));
         editor.putString(getApplicationContext().getString(R.string.user_id), authPrefs.getString(getApplicationContext().getString(R.string.user_nsid), ""));
-
         editor.commit();
-        //apply() in a bg thread
 
 
     }
@@ -445,7 +343,7 @@ public class PhotosActivity extends AppCompatActivity {
         // Returns the page title for the top indicator
         @Override
         public CharSequence getPageTitle(int position) {
-            return getItem(position).getArguments().getString(FlickrClientApp.getAppContext().getString(R.string.title));
+            return getItem(position).getArguments().getString(getAppContext().getString(R.string.title));
         }
 
         // Returns total number of pages

@@ -13,9 +13,7 @@ import android.content.ContentProviderClient;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SyncRequest;
 import android.content.SyncResult;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -81,6 +79,11 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
     }
 
+    public static void startSyncAdapter(String name) {
+        Account newAccount = new Account(name, FlickrClientApp.getAppContext().getString(R.string.account_type));
+        onAccountCreated(newAccount, FlickrClientApp.getAppContext());
+    }
+
     /*
      * Specify the code you want to run in the sync adapter. The entire
      * sync adapter runs in a background thread, so you don't have to set
@@ -97,7 +100,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
      * Put the data transfer code here.
      */
 
-        Log.d("SYNC", "starting onPerformSync " + FlickrClientApp.getCommonsPage() );
+        Log.d("SYNC", "starting onPerformSync " + FlickrClientApp.getCommonsPage());
 
         if (FlickrClientApp.getCommonsPage() < Common.pages) {
 
@@ -145,21 +148,24 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
     /**
      * Helper method to schedule the sync adapter periodic execution
+     * only support 19+
      */
     public static void configurePeriodicSync(Context context, int syncInterval, int flexTime) {
         Account account = getSyncAccount(context);
         String authority = FlickrClientApp.getAppContext().getString(R.string.authority);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        Bundle bundle = new Bundle();
+        //bundle.putBoolean(ContentResolver.SYNC_EXTRAS_EXPEDITED, true);
+       /* if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             // we can enable inexact timers in our periodic sync
             SyncRequest request = new SyncRequest.Builder().
                     syncPeriodic(syncInterval, flexTime).
                     setSyncAdapter(account, authority).
-                    setExtras(new Bundle()).build();
+                    setExtras(bundle).build();
             ContentResolver.requestSync(request);
-        } else {
-            ContentResolver.addPeriodicSync(account,
-                    authority, new Bundle(), syncInterval);
-        }
+        } else { */
+        ContentResolver.addPeriodicSync(account,
+                authority, bundle, syncInterval);
+        //}
     }
 
     /**
@@ -216,7 +222,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         return newAccount;
     }
 
-    private static void onAccountCreated(Account newAccount, Context context) {
+    public static void onAccountCreated(Account newAccount, Context context) {
         /*
          * Since we've created an account
          */
@@ -229,9 +235,9 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
         /*
          * Finally, let's do a sync to get things started--
-         * NOT NEEDED @todo
+         * NOT NEEDED @todo addPeriodicSync should kick off request
          */
-        syncImmediately(context);
+        //syncImmediately(context);
     }
 
     public static void initializeSyncAdapter(Context context) {
