@@ -33,6 +33,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.anubis.commons.FlickrClientApp;
 import com.anubis.commons.R;
 import com.anubis.commons.fragments.ColorFragment;
 import com.anubis.commons.fragments.FlickrBaseFragment;
@@ -75,7 +76,7 @@ public class PhotosActivity extends AppCompatActivity {
         //@todo persist user, sync across realm
         //not init
         if (Util.getCurrentUser().length() > 0) {
-            Account acct = SyncAdapter.getSyncAccount(getApplicationContext());
+            Account acct = SyncAdapter.getSyncAccount(Util.getCurrentUser(),getApplicationContext());
             //login has changed
             if (!Util.getCurrentUser().equals(authPrefs.getString(getString(R.string.username), ""))) {
                 Log.d("SYNC", "changing accounts for sync adapter");
@@ -90,6 +91,8 @@ public class PhotosActivity extends AppCompatActivity {
                 ((AccountManager) getApplicationContext().getSystemService(Context.ACCOUNT_SERVICE)).removeAccount(acct, new AccountManagerCallback<Boolean>() {
                     @Override
                     public void run(AccountManagerFuture<Boolean> future) {
+                        updateUserInfo(authPrefs);
+
                         SyncAdapter.startSyncAdapter(authPrefs.getString(getString(R.string.username), ""));
 
                     }
@@ -97,6 +100,11 @@ public class PhotosActivity extends AppCompatActivity {
                 //someone deleted their SA
             } else if (acct == null) {   ///
                 SyncAdapter.startSyncAdapter(Util.getCurrentUser());
+                //they turned off the individual sync
+            } else if (!ContentResolver.getSyncAutomatically(acct, FlickrClientApp.getAppContext().getString(R.string.authority))) {
+                //turn the thing back on
+                //Toast
+                ContentResolver.setSyncAutomatically(acct, FlickrClientApp.getAppContext().getString(R.string.authority);
             }
         }
         //init, change login
@@ -223,7 +231,7 @@ public class PhotosActivity extends AppCompatActivity {
         @Override
         public void run() {
             Log.d("SYNC", "starting after delay " + delay);
-            SyncAdapter.initializeSyncAdapter(getAppContext());
+            //SyncAdapter.initializeSyncAdapter(getAppContext());
         }
     };
     static final long c_delayMax = 120 * 1000;

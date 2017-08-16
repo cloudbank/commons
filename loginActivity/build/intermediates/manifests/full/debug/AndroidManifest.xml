@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_SYNC_STATS" />
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
@@ -72,10 +73,12 @@
             android:name="com.anubis.commons.provider.StubProvider"
             android:authorities="com.anubis.commons.provider"
             android:exported="false"
-            android:label="phlix provider"
+            android:label="Commons"
             android:syncable="true" />
 
-        <service android:name="com.anubis.commons.service.AuthenticatorService" >
+        <service
+            android:name="com.anubis.commons.service.AuthenticatorService"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator" />
             </intent-filter>
