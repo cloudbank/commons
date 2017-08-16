@@ -49,7 +49,7 @@ public class ColorFragment extends FlickrBaseFragment {
     private List<Photo> mPhotos = new ArrayList<>();
     Subscription colorSubscription;
     AdView mPublisherAdView;
-    com.aurelhubert.ahbottomnavigation.AHBottomNavigation bottomNavigation;
+    static com.aurelhubert.ahbottomnavigation.AHBottomNavigation bottomNavigation;
 
     ColorAdapter colorAdapter;
     RecyclerView rvPhotos;
@@ -184,7 +184,7 @@ public class ColorFragment extends FlickrBaseFragment {
         bottomNavigation.setBehaviorTranslationEnabled(true);
 
         // Set current item programmatically
-        bottomNavigation.setCurrentItem(0);
+
 
 
         // Set listeners
@@ -289,13 +289,14 @@ public class ColorFragment extends FlickrBaseFragment {
 
         bottomNavigation = (AHBottomNavigation) view.findViewById(R.id.bottom_navigation);
         setupBottomNav(bottomNavigation);
+        bottomNavigation.setCurrentItem(0);
         //button on clicks
         //get mColor if not in mRealm and store it
 
         mPublisherAdView = (AdView) view.findViewById(R.id.publisherAdView);
         AdRequest adRequest = new AdRequest.Builder()
                 //.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators
-                //.addTestDevice("39EA0A51CB1E58F7B6CFC094BD01CA18")  // My Galaxy Nexus test phone
+                .addTestDevice("859494A050DDE7CD842C2C1AA6B7E65F")  // My Galaxy Nexus test phone
                 .build();
         mPublisherAdView.loadAd(adRequest);
 
@@ -311,6 +312,8 @@ public class ColorFragment extends FlickrBaseFragment {
         @Override
         public void run() {
             SyncAdapter.startSyncAdapter(Util.getCurrentUser());
+            SyncAdapter.startSyncAdapter(Util.getCurrentUser());
+            bottomNavigation.setCurrentItem(0);
             dismissProgress();
 
         }

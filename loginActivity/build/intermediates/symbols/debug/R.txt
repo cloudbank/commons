@@ -827,7 +827,7 @@ int drawable notification_template_icon_bg 0x7f02009a
 int drawable notification_template_icon_low_bg 0x7f02009b
 int drawable notification_tile_bg 0x7f02008b
 int drawable notify_panel_notification_icon_bg 0x7f02008c
-int drawable onetwo 0x7f02008d
+int drawable onetwomin 0x7f02008d
 int drawable pipi 0x7f02008e
 int drawable spinner 0x7f02008f
 int drawable tag_bar_red 0x7f020090

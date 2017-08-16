@@ -28,7 +28,7 @@
         android:layout_gravity="center|center_vertical|center_horizontal"
         android:layout_marginBottom="0dp"
         android:alpha=".8"
-        android:src="@drawable/onetwo" />
+        android:src="@drawable/onetwomin" />
 
     <TextView
         android:layout_width="wrap_content"

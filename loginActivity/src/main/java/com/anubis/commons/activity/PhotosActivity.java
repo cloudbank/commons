@@ -104,7 +104,7 @@ public class PhotosActivity extends AppCompatActivity {
             } else if (!ContentResolver.getSyncAutomatically(acct, FlickrClientApp.getAppContext().getString(R.string.authority))) {
                 //turn the thing back on
                 //Toast
-                ContentResolver.setSyncAutomatically(acct, FlickrClientApp.getAppContext().getString(R.string.authority);
+                ContentResolver.setSyncAutomatically(acct, FlickrClientApp.getAppContext().getString(R.string.authority), true);
             }
         }
         //init, change login

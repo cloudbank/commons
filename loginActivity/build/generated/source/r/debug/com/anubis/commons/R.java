@@ -3200,7 +3200,7 @@ containing a value of this type.
         public static final int notification_template_icon_low_bg=0x7f02009b;
         public static final int notification_tile_bg=0x7f02008b;
         public static final int notify_panel_notification_icon_bg=0x7f02008c;
-        public static final int onetwo=0x7f02008d;
+        public static final int onetwomin=0x7f02008d;
         public static final int pipi=0x7f02008e;
         public static final int spinner=0x7f02008f;
         public static final int tag_bar_red=0x7f020090;

@@ -7,24 +7,20 @@ package com.anubis.commons.sync;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.AbstractThreadedSyncAdapter;
 import android.content.ContentProviderClient;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SyncResult;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.anubis.commons.FlickrClientApp;
 import com.anubis.commons.R;
-import com.anubis.commons.activity.LoginActivity;
 import com.anubis.commons.models.Color;
 import com.anubis.commons.models.ColorPhotos;
 import com.anubis.commons.models.Common;
@@ -58,7 +54,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     public static final int HOUR_IN_SECS = 60 * 60;
     public static final int MIN_IN_SECS = 60;
     // public static final int SYNC_INTERVAL = 12 * HOUR_IN_SECS;    //every 12 hours
-    public static final int SYNC_INTERVAL = 3 * MIN_IN_SECS;    //every 12 hours
+    public static final int SYNC_INTERVAL = 15 * MIN_IN_SECS;    //every 12 hours
 
     //flex time has to be > max(5mins, 5% of interval) that would be 37 mins
     public static final int SYNC_FLEXTIME = 37 * MIN_IN_SECS;  // within 37 minutes
@@ -244,24 +240,21 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         int iconId = R.drawable.ic_flower;
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(context)
-                        .setColor(context.getResources().getColor(R.color.LithiumPool))
+                        .setColor(context.getResources().getColor(R.color.limon))
                         .setSmallIcon(iconId)
                         .setContentTitle("Commons photos")
                         .setContentText("500 Photos added daily.")
                         .setAutoCancel(true);
 
-
+/*
         Intent resultIntent = new Intent(context, LoginActivity.class);
 
 
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
         stackBuilder.addNextIntent(resultIntent);
         PendingIntent resultPendingIntent =
-                stackBuilder.getPendingIntent(
-                        0,
-                        PendingIntent.FLAG_UPDATE_CURRENT
-                );
-        mBuilder.setContentIntent(resultPendingIntent);
+                stackBuilder.getPendingIntent(  0, PendingIntent.FLAG_UPDATE_CURRENT       );
+        mBuilder.setContentIntent(resultPendingIntent);*/
 
         NotificationManager mNotificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);

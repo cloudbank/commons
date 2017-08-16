@@ -4,6 +4,10 @@
         "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/cropper222.png"
     },
     {
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/onetwomin.png",
+        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/onetwomin.png"
+    },
+    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/tag_fc_blue.xml",
         "source": "/Users/sabine/.android/build-cache/d856a8fa5535df55c875facdc144d8e3bd08f944/output/res/drawable/tag_fc_blue.xml"
     },

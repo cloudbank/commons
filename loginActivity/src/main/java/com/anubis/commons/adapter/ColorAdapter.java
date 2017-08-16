@@ -99,7 +99,7 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ViewHolder> 
         CardView cv = viewHolder.cardView;
 
         cv.setUseCompatPadding(true);
-        cv.setCardElevation(2.0f);
+        cv.setCardElevation(0.0f);
         //StaggeredGridLayoutManager.LayoutParams fp = (StaggeredGridLayoutManager.LayoutParams) viewHolder.cardView.getLayoutParams();
 
         //int aspectRatio = (null != photo.getWidth()  && null != photo.getHeight()) ? Integer.parseInt(photo.getHeight())/Integer.parseInt(photo.getWidth()): 1;
