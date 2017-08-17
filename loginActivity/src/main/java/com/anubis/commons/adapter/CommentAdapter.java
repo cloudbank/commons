@@ -83,7 +83,6 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
     public void onBindViewHolder(CommentAdapter.ViewHolder viewHolder, int position) {
         Comment comment = mComments.get(position);
 
-        ImageView imageView = viewHolder.ivImage;
 
 
         TextView user = viewHolder.tvAuthor;

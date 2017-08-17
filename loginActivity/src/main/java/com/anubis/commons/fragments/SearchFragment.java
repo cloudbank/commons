@@ -199,21 +199,7 @@ public class SearchFragment extends FlickrBaseFragment {
 
     }
 
-    public void loadNextDataFromApi(int page) {
-        // Send an API request to retrieve appropriate paginated data
-        //  --> Send the request including an offset value (i.e `page`) as a query parameter.
-        //  --> Deserialize and construct new model objects from the API response
-        //  --> Append the new data objects to the existing set of items inside the array of items
-        //  --> Notify the adapter of the new items made with `notifyItemRangeInserted()`
-        mCommon = commonsRealm.where(Common.class).equalTo("page", page).findFirst();
-        int size = sPhotos.size();
-        if (null != mCommon) {
-            sPhotos.addAll(mCommon.getCommonPhotos());
-        }
-        searchAdapter.notifyItemRangeChanged(size, mCommon.getCommonPhotos().size() - 1);
-        searchAdapter.notifyDataSetChanged();
 
-    }
 
     public static Handler UIHandler = new Handler(Looper.getMainLooper());
 
@@ -235,7 +221,7 @@ public class SearchFragment extends FlickrBaseFragment {
                     @Override
                     public void onCompleted() {
                         Log.d("end INIT", "init commons1/photos");
-                        // UIHandler.post(sRunnable);
+                        //UIHandler.post(sRunnable);
 
                     }
 

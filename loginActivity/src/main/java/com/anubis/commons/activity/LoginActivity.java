@@ -95,7 +95,6 @@ public class LoginActivity extends OAuthLoginActivity {
 
 // Start animating the image
         spinner = (ImageView) findViewById(R.id.logo);
-        final ImageView logo = (ImageView) findViewById(R.id.logo);
         spinner.setVisibility(View.VISIBLE);
         ///logo.setAlpha(.20f);
         spinner.startAnimation(anim);

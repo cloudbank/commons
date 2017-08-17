@@ -186,7 +186,6 @@ public class ColorFragment extends FlickrBaseFragment {
         // Set current item programmatically
 
 
-
         // Set listeners
         bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
             @Override
@@ -228,7 +227,12 @@ public class ColorFragment extends FlickrBaseFragment {
             colorRealm.close();
         }
         if (mPublisherAdView != null) {
+
             mPublisherAdView.pause();
+        }
+        //static ref to widget that uses context, which could create leak
+        if (bottomNavigation != null) {
+            bottomNavigation = null;
         }
 
         /*  finally closes it

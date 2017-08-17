@@ -207,6 +207,7 @@ ADDED from /Users/sabine/github/commons/loginActivity/src/main/AndroidManifest.x
 		ADDED from /Users/sabine/github/commons/loginActivity/src/main/AndroidManifest.xml:89:17-59
 uses-sdk
 INJECTED from /Users/sabine/github/commons/loginActivity/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:multidex:1.0.1] /Users/sabine/.android/build-cache/ac78fbe7bde1df1ca8b6788db771805afee169b3/output/AndroidManifest.xml:18:5-42
 MERGED from [io.realm:realm-android-library:2.0.2] /Users/sabine/.android/build-cache/288c09ee706adffad1b1a142c69820a96253c3b3/output/AndroidManifest.xml:5:5-7:41
 MERGED from [com.getkeepsafe.relinker:relinker:1.2.2] /Users/sabine/.android/build-cache/f8fe812bfb0394412b8d729582d4e78789c0d9a2/output/AndroidManifest.xml:7:5-43
 MERGED from [commons:oauthkit:unspecified] /Users/sabine/github/commons/oauthkit/build/intermediates/bundles/default/AndroidManifest.xml:7:5-9:41
@@ -215,7 +216,6 @@ MERGED from [com.android.support:design:25.3.1] /Users/sabine/.android/build-cac
 MERGED from [com.android.support:transition:25.3.1] /Users/sabine/.android/build-cache/1dbe7cb99df6e83f2413abb0941d481791d2e3c4/output/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cardview-v7:25.3.1] /Users/sabine/.android/build-cache/1fde2e2b582d26b0841fa1a5045fcf27d48a6987/output/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/sabine/.android/build-cache/03017c129abbc664d298ddbc8efad2c4e563f7ee/output/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:multidex:1.0.1] /Users/sabine/.android/build-cache/ac78fbe7bde1df1ca8b6788db771805afee169b3/output/AndroidManifest.xml:18:5-42
 MERGED from [io.reactivex:rxandroid:1.2.1] /Users/sabine/.android/build-cache/480e87425bc2feecc3ff72ff56d0cab9c27228a1/output/AndroidManifest.xml:19:5-43
 MERGED from [com.hkm.taglib:tag:1.6.0] /Users/sabine/.android/build-cache/d856a8fa5535df55c875facdc144d8e3bd08f944/output/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/sabine/.android/build-cache/8315da990f0dc55b48ef8a3978c9f454935b7642/output/AndroidManifest.xml:21:5-23:78

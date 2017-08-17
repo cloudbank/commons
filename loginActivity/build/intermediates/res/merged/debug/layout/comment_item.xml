@@ -2,7 +2,6 @@
 
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cardview_comment"
     android:layout_width="match_parent"
     android:background="@drawable/card_border"
     android:layout_height="wrap_content"
@@ -16,7 +15,7 @@
     <FrameLayout
         android:background="@drawable/card_border"
         android:layout_width="5dp"
-        android:layout_height="match_parent"/>>
+        android:layout_height="match_parent"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -74,7 +74,7 @@ public class FlickrClientApp extends MultiDexApplication {
     }
 
     public static FlickrService getDefaultService() {
-        return (FlickrService) defaultService;
+        return defaultService;
     }
 
 

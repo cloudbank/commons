@@ -37,7 +37,7 @@ public class Util {
     }
 
     public static Observable<List<String>> getIds() {
-        return Observable.just(Arrays.<String>asList(FlickrClientApp.YELLOW, FlickrClientApp.BLUE, FlickrClientApp.ORANGE));
+        return Observable.just(Arrays.asList(FlickrClientApp.YELLOW, FlickrClientApp.BLUE, FlickrClientApp.ORANGE));
     }
 
 

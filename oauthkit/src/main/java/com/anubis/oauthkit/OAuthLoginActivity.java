@@ -14,22 +14,24 @@ public abstract class OAuthLoginActivity extends FragmentActivity
         implements OAuthBaseClient.OAuthAccessHandler {
 
     private OAuthBaseClient client;
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         //prevent leaking activity
-        if (null != this.client.getAccessHandler()) {
-            OAuthBaseClient.OAuthAccessHandler handler = this.client.getAccessHandler();
-            handler = null;
-        }
+         if (null != this.client.getAccessHandler() ) {
+             OAuthBaseClient.OAuthAccessHandler handler = this.client.getAccessHandler();
+             handler = null;
+         }
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.client = OAuthBaseClient.getInstance(this.getApplicationContext(), this);
+        this.client  =  OAuthBaseClient.getInstance(this.getApplicationContext(), this);
     }
+
+
+
 
 
     // Use this to properly assign the new intent with callback code
@@ -58,6 +60,8 @@ public abstract class OAuthLoginActivity extends FragmentActivity
             }
         }
     }
+
+
 
 
 }

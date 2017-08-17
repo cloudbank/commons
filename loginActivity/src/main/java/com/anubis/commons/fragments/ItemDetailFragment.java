@@ -193,6 +193,9 @@ public class ItemDetailFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                //getActivity().mViewPager.setCurrentItem(viewPageSelected - 1);
+                //getActivity().getSupportFragmentManager().popBackStack();
+                //@todo backstack viewpager
                 getActivity().finish();
                 return true;
             default:

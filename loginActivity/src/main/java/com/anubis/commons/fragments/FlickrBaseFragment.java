@@ -47,6 +47,7 @@ public abstract class FlickrBaseFragment extends Fragment {
 
 
 
+
     }
 
 
@@ -58,7 +59,7 @@ public abstract class FlickrBaseFragment extends Fragment {
             public void onItemClick(View view, int position) {
                 //user interface for activity
                 Photo photo = items.get(position);
-                view.setPressed(true);
+
 
                 if (isTwoPane) {
                     //start a fragment
@@ -80,6 +81,7 @@ public abstract class FlickrBaseFragment extends Fragment {
 
             }
         });
+
 
 
     }

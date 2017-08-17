@@ -1,9 +1,5 @@
 [
     {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/mipmap-xxhdpi/arrow.png",
-        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/mipmap-xxhdpi/arrow.png"
-    },
-    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
         "source": "/Users/sabine/github/commons/loginActivity/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     }

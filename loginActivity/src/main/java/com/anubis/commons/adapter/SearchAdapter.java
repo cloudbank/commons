@@ -111,6 +111,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
                 //.placeholder(android.R.drawable.btn_star)
                 .error(android.R.drawable.btn_star)
                 .into(imageView);
+
+
         mAnimator.onBindViewHolder(viewHolder.itemView, position);
 
 

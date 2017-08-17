@@ -6,9 +6,5 @@
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable-hdpi/ic_invert_colors_black_24dp.png",
         "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable-hdpi/ic_invert_colors_black_24dp.png"
-    },
-    {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable-hdpi/ic_logout.png",
-        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable-hdpi/ic_logout.png"
     }
 ]

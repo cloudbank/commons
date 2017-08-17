@@ -104,9 +104,9 @@ public class InterestingAdapter extends RecyclerView.Adapter<InterestingAdapter.
             cv.setMinimumHeight(n); // photo.getPhotoHeight() * 2;
             //n = rand.nextInt(200) + 100;
             cv.setMinimumWidth(aspectRatio > 0 ? n/aspectRatio : n);
-        } else {
-
         }
+
+
         Picasso.with(this.getContext()).load(photo.getUrl()).fit().centerCrop()
                 //.placeholder(android.R.drawable.btn_star)
                 .error(android.R.drawable.btn_star)

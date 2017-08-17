@@ -1,13 +1,5 @@
 [
     {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable-mdpi/commons_circle_logo.png",
-        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable-mdpi/commons_circle_logo.png"
-    },
-    {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable-mdpi/ic_logout.png",
-        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable-mdpi/ic_logout.png"
-    },
-    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable-mdpi/ic_add_black_24dp.png",
         "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable-mdpi/ic_add_black_24dp.png"
     },

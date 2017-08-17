@@ -149,9 +149,9 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
      */
     public static void configurePeriodicSync(Account account, Context context, int syncInterval, int flexTime) {
         String authority = FlickrClientApp.getAppContext().getString(R.string.authority);
-        ContentResolver resolver = getAppContext().getContentResolver();
-        resolver.setIsSyncable(account, authority, 1);
-        resolver.setSyncAutomatically(account, authority, true);
+        //ContentResolver resolver = getAppContext().getContentResolver();
+        ContentResolver.setIsSyncable(account, authority, 1);
+        ContentResolver.setSyncAutomatically(account, authority, true);
         //Bundle bundle = new Bundle();
         //bundle.putBoolean(ContentResolver.SYNC_EXTRAS_EXPEDITED, true);
        /* if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {

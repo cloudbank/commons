@@ -11,7 +11,7 @@ public class AsyncSimpleTask extends AsyncTask<Void, Void, Void> {
 
     public AsyncSimpleTask(AsyncSimpleTask.AsyncSimpleTaskHandler handler) {
         this.handler = handler;
-        super.execute(new Void[0]);
+        super.execute();
     }
 
     protected Void doInBackground(Void... voids) {
