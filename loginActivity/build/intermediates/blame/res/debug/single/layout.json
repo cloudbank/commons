@@ -12,12 +12,12 @@
         "source": "/Users/sabine/.android/build-cache/69427badaff5a63fd7b845cb9c57ef95f0df3066/output/res/layout/design_bottom_navigation_item.xml"
     },
     {
-        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
-        "source": "/Users/sabine/.android/build-cache/8315da990f0dc55b48ef8a3978c9f454935b7642/output/res/layout/notification_template_part_time.xml"
-    },
-    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/design_text_input_password_icon.xml",
         "source": "/Users/sabine/.android/build-cache/69427badaff5a63fd7b845cb9c57ef95f0df3066/output/res/layout/design_text_input_password_icon.xml"
+    },
+    {
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
+        "source": "/Users/sabine/.android/build-cache/8315da990f0dc55b48ef8a3978c9f454935b7642/output/res/layout/notification_template_part_time.xml"
     },
     {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/layout/design_navigation_item.xml",
