@@ -15,7 +15,6 @@ import java.util.HashMap;
 
 import se.akerfeldt.okhttp.signpost.OkHttpOAuthConsumer;
 
-import static com.sun.xml.internal.ws.policy.sourcemodel.wspolicy.XmlToken.Uri;
 
 public class OAuthBaseClient {
     protected Context context;

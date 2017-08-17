@@ -3,6 +3,7 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:clickable="true"
     android:focusableInTouchMode="true"
+    android:background="@drawable/list_item_selector"
     android:foreground="?attr/selectableItemBackgroundBorderless"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">

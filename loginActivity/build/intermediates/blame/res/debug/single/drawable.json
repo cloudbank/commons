@@ -120,6 +120,10 @@
         "source": "/Users/sabine/.android/build-cache/d856a8fa5535df55c875facdc144d8e3bd08f944/output/res/drawable/tag_view_box_shadow.xml"
     },
     {
+        "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/list_item_selector.xml",
+        "source": "/Users/sabine/github/commons/loginActivity/src/main/res/drawable/list_item_selector.xml"
+    },
+    {
         "merged": "/Users/sabine/github/commons/loginActivity/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light_focused.xml",
         "source": "/Users/sabine/.android/build-cache/f2439317684412b3ee64fefaeacda0d3caaa8a38/output/res/drawable/common_google_signin_btn_icon_light_focused.xml"
     },

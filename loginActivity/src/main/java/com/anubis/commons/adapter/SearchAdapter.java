@@ -24,6 +24,9 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
 
     private ItemClickListener listener;
+    private View mSelectedView;
+
+
 
 
     public ItemClickListener getListener() {
@@ -47,7 +50,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             imageView = (ImageView) itemView.findViewById(R.id.ivPhoto);
 
             itemView.setOnClickListener(v -> {
-                if (listener != null) {
+            if (listener != null) {
                     int position = getAdapterPosition();
                     if (position != RecyclerView.NO_POSITION) {
                         listener.onItemClick(itemView, position);
@@ -65,7 +68,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     private Context mContext;
     private boolean mStaggered;
     private int lastPosition = -1;
-    private static boolean isTwoPane;
+    private boolean mTwoPane;
+    private boolean isInit = true;
 
     private RecyclerAnimator mAnimator;
 
@@ -73,8 +77,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         mStaggered = staggered;
         mPhotos = photos;
         mContext = context;
-        isTwoPane = isTwoPane;
-
+        mTwoPane = isTwoPane;
+        this.setHasStableIds(true);
 
     }
 
@@ -94,9 +98,12 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         View photosView = inflater.inflate(R.layout.photo_item_friends, parent, false);
 
         ViewHolder viewHolder = new ViewHolder(photosView, getListener());
+
         mAnimator.onCreateViewHolder(photosView);
+
         return viewHolder;
     }
+
 
     private int mLastPosition;
 
@@ -114,8 +121,23 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
 
         mAnimator.onBindViewHolder(viewHolder.itemView, position);
+        if(mTwoPane && position == 0  && isInit) {
+            //viewHolder.imageView.callOnClick();
+            //viewHolder.itemView.callOnClick();
+            listener.onItemClick( viewHolder.itemView,0);
+            isInit = false;
+        }
 
+    }
 
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 
     @Override

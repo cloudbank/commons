@@ -21,8 +21,7 @@ public abstract class FlickrBaseFragment extends Fragment {
     public static final String RESULT = "result";
     protected static final String PAGE = "page";
     protected static final String TITLE = "title";
-    protected static boolean isTwoPane = false;
-
+    protected static boolean isTwoPane;
 
     static ProgressDialog dialog;
 
@@ -57,7 +56,8 @@ public abstract class FlickrBaseFragment extends Fragment {
         adapter.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                //user interface for activity
+                //user interface for activity\
+
                 Photo photo = items.get(position);
 
 

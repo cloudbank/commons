@@ -66,6 +66,8 @@ public class InterestingAdapter extends RecyclerView.Adapter<InterestingAdapter.
         mStaggered = staggered;
         mPhotos = photos;
         mContext = context;
+        this.setHasStableIds(true);
+
     }
 
     private Context getContext() {
@@ -112,6 +114,16 @@ public class InterestingAdapter extends RecyclerView.Adapter<InterestingAdapter.
                 .error(android.R.drawable.btn_star)
                 .into(imageView);
 
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 
     @Override

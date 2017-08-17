@@ -33,7 +33,7 @@ import rx.schedulers.Schedulers;
 import static com.anubis.commons.FlickrClientApp.getJacksonService;
 
 
-public class SearchFragment extends FlickrBaseFragment {
+public class SearchFragment extends FlickrBaseFragment  {
 
 
     RecyclerView rvPhotos;
@@ -44,6 +44,7 @@ public class SearchFragment extends FlickrBaseFragment {
     Subscription commonSubscription;
     Common mCommon;
     private EndlessRecyclerViewScrollListener scrollListener;
+
 
 
     @Override
@@ -112,17 +113,24 @@ public class SearchFragment extends FlickrBaseFragment {
 
 
     @Override
+    public void onStart() {
+        super.onStart();
+        Log.d("TABS", "search onstart");
+
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
-
         Log.d("TABS", "search onresume");
+
+
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         Log.d("TABS", "search activcreated");
-
 
         //do in bg to avoid blocking UI
         //Date maxDate = commonsRealm.where(Common.class).maximumDate("timestamp");
@@ -190,6 +198,7 @@ public class SearchFragment extends FlickrBaseFragment {
         setItemListener(searchAdapter, sPhotos);
 
 
+
         Log.d("TABS", "search oncreateview");
         setHasOptionsMenu(true);
         //showProgress("");
@@ -198,7 +207,6 @@ public class SearchFragment extends FlickrBaseFragment {
         return view;
 
     }
-
 
 
     public static Handler UIHandler = new Handler(Looper.getMainLooper());
