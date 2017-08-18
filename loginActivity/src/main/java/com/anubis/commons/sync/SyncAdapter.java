@@ -54,7 +54,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     public static final int HOUR_IN_SECS = 60 * 60;
     public static final int MIN_IN_SECS = 60;
     // public static final int SYNC_INTERVAL = 12 * HOUR_IN_SECS;    //every 12 hours
-    public static final int SYNC_INTERVAL = 15 * MIN_IN_SECS;    //every 12 hours
+    public static final int SYNC_INTERVAL = 12 * HOUR_IN_SECS;    //every 12 hours
 
     //flex time has to be > max(5mins, 5% of interval) that would be 37 mins
     public static final int SYNC_FLEXTIME = 37 * MIN_IN_SECS;  // within 37 minutes

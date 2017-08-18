@@ -330,6 +330,7 @@ public class ColorFragment extends FlickrBaseFragment {
         colorSubscription = getIdFromList
                 .concatMap(Util::setColorId)
                 .zipWith(getIdFromList, (Photos p, String s) -> new ColorPhotos(s, p))
+                .retry()
                 .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
                 .observeOn(Schedulers.io())
                 //@todo change type to ColorListGroup
@@ -343,9 +344,12 @@ public class ColorFragment extends FlickrBaseFragment {
 
                                }
 
-
                                @Override
                                public void onError(Throwable e) {
+                                   if (e instanceof java.net.SocketTimeoutException) {
+                                        //nullify the frag in vp?
+
+                                   }
                                    // cast to retrofit.HttpException to get the response code
                                    if (e instanceof HttpException) {
                                        HttpException response = (HttpException) e;
