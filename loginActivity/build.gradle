@@ -11,8 +11,8 @@ android {
         applicationId "com.anubis.commons"
         minSdkVersion 19
         targetSdkVersion 25
-        versionCode 7
-        versionName "1.6"
+        versionCode 8
+        versionName "1.7"
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_8
             targetCompatibility JavaVersion.VERSION_1_8
@@ -82,7 +82,7 @@ dependencies {
 
     compile files('libs/androidjhlabs.jar')
     compile 'com.hkm.taglib:tag:1.6.0'
-
+    ompile 'com.google.code.gson:gson:2.7'
     compile 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
     compile 'com.google.firebase:firebase-core:10.0.0'
     compile 'com.google.firebase:firebase-ads:10.0.0'

@@ -87,7 +87,7 @@ public class SearchFragment extends FlickrBaseFragment  {
             commonsRealm.executeTransaction(new Realm.Transaction() {
                 @Override
                 public void execute(Realm realm) {
-                    mCommon = commonsRealm.createObject(Common.class, Calendar.getInstance().getTime().toString());
+                    mCommon = realm.createObject(Common.class, Calendar.getInstance().getTime().toString());
                     mCommon.page = 1;
 
                     realm.insertOrUpdate(mCommon);
@@ -223,6 +223,7 @@ public class SearchFragment extends FlickrBaseFragment  {
         //@todo check for page total if not then process with page 1
         //@todo while realm total is less than total increment page else stop
         commonSubscription = getJacksonService().commons(page)
+                .retry()
                 .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
                 .observeOn(Schedulers.io())
                 .subscribe(new Subscriber<Photos>() {

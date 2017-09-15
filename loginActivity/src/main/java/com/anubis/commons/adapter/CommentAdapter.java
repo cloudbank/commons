@@ -114,7 +114,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
 
                 final BitmapDrawablePlaceHolder result = new BitmapDrawablePlaceHolder();
 
-                Picasso.with(getContext()).load(source).into(new Target() {
+                Picasso.with(getContext()).load(source).fit().into(new Target() {
                     @Override public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                         final BitmapDrawable drawable = new BitmapDrawable(mContext.getResources(), bitmap);
 

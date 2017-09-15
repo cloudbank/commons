@@ -75,7 +75,7 @@ public class InterestingFragment extends FlickrBaseFragment {
             interestingRealm.executeTransaction(new Realm.Transaction() {
                 @Override
                 public void execute(Realm realm) {
-                    mInteresting = interestingRealm.createObject(Interesting.class, Calendar.getInstance().getTime().toString());
+                    mInteresting = realm.createObject(Interesting.class, Calendar.getInstance().getTime().toString());
                     realm.insertOrUpdate(mInteresting);
                     mInteresting.addChangeListener(changeListener);
                 }
@@ -161,7 +161,7 @@ public class InterestingFragment extends FlickrBaseFragment {
         //@todo offline mode
         //@TODO need iterableFLATMAP TO GET ALL PAGES
         interestingSubscription = getJacksonService().explore("1")
-
+                .retry()
                 .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
                 .observeOn(Schedulers.io())
                 .subscribe(new Subscriber<Photos>() {

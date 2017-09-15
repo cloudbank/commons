@@ -127,7 +127,7 @@ public class ItemDetailFragment extends Fragment {
 
 
         ImageView imageView = (ImageView) view.findViewById(R.id.ivResult);
-        Picasso.with(getAppContext()).load(mPhoto.getUrl()).transform(new ImageRoundedTransformation(5, 5)).resize(300, 300).centerCrop().into(imageView);
+        Picasso.with(getAppContext()).load(mPhoto.getUrl()).fit().transform(new ImageRoundedTransformation(5, 5)).resize(300, 300).centerCrop().into(imageView);
 
         TextView tvUsername = (TextView) view.findViewById(R.id.tvAuthor);
         tvUsername.setText(mPhoto.getOwnername());

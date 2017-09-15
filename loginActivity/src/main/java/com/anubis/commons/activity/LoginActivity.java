@@ -3,6 +3,7 @@ package com.anubis.commons.activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.anubis.commons.FlickrClientApp;
 import com.anubis.commons.R;
+import com.anubis.commons.util.Util;
 import com.anubis.oauthkit.OAuthBaseClient;
 import com.anubis.oauthkit.OAuthLoginActivity;
 
@@ -68,11 +70,21 @@ public class LoginActivity extends OAuthLoginActivity {
 
     @Override
     public void onLoginSuccess(OkHttpOAuthConsumer consumer, String baseUrl) {
-        FlickrClientApp.setJacksonService(consumer, baseUrl);
-        FlickrClientApp.setDefaultService(consumer, baseUrl);
+        //@todo save these to realm
+        FlickrClientApp.createJacksonService(consumer);
+        saveConsumer(consumer);
         Intent i = new Intent(this, PhotosActivity.class);
         startActivity(i);
      }
+
+    private static void saveConsumer(OkHttpOAuthConsumer consumer) {
+        SharedPreferences mPrefs = Util.getUserPrefs();
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(consumer);
+        prefsEditor.putString(FlickrClientApp.getAppContext().getString(R.string.Consumer), json);
+        prefsEditor.commit();
+    }
 
     @Override
     public void onLoginFailure(Exception e) {

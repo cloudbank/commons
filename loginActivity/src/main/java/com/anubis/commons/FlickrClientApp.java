@@ -1,5 +1,7 @@
 package com.anubis.commons;
 
+import static com.anubis.oauthkit.BuildConfig.baseUrl;
+
 import android.accounts.Account;
 import android.content.Context;
 import android.support.multidex.MultiDex;
@@ -7,21 +9,21 @@ import android.support.multidex.MultiDexApplication;
 
 import com.anubis.commons.service.FlickrService;
 import com.anubis.commons.service.ServiceGenerator;
+import com.anubis.commons.util.Util;
 import com.facebook.stetho.Stetho;
 import com.jakewharton.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
+
+import se.akerfeldt.okhttp.signpost.OkHttpOAuthConsumer;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
-import se.akerfeldt.okhttp.signpost.OkHttpOAuthConsumer;
 
 public class FlickrClientApp extends MultiDexApplication {
 
-    //colors[0] = "4"; //yellow
-    //colors[1] = "8"; // blue
-    //colors[2] = "2";  //orange
+
     public static final String YELLOW = "4";
     public static final String BLUE = "8";
     public static final String ORANGE = "2";
@@ -29,20 +31,25 @@ public class FlickrClientApp extends MultiDexApplication {
     private static int commonsPage = 1;
     public static int interestingPage = 1;
 
+    //@tod fix this as well--store it in realm
     public static void incrementCommonsPage() {
         synchronized (FlickrClientApp.class) {
+            commonsPage  = commonsPage== null ? Util.commonsPage : commonsPage;
             commonsPage++;
+            persist
         }
     }
 
     public static void resetCommonsPage() {
         synchronized (FlickrClientApp.class) {
-            commonsPage = 1;
+            commonsPage  = commonsPage== null ? Util.commonsPage : commonsPage;
+            commonsPage =1;
+            persist
         }
     }
     public static int getCommonsPage() {
         synchronized (FlickrClientApp.class) {
-            return commonsPage;
+            return commonsPage == null ? Util.commonsPage : commonsPage;
         }
     }
 
@@ -54,7 +61,6 @@ public class FlickrClientApp extends MultiDexApplication {
     }
 
     private static FlickrService jacksonService;
-    private static FlickrService defaultService;
     // The authority for the sync adapter's content provider
     // An account type, in the form of a domain name
     // The account name
@@ -69,22 +75,21 @@ public class FlickrClientApp extends MultiDexApplication {
     }
 
 
-    public static FlickrService getJacksonService() {
+    private static OkHttpOAuthConsumer getConsumer() {
+        Gson gson = new Gson();
+        String json = Util.getUserPrefs().getString(FlickrClientApp.getAppContext().getString(R.string.Consumer), "");
+        return gson.fromJson(json, OkHttpOAuthConsumer.class);
+    }
+
+
+    //@todo change docs for oauthkit with release
+    public static FlickrService createJacksonService(OkHttpOAuthConsumer consumer) {
+        jacksonService = ServiceGenerator.createRetrofitRxService(consumer, com.anubis.flickr.service.FlickrService.class, baseUrl, JacksonConverterFactory.create());
         return jacksonService;
     }
 
-    public static FlickrService getDefaultService() {
-        return defaultService;
-    }
 
 
-    public static void setJacksonService(OkHttpOAuthConsumer consumer, String baseUrl) {
-        jacksonService = ServiceGenerator.createRetrofitRxService(consumer, FlickrService.class, baseUrl, JacksonConverterFactory.create());
-    }
-
-    public static void setDefaultService(OkHttpOAuthConsumer consumer, String baseUrl) {
-        defaultService = ServiceGenerator.createRetrofitRxService(consumer, FlickrService.class, baseUrl, SimpleXmlConverterFactory.create());
-    }
 
 
     @Override

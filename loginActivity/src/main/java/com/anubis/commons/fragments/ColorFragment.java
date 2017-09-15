@@ -114,7 +114,7 @@ public class ColorFragment extends FlickrBaseFragment {
             colorRealm.executeTransaction(new Realm.Transaction() {
                 @Override
                 public void execute(Realm realm) {
-                    mColor = colorRealm.createObject(Color.class, Calendar.getInstance().getTime().toString());
+                    mColor = realm.createObject(Color.class, Calendar.getInstance().getTime().toString());
                     mColor.color = FlickrClientApp.YELLOW;
 
                     realm.insertOrUpdate(mColor);
@@ -162,7 +162,7 @@ public class ColorFragment extends FlickrBaseFragment {
 
     private void setupBottomNav(com.aurelhubert.ahbottomnavigation.AHBottomNavigation bottomNavigation) {
         // Create items
-        AHBottomNavigationItem item1 = new AHBottomNavigationItem(getActivity().getString(R.string.yellow), R.drawable.ic_invert_colors_black_24dp, fetchColor(R.color.sand));
+        AHBottomNavigationItem item1 = new AHBottomNavigationItem(getActivity().getString(R.string.yellow), R.drawable.ic_invert_colors_black_24dp, fetchColor(R.color.ice));
         AHBottomNavigationItem item2 = new AHBottomNavigationItem(getActivity().getString(R.string.blue), R.drawable.ic_invert_colors_black_24dp, fetchColor(android.R.color.holo_blue_dark));
         AHBottomNavigationItem item3 = new AHBottomNavigationItem(getActivity().getString(R.string.orange), R.drawable.ic_invert_colors_black_24dp, fetchColor(android.R.color.holo_orange_dark));
 
@@ -172,10 +172,10 @@ public class ColorFragment extends FlickrBaseFragment {
         bottomNavigation.addItem(item3);
 
         // Set background color
-        bottomNavigation.setDefaultBackgroundColor(fetchColor(R.color.LithiumPool));
+        bottomNavigation.setDefaultBackgroundColor(fetchColor(R.color.limon));
 
         // Change colors
-        bottomNavigation.setAccentColor(fetchColor(R.color.sand));
+        bottomNavigation.setAccentColor(fetchColor(R.color.ice));
         bottomNavigation.setInactiveColor(fetchColor(android.R.color.darker_gray));
 
 
@@ -196,7 +196,7 @@ public class ColorFragment extends FlickrBaseFragment {
                 } else if (position == 2) {
                     bottomNavigation.setAccentColor(fetchColor(android.R.color.holo_orange_dark));
                 } else {
-                    bottomNavigation.setAccentColor(fetchColor(R.color.sand));
+                    bottomNavigation.setAccentColor(fetchColor(R.color.ice));
                 }
                 getPhotos(position);
                 //return true;
@@ -300,7 +300,7 @@ public class ColorFragment extends FlickrBaseFragment {
         mPublisherAdView = (AdView) view.findViewById(R.id.publisherAdView);
         AdRequest adRequest = new AdRequest.Builder()
                 //.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators
-                .addTestDevice("859494A050DDE7CD842C2C1AA6B7E65F")  // My Galaxy Nexus test phone
+                .addTestDevice("46B0F0D84C1B2D57A793981305FC27C3")  // My Galaxy Nexus test phone
                 .build();
         mPublisherAdView.loadAd(adRequest);
 
@@ -315,7 +315,6 @@ public class ColorFragment extends FlickrBaseFragment {
     private static final Runnable sRunnable = new Runnable() {
         @Override
         public void run() {
-            SyncAdapter.startSyncAdapter(Util.getCurrentUser());
             SyncAdapter.startSyncAdapter(Util.getCurrentUser());
             bottomNavigation.setCurrentItem(0);
             dismissProgress();
