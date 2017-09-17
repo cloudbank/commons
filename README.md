@@ -2,7 +2,7 @@
 >>>>A Rare Photo Archive App
 <img src="http://i.imgur.com/YVBcPFq.png" height="100"/> 
 
->>>>SDK 26+, Oreo compatible, for phone and tablet
+>>>>SDK 19+, Oreo compatible, for phone and tablet
 
 * *The Commons collection--rare pictures from around the world curated by you!*
 * *The 'Interesting' collection*
