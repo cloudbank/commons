@@ -11,15 +11,15 @@
 
 >>>>VIEW   
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/eM80CF9.png" height="500"/> <img src="httsp://i.imgur.com/qwUDZLi.png" height="500" />     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/eM80CF9.png" height="500"/> <img src="httsp://i.imgur.scom/qwUDZLi.png" height="500" />     
 
 >>>>COMMENT
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/JZzoGco.png" height="500" /><img src="http://i.imgssdfdsfur.com/asdsa.png" height="500" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/JsZzoGco.png" height="500" /><img src="http://i.imgssdfdsfur.com/asdsa.png" height="500" />
 
 >>>>CURATE
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/fcYERRD.png" height="500" /><img src="http://i.imgsdsfdsfur.asdssdfsdfa/svGnMq5.png" height="500" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgurs.com/fcYERRD.png" height="500" /><img src="http://i.imgsdsfdsfur.asdssdfsdfa/svGnMq5.png" height="500" />
 
 
 
