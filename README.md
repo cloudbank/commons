@@ -1,7 +1,7 @@
-<img src="https://i.imgur.com/ztBAtV1.png" height="300" /> 
+
 ## The Commons  v 1.0    
 >>>>A Rare Photo Archive App
-<img src="http://i.imgur.com/YVBcPFq.png" /> 
+<img src="http://i.imgur.com/YVBcPFq.png" height="300"/> <img src="https://i.imgur.com/ztBAtV1.png" height="300" /> 
 
 >>>>SDK 19+, Oreo compatible, for phone and tablet
 
