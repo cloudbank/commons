@@ -27,7 +27,6 @@
 ### Designed with the Material theme and latest, greatest android libs for best viewing pleasure!
 ### In addition you can:
 * *Add comments & see tags*
-* *Take your own pictures with the camera!*
 
 ### --> download from the [Google Play Store](https://play.google.com/store/apps/details?userId=)
 
