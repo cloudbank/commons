@@ -2,8 +2,7 @@
 ## The Commons  v 1.8  
 >>>>A Rare Photo Archive App
 
-<img src="http://i.imgur.com/YVBcPFq.png" height="300"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://i.imgur.com/ztBAtV1.png" height="300"  /> 
-
+<img src="http://i.imgur.com/YVBcPFq.png" height="300"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 >>>>SDK 19+, Oreo compatible, for phone and tablet
 
 * *The Commons collection--rare pictures from around the world curated by you!*
@@ -18,7 +17,7 @@
 
 >>>>COMMENT
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://i.imgur.com/sVKFLzv.png" height="500" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://i.imgur.com/JskSqIn.png" height="500" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://i.imgur.com/sVKFLzv.png" height="500" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://i.imgur.com/ztBAtV1.png" height="500" />
 
 >>>>CURATE
 
