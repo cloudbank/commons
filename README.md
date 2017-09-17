@@ -3,6 +3,7 @@
 >>>>A Rare Photo Archive App
 
 <img src="http://i.imgur.com/YVBcPFq.png" height="300"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<img src="https://i.imgur.com/fhM5h9o.png" height="300"/>
 >>>>SDK 19+, Oreo compatible, for phone and tablet
 
 * *The Commons collection--rare pictures from around the world curated by you!*
