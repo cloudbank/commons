@@ -2,14 +2,14 @@
 ## The Commons  v 1.8  
 >>>>A Rare Photo Archive App
 
-<img src="http://i.imgur.com/YVBcPFq.png" height="300"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;< <img src="https://i.imgur.com/ztBAtV1.png" height="300" /> 
+<img src="http://i.imgur.com/YVBcPFq.png" height="300"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://i.imgur.com/ztBAtV1.png" height="300" width="300" /> 
 
 >>>>SDK 19+, Oreo compatible, for phone and tablet
 
 * *The Commons collection--rare pictures from around the world curated by you!*
 * *The 'Interesting' collection*
 * *View by Color*
-* *Uses Retrofix/RxJava with the SyncAdapter for updates.  OAuthKit library used to create a signing interceptor 
+* *Uses Retrofix/RxJava with the SyncAdapter for updates.  OAuthKit library used to create a signing interceptor*
 
 
 >>>>VIEW   
