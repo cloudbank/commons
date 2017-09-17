@@ -1,6 +1,7 @@
+<img src="https://i.imgur.com/ztBAtV1.png" height="300" /> 
 ## The Commons  v 1.0    
 >>>>A Rare Photo Archive App
-<img src="http://i.imgur.com/YVBcPFq.png" height="100"/> 
+<img src="http://i.imgur.com/YVBcPFq.png" /> 
 
 >>>>SDK 19+, Oreo compatible, for phone and tablet
 
@@ -15,11 +16,11 @@
 
 >>>>COMMENT
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/JsZzoGco.png" height="500" /><img src="http://i.imgssdfdsfur.com/asdsa.png" height="500" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://i.imgur.com/sVKFLzv.png" height="500" /><img src="https://i.imgur.com/JskSqIn.png" height="500" />
 
 >>>>CURATE
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.sfsfimgurs.com/fcYERRD.png" height="500" /><img src="http://i.imgsdsfdsfur.asdsssdfsdfa/svGnMq5.png" height="500" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://i.imgur.com/8LPaptH.png" height="500" /><img src="https://i.imgur.com/jz6h2LI.png" height="500" />
 
 
 
