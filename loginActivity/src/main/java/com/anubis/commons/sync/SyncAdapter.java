@@ -92,12 +92,15 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     /*
      * Put the data transfer code here.
      */
-    Log.d("SYNC", "starting onPerformSync " + Util.getCommonsPage());
-    getCommonsPage(String.valueOf(Util.getCommonsPage()));
-    Util.saveCommonsPage(Util.getCommonsPage() + 1);
+    Log.d("SYNC", "starting onPerformSync ");
+    int c = Util.getCommonsPage();
+    getCommonsPage(String.valueOf(c++));
+    Util.saveCommonsPage(c);
     //getColorPhotos();  //there are not more than 500 of these and they bleed into others
     //@todo  update
-    getInterestingPhotos("1");
+    int i = Util.getInterestingPage();
+    getInterestingPhotos(String.valueOf(i++));
+    Util.saveInterestingPage(i);
     notifyMe();
     Log.d("SYNC", "END onPeformSync");
   }

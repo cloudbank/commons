@@ -72,12 +72,26 @@ public class Util {
   }
 
   public static int getCommonsPage() {
-    return getUserPrefs().getInt("commonsPage", 0);
+    return getUserPrefs().getInt("commonsPage", 1);
   }
 
   public static void resetCommonsPage() {
-    synchronized (FlickrClientApp.class) {
+    synchronized (Util.class) {
       Util.saveCommonsPage(1);
+    }
+  }
+//@todo synchronize corrections
+  public static void saveInterestingPage(int intPage) {
+    getUserPrefs().edit().putInt("interestingPage", intPage).commit();
+  }
+
+  public static int getInterestingPage() {
+    return getUserPrefs().getInt("interestingPage", 1);
+  }
+
+  public static void resetInterestingPage() {
+    synchronized (Util.class) {
+      Util.saveInterestingPage(1);
     }
   }
 }

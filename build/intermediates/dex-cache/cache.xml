@@ -30,6 +30,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/sabine/.android/build-cache/bdfd447f4753d6be46b0a2455e8de50ad0916709/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e5fbc85749067cdc0ac76d24025f49c9b533f82e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/sabine/github/commons/loginActivity/libs/androidjhlabs.jar"
         jumboMode="true"
         optimize="true"
@@ -135,6 +144,15 @@
         revision="25.0.0"
         sha1="b64dd5f01bc37de289f90fd59299b0c76d119611">
         <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f8d98047f9ee4a19fffbc4a3e7c3bf11eea21c5c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/sabine/.android/build-cache/3e12941cec9eae92292a9b0bd0966a3541c17392/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_45a51e57000df0db6d05706f08a3e2341bd0e43d/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -381,6 +399,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/sabine/.android/build-cache/69427badaff5a63fd7b845cb9c57ef95f0df3066/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_18e28c27bda68f0edb237040dbf5ff345695953a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
         jumboMode="false"
         optimize="true"
@@ -396,6 +423,15 @@
         revision="25.0.0"
         sha1="75dbc3537bc912d077b3db2f5ac72d5b43644b2c">
         <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9dd3ff2dc01f711e292a77c228a4e57f8b3b8fdf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/sabine/github/commons/loginActivity/libs/androidjhlabs.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="f79a376d78a96ffd7339ff14836d892eb09385cd">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/2/androidjhlabs_12e94f9fa94adfd61220c7e609806cdd731f41af/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -441,6 +477,15 @@
         revision="25.0.0"
         sha1="2b410ae1fda134f470276365f4b7f846269e0d23">
         <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_8ac90ebea7bd678af32c4600429b198eb3342a9d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/sabine/.android/build-cache/1dbe7cb99df6e83f2413abb0941d481791d2e3c4/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3bbd92e9fbc169e545f805359b71c001de12877f/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -516,6 +561,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/sabine/.android/build-cache/1fde2e2b582d26b0841fa1a5045fcf27d48a6987/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_403b07df8daae5b2079b43f8c1aebcfbb421e45d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/sabine/.android/build-cache/480e87425bc2feecc3ff72ff56d0cab9c27228a1/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -543,6 +597,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/sabine/.android/build-cache/6d669f67d729c88c8183c235feb730a8dca43af6/output/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="61fd2644ca586288d0e733377d12b5f6da18c4ca">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.0.0_0cb7a327050746d7d6828c2fd5e9ae03b403e2e6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.1/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar"
         jumboMode="true"
         optimize="true"
@@ -552,12 +615,30 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/sabine/Downloads/android-sdk-macosx-3/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.3.1_1a60b2500a5a71f6b2817b65e36bc52a40690d49/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/sabine/.android/build-cache/bdfd447f4753d6be46b0a2455e8de50ad0916709/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
         <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e5fbc85749067cdc0ac76d24025f49c9b533f82e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/sabine/.android/build-cache/132d9028dd646fe37d2f4ad77212388d52ff69b5/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e206f24245a11723e060e9b41e2a29bf1b05cd8a/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -606,6 +687,24 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/sabine/.android/build-cache/8315da990f0dc55b48ef8a3978c9f454935b7642/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c53896848713f73eff3600fef0da2c80ecc48d62/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/sabine/.android/build-cache/1a8fc342ef0a494dd5f6ae69efc8fcec41bf41f3/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_fc204fa90023d648afbe74f29228b04d8cdfaea1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.9.0.pr4/66cdc0083e48897453c4b4f69860315c0e6618b/jackson-annotations-2.9.0.pr4.jar"
         jumboMode="false"
         optimize="true"
@@ -630,6 +729,15 @@
         revision="25.0.0"
         sha1="fd32786786e2adb664d5ecc965da47629dca14ba">
         <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/commons-codec-1.3_165540aa3c0223f4b8625fbb42c52ed289039b11/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/sabine/.android/build-cache/6d669f67d729c88c8183c235feb730a8dca43af6/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="c87270a9d828773c296fadde93e939c8190a6b1b">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_439614b39a7bdb9eba0c3981ce56ca4c536d48e5/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -705,6 +813,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/sabine/github/commons/oauthkit/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="f396f5b408283e7ae98f5fe82c9b3750b954d90e">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/4/classes_4145f4ec42c8cd8d10d6f842917d99b07dae0dfb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.4.1/c7c4f9e35c2fd5900da24f9872e3971801f08ce0/okhttp-3.4.1.jar"
         jumboMode="false"
         optimize="true"
@@ -750,6 +867,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/sabine/.android/build-cache/77d3bec2cc00238ccfc64cf9aa041782bc509ccb/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_aecb7f02c4035b937290d6137e42e8845c3c371b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/sabine/.android/build-cache/69427badaff5a63fd7b845cb9c57ef95f0df3066/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -774,6 +900,15 @@
         revision="25.0.0"
         sha1="544600ae042f8fc113acb612ef30c69144b685d4">
         <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-signpost-1.1.0_fded623a4a453055c6eb505000651a7a0d9e4097/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/sabine/.android/build-cache/6936310814cb01ff723168dac21e87ffa4943c89/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e36a6bf2c4423697259e0aeac9c346356b5d4e01/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -975,6 +1110,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/sabine/.android/build-cache/03017c129abbc664d298ddbc8efad2c4e563f7ee/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a6bad24be850d709884b4fdd19221f9452d18c7a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/sabine/.android/build-cache/19a7cf9e2b99a3b909dea99827440629fd7e90a4/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -1002,12 +1146,30 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/sabine/.android/build-cache/1695ac75a91cf5abf65262660f4dabd4fa7626d5/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c326fb982dfde93f252b714c7f646c1de8fdd460/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.3/fd32786786e2adb664d5ecc965da47629dca14ba/commons-codec-1.3.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="fd32786786e2adb664d5ecc965da47629dca14ba">
         <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/commons-codec-1.3_165540aa3c0223f4b8625fbb42c52ed289039b11/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/sabine/.android/build-cache/fc3a0f26e3c558e52694e7377ee0c7549b974c2c/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/Users/sabine/github/commons/loginActivity/build/intermediates/transforms/dex/debug/folders/1000/10/classes_af3ffe413179bcc2cbc3d23a2d415e7b6243ee0e/classes.dex" />
     </item>
     <item
         is-multidex="true"

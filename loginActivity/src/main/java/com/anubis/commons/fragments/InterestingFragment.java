@@ -20,6 +20,7 @@ import com.anubis.commons.adapter.InterestingAdapter;
 import com.anubis.commons.models.Interesting;
 import com.anubis.commons.models.Photo;
 import com.anubis.commons.models.Photos;
+import com.anubis.commons.util.Util;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -61,7 +62,6 @@ public class InterestingFragment extends FlickrBaseFragment {
     //@todo
     interestingRealm = Realm.getDefaultInstance();
     Date maxDate = interestingRealm.where(Interesting.class).maximumDate("timestamp");
-    //@todo get the last selected color?
     mInteresting = interestingRealm.where(Interesting.class).equalTo("timestamp", maxDate).findFirst();
     if (mInteresting == null) {
       //showProgress("Please wait, loading interesting data...");
@@ -76,6 +76,9 @@ public class InterestingFragment extends FlickrBaseFragment {
           mInteresting.addChangeListener(changeListener);
         }
       });
+      if (Util.getInterestingPage() > 1) {
+        Util.resetInterestingPage();
+      }
       initInterestingPhotos();
     } else {
       mInteresting.addChangeListener(changeListener);
@@ -141,7 +144,7 @@ public class InterestingFragment extends FlickrBaseFragment {
 
   public void initInterestingPhotos() {
     //@todo offline mode
-    //@TODO need iterableFLATMAP TO GET ALL PAGES
+    //@TODO maybe iterableFLATMAP TO GET ALL PAGES
     interestingSubscription = getJacksonService().explore("1")
         .retry()
         .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
