@@ -1,33 +1,31 @@
 
-## The Commons  v 1.0    
+## The Commons  v 1.8  
 >>>>A Rare Photo Archive App
-<img src="http://i.imgur.com/YVBcPFq.png" height="300"/> <img src="https://i.imgur.com/ztBAtV1.png" height="300" /> 
+
+<img src="http://i.imgur.com/YVBcPFq.png" height="300"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;< <img src="https://i.imgur.com/ztBAtV1.png" height="300" /> 
 
 >>>>SDK 19+, Oreo compatible, for phone and tablet
 
 * *The Commons collection--rare pictures from around the world curated by you!*
 * *The 'Interesting' collection*
 * *View by Color*
+* *Uses Retrofix/RxJava with the SyncAdapter for updates.  OAuthKit library used to create a signing interceptor 
 
 
 >>>>VIEW   
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://i.imgur.com/iqkW8E0.png" height="500"/> <img src="https://i.imgur.com/QvfM1jf.png" height="500" />     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://i.imgur.com/iqkW8E0.png" height="500"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;< <img src="https://i.imgur.com/QvfM1jf.png" height="500" />     
 
 >>>>COMMENT
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://i.imgur.com/sVKFLzv.png" height="500" /><img src="https://i.imgur.com/JskSqIn.png" height="500" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://i.imgur.com/sVKFLzv.png" height="500" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<<img src="https://i.imgur.com/JskSqIn.png" height="500" />
 
 >>>>CURATE
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://i.imgur.com/8LPaptH.png" height="500" /><img src="https://i.imgur.com/jz6h2LI.png" height="500" />
-
-
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://i.imgur.com/8LPaptH.png" height="500" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<<img src="https://i.imgur.com/jz6h2LI.png" height="500" />
 
 ### Designed with the Material theme and latest, greatest android libs for best viewing pleasure!
 ### In addition you can:
-
 * *Add comments & see tags*
 * *Take your own pictures with the camera!*
 
@@ -45,6 +43,7 @@ This app was built with Android Studio which uses the gradle build system.
 
 This project uses the [Flickr API] ( https://www.flickr.com/services/api/)
 
+
 It also uses many other open source libraries such as:
 
  * [OAuthKit](https://github.com/cloudbank/oauthkit)-- a helper lib for OAuth1.0a/2.0 with okhttp and signpost to easily hook into retrofit
@@ -54,12 +53,8 @@ It also uses many other open source libraries such as:
  * [Retrolambda]() the java 1.8 lambda backport for android
  * [Picasso]() Square's optimized image loading library with built in caching and bg thread capability
  * [Jackson]()  Streaming treemap for fastest JSON parsing available
-  * [Facebook Rebound]()  Physics based animation toolkit
-  * [com.aurelhubert:ahbottomnavigation]() Bottom Navigation library
-   * [Admob]() advertisement integration
+ * [Facebook Rebound]()  Physics based animation toolkit
+ * [com.aurelhubert:ahbottomnavigation]() Bottom Navigation library
+ * [Admob]() advertisement integration
 
 
-
-# commons
-# commons
-# commons
