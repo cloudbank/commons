@@ -11,51 +11,45 @@ import io.realm.annotations.PrimaryKey;
 /**
  * Created by sabine on 10/6/16.
  */
-
 public class Color extends RealmObject implements RealmModel {
+  @PrimaryKey
+  public String id;
+  public Date timestamp;
 
-    @PrimaryKey
-    public String id;
+  public String getColor() {
+    return color;
+  }
 
+  public void setColor(String color) {
+    this.color = color;
+  }
 
-    public Date timestamp;
+  @Index
+  public String color;
 
-    public String getColor() {
-        return color;
-    }
+  public RealmList<Photo> getColorPhotos() {
+    return colorPhotos;
+  }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
+  public void setColorPhotos(RealmList<Photo> colorPhotos) {
+    this.colorPhotos = colorPhotos;
+  }
 
-    @Index
-    public String color;
+  public Date getTimestamp() {
+    return timestamp;
+  }
 
-    public RealmList<Photo> getColorPhotos() {
-        return colorPhotos;
-    }
+  public void setTimestamp(Date timestamp) {
+    this.timestamp = timestamp;
+  }
 
-    public void setColorPhotos(RealmList<Photo> colorPhotos) {
-        this.colorPhotos = colorPhotos;
-    }
+  public RealmList<Photo> colorPhotos;
 
-    public Date getTimestamp() {
-        return timestamp;
-    }
+  public String getId() {
+    return id;
+  }
 
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public RealmList<Photo> colorPhotos;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-
+  public void setId(String id) {
+    this.id = id;
+  }
 }

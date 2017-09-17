@@ -17,98 +17,69 @@ import com.anubis.commons.models.Photo;
 import java.util.List;
 
 public abstract class FlickrBaseFragment extends Fragment {
+  public static final String RESULT = "result";
+  protected static final String PAGE = "page";
+  protected static final String TITLE = "title";
+  protected static boolean isTwoPane;
+  static ProgressDialog dialog;
 
-    public static final String RESULT = "result";
-    protected static final String PAGE = "page";
-    protected static final String TITLE = "title";
-    protected static boolean isTwoPane;
+  public static void setPane(boolean b) {
+    isTwoPane = b;
+  }
 
-    static ProgressDialog dialog;
+  // newInstance constructor for creating fragment with arguments
+  public static FlickrBaseFragment newInstance(int page, String title, FlickrBaseFragment f) {
+    Bundle args = new Bundle();
+    args.putInt(PAGE, page);
+    args.putString(TITLE, title);
+    f.setArguments(args);
+    return f;
+  }
 
-    public static void setPane(boolean b) {
-        isTwoPane = b;
-    }
-    // newInstance constructor for creating fragment with arguments
-    public static FlickrBaseFragment newInstance(int page, String title, FlickrBaseFragment f) {
-        Bundle args = new Bundle();
-        args.putInt(PAGE, page);
-        args.putString(TITLE, title);
+  // Store instance variables based on arguments passed
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setHasOptionsMenu(true);
+  }
 
-        f.setArguments(args);
-        return f;
-    }
+  public void setItemListener(RecyclerViewAdapter adapter, List<Photo> items) {
+    adapter.setItemClickListener(new ItemClickListener() {
+      @Override
+      public void onItemClick(View view, int position) {
+        //user interface for activity\
+        Photo photo = items.get(position);
+        if (isTwoPane) {
+          //start a fragment
+          ItemDetailFragment fragmentItem = ItemDetailFragment.newInstance(photo.getId(), true);
+          FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+          ft.replace(R.id.flDetailContainer, fragmentItem);
+          ft.commit();
+        } else {
+          Intent intent = new Intent(getActivity(),
+              ImageDisplayActivity.class);
+          intent.putExtra(RESULT, photo.getId());
+          startActivity(intent);
+        }
+      }
+    });
+  }
 
-    // Store instance variables based on arguments passed
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
+  public void showProgress(String msg) {
+    // if (dialog == null) {
+    dialog = new ProgressDialog(getActivity());
+    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+    dialog.getWindow().setBackgroundDrawable(
+        getActivity().getApplication().getResources().getDrawable(
+            R.drawable.background_gradient));
+    dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+    dialog.setCancelable(false);
+    dialog.setCanceledOnTouchOutside(false);
+    dialog.setMessage(msg);
+    dialog.show();
+  }
 
-
-
-
-    }
-
-
-
-    public void setItemListener(RecyclerViewAdapter adapter, List<Photo> items) {
-
-        adapter.setItemClickListener(new ItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                //user interface for activity\
-
-                Photo photo = items.get(position);
-
-
-                if (isTwoPane) {
-                    //start a fragment
-
-                    ItemDetailFragment fragmentItem = ItemDetailFragment.newInstance(photo.getId(), true);
-                    FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                    ft.replace(R.id.flDetailContainer, fragmentItem);
-                    ft.commit();
-
-                } else {
-                    Intent intent = new Intent(getActivity(),
-                            ImageDisplayActivity.class);
-
-
-                    intent.putExtra(RESULT, photo.getId());
-                    startActivity(intent);
-                }
-
-
-            }
-        });
-
-
-
-    }
-
-
-    public void showProgress(String msg) {
-
-
-        // if (dialog == null) {
-        dialog = new ProgressDialog(getActivity());
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.getWindow().setBackgroundDrawable(
-                getActivity().getApplication().getResources().getDrawable(
-                        R.drawable.background_gradient));
-        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        dialog.setCancelable(false);
-        dialog.setCanceledOnTouchOutside(false);
-
-
-        dialog.setMessage(msg);
-        dialog.show();
-    }
-
-    public static void dismissProgress() {
-        dialog.dismiss();
-
-    }
-
-
+  public static void dismissProgress() {
+    dialog.dismiss();
+  }
 }

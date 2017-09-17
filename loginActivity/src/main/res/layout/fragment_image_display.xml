@@ -1,142 +1,141 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar_main"
+  <include
+      android:id="@+id/toolbar"
+      layout="@layout/toolbar_main"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"/>
+
+
+  <com.google.android.gms.ads.AdView
+      android:id="@+id/publisherAdView2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/toolbar"
+      android:layout_centerHorizontal="true"
+      android:layout_gravity="center"
+      android:layout_marginTop="5dp"
+      ads:adSize="BANNER"
+      ads:adUnitId="@string/ad_unit"/>
+
+
+  <android.support.v7.widget.CardView
+      android:layout_width="match_parent"
+      android:background="@color/limon"
+      android:layout_height="match_parent"
+      android:layout_below="@id/publisherAdView2"
+      ads:cardCornerRadius="5dp"
+      ads:cardElevation="5dp"
+      ads:cardUseCompatPadding="true">
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
+
+      <TextView
+          android:id="@+id/title"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:padding="1dp"
+          android:text="the title"
+          android:textAlignment="center"
+          android:textSize="12sp"
+          android:textStyle="bold"/>
+
+      <TextView
+          android:id="@+id/tvAuthor"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@id/title"
+          android:layout_centerInParent="true"
+          android:text="Taken by username"
+          android:textAlignment="center"
+          android:textColor="@color/BlackReed"
+          android:textSize="12sp"
+          android:textStyle="bold"/>
+
+      <ImageView
+          android:id="@+id/ivResult"
+          android:layout_width="200dp"
+          android:layout_height="200dp"
+          android:layout_below="@id/tvAuthor"
+          android:layout_centerInParent="true"
+          android:layout_marginBottom="5dp"
+          android:layout_marginTop="5dp"
+          android:padding="1dp"
+          android:scaleType="centerCrop"/>
+
+      <EditText
+          android:id="@+id/etComments"
+          android:layout_below="@id/ivResult"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:hint="enter comments"
+          android:textColor="@android:color/white"
+          android:textColorHint="@color/limon"
+          android:maxLines="4"
+          android:padding="10dp"
+          android:minLines="3"
+          android:background="@drawable/background_gradient"
+          android:theme="@style/MyEditText"
+          android:layout_marginBottom="10dp"
+          android:visibility="gone"/>
+      <Button
+          android:id="@+id/btnComments"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="@android:color/white"
+          android:visibility="gone"
+          android:gravity="center"
+          android:padding="10dp"
+          style="@style/Widget.AppCompat.Button.Colored"
+          android:background="@drawable/background_gradient"
+          android:text="Submit Comment"
+          android:layout_below="@+id/etComments"
+          android:layout_centerHorizontal="true"/>
+      <TextView
+          android:id="@+id/tvComments"
+          android:layout_below="@id/btnComments"
+          android:layout_width="match_parent"
+          android:gravity="center"
+          android:layout_height="wrap_content"
+          android:textColor="@color/limon"
+          android:text="C O M M E N T S"
+          android:visibility="visible"/>
 
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/publisherAdView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/ad_unit" />
+      <android.support.design.widget.CoordinatorLayout
+
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@id/tvComments">
 
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:background="@color/limon"
-        android:layout_height="match_parent"
-        android:layout_below="@id/publisherAdView2"
-        ads:cardCornerRadius="5dp"
-        ads:cardElevation="5dp"
-        ads:cardUseCompatPadding="true">
-
-        <RelativeLayout
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvComments"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"/>
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="1dp"
-                android:text="the title"
-                android:textAlignment="center"
-                android:textSize="12sp"
-                android:textStyle="bold" />
+        <android.support.design.widget.FloatingActionButton
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
+            app:backgroundTint="@color/limon"
+            android:src="@drawable/ic_add_black_24dp"
+            ads:layout_anchor="@id/rvComments"
+            ads:layout_anchorGravity="bottom|right|end"/>
 
-            <TextView
-                android:id="@+id/tvAuthor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/title"
-                android:layout_centerInParent="true"
-                android:text="Taken by username"
-                android:textAlignment="center"
-                android:textColor="@color/BlackReed"
-                android:textSize="12sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/ivResult"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_below="@id/tvAuthor"
-                android:layout_centerInParent="true"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:padding="1dp"
-                android:scaleType="centerCrop" />
-
-            <EditText
-                android:id="@+id/etComments"
-                android:layout_below="@id/ivResult"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:hint="enter comments"
-                android:textColor="@android:color/white"
-                android:textColorHint="@color/limon"
-                android:maxLines="4"
-                android:padding="10dp"
-                android:minLines="3"
-                android:background="@drawable/background_gradient"
-                android:theme="@style/MyEditText"
-                android:layout_marginBottom="10dp"
-                android:visibility="gone" />
-            <Button
-                android:id="@+id/btnComments"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:visibility="gone"
-                android:gravity="center"
-                android:padding="10dp"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:background="@drawable/background_gradient"
-                android:text="Submit Comment"
-                android:layout_below="@+id/etComments"
-                android:layout_centerHorizontal="true" />
-            <TextView
-                android:id="@+id/tvComments"
-                android:layout_below="@id/btnComments"
-                android:layout_width="match_parent"
-                android:gravity="center"
-                android:layout_height="wrap_content"
-                android:textColor="@color/limon"
-                android:text="C O M M E N T S"
-                android:visibility="visible" />
+      </android.support.design.widget.CoordinatorLayout>
 
 
-            <android.support.design.widget.CoordinatorLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvComments">
-
-
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rvComments"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:scrollbars="vertical" />
-
-                <android.support.design.widget.FloatingActionButton
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/fab"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|right"
-                    android:layout_margin="16dp"
-                    app:backgroundTint="@color/limon"
-                    android:src="@drawable/ic_add_black_24dp"
-                    ads:layout_anchor="@id/rvComments"
-                    ads:layout_anchorGravity="bottom|right|end" />
-
-            </android.support.design.widget.CoordinatorLayout>
-
-
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+    </RelativeLayout>
+  </android.support.v7.widget.CardView>
 </RelativeLayout>

@@ -1,47 +1,42 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/background_gradient"
-    tools:context=".LoginActivity">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:background="@drawable/background_gradient"
+              tools:context=".LoginActivity">
 
 
-
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:alpha="0.7"
-            android:layout_marginBottom="0dp"
-            android:src="@drawable/onetwomin" />
-
-
-        <ImageButton
-            android:id="@+id/loginBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:layout_marginBottom="100dp"
-            android:alpha=".7"
-            android:backgroundTint="@color/limon"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:onClick="loginToRest"
-            android:src="@drawable/arrow2" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:textSize="12sp"
-            android:textColor="@color/Ivory"
-            android:text="droid teahouse 2017"/>
+  <ImageView
+      android:id="@+id/logo"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_gravity="center"
+      android:alpha="0.7"
+      android:layout_marginBottom="0dp"
+      android:src="@drawable/onetwomin"/>
 
 
+  <ImageButton
+      android:id="@+id/loginBtn"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="bottom|center_horizontal"
+      android:layout_marginBottom="100dp"
+      android:alpha=".7"
+      android:backgroundTint="@color/limon"
+      android:background="?attr/selectableItemBackgroundBorderless"
+      android:clickable="true"
+      android:onClick="loginToRest"
+      android:src="@drawable/arrow2"/>
 
-
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="bottom|center_horizontal"
+      android:textSize="12sp"
+      android:textColor="@color/Ivory"
+      android:text="droid teahouse 2017"/>
 
 
 </LinearLayout>

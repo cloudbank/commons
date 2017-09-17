@@ -1,5 +1,4 @@
 package com.anubis.oauthkit;
-
 /**
  * copied from codepath by sabine on 9/26/16 as a wrapper for no args asynctask
  */
@@ -7,29 +6,29 @@ package com.anubis.oauthkit;
 import android.os.AsyncTask;
 
 public class AsyncSimpleTask extends AsyncTask<Void, Void, Void> {
-    private AsyncSimpleTask.AsyncSimpleTaskHandler handler;
+  private AsyncSimpleTask.AsyncSimpleTaskHandler handler;
 
-    public AsyncSimpleTask(AsyncSimpleTask.AsyncSimpleTaskHandler handler) {
-        this.handler = handler;
-        super.execute();
+  public AsyncSimpleTask(AsyncSimpleTask.AsyncSimpleTaskHandler handler) {
+    this.handler = handler;
+    super.execute();
+  }
+
+  protected Void doInBackground(Void... voids) {
+    this.handler.doInBackground();
+    return null;
+  }
+
+  protected void onPostExecute(Void arg) {
+    this.handler.onPostExecute();
+  }
+
+  public abstract static class AsyncSimpleTaskHandler {
+    public AsyncSimpleTaskHandler() {
     }
 
-    protected Void doInBackground(Void... voids) {
-        this.handler.doInBackground();
-        return null;
+    public abstract void doInBackground();
+
+    public void onPostExecute() {
     }
-
-    protected void onPostExecute(Void arg) {
-        this.handler.onPostExecute();
-    }
-
-    public abstract static class AsyncSimpleTaskHandler {
-        public AsyncSimpleTaskHandler() {
-        }
-
-        public abstract void doInBackground();
-
-        public void onPostExecute() {
-        }
-    }
+  }
 }

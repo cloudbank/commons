@@ -15,135 +15,104 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-
 /**
  * Created by sabine on 9/26/16.
  */
-
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> implements RecyclerViewAdapter {
+  private ItemClickListener listener;
+  private View mSelectedView;
 
+  public ItemClickListener getListener() {
+    return this.listener;
+  }
 
-    private ItemClickListener listener;
-    private View mSelectedView;
+  public void setItemClickListener(ItemClickListener listener) {
+    this.listener = listener;
+  }
 
+  public static class ViewHolder extends RecyclerView.ViewHolder {
+    ImageView imageView;
 
-
-
-    public ItemClickListener getListener() {
-        return this.listener;
-
-    }
-
-
-    public void setItemClickListener(ItemClickListener listener) {
-        this.listener = listener;
-    }
-
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView;
-
-        public ViewHolder(final View itemView, final ItemClickListener listener) {
-            super(itemView);
-
-
-            imageView = (ImageView) itemView.findViewById(R.id.ivPhoto);
-
-            itemView.setOnClickListener(v -> {
-            if (listener != null) {
-                    int position = getAdapterPosition();
-                    if (position != RecyclerView.NO_POSITION) {
-                        listener.onItemClick(itemView, position);
-                    }
-                }
-
-                //v.setPressed(true);
-            });
-
-
+    public ViewHolder(final View itemView, final ItemClickListener listener) {
+      super(itemView);
+      imageView = (ImageView) itemView.findViewById(R.id.ivPhoto);
+      itemView.setOnClickListener(v -> {
+        if (listener != null) {
+          int position = getAdapterPosition();
+          if (position != RecyclerView.NO_POSITION) {
+            listener.onItemClick(itemView, position);
+          }
         }
+        //v.setPressed(true);
+      });
     }
+  }
 
-    private List<Photo> mPhotos;
-    private Context mContext;
-    private boolean mStaggered;
-    private int lastPosition = -1;
-    private boolean mTwoPane;
-    private boolean isInit = true;
+  private List<Photo> mPhotos;
+  private Context mContext;
+  private boolean mStaggered;
+  private int lastPosition = -1;
+  private boolean mTwoPane;
+  private boolean isInit = true;
+  private RecyclerAnimator mAnimator;
 
-    private RecyclerAnimator mAnimator;
+  public SearchAdapter(Context context, List<Photo> photos, boolean staggered, boolean isTwoPane) {
+    mStaggered = staggered;
+    mPhotos = photos;
+    mContext = context;
+    mTwoPane = isTwoPane;
+    this.setHasStableIds(true);
+  }
 
-    public SearchAdapter(Context context, List<Photo> photos, boolean staggered, boolean isTwoPane) {
-        mStaggered = staggered;
-        mPhotos = photos;
-        mContext = context;
-        mTwoPane = isTwoPane;
-        this.setHasStableIds(true);
+  public void setmAnimator(RecyclerView rv) {
+    mAnimator = new RecyclerAnimator(rv);
+  }
 
+  private Context getContext() {
+    return mContext;
+  }
+
+  @Override
+  public SearchAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    Context context = parent.getContext();
+    LayoutInflater inflater = LayoutInflater.from(context);
+    View photosView = inflater.inflate(R.layout.photo_item_friends, parent, false);
+    ViewHolder viewHolder = new ViewHolder(photosView, getListener());
+    mAnimator.onCreateViewHolder(photosView);
+    return viewHolder;
+  }
+
+  private int mLastPosition;
+
+  @Override
+  public void onBindViewHolder(SearchAdapter.ViewHolder viewHolder, int position) {
+    Photo photo = mPhotos.get(position);
+    ImageView imageView = viewHolder.imageView;
+    Picasso.with(this.getContext()).load(photo.getUrl()).fit().centerCrop()
+        //.placeholder(android.R.drawable.btn_star)
+        .error(android.R.drawable.btn_star)
+        .into(imageView);
+    mAnimator.onBindViewHolder(viewHolder.itemView, position);
+    if (mTwoPane && position == 0 && isInit) {
+      //viewHolder.imageView.callOnClick();
+      //viewHolder.itemView.callOnClick();
+      listener.onItemClick(viewHolder.itemView, 0);
+      isInit = false;
     }
+  }
 
-    public void setmAnimator(RecyclerView rv) {
-        mAnimator = new RecyclerAnimator(rv);
-    }
+  @Override
+  public long getItemId(int position) {
+    return position;
+  }
 
-    private Context getContext() {
-        return mContext;
-    }
+  @Override
+  public int getItemViewType(int position) {
+    return position;
+  }
 
-    @Override
-    public SearchAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
-        LayoutInflater inflater = LayoutInflater.from(context);
-
-        View photosView = inflater.inflate(R.layout.photo_item_friends, parent, false);
-
-        ViewHolder viewHolder = new ViewHolder(photosView, getListener());
-
-        mAnimator.onCreateViewHolder(photosView);
-
-        return viewHolder;
-    }
-
-
-    private int mLastPosition;
-
-    @Override
-    public void onBindViewHolder(SearchAdapter.ViewHolder viewHolder, int position) {
-        Photo photo = mPhotos.get(position);
-
-        ImageView imageView = viewHolder.imageView;
-
-
-        Picasso.with(this.getContext()).load(photo.getUrl()).fit().centerCrop()
-                //.placeholder(android.R.drawable.btn_star)
-                .error(android.R.drawable.btn_star)
-                .into(imageView);
-
-
-        mAnimator.onBindViewHolder(viewHolder.itemView, position);
-        if(mTwoPane && position == 0  && isInit) {
-            //viewHolder.imageView.callOnClick();
-            //viewHolder.itemView.callOnClick();
-            listener.onItemClick( viewHolder.itemView,0);
-            isInit = false;
-        }
-
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        return position;
-    }
-
-    @Override
-    public int getItemCount() {
-        return mPhotos.size();
-    }
-
-
+  @Override
+  public int getItemCount() {
+    return mPhotos.size();
+  }
 }

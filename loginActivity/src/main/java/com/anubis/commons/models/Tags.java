@@ -1,4 +1,3 @@
-
 package com.anubis.commons.models;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
@@ -18,40 +17,34 @@ import java.util.Map;
     "tag"
 })
 public class Tags {
+  @JsonProperty("tag")
+  private List<Tag> tag = new ArrayList<>();
+  @JsonIgnore
+  private Map<String, Object> additionalProperties = new HashMap<>();
 
-    @JsonProperty("tag")
-    private List<Tag> tag = new ArrayList<>();
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<>();
+  /**
+   * @return The tag
+   */
+  @JsonProperty("tag")
+  public List<Tag> getTag() {
+    return tag;
+  }
 
-    /**
-     * 
-     * @return
-     *     The tag
-     */
-    @JsonProperty("tag")
-    public List<Tag> getTag() {
-        return tag;
-    }
+  /**
+   * @param tag The tag
+   */
+  @JsonProperty("tag")
+  public void setTag(List<Tag> tag) {
+    this.tag = tag;
+  }
 
-    /**
-     * 
-     * @param tag
-     *     The tag
-     */
-    @JsonProperty("tag")
-    public void setTag(List<Tag> tag) {
-        this.tag = tag;
-    }
+  @JsonAnyGetter
+  public Map<String, Object> getAdditionalProperties() {
+    return this.additionalProperties;
+  }
 
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
+  @JsonAnySetter
+  public void setAdditionalProperty(String name, Object value) {
+    this.additionalProperties.put(name, value);
+  }
 }

@@ -1,75 +1,65 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!--
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    -->
+  <!--
+      Base application theme, dependent on API level. This theme is replaced
+      by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+  -->
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-            <item name="windowNoTitle">true</item>
-            <item name="windowActionBar">false</item>
-            <item name="colorPrimary">@color/BlackReed</item>
-            <item name="colorAccent">@color/LithiumPool</item>
-
-
-    </style>
-
-    <style name="Theme.YourAppsName.ActionBarPopupTheme" parent="android:Theme.Holo">
-        <item name="android:colorBackground">@color/limon</item>
-        <item name="android:textColor">@color/Ivory</item>
-    </style>
+  <!-- Base application theme. -->
+  <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+    <item name="windowNoTitle">true</item>
+    <item name="windowActionBar">false</item>
+    <item name="colorPrimary">@color/BlackReed</item>
+    <item name="colorAccent">@color/LithiumPool</item>
 
 
+  </style>
+
+  <style name="Theme.YourAppsName.ActionBarPopupTheme" parent="android:Theme.Holo">
+    <item name="android:colorBackground">@color/limon</item>
+    <item name="android:textColor">@color/Ivory</item>
+  </style>
 
 
-
-    <style name="TabLayoutStyle" parent="Widget.Design.TabLayout">
-        <item name="tabIndicatorColor">@color/ice</item>
-        <item name="tabIndicatorHeight">2dp</item>
-        <item name="tabPaddingStart">8dp</item>
-        <item name="tabPaddingEnd">8dp</item>
-        <item name="tabBackground">?attr/colorPrimary</item>
-        <item name="tabTextAppearance">@style/TabTextAppearance</item>
-        <item name="tabSelectedTextColor">?attr/colorAccent</item>
-
-
-    </style>
-
-    <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/Ivory</item>
-        <item name="textAllCaps">true</item>
-    </style>
+  <style name="TabLayoutStyle" parent="Widget.Design.TabLayout">
+    <item name="tabIndicatorColor">@color/ice</item>
+    <item name="tabIndicatorHeight">2dp</item>
+    <item name="tabPaddingStart">8dp</item>
+    <item name="tabPaddingEnd">8dp</item>
+    <item name="tabBackground">?attr/colorPrimary</item>
+    <item name="tabTextAppearance">@style/TabTextAppearance</item>
+    <item name="tabSelectedTextColor">?attr/colorAccent</item>
 
 
+  </style>
 
-    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:layout_centerInParent">true</item>
-        <item name="android:padding">5dp</item>
-        <item name="android:textSize">21sp</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-
+  <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
+    <item name="android:textSize">14sp</item>
+    <item name="android:textColor">@color/Ivory</item>
+    <item name="textAllCaps">true</item>
+  </style>
 
 
-
-    <style name="MyEditText" parent="Theme.AppCompat.Light">
-        <item name="colorControlNormal">?attr/colorPrimary</item>
-        <item name="colorControlActivated">?attr/colorAccent</item>
-    </style>
-
-
-    <style name="MyButton" parent="Theme.AppCompat.Light">
-        <item name="colorControlHighlight">?attr/colorAccent</item>
-        <item name="colorButtonNormal">?attr/colorPrimary</item>
-
-    </style>
+  <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+    <item name="android:layout_centerInParent">true</item>
+    <item name="android:padding">5dp</item>
+    <item name="android:textSize">21sp</item>
+    <item name="android:textStyle">bold</item>
+  </style>
 
 
+  <style name="MyEditText" parent="Theme.AppCompat.Light">
+    <item name="colorControlNormal">?attr/colorPrimary</item>
+    <item name="colorControlActivated">?attr/colorAccent</item>
+  </style>
 
+
+  <style name="MyButton" parent="Theme.AppCompat.Light">
+    <item name="colorControlHighlight">?attr/colorAccent</item>
+    <item name="colorButtonNormal">?attr/colorPrimary</item>
+
+  </style>
 
 
 </resources>

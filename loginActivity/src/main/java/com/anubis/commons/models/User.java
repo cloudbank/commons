@@ -1,4 +1,3 @@
-
 package com.anubis.commons.models;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
@@ -17,64 +16,53 @@ import java.util.Map;
     "stat"
 })
 public class User {
+  //foreignkey
+  @JsonProperty("user")
+  private UserModel user;
+  @JsonProperty("stat")
+  private String stat;
+  @JsonIgnore
+  private Map<String, Object> additionalProperties = new HashMap<>();
 
-    //foreignkey
-    @JsonProperty("user")
-    private UserModel user;
-    @JsonProperty("stat")
-    private String stat;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<>();
+  /**
+   * @return The user
+   */
+  @JsonProperty("user")
+  public UserModel getUser() {
+    return user;
+  }
 
+  /**
+   * @param user The user
+   */
+  @JsonProperty("user")
+  public void setUser(UserModel user) {
+    this.user = user;
+  }
 
-    /**
-     * 
-     * @return
-     *     The user
-     */
-    @JsonProperty("user")
-    public UserModel getUser() {
-        return user;
-    }
+  /**
+   * @return The stat
+   */
+  @JsonProperty("stat")
+  public String getStat() {
+    return stat;
+  }
 
-    /**
-     * 
-     * @param user
-     *     The user
-     */
-    @JsonProperty("user")
-    public void setUser(UserModel user) {
-        this.user = user;
-    }
+  /**
+   * @param stat The stat
+   */
+  @JsonProperty("stat")
+  public void setStat(String stat) {
+    this.stat = stat;
+  }
 
-    /**
-     * 
-     * @return
-     *     The stat
-     */
-    @JsonProperty("stat")
-    public String getStat() {
-        return stat;
-    }
+  @JsonAnyGetter
+  public Map<String, Object> getAdditionalProperties() {
+    return this.additionalProperties;
+  }
 
-    /**
-     * 
-     * @param stat
-     *     The stat
-     */
-    @JsonProperty("stat")
-    public void setStat(String stat) {
-        this.stat = stat;
-    }
-
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
+  @JsonAnySetter
+  public void setAdditionalProperty(String name, Object value) {
+    this.additionalProperties.put(name, value);
+  }
 }

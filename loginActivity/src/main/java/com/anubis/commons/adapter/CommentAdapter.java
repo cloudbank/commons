@@ -1,5 +1,4 @@
 package com.anubis.commons.adapter;
-
 /**
  * Created by sabine on 5/15/17.
  */
@@ -33,106 +32,83 @@ import java.util.List;
 /**
  * Created by sabine on 9/26/16.
  */
-
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHolder> {
+  public static class ViewHolder extends RecyclerView.ViewHolder {
+    ImageView ivImage;
+    TextView tvAuthor;
+    TextView tvComment;
 
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView ivImage;
-        TextView tvAuthor;
-        TextView tvComment;
-
-
-        public ViewHolder(final View itemView) {
-            super(itemView);
-
-
-            ivImage = (ImageView) itemView.findViewById(R.id.ivComment);
-            tvAuthor = (TextView) itemView.findViewById(R.id.author);
-            tvComment = (TextView) itemView.findViewById(R.id.content);
-
-
-        }
+    public ViewHolder(final View itemView) {
+      super(itemView);
+      ivImage = (ImageView) itemView.findViewById(R.id.ivComment);
+      tvAuthor = (TextView) itemView.findViewById(R.id.author);
+      tvComment = (TextView) itemView.findViewById(R.id.content);
     }
+  }
 
-    private List<Comment> mComments;
-    private Context mContext;
+  private List<Comment> mComments;
+  private Context mContext;
 
+  public CommentAdapter(Context context, List<Comment> comments) {
+    mComments = comments;
+    mContext = context;
+  }
 
-    public CommentAdapter(Context context, List<Comment> comments) {
-        mComments = comments;
-        mContext = context;
-    }
+  private Context getContext() {
+    return mContext;
+  }
 
-    private Context getContext() {
-        return mContext;
-    }
+  @Override
+  public CommentAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    Context context = parent.getContext();
+    LayoutInflater inflater = LayoutInflater.from(context);
+    View photosView = inflater.inflate(R.layout.comment_item, parent, false);
+    ViewHolder viewHolder = new ViewHolder(photosView);
+    return viewHolder;
+  }
 
-    @Override
-    public CommentAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
-        LayoutInflater inflater = LayoutInflater.from(context);
-
-        View photosView = inflater.inflate(R.layout.comment_item, parent, false);
-
-        ViewHolder viewHolder = new ViewHolder(photosView);
-        return viewHolder;
-    }
-
-    @Override
-    public void onBindViewHolder(CommentAdapter.ViewHolder viewHolder, int position) {
-        Comment comment = mComments.get(position);
-
-
-
-        TextView user = viewHolder.tvAuthor;
-        String time = new PrettyTime().format(new Date(Long.parseLong(comment.getDatecreate()) * 1000L));
-
-        user.setText(comment.getAuthorname() + "  " + time);
-        TextView content = viewHolder.tvComment;
-        //html handling
-        String cString = comment.getContent();
-        //displayComments(content, cString);
-        //  if (cString.contains("[http") && !cString.contains("src")) {
-        //  cString = cString.replaceAll("\\[(\\s*http\\S+\\s*)\\]", "<a href=\"" + "$1" + "\"  >$1</a><br>");
-        //  }
-
-        //content.setMovementMethod(LinkMovementMethod.getInstance());
-        content.setLinkTextColor(fetchColor(R.color.BlackReed));
-
-        content.setText(content.getText());
+  @Override
+  public void onBindViewHolder(CommentAdapter.ViewHolder viewHolder, int position) {
+    Comment comment = mComments.get(position);
+    TextView user = viewHolder.tvAuthor;
+    String time = new PrettyTime().format(new Date(Long.parseLong(comment.getDatecreate()) * 1000L));
+    user.setText(comment.getAuthorname() + "  " + time);
+    TextView content = viewHolder.tvComment;
+    //html handling
+    String cString = comment.getContent();
+    //displayComments(content, cString);
+    //  if (cString.contains("[http") && !cString.contains("src")) {
+    //  cString = cString.replaceAll("\\[(\\s*http\\S+\\s*)\\]", "<a href=\"" + "$1" + "\"  >$1</a><br>");
+    //  }
+    //content.setMovementMethod(LinkMovementMethod.getInstance());
+    content.setLinkTextColor(fetchColor(R.color.BlackReed));
+    content.setText(content.getText());
 //here set your spans to spanText
-
-        //content.setOnTouchListener(new TouchTextView(spanText));
-
-
+    //content.setOnTouchListener(new TouchTextView(spanText));
 //@todo make static
-        Spanned spanned = Html.fromHtml(cString, new Html.ImageGetter() {
-            @Override
+    Spanned spanned = Html.fromHtml(cString, new Html.ImageGetter() {
+      @Override
+      public Drawable getDrawable(String source) {
+        final BitmapDrawablePlaceHolder result = new BitmapDrawablePlaceHolder();
+        Picasso.with(getContext()).load(source).fit().into(new Target() {
+          @Override
+          public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+            final BitmapDrawable drawable = new BitmapDrawable(mContext.getResources(), bitmap);
+            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            result.setDrawable(drawable);
+            result.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            // cache is now warmed up
+          }
 
-            public Drawable getDrawable(String source) {
+          @Override
+          public void onBitmapFailed(Drawable errorDrawable) {
+          }
 
-                final BitmapDrawablePlaceHolder result = new BitmapDrawablePlaceHolder();
-
-                Picasso.with(getContext()).load(source).fit().into(new Target() {
-                    @Override public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-                        final BitmapDrawable drawable = new BitmapDrawable(mContext.getResources(), bitmap);
-
-                        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-
-
-                        result.setDrawable(drawable);
-                        result.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-
-
-
-
-                        // cache is now warmed up
-                    }
-                    @Override public void onBitmapFailed(Drawable errorDrawable) { }
-                    @Override public void onPrepareLoad(Drawable placeHolderDrawable) { }
-                });
-                return result;
+          @Override
+          public void onPrepareLoad(Drawable placeHolderDrawable) {
+          }
+        });
+        return result;
                         /*
                 final BitmapDrawablePlaceHolder result = new BitmapDrawablePlaceHolder();
 
@@ -168,46 +144,36 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
 
                 }.execute((Void) null);
                     */
+      }
+    }, null);
+    //@todo regex for img
+    content.setText(spanned);
+  }
+  //cv.setUseCompatPadding(true);
+  //cv.setCardElevation(2.0f);
+  //StaggeredGridLayoutManager.LayoutParams fp = (StaggeredGridLayoutManager.LayoutParams) viewHolder.cardView.getLayoutParams();
 
-            }
-
-        }, null);
-
-        //@todo regex for img
-        content.setText(spanned);
-
-    }
-    //cv.setUseCompatPadding(true);
-
-    //cv.setCardElevation(2.0f);
-    //StaggeredGridLayoutManager.LayoutParams fp = (StaggeredGridLayoutManager.LayoutParams) viewHolder.cardView.getLayoutParams();
-
-    static class BitmapDrawablePlaceHolder extends BitmapDrawable {
-
-        protected Drawable drawable;
-
-        @Override
-        public void draw(final Canvas canvas) {
-            if (drawable != null) {
-                drawable.draw(canvas);
-            }
-        }
-
-        public void setDrawable(Drawable drawable) {
-            this.drawable = drawable;
-        }
-
-    }
-
-    private int fetchColor(@ColorRes int color) {
-        return ContextCompat.getColor(getContext(), color);
-    }
+  static class BitmapDrawablePlaceHolder extends BitmapDrawable {
+    protected Drawable drawable;
 
     @Override
-    public int getItemCount() {
-        return mComments.size();
+    public void draw(final Canvas canvas) {
+      if (drawable != null) {
+        drawable.draw(canvas);
+      }
     }
 
+    public void setDrawable(Drawable drawable) {
+      this.drawable = drawable;
+    }
+  }
 
+  private int fetchColor(@ColorRes int color) {
+    return ContextCompat.getColor(getContext(), color);
+  }
 
+  @Override
+  public int getItemCount() {
+    return mComments.size();
+  }
 }

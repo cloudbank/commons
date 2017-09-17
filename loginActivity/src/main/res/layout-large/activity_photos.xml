@@ -1,70 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:background="@color/limon"
-    android:layout_height="match_parent"
-    tools:context=".PhotosActivity">
-
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tab_layout"
-        android:layout_below="@id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/limon"
-        android:minHeight="?attr/actionBarSize"
-        app:tabIndicatorColor="@color/ice"
-        app:tabSelectedTextColor="@color/LithiumPool"
-        app:tabTextColor="@color/back_alpha_30"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:tabGravity="fill"
-        app:tabMode="fixed" />
-
-
-    <LinearLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/tab_layout"
-        android:fitsSystemWindows="true"
-        android:orientation="horizontal">
-
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="50">
-
-
-            <android.support.v4.view.ViewPager
-                android:id="@+id/vpPager"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:background="@color/limon"
+                android:layout_height="match_parent"
+                tools:context=".PhotosActivity">
 
-            </android.support.v4.view.ViewPager>
-        </FrameLayout>
+  <include
+      android:id="@+id/toolbar"
+      layout="@layout/toolbar_main"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"/>
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="wrap_content"
-            android:background="#000000" />
+  <android.support.design.widget.TabLayout
+      android:id="@+id/tab_layout"
+      android:layout_below="@id/toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/limon"
+      android:minHeight="?attr/actionBarSize"
+      app:tabIndicatorColor="@color/ice"
+      app:tabSelectedTextColor="@color/LithiumPool"
+      app:tabTextColor="@color/back_alpha_30"
+      android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+      app:tabGravity="fill"
+      app:tabMode="fixed"/>
 
-        <FrameLayout
-            android:id="@+id/flDetailContainer"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="50" >
+
+  <LinearLayout
+
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_below="@id/tab_layout"
+      android:fitsSystemWindows="true"
+      android:orientation="horizontal">
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="50">
 
 
+      <android.support.v4.view.ViewPager
+          android:id="@+id/vpPager"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+      </android.support.v4.view.ViewPager>
+    </FrameLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:background="#000000"/>
+
+    <FrameLayout
+        android:id="@+id/flDetailContainer"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="50">
 
 
-        </FrameLayout>
+    </FrameLayout>
 
-    </LinearLayout>
+  </LinearLayout>
 </RelativeLayout>

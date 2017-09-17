@@ -688,6 +688,7 @@
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="commons_search">All</string>
+    <string name="consumer">consumer</string>
     <string name="create_calendar_message">Allow Ad to create a calendar event?</string>
     <string name="create_calendar_title">Create calendar event</string>
     <string name="current_user">currentUser</string>
@@ -710,7 +711,8 @@
     <string name="path_password_eye_mask_strike_through" translatable="false">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
-    <string name="permission_grant">GET ACCOUNTS permissions must be granted for the app to work</string>
+    <string name="permission_grant">GET ACCOUNTS permissions must be granted for the app to work
+  </string>
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="store_picture_message">"Allow Ad to store image in Picture gallery?"</string>
@@ -730,14 +732,14 @@
         <item name="android:windowExitAnimation">@anim/design_bottom_sheet_slide_out</item>
     </style>
     <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-            <item name="windowNoTitle">true</item>
-            <item name="windowActionBar">false</item>
-            <item name="colorPrimary">@color/BlackReed</item>
-            <item name="colorAccent">@color/LithiumPool</item>
+    <!-- Customize your theme here. -->
+    <item name="windowNoTitle">true</item>
+    <item name="windowActionBar">false</item>
+    <item name="colorPrimary">@color/BlackReed</item>
+    <item name="colorAccent">@color/LithiumPool</item>
 
 
-    </style>
+  </style>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>
         <item name="listLayout">@layout/abc_select_dialog_material</item>
@@ -1777,14 +1779,14 @@
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
     </style>
     <style name="MyButton" parent="Theme.AppCompat.Light">
-        <item name="colorControlHighlight">?attr/colorAccent</item>
-        <item name="colorButtonNormal">?attr/colorPrimary</item>
+    <item name="colorControlHighlight">?attr/colorAccent</item>
+    <item name="colorButtonNormal">?attr/colorPrimary</item>
 
-    </style>
+  </style>
     <style name="MyEditText" parent="Theme.AppCompat.Light">
-        <item name="colorControlNormal">?attr/colorPrimary</item>
-        <item name="colorControlActivated">?attr/colorAccent</item>
-    </style>
+    <item name="colorControlNormal">?attr/colorPrimary</item>
+    <item name="colorControlActivated">?attr/colorAccent</item>
+  </style>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
 
@@ -1938,21 +1940,21 @@
         <item name="android:paddingRight">@dimen/abc_action_bar_overflow_padding_end_material</item>
     </style>
     <style name="TabLayoutStyle" parent="Widget.Design.TabLayout">
-        <item name="tabIndicatorColor">@color/ice</item>
-        <item name="tabIndicatorHeight">2dp</item>
-        <item name="tabPaddingStart">8dp</item>
-        <item name="tabPaddingEnd">8dp</item>
-        <item name="tabBackground">?attr/colorPrimary</item>
-        <item name="tabTextAppearance">@style/TabTextAppearance</item>
-        <item name="tabSelectedTextColor">?attr/colorAccent</item>
+    <item name="tabIndicatorColor">@color/ice</item>
+    <item name="tabIndicatorHeight">2dp</item>
+    <item name="tabPaddingStart">8dp</item>
+    <item name="tabPaddingEnd">8dp</item>
+    <item name="tabBackground">?attr/colorPrimary</item>
+    <item name="tabTextAppearance">@style/TabTextAppearance</item>
+    <item name="tabSelectedTextColor">?attr/colorAccent</item>
 
 
-    </style>
+  </style>
     <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/Ivory</item>
-        <item name="textAllCaps">true</item>
-    </style>
+    <item name="android:textSize">14sp</item>
+    <item name="android:textColor">@color/Ivory</item>
+    <item name="textAllCaps">true</item>
+  </style>
     <style name="TextAppearance.AppCompat" parent="Base.TextAppearance.AppCompat"/>
     <style name="TextAppearance.AppCompat.Body1" parent="Base.TextAppearance.AppCompat.Body1"/>
     <style name="TextAppearance.AppCompat.Body2" parent="Base.TextAppearance.AppCompat.Body2"/>
@@ -2125,9 +2127,9 @@
 <item name="android:windowIsTranslucent">true</item>
 </style>
     <style name="Theme.YourAppsName.ActionBarPopupTheme" parent="android:Theme.Holo">
-        <item name="android:colorBackground">@color/limon</item>
-        <item name="android:textColor">@color/Ivory</item>
-    </style>
+    <item name="android:colorBackground">@color/limon</item>
+    <item name="android:textColor">@color/Ivory</item>
+  </style>
     <style name="ThemeOverlay.AppCompat" parent="Base.ThemeOverlay.AppCompat"/>
     <style name="ThemeOverlay.AppCompat.ActionBar" parent="Base.ThemeOverlay.AppCompat.ActionBar"/>
     <style name="ThemeOverlay.AppCompat.Dark" parent="Base.ThemeOverlay.AppCompat.Dark"/>
@@ -2136,11 +2138,11 @@
     <style name="ThemeOverlay.AppCompat.Dialog.Alert" parent="Base.ThemeOverlay.AppCompat.Dialog.Alert"/>
     <style name="ThemeOverlay.AppCompat.Light" parent="Base.ThemeOverlay.AppCompat.Light"/>
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:layout_centerInParent">true</item>
-        <item name="android:padding">5dp</item>
-        <item name="android:textSize">21sp</item>
-        <item name="android:textStyle">bold</item>
-    </style>
+    <item name="android:layout_centerInParent">true</item>
+    <item name="android:padding">5dp</item>
+    <item name="android:textSize">21sp</item>
+    <item name="android:textStyle">bold</item>
+  </style>
     <style name="Widget.AppCompat.ActionBar" parent="Base.Widget.AppCompat.ActionBar">
     </style>
     <style name="Widget.AppCompat.ActionBar.Solid" parent="Base.Widget.AppCompat.ActionBar.Solid">

@@ -28,36 +28,150 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47b26d26-6e0e-4cda-866a-a62c1141db61" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/res/resources-debug-androidTest.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build.gradle" afterPath="$PROJECT_DIR$/loginActivity/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/generated/source/buildConfig/androidTest/debug/com/anubis/commons/test/BuildConfig.java" afterPath="$PROJECT_DIR$/loginActivity/build/generated/source/buildConfig/androidTest/debug/com/anubis/commons/test/BuildConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/generated/source/buildConfig/debug/com/anubis/commons/BuildConfig.java" afterPath="$PROJECT_DIR$/loginActivity/build/generated/source/buildConfig/debug/com/anubis/commons/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/blame/res/debug/single/drawable.json" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/blame/res/debug/single/drawable.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/generated/source/r/debug/android/support/design/R.java" afterPath="$PROJECT_DIR$/loginActivity/build/generated/source/r/debug/android/support/design/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/generated/source/r/debug/com/anubis/commons/R.java" afterPath="$PROJECT_DIR$/loginActivity/build/generated/source/r/debug/com/anubis/commons/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/blame/res/debug/multi/values-v21.json" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/blame/res/debug/multi/values-v21.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/blame/res/debug/multi/values.json" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/blame/res/debug/multi/values.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/incremental/mergeDebugAndroidTestResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/incremental/mergeDebugAndroidTestResources/compile-file-map.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/incremental/mergeDebugResources/merger.xml" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/incremental/mergeDebugResources/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/drawable/background_gradient.xml" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/drawable/background_gradient.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/layout/activity_login.xml" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/layout/activity_login.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/layout/activity_photos.xml" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/layout/activity_photos.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/layout/comment_item.xml" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/layout/comment_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/layout/fragment_interesting.xml" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/layout/fragment_interesting.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/layout/fragment_search.xml" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/layout/fragment_search.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/layout/fragment_tags.xml" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/layout/fragment_tags.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/flickrApp.iml" afterPath="$PROJECT_DIR$/loginActivity/flickrApp.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/layout/photo_item_friends.xml" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/layout/photo_item_friends.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/layout/toolbar_main.xml" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/layout/toolbar_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/menu/photos.xml" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/menu/photos.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/values-v21/values-v21.xml" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/values-v21/values-v21.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/values/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/xml/authenticator.xml" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/xml/authenticator.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/xml/syncadapter.xml" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/res/merged/debug/xml/syncadapter.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/loginActivity/build/intermediates/symbols/debug/R.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/loginActivity/build/outputs/logs/manifest-merger-debug-report.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/loginActivity.iml" afterPath="$PROJECT_DIR$/loginActivity/loginActivity.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/FlickrClientApp.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/FlickrClientApp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/activity/ImageDisplayActivity.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/activity/ImageDisplayActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/activity/LoginActivity.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/activity/LoginActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/activity/PhotosActivity.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/activity/PhotosActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/adapter/ColorAdapter.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/adapter/ColorAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/adapter/CommentAdapter.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/adapter/CommentAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/adapter/ImageDisplayAdapter.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/adapter/ImageDisplayAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/adapter/InterestingAdapter.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/adapter/InterestingAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/adapter/RecyclerViewAdapter.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/adapter/RecyclerViewAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/adapter/SearchAdapter.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/adapter/SearchAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/adapter/SmartFragmentStatePagerAdapter.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/adapter/SmartFragmentStatePagerAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/adapter/SpacesItemDecoration.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/adapter/SpacesItemDecoration.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/animation/ColorAnimator.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/animation/ColorAnimator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/animation/RecyclerAnimator.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/animation/RecyclerAnimator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/ColorFragment.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/ColorFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/FlickrBaseFragment.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/FlickrBaseFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/InterestingFragment.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/InterestingFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/ItemDetailFragment.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/ItemDetailFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/SearchFragment.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/SearchFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/listener/EndlessRecyclerViewScrollListener.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/listener/EndlessRecyclerViewScrollListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/listener/ItemClickListener.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/listener/ItemClickListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Color.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Color.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/ColorPhotos.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/ColorPhotos.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Comment.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Comment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Comments.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Comments.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Comments_.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Comments_.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Common.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Common.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Dates.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Dates.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Description.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Description.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Editability.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Editability.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Hottags.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Hottags.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Hottags_.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Hottags_.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/ImageDisplay.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/ImageDisplay.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Interesting.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Interesting.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Notes.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Notes.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Owner.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Owner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/People.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/People.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Permissions.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Permissions.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Photo.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Photo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/PhotoInfo.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/PhotoInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/PhotoInfo_.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/PhotoInfo_.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Photos.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Photos.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Photos_.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Photos_.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Publiceditability.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Publiceditability.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Tag.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Tag.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/TagAndRecent.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/TagAndRecent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Tags.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Tags.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Title.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Title.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Token.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Token.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Url.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Url.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Urls.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Urls.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Usage.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Usage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/User.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/UserInfo.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/UserInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/UserModel.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/UserModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Username.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Username.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Visibility.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Visibility.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Who.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Who.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Who_.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Who_.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/provider/StubProvider.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/provider/StubProvider.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/service/AuthenticatorService.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/service/AuthenticatorService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/service/FlickrService.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/service/FlickrService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/service/ServiceGenerator.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/service/ServiceGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/service/SyncService.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/service/SyncService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/sync/Authenticator.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/sync/Authenticator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/sync/SyncAdapter.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/sync/SyncAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/util/DateUtility.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/util/DateUtility.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/util/ImageFilterProcessor.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/util/ImageFilterProcessor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/util/ImageRoundedTransformation.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/util/ImageRoundedTransformation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/util/Logger.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/util/Logger.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/util/Util.java" afterPath="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/util/Util.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/drawable/background_gradient.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/drawable/background_gradient.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/drawable/background_toolbar.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/drawable/background_toolbar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/drawable/card_border.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/drawable/card_border.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/drawable/circle.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/drawable/circle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/drawable/list_item_selector.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/drawable/list_item_selector.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/layout-land/activity_login.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/layout-land/activity_login.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/layout-large/activity_photos.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/layout-large/activity_photos.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/layout-sw600dp/activity_photos.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/layout-sw600dp/activity_photos.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/layout/activity_item_detail.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/layout/activity_item_detail.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/layout/activity_login.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/layout/activity_photos.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/layout/activity_photos.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/layout/comment_item.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/layout/comment_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/layout/fragment_image_display.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/layout/fragment_image_display.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/layout/fragment_interesting.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/layout/fragment_interesting.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/layout/fragment_search.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/layout/fragment_search.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/layout/fragment_tags.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/layout/fragment_tags.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/layout/photo_item_friends.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/layout/photo_item_friends.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/layout/toolbar_main.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/layout/toolbar_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/menu/photos.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/menu/photos.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/values-sw600dp/dimens.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/values-sw600dp/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/values-sw720dp-land/dimens.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/values-sw720dp-land/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/values-v21/styles.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/values-v21/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/values/colors.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/values/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/values/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/xml/authenticator.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/xml/authenticator.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginActivity/src/main/res/xml/syncadapter.xml" afterPath="$PROJECT_DIR$/loginActivity/src/main/res/xml/syncadapter.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oauthkit/build.gradle" afterPath="$PROJECT_DIR$/oauthkit/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oauthkit/oauthkit.iml" afterPath="$PROJECT_DIR$/oauthkit/oauthkit.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oauthkit/src/androidTest/java/com/anubis/oauthkit/ExampleInstrumentedTest.java" afterPath="$PROJECT_DIR$/oauthkit/src/androidTest/java/com/anubis/oauthkit/ExampleInstrumentedTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oauthkit/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/oauthkit/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oauthkit/src/main/java/com/anubis/oauthkit/AsyncSimpleTask.java" afterPath="$PROJECT_DIR$/oauthkit/src/main/java/com/anubis/oauthkit/AsyncSimpleTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oauthkit/src/main/java/com/anubis/oauthkit/OAuthBaseClient.java" afterPath="$PROJECT_DIR$/oauthkit/src/main/java/com/anubis/oauthkit/OAuthBaseClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oauthkit/src/main/java/com/anubis/oauthkit/OAuthLoginActivity.java" afterPath="$PROJECT_DIR$/oauthkit/src/main/java/com/anubis/oauthkit/OAuthLoginActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oauthkit/src/main/java/com/anubis/oauthkit/OAuthSignPostOKHttpClient.java" afterPath="$PROJECT_DIR$/oauthkit/src/main/java/com/anubis/oauthkit/OAuthSignPostOKHttpClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oauthkit/src/main/java/com/anubis/oauthkit/Token.java" afterPath="$PROJECT_DIR$/oauthkit/src/main/java/com/anubis/oauthkit/Token.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oauthkit/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/oauthkit/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oauthkit/src/test/java/com/anubis/oauthkit/ExampleUnitTest.java" afterPath="$PROJECT_DIR$/oauthkit/src/test/java/com/anubis/oauthkit/ExampleUnitTest.java" />
     </list>
     <ignored path="commons.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -89,28 +203,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="flickrApp.iml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/loginActivity/flickrApp.iml">
+      <file leaf-file-name="SyncAdapter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/sync/SyncAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+            <state relative-caret-position="360">
+              <caret line="99" column="28" selection-start-line="99" selection-start-column="28" selection-end-line="99" selection-end-column="28" />
+              <folding>
+                <element signature="e#9044#9045#0" expanded="true" />
+                <element signature="e#9133#9134#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServiceGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/service/ServiceGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/loginActivity/build.gradle">
+      <file leaf-file-name="FlickrClientApp.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/FlickrClientApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="84" column="42" selection-start-line="84" selection-start-column="42" selection-end-line="84" selection-end-column="42" />
+            <state relative-caret-position="216">
+              <caret line="59" column="11" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FlickrService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/service/FlickrService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="commons.iml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/commons.iml">
+      <file leaf-file-name="local.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/local.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -119,49 +258,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FlickrClientApp.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/FlickrClientApp.java">
+      <file leaf-file-name="FlickrBaseFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/FlickrBaseFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="85" column="32" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BuildConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oauthkit/build/generated/source/buildConfig/debug/com/anubis/oauthkit/BuildConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#54#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InterestingFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/InterestingFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2490">
-              <caret line="199" column="55" selection-start-line="199" selection-start-column="55" selection-end-line="199" selection-end-column="55" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1784#1785#0" expanded="false" />
-                <element signature="e#1832#1833#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ItemDetailFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/ItemDetailFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3285">
-              <caret line="272" column="32" selection-start-line="272" selection-start-column="32" selection-end-line="272" selection-end-column="32" />
+            <state relative-caret-position="780">
+              <caret line="68" column="28" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -170,29 +271,22 @@
       <file leaf-file-name="SearchFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/SearchFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
-              <caret line="85" column="14" selection-start-line="85" selection-start-column="14" selection-end-line="85" selection-end-column="14" />
+            <state relative-caret-position="480">
+              <caret line="86" column="25" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/activity/LoginActivity.java">
+      <file leaf-file-name="Util.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/util/Util.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="73" column="38" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SyncAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/sync/SyncAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="101" column="36" selection-start-line="101" selection-start-column="36" selection-end-line="101" selection-end-column="36" />
-              <folding />
+            <state relative-caret-position="381">
+              <caret line="77" column="21" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
+              <folding>
+                <element signature="e#2569#2570#0" expanded="true" />
+                <element signature="e#2625#2626#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -2931,7 +3025,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="6007313936000" />
+        <entry key="$PROJECT_DIR$" value="6019787947000" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -3472,9 +3566,7 @@
         <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Photos.java" />
         <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Interesting.java" />
         <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/listener/EndlessRecyclerViewScrollListener.java" />
-        <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/service/FlickrService.java" />
         <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Common.java" />
-        <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/util/Util.java" />
         <option value="$PROJECT_DIR$/loginActivity/src/main/res/xml/syncadapter.xml" />
         <option value="$PROJECT_DIR$/loginActivity/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/activity/PhotosActivity.java" />
@@ -3493,7 +3585,6 @@
         <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/adapter/SearchAdapter.java" />
         <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/adapter/ColorAdapter.java" />
         <option value="$PROJECT_DIR$/loginActivity/src/main/res/layout/photo_item_friends.xml" />
-        <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/sync/SyncAdapter.java" />
         <option value="$PROJECT_DIR$/loginActivity/src/main/res/layout/activity_photos.xml" />
         <option value="$PROJECT_DIR$/loginActivity/src/main/res/layout/fragment_search.xml" />
         <option value="$PROJECT_DIR$/loginActivity/src/main/res/layout/fragment_tags.xml" />
@@ -3507,11 +3598,14 @@
         <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Color.java" />
         <option value="$PROJECT_DIR$/loginActivity/flickrApp.iml" />
         <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/InterestingFragment.java" />
-        <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/SearchFragment.java" />
         <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/ColorFragment.java" />
-        <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/FlickrClientApp.java" />
-        <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/activity/LoginActivity.java" />
         <option value="$PROJECT_DIR$/loginActivity/build.gradle" />
+        <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/activity/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/service/FlickrService.java" />
+        <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/SearchFragment.java" />
+        <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/util/Util.java" />
+        <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/FlickrClientApp.java" />
+        <option value="$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/sync/SyncAdapter.java" />
       </list>
     </option>
   </component>
@@ -3684,7 +3778,109 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="activity" />
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="commons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="commons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loginActivity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="commons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sync" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="commons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="commons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loginActivity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="commons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="commons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="commons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loginActivity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="commons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fragments" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3710,9 +3906,9 @@
     <property name="options.searchVisible" value="true" />
     <property name="android.project.structure.last.selected" value="loginActivity" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$USER_HOME$/machine_learning/tensorflow" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
     <property name="device.picker.selection" value="Nexus_9_API_24" />
     <property name="extract.method.default.visibility" value="private" />
@@ -4181,7 +4377,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="731" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280507" sideWeight="0.49030694" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33115825" sideWeight="0.36187398" order="2" side_tool="false" content_ui="tabs" />
@@ -4195,7 +4391,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32626426" sideWeight="0.49030694" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5285481" sideWeight="0.20274636" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle Console" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5285481" sideWeight="0.20274636" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45153475" sideWeight="0.725938" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.6114701" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -4249,7 +4445,7 @@
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5285481" sideWeight="0.20274636" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45153475" sideWeight="0.725938" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32952693" sideWeight="0.6114701" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.6114701" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45153475" sideWeight="0.27406198" order="4" side_tool="true" content_ui="tabs" />
@@ -4277,7 +4473,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/sync/SyncAdapter.java</url>
-          <line>361</line>
+          <line>303</line>
           <properties />
           <option name="timeStamp" value="17" />
         </line-breakpoint>
@@ -4289,55 +4485,49 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/sync/SyncAdapter.java</url>
-          <line>389</line>
+          <line>327</line>
           <properties />
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/sync/SyncAdapter.java</url>
-          <line>101</line>
+          <line>95</line>
           <properties />
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/SearchFragment.java</url>
-          <line>159</line>
+          <line>128</line>
           <properties />
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/sync/SyncAdapter.java</url>
-          <line>103</line>
-          <properties />
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/ColorFragment.java</url>
-          <line>412</line>
+          <line>328</line>
           <properties />
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/FlickrBaseFragment.java</url>
-          <line>28</line>
+          <line>26</line>
           <properties />
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/SearchFragment.java</url>
-          <line>65</line>
+          <line>59</line>
           <properties />
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/adapter/SearchAdapter.java</url>
-          <line>79</line>
+          <line>62</line>
           <properties />
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/adapter/SearchAdapter.java</url>
-          <line>123</line>
+          <line>95</line>
           <properties />
           <option name="timeStamp" value="59" />
         </line-breakpoint>
@@ -4350,49 +4540,22 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/values-v21/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="12" column="31" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/drawable-xxxhdpi/bikes.9.png" />
-    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/drawable/onetwomin.png" />
-    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/layout/photo_item_friends.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/drawable-hdpi/bikes.9.png" />
     <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/drawable-mdpi/bikes.9.png" />
     <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/drawable-xhdpi/bikes.9.png" />
     <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/drawable/bikes.9.png">
-      <provider editor-type-id="images">
+      <provider selected="true" editor-type-id="ninepatcheditor">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="ninepatcheditor">
+      <provider editor-type-id="images">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/drawable/bikes.png" />
     <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/drawable/onetwomin.9.png">
-      <provider editor-type-id="images">
+      <provider selected="true" editor-type-id="ninepatcheditor">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="ninepatcheditor">
+      <provider editor-type-id="images">
         <state />
       </provider>
     </entry>
@@ -4404,33 +4567,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/layout/fragment_search.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/layout/fragment_interesting.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/layout/toolbar_main.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="55" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/drawable/background_toolbar.xml">
@@ -4441,81 +4594,63 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/layout/fragment_image_display.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/layout/activity_photos.xml">
-      <provider editor-type-id="android-designer2">
+      <provider selected="true" editor-type-id="android-designer2">
         <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/layout/activity_item_detail.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/FlickrBaseFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="68" column="44" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/layout/fragment_tags.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/layout/fragment_tags.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="35" column="49" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/layout-land/activity_login.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/layout-land/activity_login.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/layout-large/activity_photos.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/layout-large/activity_photos.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/layout-sw600dp/activity_photos.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/layout-sw600dp/activity_photos.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.gradle">
@@ -4526,13 +4661,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gradle.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -4566,18 +4694,18 @@
           <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#867#868#0" expanded="false" />
-            <element signature="e#907#908#0" expanded="false" />
-            <element signature="e#2127#2128#0" expanded="false" />
-            <element signature="e#2179#2180#0" expanded="false" />
-            <element signature="e#2215#2216#0" expanded="false" />
-            <element signature="e#2246#2247#0" expanded="false" />
-            <element signature="e#3550#3551#0" expanded="false" />
-            <element signature="e#3581#3582#0" expanded="false" />
-            <element signature="e#3643#3644#0" expanded="false" />
-            <element signature="e#3674#3675#0" expanded="false" />
-            <element signature="e#3721#3722#0" expanded="false" />
-            <element signature="e#3758#3759#0" expanded="false" />
+            <element signature="e#844#845#0" expanded="false" />
+            <element signature="e#878#879#0" expanded="false" />
+            <element signature="e#1947#1948#0" expanded="false" />
+            <element signature="e#1993#1994#0" expanded="false" />
+            <element signature="e#2027#2028#0" expanded="false" />
+            <element signature="e#2052#2053#0" expanded="false" />
+            <element signature="e#3231#3232#0" expanded="false" />
+            <element signature="e#3256#3257#0" expanded="false" />
+            <element signature="e#3314#3315#0" expanded="false" />
+            <element signature="e#3339#3340#0" expanded="false" />
+            <element signature="e#3382#3383#0" expanded="false" />
+            <element signature="e#3413#3414#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4625,13 +4753,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/loginActivity/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/activity/PhotosActivity.java">
@@ -4660,7 +4788,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4674,34 +4801,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/InterestingFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2490">
-          <caret line="199" column="55" selection-start-line="199" selection-start-column="55" selection-end-line="199" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1784#1785#0" expanded="false" />
-            <element signature="e#1832#1833#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/ItemDetailFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3285">
-          <caret line="272" column="32" selection-start-line="272" selection-start-column="32" selection-end-line="272" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/SearchFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="85" column="14" selection-start-line="85" selection-start-column="14" selection-end-line="85" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/loginActivity/flickrApp.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -4710,36 +4809,156 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/sync/SyncAdapter.java">
+    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/layout/fragment_interesting.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="101" column="36" selection-start-line="101" selection-start-column="36" selection-end-line="101" selection-end-column="36" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/layout/activity_photos.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginActivity/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/activity/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="73" column="38" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="38" />
+        <state relative-caret-position="585">
+          <caret line="62" column="30" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
+          <folding>
+            <element signature="e#2584#2644#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loginActivity/build.gradle">
+    <entry file="jar://$USER_HOME$/Downloads/android-sdk-macosx-3/platforms/android-26/android.jar!/android/content/SharedPreferences.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="84" column="42" selection-start-line="84" selection-start-column="42" selection-end-line="84" selection-end-column="42" />
+        <state relative-caret-position="195">
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/models/Common.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/ItemDetailFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="244" column="22" selection-start-line="244" selection-start-column="22" selection-end-line="244" selection-end-column="22" />
+          <folding>
+            <element signature="e#9862#9863#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/InterestingFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/FlickrBaseFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="68" column="28" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/FlickrClientApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="85" column="32" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="32" />
+        <state relative-caret-position="216">
+          <caret line="59" column="11" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/util/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="77" column="21" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
+          <folding>
+            <element signature="e#2569#2570#0" expanded="true" />
+            <element signature="e#2625#2626#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/fragments/SearchFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="86" column="25" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/service/ServiceGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/service/FlickrService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginActivity/src/main/java/com/anubis/commons/sync/SyncAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="99" column="28" selection-start-line="99" selection-start-column="28" selection-end-line="99" selection-end-column="28" />
+          <folding>
+            <element signature="e#9044#9045#0" expanded="true" />
+            <element signature="e#9133#9134#0" expanded="true" />
           </folding>
         </state>
       </provider>

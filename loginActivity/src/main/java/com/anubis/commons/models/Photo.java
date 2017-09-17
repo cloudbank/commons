@@ -1,4 +1,3 @@
-
 package com.anubis.commons.models;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
@@ -18,371 +17,354 @@ import io.realm.annotations.PrimaryKey;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "userId",
-        "secret",
-        "server",
-        "farm",
-        "owner",
-        "username",
-        "title",
-        "ispublic",
-        "isfriend",
-        "isfamily",
-        "datetaken",
-        "datetakengranularity",
-        "datetakenunknown",
-        "ownername",
-        "tags",
-        "url_s",
-        "height_s",
-        "width_s"
+    "userId",
+    "secret",
+    "server",
+    "farm",
+    "owner",
+    "username",
+    "title",
+    "ispublic",
+    "isfriend",
+    "isfamily",
+    "datetaken",
+    "datetakengranularity",
+    "datetakenunknown",
+    "ownername",
+    "tags",
+    "url_s",
+    "height_s",
+    "width_s"
 })
-
 public class Photo extends RealmObject implements Serializable {
+  @JsonProperty("id")
+  @PrimaryKey
+  private String id;
+  @JsonProperty("secret")
+  private String secret;
+  @JsonProperty("server")
+  private String server;
+  @JsonProperty("farm")
+  private Integer farm;
+  @JsonProperty("owner")
+  private String owner;
+  @JsonProperty("username")
+  private String username;
+  @JsonProperty("title")
+  private String title;
+  @JsonProperty("ispublic")
+  private Integer ispublic;
+  @JsonProperty("isfriend")
+  private Integer isfriend;
+  @JsonProperty("isfamily")
+  private Integer isfamily;
+  @JsonProperty("datetaken")
+  private String datetaken;
+  @JsonProperty("datetakengranularity")
+  private String datetakengranularity;
+  @JsonProperty("datetakenunknown")
+  private Integer datetakenunknown;
+  @JsonProperty("ownername")
+  private String ownername;
+  @JsonProperty("tags")
+  private String tags;
+  @JsonProperty("url_s")
+  private String url_s;
+  @JsonProperty("height_s")
+  private String height;
+  @JsonProperty("width_s")
+  private String width;
+  public boolean isCommon = false;
+  public boolean isInteresting = false;
 
-    @JsonProperty("id")
-    @PrimaryKey
-    private String id;
-    @JsonProperty("secret")
-    private String secret;
-    @JsonProperty("server")
-    private String server;
-    @JsonProperty("farm")
-    private Integer farm;
-    @JsonProperty("owner")
-    private String owner;
-    @JsonProperty("username")
-    private String username;
-    @JsonProperty("title")
-    private String title;
-    @JsonProperty("ispublic")
-    private Integer ispublic;
-    @JsonProperty("isfriend")
-    private Integer isfriend;
-    @JsonProperty("isfamily")
-    private Integer isfamily;
-    @JsonProperty("datetaken")
-    private String datetaken;
-    @JsonProperty("datetakengranularity")
-    private String datetakengranularity;
-    @JsonProperty("datetakenunknown")
-    private Integer datetakenunknown;
-    @JsonProperty("ownername")
-    private String ownername;
-    @JsonProperty("tags")
-    private String tags;
-    @JsonProperty("url_s")
-    private String url_s;
-    @JsonProperty("height_s")
-    private String height;
-    @JsonProperty("width_s")
-    private String width;
+  public String getHeight() {
+    return height;
+  }
 
-    public boolean isCommon = false;
-    public boolean isInteresting = false;
+  public String getUrl_s() {
+    return url_s;
+  }
 
-    public String getHeight() {
-        return height;
-    }
+  public void setUrl_s(String url_s) {
+    this.url_s = url_s;
+  }
 
-    public String getUrl_s() {
-        return url_s;
-    }
+  public void setHeight(String height) {
+    this.height = height;
+  }
 
-    public void setUrl_s(String url_s) {
-        this.url_s = url_s;
-    }
+  public String getWidth() {
+    return width;
+  }
 
-    public void setHeight(String height) {
-        this.height = height;
+  private String url;
+  @Ignore
+  @JsonIgnore
+  private Map<String, Object> additionalProperties = new HashMap<>();
 
-    }
+  void setUrl(Photo p) {
+    this.url = "http://farm" + p.getFarm()
+        + ".staticflickr.com/" + p.getServer() + "/"
+        + getId() + "_" + p.getSecret() + ".jpg";
+  }
 
-    public String getWidth() {
-        return width;
-    }
+  public String getUrl() {
+    return "http://farm" + this.getFarm()
+        + ".staticflickr.com/" + this.getServer() + "/"
+        + getId() + "_" + this.getSecret() + ".jpg";
+  }
 
-    private String url;
+  public String getPhotoPage() {
+    return "https://www.flickr.com/photos/" + this.getOwner() + "/" + this.getId();
+  }
 
+  /**
+   * @return The userId
+   */
+  @JsonProperty("id")
+  public String getId() {
+    return id;
+  }
 
-    @Ignore
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<>();
+  /**
+   * @param id The userId
+   */
+  @JsonProperty("id")
+  public void setId(String id) {
+    this.id = id;
+  }
 
+  /**
+   * @return The secret
+   */
+  @JsonProperty("secret")
+  public String getSecret() {
+    return secret;
+  }
 
-    void setUrl(Photo p) {
+  /**
+   * @param secret The secret
+   */
+  @JsonProperty("secret")
+  public void setSecret(String secret) {
+    this.secret = secret;
+  }
 
-        this.url = "http://farm" + p.getFarm()
-                + ".staticflickr.com/" + p.getServer() + "/"
-                + getId() + "_" + p.getSecret() + ".jpg";
+  /**
+   * @return The server
+   */
+  @JsonProperty("server")
+  public String getServer() {
+    return server;
+  }
 
+  /**
+   * @param server The server
+   */
+  @JsonProperty("server")
+  public void setServer(String server) {
+    this.server = server;
+  }
 
-    }
+  /**
+   * @return The farm
+   */
+  @JsonProperty("farm")
+  public Integer getFarm() {
+    return farm;
+  }
 
-    public String getUrl() {
-        return "http://farm" + this.getFarm()
-                + ".staticflickr.com/" + this.getServer() + "/"
-                + getId() + "_" + this.getSecret() + ".jpg";
+  /**
+   * @param farm The farm
+   */
+  @JsonProperty("farm")
+  public void setFarm(Integer farm) {
+    this.farm = farm;
+  }
 
-    }
+  /**
+   * @return The owner
+   */
+  @JsonProperty("owner")
+  public String getOwner() {
+    return owner;
+  }
 
+  /**
+   * @param owner The owner
+   */
+  @JsonProperty("owner")
+  public void setOwner(String owner) {
+    this.owner = owner;
+  }
 
+  /**
+   * @return The username
+   */
+  @JsonProperty("username")
+  public String getUsername() {
+    return username;
+  }
 
-    public String getPhotoPage() {
-        return "https://www.flickr.com/photos/" + this.getOwner() + "/" + this.getId();
+  /**
+   * @param username The username
+   */
+  @JsonProperty("username")
+  public void setUsername(String username) {
+    this.username = username;
+  }
 
-    }
+  /**
+   * @return The title
+   */
+  @JsonProperty("title")
+  public String getTitle() {
+    return title;
+  }
 
-    /**
-     * @return The userId
-     */
-    @JsonProperty("id")
-    public String getId() {
-        return id;
-    }
+  /**
+   * @param title The title
+   */
+  @JsonProperty("title")
+  public void setTitle(String title) {
+    this.title = title;
+  }
 
-    /**
-     * @param id The userId
-     */
-    @JsonProperty("id")
-    public void setId(String id) {
-        this.id = id;
-    }
+  /**
+   * @return The ispublic
+   */
+  @JsonProperty("ispublic")
+  public Integer getIspublic() {
+    return ispublic;
+  }
 
-    /**
-     * @return The secret
-     */
-    @JsonProperty("secret")
-    public String getSecret() {
-        return secret;
-    }
+  /**
+   * @param ispublic The ispublic
+   */
+  @JsonProperty("ispublic")
+  public void setIspublic(Integer ispublic) {
+    this.ispublic = ispublic;
+  }
 
-    /**
-     * @param secret The secret
-     */
-    @JsonProperty("secret")
-    public void setSecret(String secret) {
-        this.secret = secret;
-    }
+  /**
+   * @return The isfriend
+   */
+  @JsonProperty("isfriend")
+  public Integer getIsfriend() {
+    return isfriend;
+  }
 
-    /**
-     * @return The server
-     */
-    @JsonProperty("server")
-    public String getServer() {
-        return server;
-    }
+  /**
+   * @param isfriend The isfriend
+   */
+  @JsonProperty("isfriend")
+  public void setIsfriend(Integer isfriend) {
+    this.isfriend = isfriend;
+  }
 
-    /**
-     * @param server The server
-     */
-    @JsonProperty("server")
-    public void setServer(String server) {
-        this.server = server;
-    }
+  /**
+   * @return The isfamily
+   */
+  @JsonProperty("isfamily")
+  public Integer getIsfamily() {
+    return isfamily;
+  }
 
-    /**
-     * @return The farm
-     */
-    @JsonProperty("farm")
-    public Integer getFarm() {
-        return farm;
-    }
+  /**
+   * @param isfamily The isfamily
+   */
+  @JsonProperty("isfamily")
+  public void setIsfamily(Integer isfamily) {
+    this.isfamily = isfamily;
+  }
 
-    /**
-     * @param farm The farm
-     */
-    @JsonProperty("farm")
-    public void setFarm(Integer farm) {
-        this.farm = farm;
-    }
+  /**
+   * @return The datetaken
+   */
+  @JsonProperty("datetaken")
+  public String getDatetaken() {
+    return datetaken;
+  }
 
-    /**
-     * @return The owner
-     */
-    @JsonProperty("owner")
-    public String getOwner() {
-        return owner;
-    }
+  /**
+   * @param datetaken The datetaken
+   */
+  @JsonProperty("datetaken")
+  public void setDatetaken(String datetaken) {
+    this.datetaken = datetaken;
+  }
 
-    /**
-     * @param owner The owner
-     */
-    @JsonProperty("owner")
-    public void setOwner(String owner) {
-        this.owner = owner;
-    }
+  /**
+   * @return The datetakengranularity
+   */
+  @JsonProperty("datetakengranularity")
+  public String getDatetakengranularity() {
+    return datetakengranularity;
+  }
 
-    /**
-     * @return The username
-     */
-    @JsonProperty("username")
-    public String getUsername() {
-        return username;
-    }
+  /**
+   * @param datetakengranularity The datetakengranularity
+   */
+  @JsonProperty("datetakengranularity")
+  public void setDatetakengranularity(String datetakengranularity) {
+    this.datetakengranularity = datetakengranularity;
+  }
 
-    /**
-     * @param username The username
-     */
-    @JsonProperty("username")
-    public void setUsername(String username) {
-        this.username = username;
-    }
+  /**
+   * @return The datetakenunknown
+   */
+  @JsonProperty("datetakenunknown")
+  public Integer getDatetakenunknown() {
+    return datetakenunknown;
+  }
 
-    /**
-     * @return The title
-     */
-    @JsonProperty("title")
-    public String getTitle() {
-        return title;
-    }
+  /**
+   * @param datetakenunknown The datetakenunknown
+   */
+  @JsonProperty("datetakenunknown")
+  public void setDatetakenunknown(Integer datetakenunknown) {
+    this.datetakenunknown = datetakenunknown;
+  }
 
-    /**
-     * @param title The title
-     */
-    @JsonProperty("title")
-    public void setTitle(String title) {
-        this.title = title;
-    }
+  /**
+   * @return The tags
+   */
+  @JsonProperty("tags")
+  public String getTags() {
+    return tags;
+  }
 
-    /**
-     * @return The ispublic
-     */
-    @JsonProperty("ispublic")
-    public Integer getIspublic() {
-        return ispublic;
-    }
+  @JsonProperty("tags")
+  /**
+   * @param
+   */
+  public void setTags(String tags) {
+    this.tags = tags;
+  }
 
-    /**
-     * @param ispublic The ispublic
-     */
-    @JsonProperty("ispublic")
-    public void setIspublic(Integer ispublic) {
-        this.ispublic = ispublic;
-    }
+  /**
+   * @return The ownername
+   */
+  @JsonProperty("ownername")
+  public String getOwnername() {
+    return ownername;
+  }
 
-    /**
-     * @return The isfriend
-     */
-    @JsonProperty("isfriend")
-    public Integer getIsfriend() {
-        return isfriend;
-    }
+  /**
+   * @param ownername The ownername
+   */
+  @JsonProperty("ownername")
+  public void setOwnername(String ownername) {
+    this.ownername = ownername;
+  }
 
-    /**
-     * @param isfriend The isfriend
-     */
-    @JsonProperty("isfriend")
-    public void setIsfriend(Integer isfriend) {
-        this.isfriend = isfriend;
-    }
+  @JsonAnyGetter
+  public Map<String, Object> getAdditionalProperties() {
+    return this.additionalProperties;
+  }
 
-    /**
-     * @return The isfamily
-     */
-    @JsonProperty("isfamily")
-    public Integer getIsfamily() {
-        return isfamily;
-    }
-
-    /**
-     * @param isfamily The isfamily
-     */
-    @JsonProperty("isfamily")
-    public void setIsfamily(Integer isfamily) {
-        this.isfamily = isfamily;
-    }
-
-    /**
-     * @return The datetaken
-     */
-    @JsonProperty("datetaken")
-    public String getDatetaken() {
-        return datetaken;
-    }
-
-    /**
-     * @param datetaken The datetaken
-     */
-    @JsonProperty("datetaken")
-    public void setDatetaken(String datetaken) {
-        this.datetaken = datetaken;
-    }
-
-    /**
-     * @return The datetakengranularity
-     */
-    @JsonProperty("datetakengranularity")
-    public String getDatetakengranularity() {
-        return datetakengranularity;
-    }
-
-    /**
-     * @param datetakengranularity The datetakengranularity
-     */
-    @JsonProperty("datetakengranularity")
-    public void setDatetakengranularity(String datetakengranularity) {
-        this.datetakengranularity = datetakengranularity;
-    }
-
-    /**
-     * @return The datetakenunknown
-     */
-    @JsonProperty("datetakenunknown")
-    public Integer getDatetakenunknown() {
-        return datetakenunknown;
-    }
-
-    /**
-     * @param datetakenunknown The datetakenunknown
-     */
-    @JsonProperty("datetakenunknown")
-    public void setDatetakenunknown(Integer datetakenunknown) {
-        this.datetakenunknown = datetakenunknown;
-    }
-
-    /**
-     * @return The tags
-     */
-    @JsonProperty("tags")
-    public String getTags() {
-        return tags;
-    }
-
-    @JsonProperty("tags")
-    /**
-     * @param
-     */
-    public void setTags(String tags) {
-        this.tags = tags;
-    }
-
-    /**
-     * @return The ownername
-     */
-    @JsonProperty("ownername")
-    public String getOwnername() {
-        return ownername;
-    }
-
-    /**
-     * @param ownername The ownername
-     */
-    @JsonProperty("ownername")
-    public void setOwnername(String ownername) {
-        this.ownername = ownername;
-    }
-
-
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
-
+  @JsonAnySetter
+  public void setAdditionalProperty(String name, Object value) {
+    this.additionalProperties.put(name, value);
+  }
 }

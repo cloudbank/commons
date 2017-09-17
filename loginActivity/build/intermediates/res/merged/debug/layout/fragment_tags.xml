@@ -11,36 +11,36 @@
     android:layout_marginTop="5dp">
 
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/publisherAdView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:background="@color/LithiumPool"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/ad_unit2" />
+  <com.google.android.gms.ads.AdView
+      android:id="@+id/publisherAdView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentTop="true"
+      android:background="@color/LithiumPool"
+      android:layout_centerHorizontal="true"
+      android:layout_gravity="center_horizontal"
+      ads:adSize="BANNER"
+      ads:adUnitId="@string/ad_unit2"/>
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvPhotos"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="true"
-        android:padding="5dp"
-        android:background="@color/alpha_sand_40"
-        android:scrollbars="vertical"
-        android:gravity="center"
-        android:layout_below="@+id/publisherAdView"
-        android:layout_alignParentStart="true" />
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/rvPhotos"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:clipToPadding="true"
+      android:padding="5dp"
+      android:background="@color/alpha_sand_40"
+      android:scrollbars="vertical"
+      android:gravity="center"
+      android:layout_below="@+id/publisherAdView"
+      android:layout_alignParentStart="true"/>
 
-    <com.aurelhubert.ahbottomnavigation.AHBottomNavigation
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"/>
+  <com.aurelhubert.ahbottomnavigation.AHBottomNavigation
+      android:id="@+id/bottom_navigation"
+      android:layout_width="match_parent"
+      android:layout_height="55dp"
+      android:layout_alignParentBottom="true"
+      android:layout_gravity="bottom"/>
 
 
 </RelativeLayout>

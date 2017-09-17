@@ -1,4 +1,3 @@
-
 package com.anubis.commons.models;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
@@ -14,45 +13,38 @@ import java.util.List;
 import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
 @JsonPropertyOrder({
     "note"
 })
 public class Notes {
+  @JsonProperty("note")
+  private List<Object> note = new ArrayList<>();
+  @JsonIgnore
+  private Map<String, Object> additionalProperties = new HashMap<>();
 
-    @JsonProperty("note")
-    private List<Object> note = new ArrayList<>();
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<>();
+  /**
+   * @return The note
+   */
+  @JsonProperty("note")
+  public List<Object> getNote() {
+    return note;
+  }
 
-    /**
-     * 
-     * @return
-     *     The note
-     */
-    @JsonProperty("note")
-    public List<Object> getNote() {
-        return note;
-    }
+  /**
+   * @param note The note
+   */
+  @JsonProperty("note")
+  public void setNote(List<Object> note) {
+    this.note = note;
+  }
 
-    /**
-     * 
-     * @param note
-     *     The note
-     */
-    @JsonProperty("note")
-    public void setNote(List<Object> note) {
-        this.note = note;
-    }
+  @JsonAnyGetter
+  public Map<String, Object> getAdditionalProperties() {
+    return this.additionalProperties;
+  }
 
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
+  @JsonAnySetter
+  public void setAdditionalProperty(String name, Object value) {
+    this.additionalProperties.put(name, value);
+  }
 }
