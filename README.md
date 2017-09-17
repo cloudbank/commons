@@ -2,7 +2,7 @@
 >>>>A Rare Photo Archive App
 <img src="http://i.imgur.com/YVBcPFq.png" height="100"/> 
 
->>>>SDK 21+, Nougat compatible, for phone and tablet
+>>>>SDK 19+, Oreo compatible, for phone and tablet
 
 * *The Commons collection--rare pictures from around the world curated by you!*
 * *The 'Interesting' collection*
@@ -11,15 +11,15 @@
 
 >>>>VIEW   
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/eM80CF9.png" height="500"/> <img src="http://i.imgur.com/qwUDZLi.png" height="500" />     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.wcom/eM80CF9.png" height="500"/> <img src="httsp://i.imgur.scom/qwUDZLi.png" height="500" />     
 
 >>>>COMMENT
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/JZzoGco.png" height="500" /><img src="http://i.imgsdfdsfur.com/asdsa.png" height="500" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/JsZzoGco.png" height="500" /><img src="http://i.imgssdfdsfur.com/asdsa.png" height="500" />
 
 >>>>CURATE
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/fcYERRD.png" height="500" /><img src="http://i.imgsdfdsfur.asdssdfsdfa/svGnMq5.png" height="500" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.sfsfimgurs.com/fcYERRD.png" height="500" /><img src="http://i.imgsdsfdsfur.asdsssdfsdfa/svGnMq5.png" height="500" />
 
 
 
