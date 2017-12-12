@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "1051131001475",
-    "firebase_url": "https://commons-ddb62.firebaseio.com",
-    "project_id": "commons-ddb62",
-    "storage_bucket": "commons-ddb62.appspot.com"
+    "project_number": "761723841081",
+    "firebase_url": "https://commons-31cb9.firebaseio.com",
+    "project_id": "commons-31cb9",
+    "storage_bucket": "commons-31cb9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1051131001475:android:a6863b6d0ceb6463",
+        "mobilesdk_app_id": "1:761723841081:android:a6863b6d0ceb6463",
         "android_client_info": {
-          "package_name": "com.anubis.commons"
+          "package_name": "com.droidteahouse.commons"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1051131001475-d61vc6egg943c029oijcas3r8sjvsg6f.apps.googleusercontent.com",
+          "client_id": "761723841081-ufr0j5k77p48a3sikhfbm1n4dnothjbj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.droidteahouse.commons",
+            "certificate_hash": "83a4ff1dfc67c2f9d22cda8323aca9bae760a13a"
+          }
+        },
+        {
+          "client_id": "761723841081-cjrv8c0j95fv2s320cruqpgkhsn0rgo6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAfhVK0GfdotTLpJzRd2b6A1t1Cw2t2TtQ"
+          "current_key": "AIzaSyDiMmx7RygoY7ACEDYMLrFwDzqx0QgUamE"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "761723841081-cjrv8c0j95fv2s320cruqpgkhsn0rgo6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

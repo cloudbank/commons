@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.anubis.commons"
-    android:versionCode="9"
-    android:versionName="1.8" >
+    package="com.droidteahouse.commons"
+    android:versionCode="10"
+    android:versionName="1.9" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -17,29 +17,25 @@
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
-
-    <meta-data
-        android:name="android.support.VERSION"
-        android:value="25.3.1" />
-
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <permission
-        android:name="com.anubis.commons.permission.C2D_MESSAGE"
+        android:name="com.droidteahouse.commons.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.anubis.commons.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.droidteahouse.commons.permission.C2D_MESSAGE" />
 
     <application
-        android:name="com.anubis.commons.FlickrClientApp"
+        android:name="com.droidteahouse.commons.FlickrClientApp"
         android:allowBackup="true"
+        android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.anubis.commons.activity.LoginActivity"
+            android:name="com.droidteahouse.commons.activity.LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -58,26 +54,26 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.anubis.commons.activity.PhotosActivity"
+            android:name="com.droidteahouse.commons.activity.PhotosActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.anubis.commons.activity.ImageDisplayActivity"
+            android:name="com.droidteahouse.commons.activity.ImageDisplayActivity"
             android:label="@string/app_name" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.anubis.commons.activity.PhotosActivity" />
+                android:value="com.droidteahouse.commons.activity.PhotosActivity" />
         </activity>
 
         <provider
-            android:name="com.anubis.commons.provider.StubProvider"
-            android:authorities="com.anubis.commons.provider"
+            android:name="com.droidteahouse.commons.provider.StubProvider"
+            android:authorities="com.droidteahouse.commons.provider"
             android:exported="false"
             android:label="Commons"
             android:syncable="true" />
 
         <service
-            android:name="com.anubis.commons.service.AuthenticatorService"
+            android:name="com.droidteahouse.commons.service.AuthenticatorService"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator" />
@@ -88,7 +84,7 @@
                 android:resource="@xml/authenticator" />
         </service>
         <service
-            android:name="com.anubis.commons.service.SyncService"
+            android:name="com.droidteahouse.commons.service.SyncService"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.content.SyncAdapter" />
@@ -99,18 +95,9 @@
                 android:resource="@xml/syncadapter" />
         </service>
 
-        <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
-        <activity
-            android:name="com.google.android.gms.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:theme="@android:style/Theme.Translucent" />
-        <activity
-            android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity"
-            android:theme="@style/Theme.IAPTheme" />
-        <activity
-            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-            android:exported="false"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <meta-data
+            android:name="android.support.VERSION"
+            android:value="26.0.2" />
 
         <receiver
             android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
@@ -120,6 +107,7 @@
         <receiver
             android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
             android:enabled="true"
+            android:exported="true"
             android:permission="android.permission.INSTALL_PACKAGES" >
             <intent-filter>
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
@@ -130,6 +118,11 @@
             android:name="com.google.android.gms.measurement.AppMeasurementService"
             android:enabled="true"
             android:exported="false" />
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <receiver
             android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
@@ -137,18 +130,10 @@
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-                <category android:name="com.anubis.commons" />
+                <category android:name="com.droidteahouse.commons" />
             </intent-filter>
         </receiver>
-        <!--
- Internal (not exported) receiver used by the app to start its own exported services
-             without risk of being spoofed.
-        -->
-        <receiver
-            android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
-            android:exported="false" />
         <!--
  FirebaseInstanceIdService performs security checks at runtime,
              no need for explicit permissions despite exported="true"
@@ -163,9 +148,14 @@
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="com.anubis.commons.firebaseinitprovider"
+            android:authorities="com.droidteahouse.commons.firebaseinitprovider"
             android:exported="false"
-            android:initOrder="100" />
+            android:initOrder="100" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent" />
 
         <meta-data
             android:name="com.google.android.gms.version"

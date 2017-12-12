@@ -1,18 +1,20 @@
 apply plugin: 'com.android.application'
 apply plugin: 'realm-android'
-apply plugin: 'me.tatarka.retrolambda'
 
 
 android {
   compileSdkVersion 26
-  buildToolsVersion "26.0.1"
+  buildToolsVersion "26.0.2"
+  dataBinding {
+    enabled = true
+  }
 
   defaultConfig {
-    applicationId "com.anubis.commons"
+    applicationId "com.droidteahouse.commons"
     minSdkVersion 19
     targetSdkVersion 26
-    versionCode 9
-    versionName "1.8"
+    versionCode 10
+    versionName "1.9"
     compileOptions {
       sourceCompatibility JavaVersion.VERSION_1_8
       targetCompatibility JavaVersion.VERSION_1_8
@@ -45,51 +47,36 @@ android {
 }
 
 dependencies {
+  compile project(path: ':oauthkit', configuration: 'default')
 
-  compile project(':oauthkit')
-  compile 'com.facebook.rebound:rebound:0.3.8'
-  compile 'com.aurelhubert:ahbottomnavigation:0.1.3'
-  compile 'com.android.support:design:25.3.1'
-  compile 'com.android.support:support-v4:25.3.1'
-  compile 'com.android.support:appcompat-v7:25.3.1'
-  compile 'com.android.support:cardview-v7:25.3.1'
-  compile 'com.android.support:recyclerview-v7:25.3.1'
-  compile 'com.android.support:multidex:1.0.1'
-
-  compile 'com.fasterxml.jackson.core:jackson-core:2.9.0.pr4'
-  compile 'com.fasterxml.jackson.core:jackson-annotations:2.9.0.pr4'
-  compile 'com.fasterxml.jackson.core:jackson-databind:2.9.0.pr4'
-
-  compile 'com.squareup.retrofit2:retrofit:2.1.0'
-  compile 'io.reactivex:rxjava:1.1.6'
-  compile 'io.reactivex:rxandroid:1.2.1'
-  compile 'com.squareup.picasso:picasso:2.5.2'
-
-
-  compile 'com.squareup.okhttp3:okhttp:3.0.0-RC1'
-  compile 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0'
-
-  compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
-  compile 'com.squareup.retrofit2:converter-jackson:2.1.0'
-  compile('com.squareup.retrofit2:converter-simplexml:2.1.0') {
-    exclude group: 'xpp3', module: 'xpp3'
-    exclude group: 'stax', module: 'stax-api'
-    exclude group: 'stax', module: 'stax'
-  }
-  compile 'se.akerfeldt:okhttp-signpost:1.1.0'
-
-  compile 'oauth.signpost:signpost-core:1.2.1.2'
 
   compile files('libs/androidjhlabs.jar')
-  compile 'com.hkm.taglib:tag:1.6.0'
-  compile 'com.google.code.gson:gson:2.7'
-  compile 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
-  compile 'com.google.firebase:firebase-core:10.0.0'
-  compile 'com.google.firebase:firebase-ads:10.0.0'
+
+  compile 'com.facebook.rebound:rebound:0.3.8'
+  compile 'com.aurelhubert:ahbottomnavigation:0.1.3'
+  compile 'com.android.support:design:26.0.2'
+  compile 'com.android.support:support-v4:26.0.2'
+  compile 'com.android.support:appcompat-v7:26.0.2'
+  compile 'com.android.support:cardview-v7:26.0.2'
+  compile 'com.android.support:recyclerview-v7:26.0.2'
+  compile 'com.android.support:multidex:1.0.1'
+  compile 'com.google.dagger:dagger:2.0'
+  annotationProcessor 'com.google.dagger:dagger-compiler:2.0'
+  compile 'com.fasterxml.jackson.core:jackson-core:2.9.2'
+  compile 'com.fasterxml.jackson.core:jackson-annotations:2.2'
+  compile 'com.fasterxml.jackson.core:jackson-databind:2.9.2'
+  compile 'com.squareup.retrofit2:retrofit:2.3.0'
+  compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+  compile 'io.reactivex.rxjava2:rxjava:2.1.7'
+  compile 'com.squareup.picasso:picasso:2.5.2'
+  compile 'com.squareup.okhttp3:okhttp:3.0.0-RC1'
+  compile 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0'
+  compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+  compile 'com.squareup.retrofit2:converter-jackson:2.1.0'
+  compile 'com.google.code.gson:gson:2.8.2'
+  compile 'com.google.firebase:firebase-core:11.6.2'
+  compile 'com.google.firebase:firebase-ads:11.6.2'
   compile 'com.facebook.stetho:stetho:1.4.1'
   compile 'com.facebook.stetho:stetho-okhttp3:1.4.1'
-  compile 'com.google.firebase:firebase-core:10.0.0'
-  compile 'com.google.firebase:firebase-ads:10.0.0'
-
 }
 apply plugin: 'com.google.gms.google-services'

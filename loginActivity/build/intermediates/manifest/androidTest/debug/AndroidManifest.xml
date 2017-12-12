@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.anubis.commons.test" >
+    package="com.droidteahouse.commons.test" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -10,10 +10,10 @@
         android:name="com.android.test.runner.MultiDexTestRunner"
         android:functionalTest="false"
         android:handleProfiling="false"
-        android:label="Tests for com.anubis.commons"
-        android:targetPackage="com.anubis.commons" />
+        android:label="Tests for com.droidteahouse.commons"
+        android:targetPackage="com.droidteahouse.commons" />
 
-    <application>
+    <application android:debuggable="true" >
         <uses-library android:name="android.test.runner" />
     </application>
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.anubis.commons"
+          package="com.droidteahouse.commons"
 >
 
 
@@ -15,7 +15,7 @@
   <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
 
   <application
-      android:name="com.anubis.commons.FlickrClientApp"
+      android:name="com.droidteahouse.commons.FlickrClientApp"
       android:allowBackup="true"
       android:icon="@mipmap/ic_launcher"
       android:label="@string/app_name"
@@ -23,7 +23,7 @@
 
 
     <activity
-        android:name="com.anubis.commons.activity.LoginActivity"
+        android:name="com.droidteahouse.commons.activity.LoginActivity"
         android:label="@string/app_name">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
@@ -43,29 +43,29 @@
 
     </activity>
     <activity
-        android:name="com.anubis.commons.activity.PhotosActivity"
+        android:name="com.droidteahouse.commons.activity.PhotosActivity"
         android:label="@string/app_name"
         android:windowSoftInputMode="adjustPan"></activity>
     <activity
-        android:name="com.anubis.commons.activity.ImageDisplayActivity"
+        android:name="com.droidteahouse.commons.activity.ImageDisplayActivity"
         android:label="@string/app_name">
       <meta-data
           android:name="android.support.PARENT_ACTIVITY"
-          android:value="com.anubis.commons.activity.PhotosActivity"/>
+          android:value="com.droidteahouse.commons.activity.PhotosActivity"/>
 
 
     </activity>
 
 
     <provider
-        android:name="com.anubis.commons.provider.StubProvider"
-        android:authorities="com.anubis.commons.provider"
+        android:name="com.droidteahouse.commons.provider.StubProvider"
+        android:authorities="com.droidteahouse.commons.provider"
         android:exported="false"
         android:label="Commons"
         android:syncable="true"/>
 
 
-    <service android:name="com.anubis.commons.service.AuthenticatorService"
+    <service android:name="com.droidteahouse.commons.service.AuthenticatorService"
              android:exported="true"
     >
       <intent-filter>
@@ -76,7 +76,7 @@
           android:resource="@xml/authenticator"/>
     </service>
     <service
-        android:name="com.anubis.commons.service.SyncService"
+        android:name="com.droidteahouse.commons.service.SyncService"
         android:exported="true"
     >
 

@@ -2,25 +2,30 @@
 buildscript {
   repositories {
     jcenter()
+    google()
     mavenCentral()
+    maven {
+      url 'https://maven.google.com'
+    }
 
+    dependencies {
+      classpath 'com.android.tools.build:gradle:3.0.1'
+      classpath "io.realm:realm-gradle-plugin:4.1.1"
+      classpath 'com.google.gms:google-services:3.0.0'
 
-  }
-  dependencies {
-    classpath 'com.android.tools.build:gradle:2.3.3'
-    classpath "io.realm:realm-gradle-plugin:2.0.2"
-    classpath 'com.google.gms:google-services:3.0.0'
-    classpath 'me.tatarka:gradle-retrolambda:3.4.0'
-
+    }
   }
 }
 
-allprojects {
-  repositories {
-    jcenter()
-    mavenCentral()
-    maven {url "https://oss.sonatype.org/content/repositories/snapshots/"}
-    maven {url "http://dl.bintray.com/jlmd/maven"}
-  }
+  allprojects {
+    repositories {
+      jcenter()
+      mavenCentral()
+      maven {
+        url "https://maven.google.com"
+      }
+      maven {url "https://oss.sonatype.org/content/repositories/snapshots/"}
+      maven {url "http://dl.bintray.com/jlmd/maven"}
+    }
 
-}
+  }
